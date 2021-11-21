@@ -1,0 +1,47 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Migrations\20211121162206_CreateSettingTable.cs" />
+    <Compile Remove="Migrations\20211121162206_CreateSettingTable.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\assets\vendors\bootstrap-5.0.2\.github\CODEOWNERS" />
+    <None Include="wwwroot\assets\vendors\bootstrap-5.0.2\.github\CONTRIBUTING.md" />
+    <None Include="wwwroot\assets\vendors\bootstrap-5.0.2\.github\dependabot.yml" />
+    <None Include="wwwroot\assets\vendors\bootstrap-5.0.2\.github\ISSUE_TEMPLATE\bug_report.md" />
+    <None Include="wwwroot\assets\vendors\bootstrap-5.0.2\.github\ISSUE_TEMPLATE\config.yml" />
+    <None Include="wwwroot\assets\vendors\bootstrap-5.0.2\.github\ISSUE_TEMPLATE\feature_request.md" />
+    <None Include="wwwroot\assets\vendors\bootstrap-5.0.2\.github\release-drafter.yml" />
+    <None Include="wwwroot\assets\vendors\bootstrap-5.0.2\.github\SUPPORT.md" />
+    <None Include="wwwroot\assets\vendors\bootstrap-5.0.2\.github\workflows\browserstack.yml" />
+    <None Include="wwwroot\assets\vendors\bootstrap-5.0.2\.github\workflows\bundlewatch.yml" />
+    <None Include="wwwroot\assets\vendors\bootstrap-5.0.2\.github\workflows\codeql.yml" />
+    <None Include="wwwroot\assets\vendors\bootstrap-5.0.2\.github\workflows\css.yml" />
+    <None Include="wwwroot\assets\vendors\bootstrap-5.0.2\.github\workflows\docs.yml" />
+    <None Include="wwwroot\assets\vendors\bootstrap-5.0.2\.github\workflows\js.yml" />
+    <None Include="wwwroot\assets\vendors\bootstrap-5.0.2\.github\workflows\lint.yml" />
+    <None Include="wwwroot\assets\vendors\bootstrap-5.0.2\.github\workflows\node-sass.yml" />
+    <None Include="wwwroot\assets\vendors\bootstrap-5.0.2\.github\workflows\release-notes.yml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.21" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.21" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.21" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.21">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\assets\images\decors\" />
+    <Folder Include="wwwroot\assets\images\employees\" />
+  </ItemGroup>
+
+</Project>

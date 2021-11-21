@@ -1,0 +1,518 @@
+﻿@model HomeViewModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<main id="home">
+    <section id="slider">
+        <div class="container">
+            <div class="row">
+                @foreach (var slide in Model.Sliders)
+                {
+                     <div class="myslides faded col-12">
+                        <div class="slider-left-side col-6 @(slide.Order%2 == 0?"sl-left":"sl-right")">
+                            <h3>@slide.Title</h3>
+                            <p>
+                                @slide.SubTitle
+                            </p>
+                            <br><br>
+                            <a href="">
+                                EXPLORE NOW<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
+                                                fill="currentColor" class="bi bi-arrow-right-short" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd"
+                                          d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z">
+                                    </path>
+                                </svg>
+                            </a>
+                        </div>
+
+                        <div class="slider-right-side col-6 @(slide.Order%2 == 0?"sl-right":"sl-left")">
+                            <img src="~/assets/images/technica/@slide.Image">
+                        </div>
+                    
+
+
+                </div>
+                }
+
+            <div class="dots-sec">
+                @foreach (var item in Model.Sliders)
+                {
+                    <span class="dot" onclick="currentSlide(@item.Id)"></span>
+
+                }
+            </div>
+                <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                <a class="next" onclick="plusSlides(1)">&#10095;</a>
+            </div>
+
+
+
+            <br>
+
+
+    </section>
+
+    <section id="cards">
+        <div class="container">
+            <div class="row">
+                <div class="card-item col-3" data-aos="fade-right" data-aos-duration="2000">
+                    <h3>CUSTOM GLASS</h3>
+                    <br>
+                    <p>We custom-cut, color and shape to your specifications.</p>
+                    <br><br>
+                    <a href="" class="card-btn">SHOP NOW</a>
+                </div>
+                <div class="card-item col-3" data-aos="fade-up" data-aos-duration="2000">
+                    <h3>CUSTOM MIRRORS</h3>
+                    <br>
+                    <p>Customize shape, size and color to your exact needs.</p>
+                    <br><br>
+                    <a href="" class="card-btn">SHOP NOW</a>
+                </div>
+                <div class="card-item col-3" data-aos="fade-left" data-aos-duration="2000">
+                    <h3>CUSTOM TABLE TOPS</h3>
+                    <br>
+                    <p>High-quality and customizable glass table tops for any DIY project.</p>
+                    <br><br>
+                    <a href="" class="card-btn">SHOP NOW</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="department">
+        <div class="container">
+            <div class="row">
+                <div class="department-item col-2" data-aos="flip-up" data-aos-duration="500">
+                    <img src="~/assets/images/department/custom-glass-icon.png" alt="">
+                </div>
+                <div class="department-item col-2" data-aos="flip-up" data-aos-duration="800">
+                    <img src="~/assets/images/department/fireplace-glass-icon.png" alt="">
+                </div>
+                <div class="department-item col-2" data-aos="flip-up" data-aos-duration="1100">
+                    <img src="~/assets/images/department/glass-shelves-icon.png" alt="">
+                </div>
+                <div class="department-item col-2" data-aos="flip-up" data-aos-duration="1400">
+                    <img src="~/assets/images/department/glass-table-tops-icon.png" alt="">
+                </div>
+                <div class="department-item col-2" data-aos="flip-up" data-aos-duration="1700">
+                    <img src="~/assets/images/department/gym-mirrors-icon.png" alt="">
+                </div>
+                <div class="department-item col-2" data-aos="flip-up" data-aos-duration="2000">
+                    <img src="~/assets/images/department/mirrors-icon.png" alt="">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="feature">
+        <div class="container">
+            <div class="column">
+                <div class="feature-item col-12" data-aos="fade-right" data-aos-duration="2000">
+                    <div class="ft-left col-5">
+                        <h4>GLASS SHOWER DOORS</h4>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui, suscipit eaque, illum cum
+                            animi soluta porro minima distinctio, nesciunt impedit numquam deleniti explicabo vitae
+                            veniam debitis ut. Cupiditate praesentium eius tempore voluptatem, veniam at dicta fuga
+                            enim architecto aperiam maiores quod qui eos. Eveniet doloremque omnis, assumenda
+                            officiis expedita voluptas.
+                        </p>
+                        <a href="">
+                            SHOP SHOWER DOORS<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
+                                                  fill="currentColor" class="bi bi-arrow-right-short" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd"
+                                      d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z">
+                                </path>
+                            </svg>
+                        </a>
+                    </div>
+                    <div class="ft-right col-6">
+                        <img src="~/assets/images/technica/cns2.jpg" alt="">
+                    </div>
+                </div>
+                <br>
+                <div class="feature-item col-12" data-aos="fade-left" data-aos-duration="2000">
+                    <div class="ft-right col-6">
+                        <img src="~/assets/images/technica/cns2.jpg" alt="">
+                    </div>
+                    <div class="ft-left col-5">
+                        <h4>GLASS SHOWER DOORS</h4>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui, suscipit eaque, illum cum
+                            animi soluta porro minima distinctio, nesciunt impedit numquam deleniti explicabo vitae
+                            veniam debitis ut. Cupiditate praesentium eius tempore voluptatem, veniam at dicta fuga
+                            enim architecto aperiam maiores quod qui eos. Eveniet doloremque omnis, assumenda
+                            officiis expedita voluptas.
+                        </p>
+                        <a href="">
+                            SHOP SHOWER DOORS<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
+                                                  fill="currentColor" class="bi bi-arrow-right-short" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd"
+                                      d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z">
+                                </path>
+                            </svg>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="accessories">
+        <div class="container">
+            <div class="row">
+                <div class="acs-items col-3" data-aos="zoom-in-right" data-aos-duration="2000">
+                    <h4>GLASS GLUE</h4>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt, natus.</p>
+                    <img src="~/assets/images/technica/fotosel.jpg" alt="">
+                    <br><br>
+                    <a href="" class="acs-btn">SHOP NOW</a>
+                </div>
+                <div class="acs-items col-3" data-aos="zoom-in-down" data-aos-duration="2000">
+                    <h4>GLASS GLUE</h4>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt, natus.</p>
+                    <img src="~/assets/images/technica/fotosel.jpg" alt="">
+                    <br><br>
+                    <a href="" class="acs-btn">SHOP NOW</a>
+                </div>
+                <div class="acs-items col-3" data-aos="zoom-in-left" data-aos-duration="2000">
+                    <h4>GLASS GLUE</h4>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt, natus.</p>
+                    <img src="~/assets/images/technica/fotosel.jpg" alt="">
+                    <br><br>
+                    <a href="" class="acs-btn">SHOP NOW</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="scnd-card">
+        <div class="container">
+            <div class="row">
+                <div class="scnd-card-item col-5" data-aos="flip-left" data-aos-duration="2000">
+                    <h2>TEMPERED SAFETY GLASS</h2>
+                    <img src="~/assets/images/technica/fotosel.jpg" alt="">
+                    <a href="" class="scnd-card-btn-left">SHOP NOW</a>
+                </div>
+                <div class="scnd-card-item col-5" data-aos="flip-right" data-aos-duration="2000">
+                    <h2>OPAQUE-CLEAR GLASS</h2>
+                    <img src="~/assets/images/technica/fotosel.jpg" alt="">
+                    <a href="" class="scnd-card-btn-right">SHOP NOW</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="categories">
+        <div class="container">
+            <h3>Shop By Product Categories</h3>
+            <br>
+            <div class="row">
+                <div class="ctg-item col-2" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
+                    <h5>Glass Projects</h5>
+                    <ul>
+                        <li><a href="">Custom Glass</a></li>
+                        <li><a href="">Tempered Glass</a></li>
+                        <li><a href="">Round Table Tops</a></li>
+                        <li><a href="">Rectangle Table Tops</a></li>
+                        <li><a href="">Square Table Tops</a></li>
+                        <li><a href="">Plastic Desk Buttons</a></li>
+                    </ul>
+                </div>
+                <div class="ctg-item col-2" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
+                    <h5>Glass Projects</h5>
+                    <ul>
+                        <li><a href="">Custom Glass</a></li>
+                        <li><a href="">Tempered Glass</a></li>
+                        <li><a href="">Round Table Tops</a></li>
+                        <li><a href="">Rectangle Table Tops</a></li>
+                        <li><a href="">Square Table Tops</a></li>
+                        <li><a href="">Plastic Desk Buttons</a></li>
+                    </ul>
+                </div>
+                <div class="ctg-item col-2" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
+                    <h5>Glass Projects</h5>
+                    <ul>
+                        <li><a href="">Custom Glass</a></li>
+                        <li><a href="">Tempered Glass</a></li>
+                        <li><a href="">Round Table Tops</a></li>
+                        <li><a href="">Rectangle Table Tops</a></li>
+                        <li><a href="">Square Table Tops</a></li>
+                        <li><a href="">Plastic Desk Buttons</a></li>
+                    </ul>
+                </div>
+                <div class="ctg-item col-2" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
+                    <h5>Glass Projects</h5>
+                    <ul>
+                        <li><a href="">Custom Glass</a></li>
+                        <li><a href="">Tempered Glass</a></li>
+                        <li><a href="">Round Table Tops</a></li>
+                        <li><a href="">Rectangle Table Tops</a></li>
+                        <li><a href="">Square Table Tops</a></li>
+                        <li><a href="">Plastic Desk Buttons</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="reviews">
+        <div class="container">
+            <div class="column">
+                <div class="rvw-head col-12">
+                    <div class="rvw-head-left col-6">
+                        <h5>Real Reviews From Real Customers</h5>
+                    </div>
+                    <div class="rvw-head-right col-6">
+                        <p>1276 Reviews</p>
+                        <a class="btn btn-primary mb-3 mr-1" href="#carouselExampleIndicators2" role="button"
+                           data-slide="prev">
+                            <i class="fa fa-arrow-left"></i>
+                        </a>
+                        <a class="btn btn-primary mb-3 " href="#carouselExampleIndicators2" role="button"
+                           data-slide="next">
+                            <i class="fa fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="rvw-items-sec">
+                    <div class="carousel slide" data-ride="carousel" id="carouselExampleIndicators2">
+                        <div class="carousel-inner">
+                            <div class="rvw-item carousel-item active">
+                                <div class="row">
+                                    <div class="col-md-4 mb-3">
+                                        <div class="card">
+
+                                            <i>10/04/21</i>
+                                            <p>Perfection</p>
+                                            <div class="rvw-stars">
+                                                <i class="bi bi-star-fill"></i>
+                                                <i class="bi bi-star-fill"></i>
+                                                <i class="bi bi-star-fill"></i>
+                                                <i class="bi bi-star-fill"></i>
+                                            </div>
+                                            <br>
+                                            <p>
+                                                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minus nisi
+                                                quam odit
+                                                reprehenderit velit illum perferendis.
+                                            </p>
+                                            <br>
+                                            <small><i>Ganjali Imanov</i></small>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                        <div class="card">
+
+                                            <i>10/04/21</i>
+                                            <p>Perfection</p>
+                                            <div class="rvw-stars">
+                                                <i class="bi bi-star-fill"></i>
+                                                <i class="bi bi-star-fill"></i>
+                                                <i class="bi bi-star-fill"></i>
+                                                <i class="bi bi-star-fill"></i>
+                                            </div>
+                                            <br>
+                                            <p>
+                                                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minus nisi
+                                                quam odit
+                                                reprehenderit velit illum perferendis.
+                                            </p>
+                                            <br>
+                                            <small><i>Ganjali Imanov</i></small>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                        <div class="card">
+
+                                            <i>10/04/21</i>
+                                            <p>Perfection</p>
+                                            <div class="rvw-stars">
+                                                <i class="bi bi-star-fill"></i>
+                                                <i class="bi bi-star-fill"></i>
+                                                <i class="bi bi-star-fill"></i>
+                                                <i class="bi bi-star-fill"></i>
+                                            </div>
+                                            <br>
+                                            <p>
+                                                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minus nisi
+                                                quam odit
+                                                reprehenderit velit illum perferendis.
+                                            </p>
+                                            <br>
+                                            <small><i>Ganjali Imanov</i></small>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="rvw-item carousel-item">
+                                <div class="row">
+                                    <div class="col-md-4 mb-3">
+                                        <div class="card">
+
+                                            <i>10/04/21</i>
+                                            <p>Perfection</p>
+                                            <div class="rvw-stars">
+                                                <i class="bi bi-star-fill"></i>
+                                                <i class="bi bi-star-fill"></i>
+                                                <i class="bi bi-star-fill"></i>
+                                                <i class="bi bi-star-fill"></i>
+                                            </div>
+                                            <br>
+                                            <p>
+                                                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minus nisi
+                                                quam odit
+                                                reprehenderit velit illum perferendis.
+                                            </p>
+                                            <br>
+                                            <small><i>Ganjali Imanov</i></small>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                        <div class="card">
+
+                                            <i>10/04/21</i>
+                                            <p>Perfection</p>
+                                            <div class="rvw-stars">
+                                                <i class="bi bi-star-fill"></i>
+                                                <i class="bi bi-star-fill"></i>
+                                                <i class="bi bi-star-fill"></i>
+                                                <i class="bi bi-star-fill"></i>
+                                            </div>
+                                            <br>
+                                            <p>
+                                                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minus nisi
+                                                quam odit
+                                                reprehenderit velit illum perferendis.
+                                            </p>
+                                            <br>
+                                            <small><i>Ganjali Imanov</i></small>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                        <div class="card">
+
+                                            <i>10/04/21</i>
+                                            <p>Perfection</p>
+                                            <div class="rvw-stars">
+                                                <i class="bi bi-star-fill"></i>
+                                                <i class="bi bi-star-fill"></i>
+                                                <i class="bi bi-star-fill"></i>
+                                                <i class="bi bi-star-fill"></i>
+                                            </div>
+                                            <br>
+                                            <p>
+                                                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minus nisi
+                                                quam odit
+                                                reprehenderit velit illum perferendis.
+                                            </p>
+                                            <br>
+                                            <small><i>Ganjali Imanov</i></small>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="instock">
+        <div class="container">
+
+            <div class="row">
+                <div class="instock-left col-7" data-aos="fade-right" data-aos-offset="300"
+                     data-aos-easing="ease-in-sine">
+                    <img src="~/assets/images/products/custom-mirrors.png" alt="">
+                    <a href="">SHOP IN-STOCK MIRRORS</a>
+                </div>
+                <div class="instock-right col-5" data-aos="fade-left" data-aos-offset="300"
+                     data-aos-easing="ease-in-sine">
+                    <img src="~/assets/images/products/custom-mirrors-2.png" alt="">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="advertising">
+        <div class="container">
+            <div class="adv-item">
+                <h1>Sənin Güzgün, </h1>
+                <h1 class="adv-txt">Sənin Yolun</h1>
+            </div>
+        </div>
+    </section>
+
+    <section id="blog">
+        <div class="container">
+            <h1>From the Blog</h1>
+            <div class="column">
+                <div class="blog-head col-12">
+                    <div class="blog-head-item col-5">
+                        <img src="~/assets/images/blog/glass-ideas-for-home-and-office.png" alt="">
+                        <br><br>
+                        <a href="">Office Glass Ideas for Home & Business</a>
+                        <br><br>
+                        <p>
+                            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odio fuga accusamus fugiat
+                            atque ex quibusdam consequuntur ab consectetur, repellendus obcaecati, harum saepe
+                            eligendi aperiam..
+                        </p>
+                    </div>
+                    <div class="blog-head-item col-5">
+                        <img src="~/assets/images/blog/foam-mirror-diy.png" alt="">
+                        <br><br>
+                        <a href="">Summer DIY Trend - Foam Mirrors</a>
+                        <br><br>
+                        <p>
+                            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odio fuga accusamus fugiat
+                            atque ex quibusdam consequuntur ab consectetur, repellendus obcaecati, harum saepe
+                            eligendi aperiam..
+                        </p>
+                    </div>
+                </div>
+                <div class="blog-body col-12">
+                    <div class="blog-body-item col-4" data-aos="zoom-out-right" data-aos-duration="2000">
+                        <i class="bi bi-sliders"></i>
+                        <br>
+                        <h4>Customization</h4>
+                        <br>
+                        <span></span>
+                        <br>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tempore, magni!</p>
+                    </div>
+                    <div class="blog-body-item col-4" data-aos="zoom-out-up" data-aos-duration="2000">
+                        <i class="bi bi-currency-dollar"></i>
+                        <br>
+                        <h4>Customization</h4>
+                        <br>
+                        <span></span>
+                        <br>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tempore, magni!</p>
+                    </div>
+                    <div class="blog-body-item col-4" data-aos="zoom-out-left" data-aos-duration="2000">
+                        <i class="bi bi-truck"></i>
+                        <br>
+                        <h4>Customization</h4>
+                        <br>
+                        <span></span>
+                        <br>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tempore, magni!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
