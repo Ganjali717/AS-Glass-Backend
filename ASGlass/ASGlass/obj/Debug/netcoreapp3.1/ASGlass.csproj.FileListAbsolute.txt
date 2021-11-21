@@ -88,3 +88,5 @@ C:\Users\LENOVO\OneDrive\Desktop\AS-Glass-Backend\ASGlass\ASGlass\obj\Debug\netc
 C:\Users\LENOVO\OneDrive\Desktop\AS-Glass-Backend\ASGlass\ASGlass\obj\Debug\netcoreapp3.1\Razor\Views\Service\ReturnPolicy.cshtml.g.cs
 C:\Users\LENOVO\OneDrive\Desktop\AS-Glass-Backend\ASGlass\ASGlass\obj\Debug\netcoreapp3.1\Razor\Views\Service\OrderStatus.cshtml.g.cs
 C:\Users\LENOVO\OneDrive\Desktop\AS-Glass-Backend\ASGlass\ASGlass\obj\Debug\netcoreapp3.1\Razor\Views\Service\OrderCancel.cshtml.g.cs
+C:\Users\LENOVO\OneDrive\Desktop\AS-Glass-Backend\ASGlass\ASGlass\obj\Debug\netcoreapp3.1\Razor\Views\Account\LogIn.cshtml.g.cs
+C:\Users\LENOVO\OneDrive\Desktop\AS-Glass-Backend\ASGlass\ASGlass\obj\Debug\netcoreapp3.1\Razor\Views\Account\Register.cshtml.g.cs
