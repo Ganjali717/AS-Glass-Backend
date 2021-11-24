@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace ASGlass.Controllers
 {
-    public class GlassController : Controller
+    public class CardController : Controller
     {
         private readonly AppDbContext _context;
 
-        public GlassController(AppDbContext context)
+        public CardController(AppDbContext context)
         {
             _context = context;
         }

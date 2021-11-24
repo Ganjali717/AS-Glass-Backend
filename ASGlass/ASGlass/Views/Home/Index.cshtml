@@ -56,27 +56,17 @@
     <section id="cards">
         <div class="container">
             <div class="row">
-                <div class="card-item col-3" data-aos="fade-right" data-aos-duration="2000">
-                    <h3>CUSTOM GLASS</h3>
-                    <br>
-                    <p>We custom-cut, color and shape to your specifications.</p>
-                    <br><br>
-                    <a href="" class="card-btn">SHOP NOW</a>
-                </div>
-                <div class="card-item col-3" data-aos="fade-up" data-aos-duration="2000">
-                    <h3>CUSTOM MIRRORS</h3>
-                    <br>
-                    <p>Customize shape, size and color to your exact needs.</p>
-                    <br><br>
-                    <a href="" class="card-btn">SHOP NOW</a>
-                </div>
-                <div class="card-item col-3" data-aos="fade-left" data-aos-duration="2000">
-                    <h3>CUSTOM TABLE TOPS</h3>
-                    <br>
-                    <p>High-quality and customizable glass table tops for any DIY project.</p>
-                    <br><br>
-                    <a href="" class="card-btn">SHOP NOW</a>
-                </div>
+                @foreach (var card in Model.Categories)
+                {
+                    <div class="card-item col-3" data-aos="fade-right" data-aos-duration="2000">
+                        <h3>@card.Name</h3>
+                        <br>
+                        <p>@card.Desc</p>
+                        <br><br>
+                        <a asp-action="index" asp-controller="shop" class="card-btn">SHOP NOW</a>
+                    </div>
+
+                }
             </div>
         </div>
     </section>
@@ -88,18 +78,12 @@
                     <img src="~/assets/images/department/custom-glass-icon.png" alt="">
                 </div>
                 <div class="department-item col-2" data-aos="flip-up" data-aos-duration="800">
-                    <img src="~/assets/images/department/fireplace-glass-icon.png" alt="">
-                </div>
-                <div class="department-item col-2" data-aos="flip-up" data-aos-duration="1100">
                     <img src="~/assets/images/department/glass-shelves-icon.png" alt="">
                 </div>
-                <div class="department-item col-2" data-aos="flip-up" data-aos-duration="1400">
-                    <img src="~/assets/images/department/glass-table-tops-icon.png" alt="">
-                </div>
-                <div class="department-item col-2" data-aos="flip-up" data-aos-duration="1700">
+                <div class="department-item col-2" data-aos="flip-up" data-aos-duration="1100">
                     <img src="~/assets/images/department/gym-mirrors-icon.png" alt="">
                 </div>
-                <div class="department-item col-2" data-aos="flip-up" data-aos-duration="2000">
+                <div class="department-item col-2" data-aos="flip-up" data-aos-duration="1400">
                     <img src="~/assets/images/department/mirrors-icon.png" alt="">
                 </div>
             </div>
@@ -109,54 +93,33 @@
     <section id="feature">
         <div class="container">
             <div class="column">
-                <div class="feature-item col-12" data-aos="fade-right" data-aos-duration="2000">
-                    <div class="ft-left col-5">
-                        <h4>GLASS SHOWER DOORS</h4>
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui, suscipit eaque, illum cum
-                            animi soluta porro minima distinctio, nesciunt impedit numquam deleniti explicabo vitae
-                            veniam debitis ut. Cupiditate praesentium eius tempore voluptatem, veniam at dicta fuga
-                            enim architecto aperiam maiores quod qui eos. Eveniet doloremque omnis, assumenda
-                            officiis expedita voluptas.
-                        </p>
-                        <a href="">
-                            SHOP SHOWER DOORS<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
-                                                  fill="currentColor" class="bi bi-arrow-right-short" viewBox="0 0 16 16">
-                                <path fill-rule="evenodd"
-                                      d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z">
-                                </path>
-                            </svg>
-                        </a>
-                    </div>
-                    <div class="ft-right col-6">
-                        <img src="~/assets/images/technica/cns2.jpg" alt="">
-                    </div>
-                </div>
-                <br>
-                <div class="feature-item col-12" data-aos="fade-left" data-aos-duration="2000">
-                    <div class="ft-right col-6">
-                        <img src="~/assets/images/technica/cns2.jpg" alt="">
-                    </div>
-                    <div class="ft-left col-5">
-                        <h4>GLASS SHOWER DOORS</h4>
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui, suscipit eaque, illum cum
-                            animi soluta porro minima distinctio, nesciunt impedit numquam deleniti explicabo vitae
-                            veniam debitis ut. Cupiditate praesentium eius tempore voluptatem, veniam at dicta fuga
-                            enim architecto aperiam maiores quod qui eos. Eveniet doloremque omnis, assumenda
-                            officiis expedita voluptas.
-                        </p>
-                        <a href="">
-                            SHOP SHOWER DOORS<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
-                                                  fill="currentColor" class="bi bi-arrow-right-short" viewBox="0 0 16 16">
-                                <path fill-rule="evenodd"
-                                      d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z">
-                                </path>
-                            </svg>
-                        </a>
-                    </div>
+                @foreach (var feature in Model.Categories.Take(2))
+                {
+                    <div class="feature-item col-12" data-aos="fade-@(feature.Id%2 ==0?"right":"left")" data-aos-duration="2000"    >
+                        <div class="ft-left col-5">
+                            <h4>@feature.Name</h4>
+                            <br />
+                            <p>
+                                @feature.Desc
+                            </p>
+                            <br />
 
-                </div>
+                            <a href="">
+                                SHOP SHOWER DOORS<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
+                                                      fill="currentColor" class="bi bi-arrow-right-short" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd"
+                                          d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z">
+                                    </path>
+                                </svg>
+                            </a>
+                        </div>
+                        <div class="ft-right col-6">
+                            <img src="~/assets/images/technica/cns2.jpg" alt="">
+                        </div>
+                    </div>
+                    <br>
+                }
+
             </div>
         </div>
     </section>

@@ -9,6 +9,8 @@ namespace ASGlass.Models
     {
         public int Id { get; set; }
         public string Name { get; set; }
+        public string Desc { get; set; }
+        public string BgImage { get; set; }
 
         public List<ProductCategory> ProductCategories { get; set; }
 

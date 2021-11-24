@@ -24,7 +24,8 @@ namespace ASGlass.Controllers
         {
             HomeViewModel homeVM = new HomeViewModel
             {
-                Sliders = _context.Sliders.ToList()
+                Sliders = _context.Sliders.ToList(), 
+                Categories = _context.Categories.ToList()
             };
             return View(homeVM);
         }
