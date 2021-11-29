@@ -29,6 +29,16 @@ namespace ASGlass.Migrations
                     b.Property<int>("Count")
                         .HasColumnType("int");
 
+                    b.Property<string>("Desc")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<double?>("DiscountPrice")
+                        .HasColumnType("float");
+
+                    b.Property<string>("Image")
+                        .HasColumnType("nvarchar(100)")
+                        .HasMaxLength(100);
+
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(100)")
                         .HasMaxLength(100);
@@ -247,8 +257,8 @@ namespace ASGlass.Migrations
 
                     b.Property<string>("SubTitle")
                         .IsRequired()
-                        .HasColumnType("nvarchar(250)")
-                        .HasMaxLength(250);
+                        .HasColumnType("nvarchar(1500)")
+                        .HasMaxLength(1500);
 
                     b.Property<string>("Title")
                         .IsRequired()

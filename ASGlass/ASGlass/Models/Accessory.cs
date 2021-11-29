@@ -13,5 +13,9 @@ namespace ASGlass.Models
         public string Name { get; set; }
         public double Price { get; set; }
         public int Count { get; set; }
+        public double? DiscountPrice { get; set; }
+        [StringLength(maximumLength: 100)]
+        public string Image { get; set; }
+        public string Desc { get; set; }
     }
 }

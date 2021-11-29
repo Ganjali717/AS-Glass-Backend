@@ -19,5 +19,12 @@ namespace ASGlass.Controllers
         {
             return View();
         }
+
+        public IActionResult Detail(int id)
+        {
+            var acessory = _context.Accessories.FirstOrDefault(x => x.Id == id); 
+
+            return View(acessory);
+        }
     }
 }

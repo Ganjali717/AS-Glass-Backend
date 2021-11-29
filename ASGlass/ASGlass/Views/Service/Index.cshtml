@@ -1,6 +1,34 @@
 ﻿
 
 <main id="service">
+    <div id="cancelover">
+        <div class="cancel-overlay">
+            <div class="cancel-overlay-head">
+                <a href="" class="">CUSTOMER CARE</a>
+            </div>
+            <div class="cancel-overlay-body">
+                <div class="container">
+                    <h3>CUSTOMER SERVICE</h3>
+                    <ul>
+                        <li><a asp-action="index" asp-controller="contact">Contact Us</a></li>
+                        <li><a asp-action="index" asp-controller="service">FAQs</a></li>
+                    </ul>
+                    <br>
+                    <h3>SHIPPING&RETURNS</h3>
+                    <ul>
+                        <li><a href="">Shipping & Handling</a></li>
+                        <li><a asp-action="returnpolicy" asp-controller="service">Return Policy</a></li>
+                    </ul>
+                    <br>
+                    <h3>YOUR ORDER</h3>
+                    <ul>
+                        <li><a asp-action="orderstatus" asp-controller="service">Order Status</a></li>
+                        <li><a asp-action="ordercancel" asp-controller="service">Order Cancellation</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
     <section id="srv-menu">
         <div class="container">
             <div class="row">

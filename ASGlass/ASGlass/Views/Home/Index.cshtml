@@ -56,12 +56,13 @@
     <section id="cards">
         <div class="container">
             <div class="row">
-                @foreach (var card in Model.Categories)
+                @foreach (var card in Model.Categories.Take(3))
                 {
-                    <div class="card-item col-3" data-aos="fade-right" data-aos-duration="2000">
+                    <div class="card-item col-3">
                         <h3>@card.Name</h3>
                         <br>
                         <p>@card.Desc</p>
+                        <img src="~/assets/images/decors/@card.BgImage"/>
                         <br><br>
                         <a asp-action="index" asp-controller="shop" class="card-btn">SHOP NOW</a>
                     </div>
@@ -74,17 +75,29 @@
     <section id="department">
         <div class="container">
             <div class="row">
-                <div class="department-item col-2" data-aos="flip-up" data-aos-duration="500">
+                <div class="department-item col-3" data-aos="flip-up" data-aos-duration="500">
                     <img src="~/assets/images/department/custom-glass-icon.png" alt="">
+                    <br />
+                    <br />
+                    <a>Sadə kəsim şüşə</a>
                 </div>
-                <div class="department-item col-2" data-aos="flip-up" data-aos-duration="800">
-                    <img src="~/assets/images/department/glass-shelves-icon.png" alt="">
+                <div class="department-item col-3" data-aos="flip-up" data-aos-duration="800">
+                    <img src="~/assets/images/department/custom-shelves-icon.png" alt="">
+                    <br />
+                    <br />
+                    <a>Sadə kəsim şüşə rəfi</a>
                 </div>
-                <div class="department-item col-2" data-aos="flip-up" data-aos-duration="1100">
+                <div class="department-item col-3" data-aos="flip-up" data-aos-duration="1100">
                     <img src="~/assets/images/department/gym-mirrors-icon.png" alt="">
+                    <br />
+                    <br />
+                    <a>İdman zalı üçün güzgü</a>
                 </div>
-                <div class="department-item col-2" data-aos="flip-up" data-aos-duration="1400">
+                <div class="department-item col-3" data-aos="flip-up" data-aos-duration="1400">
                     <img src="~/assets/images/department/mirrors-icon.png" alt="">
+                    <br />
+                    <br />
+                    <a>Sadə kəsim güzgü</a>
                 </div>
             </div>
         </div>
@@ -95,7 +108,7 @@
             <div class="column">
                 @foreach (var feature in Model.Categories.Take(2))
                 {
-                    <div class="feature-item col-12" data-aos="fade-@(feature.Id%2 ==0?"right":"left")" data-aos-duration="2000"    >
+                    <div class="feature-item col-12" >
                         <div class="ft-left col-5">
                             <h4>@feature.Name</h4>
                             <br />
@@ -126,28 +139,19 @@
 
     <section id="accessories">
         <div class="container">
+            <h2>AKSESUARLAR</h2>
             <div class="row">
-                <div class="acs-items col-3" data-aos="zoom-in-right" data-aos-duration="2000">
-                    <h4>GLASS GLUE</h4>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt, natus.</p>
-                    <img src="~/assets/images/technica/fotosel.jpg" alt="">
-                    <br><br>
-                    <a href="" class="acs-btn">SHOP NOW</a>
-                </div>
-                <div class="acs-items col-3" data-aos="zoom-in-down" data-aos-duration="2000">
-                    <h4>GLASS GLUE</h4>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt, natus.</p>
-                    <img src="~/assets/images/technica/fotosel.jpg" alt="">
-                    <br><br>
-                    <a href="" class="acs-btn">SHOP NOW</a>
-                </div>
-                <div class="acs-items col-3" data-aos="zoom-in-left" data-aos-duration="2000">
-                    <h4>GLASS GLUE</h4>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt, natus.</p>
-                    <img src="~/assets/images/technica/fotosel.jpg" alt="">
-                    <br><br>
-                    <a href="" class="acs-btn">SHOP NOW</a>
-                </div>
+                @foreach (var acc in Model.Accessories)
+                {
+                    <div class="acs-items col-3">
+                        <h4><a asp-route-id="@acc.Id" asp-action="detail" asp-controller="accessory">@acc.Name</a></h4>
+                        <p>"@acc.Desc.Substring(0, 150) ...."</p>
+                        <img src="~/assets/images/accessories/@acc.Image" alt="">
+                        <br><br>
+                        <a asp-route-id="@acc.Id" asp-action="detail" asp-controller="accessory" class="acs-btn">SHOP NOW</a>
+                    </div>
+                }
+
             </div>
         </div>
     </section>
@@ -155,12 +159,12 @@
     <section id="scnd-card">
         <div class="container">
             <div class="row">
-                <div class="scnd-card-item col-5" data-aos="flip-left" data-aos-duration="2000">
+                <div class="scnd-card-item col-5">
                     <h2>TEMPERED SAFETY GLASS</h2>
                     <img src="~/assets/images/technica/fotosel.jpg" alt="">
                     <a href="" class="scnd-card-btn-left">SHOP NOW</a>
                 </div>
-                <div class="scnd-card-item col-5" data-aos="flip-right" data-aos-duration="2000">
+                <div class="scnd-card-item col-5">
                     <h2>OPAQUE-CLEAR GLASS</h2>
                     <img src="~/assets/images/technica/fotosel.jpg" alt="">
                     <a href="" class="scnd-card-btn-right">SHOP NOW</a>
@@ -174,7 +178,7 @@
             <h3>Shop By Product Categories</h3>
             <br>
             <div class="row">
-                <div class="ctg-item col-2" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
+                <div class="ctg-item col-2">
                     <h5>Glass Projects</h5>
                     <ul>
                         <li><a href="">Custom Glass</a></li>
@@ -185,7 +189,7 @@
                         <li><a href="">Plastic Desk Buttons</a></li>
                     </ul>
                 </div>
-                <div class="ctg-item col-2" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
+                <div class="ctg-item col-2">
                     <h5>Glass Projects</h5>
                     <ul>
                         <li><a href="">Custom Glass</a></li>
@@ -196,7 +200,7 @@
                         <li><a href="">Plastic Desk Buttons</a></li>
                     </ul>
                 </div>
-                <div class="ctg-item col-2" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
+                <div class="ctg-item col-2">
                     <h5>Glass Projects</h5>
                     <ul>
                         <li><a href="">Custom Glass</a></li>
@@ -207,7 +211,7 @@
                         <li><a href="">Plastic Desk Buttons</a></li>
                     </ul>
                 </div>
-                <div class="ctg-item col-2" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
+                <div class="ctg-item col-2">
                     <h5>Glass Projects</h5>
                     <ul>
                         <li><a href="">Custom Glass</a></li>
@@ -396,13 +400,11 @@
         <div class="container">
 
             <div class="row">
-                <div class="instock-left col-7" data-aos="fade-right" data-aos-offset="300"
-                     data-aos-easing="ease-in-sine">
+                <div class="instock-left col-7">
                     <img src="~/assets/images/products/custom-mirrors.png" alt="">
                     <a href="">SHOP IN-STOCK MIRRORS</a>
                 </div>
-                <div class="instock-right col-5" data-aos="fade-left" data-aos-offset="300"
-                     data-aos-easing="ease-in-sine">
+                <div class="instock-right col-5">
                     <img src="~/assets/images/products/custom-mirrors-2.png" alt="">
                 </div>
             </div>
@@ -447,7 +449,7 @@
                     </div>
                 </div>
                 <div class="blog-body col-12">
-                    <div class="blog-body-item col-4" data-aos="zoom-out-right" data-aos-duration="2000">
+                    <div class="blog-body-item col-4">
                         <i class="bi bi-sliders"></i>
                         <br>
                         <h4>Customization</h4>
@@ -456,7 +458,7 @@
                         <br>
                         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tempore, magni!</p>
                     </div>
-                    <div class="blog-body-item col-4" data-aos="zoom-out-up" data-aos-duration="2000">
+                    <div class="blog-body-item col-4">
                         <i class="bi bi-currency-dollar"></i>
                         <br>
                         <h4>Customization</h4>
@@ -465,7 +467,7 @@
                         <br>
                         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tempore, magni!</p>
                     </div>
-                    <div class="blog-body-item col-4" data-aos="zoom-out-left" data-aos-duration="2000">
+                    <div class="blog-body-item col-4">
                         <i class="bi bi-truck"></i>
                         <br>
                         <h4>Customization</h4>

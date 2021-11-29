@@ -7,6 +7,10 @@
   <ItemGroup>
     <Compile Remove="Migrations\20211121162206_CreateSettingTable.cs" />
     <Compile Remove="Migrations\20211121162206_CreateSettingTable.Designer.cs" />
+    <Compile Remove="Migrations\20211129163941_AddSomeItemsInAccessory.cs" />
+    <Compile Remove="Migrations\20211129163941_AddSomeItemsInAccessory.Designer.cs" />
+    <Compile Remove="Migrations\20211129164129_AddSomeItemsInAccessory.cs" />
+    <Compile Remove="Migrations\20211129164129_AddSomeItemsInAccessory.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

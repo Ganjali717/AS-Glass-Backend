@@ -11,7 +11,7 @@ user.addEventListener('click', function(e){
 
 //Responsive - dropdown menu
 
-/*let responsdrop = document.querySelector('#respons-first-list');
+let responsdrop = document.querySelector('#respons-first-list');
 let secondresponsdrop = document.querySelector('#respons-second-list');
 let responsmenu = document.querySelector('.responsive-dropdown-first');
 let secondresponsmenu = document.querySelector('.responsive-dropdown-second');
@@ -43,7 +43,7 @@ secondresponsdrop.addEventListener('click', function(e){
 hamburgermenu.addEventListener('click', function(){
      overlay.classList.toggle("active");
 });
-*/
+
 
 
 

@@ -18,7 +18,7 @@ namespace ASGlass.Models
         [StringLength(maximumLength: 50)]
         public string Title { get; set; }
         [Required]
-        [StringLength(maximumLength: 250)]
+        [StringLength(maximumLength: 1500)]
         public string SubTitle { get; set; }
         public string RedirectUrl { get; set; }
     }
