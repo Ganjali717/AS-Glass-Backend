@@ -1,16 +1,16 @@
-const shapeitem = document.querySelectorAll('.shapes .shapes-item');
+let shapeitem = document.querySelectorAll('.shapes .shapes-item');
 
-const btnrec = document.querySelector('.recbtn');
-const btnsq = document.querySelector('.sqbtn');
-const btnround = document.querySelector('.roundbtn');
-const btnoval = document.querySelector('.ovalbtn');
-const redirect = document.querySelector('.redirecturl');
+let btnrec = document.querySelector('.recbtn');
+let btnsq = document.querySelector('.sqbtn');
+let btnround = document.querySelector('.roundbtn');
+let btnoval = document.querySelector('.ovalbtn');
+let redirect = document.querySelector('.redirecturl');
 
 
-const recmea = document.querySelector('#recmea');
-const sqmea = document.querySelector('#sqmea');
-const roundmea = document.querySelector('#roundmea');
-const ovalmea = document.querySelector('#ovalmea');
+let recmea = document.querySelector('#recmea');
+let sqmea = document.querySelector('#sqmea');
+let roundmea = document.querySelector('#roundmea');
+let ovalmea = document.querySelector('#ovalmea');
 
 
 

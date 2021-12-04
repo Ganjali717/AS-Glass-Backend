@@ -7,10 +7,18 @@
   <ItemGroup>
     <Compile Remove="Migrations\20211121162206_CreateSettingTable.cs" />
     <Compile Remove="Migrations\20211121162206_CreateSettingTable.Designer.cs" />
+    <Compile Remove="Migrations\20211122152736_CreateTenModels.cs" />
+    <Compile Remove="Migrations\20211122152736_CreateTenModels.Designer.cs" />
+    <Compile Remove="Migrations\20211123153753_AddDescBgImageIteminCategory.cs" />
+    <Compile Remove="Migrations\20211123153753_AddDescBgImageIteminCategory.Designer.cs" />
+    <Compile Remove="Migrations\20211129132802_SliderSubTitleLengthChanged.cs" />
+    <Compile Remove="Migrations\20211129132802_SliderSubTitleLengthChanged.Designer.cs" />
     <Compile Remove="Migrations\20211129163941_AddSomeItemsInAccessory.cs" />
     <Compile Remove="Migrations\20211129163941_AddSomeItemsInAccessory.Designer.cs" />
     <Compile Remove="Migrations\20211129164129_AddSomeItemsInAccessory.cs" />
     <Compile Remove="Migrations\20211129164129_AddSomeItemsInAccessory.Designer.cs" />
+    <Compile Remove="Migrations\20211129164444_AddSomeItemsInAccessory.cs" />
+    <Compile Remove="Migrations\20211129164444_AddSomeItemsInAccessory.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

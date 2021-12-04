@@ -6,6 +6,15 @@ namespace ASGlass.Migrations
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.AlterColumn<string>(
+                name: "SubTitle",
+                table: "Sliders",
+                maxLength: 1500,
+                nullable: false,
+                oldClrType: typeof(string),
+                oldType: "nvarchar(250)",
+                oldMaxLength: 250);
+
             migrationBuilder.CreateTable(
                 name: "Accessories",
                 columns: table => new
@@ -14,7 +23,10 @@ namespace ASGlass.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(maxLength: 100, nullable: true),
                     Price = table.Column<double>(nullable: false),
-                    Count = table.Column<int>(nullable: false)
+                    Count = table.Column<int>(nullable: false),
+                    DiscountPrice = table.Column<double>(nullable: true),
+                    Image = table.Column<string>(maxLength: 100, nullable: true),
+                    Desc = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -27,7 +39,9 @@ namespace ASGlass.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(nullable: true)
+                    Name = table.Column<string>(nullable: true),
+                    Desc = table.Column<string>(nullable: true),
+                    BgImage = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -125,8 +139,10 @@ namespace ASGlass.Migrations
                     ColorId = table.Column<int>(nullable: true),
                     CornerId = table.Column<int>(nullable: true),
                     Name = table.Column<string>(nullable: true),
-                    Color = table.Column<string>(nullable: true),
-                    Price = table.Column<double>(nullable: false)
+                    Price = table.Column<double>(nullable: false),
+                    DiscountPrice = table.Column<double>(nullable: false),
+                    Desc = table.Column<string>(nullable: true),
+                    Image = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -267,6 +283,15 @@ namespace ASGlass.Migrations
 
             migrationBuilder.DropTable(
                 name: "Types");
+
+            migrationBuilder.AlterColumn<string>(
+                name: "SubTitle",
+                table: "Sliders",
+                type: "nvarchar(250)",
+                maxLength: 250,
+                nullable: false,
+                oldClrType: typeof(string),
+                oldMaxLength: 1500);
         }
     }
 }
