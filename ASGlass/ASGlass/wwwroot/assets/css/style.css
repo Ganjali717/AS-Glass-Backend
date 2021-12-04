@@ -12450,30 +12450,30 @@ body {
   flex-direction: column;
   width: 100%;
   height: max-content; }
-  #glass #cs-select-glass {
+  #custom-select {
     width: 100%; }
-    #glass #cs-select-glass .container {
+  #custom-select .container {
       padding: 35px 15px;
       background-color: none; }
-      #glass #cs-select-glass .container .column {
+  #custom-select .container .column {
         display: flex;
         justify-content: center;
         align-items: center;
         flex-direction: column;
         align-items: center; }
-        #glass #cs-select-glass .container .column .select-shape {
+  #custom-select .container .column .select-shape {
           display: flex;
           justify-content: center;
           align-items: center;
           flex-direction: column; }
-          #glass #cs-select-glass .container .column .select-shape .shape-head {
+  #custom-select .container .column .select-shape .shape-head {
             background-color: #0A6AB7;
             text-align: center;
             padding: 15px;
             color:white;
             border-top-left-radius: 10px;
             border-top-right-radius: 10px; }
-          #glass #cs-select-glass .container .column .select-shape .shapes {
+  #custom-select .container .column .select-shape .shapes {
             display: flex;
             justify-content: center;
             align-items: center;
@@ -12484,24 +12484,24 @@ body {
             border-top: none;
             border-bottom-left-radius: 10px;
             border-bottom-right-radius: 10px; }
-            #glass #cs-select-glass .container .column .select-shape .shapes .shapes-item {
+  #custom-select .container .column .select-shape .shapes .shapes-item {
               text-align: center;
               border-radius: 10px;
               padding: 25px 10px; }
-              #glass #cs-select-glass .container .column .select-shape .shapes .shapes-item img {
+  #custom-select .container .column .select-shape .shapes .shapes-item img {
                 width: 100%;
                 height: 100px; }
-              #glass #cs-select-glass .container .column .select-shape .shapes .shapes-item a {
+  #custom-select .container .column .select-shape .shapes .shapes-item a {
                 text-decoration: none;
                 color: black;
                 padding: 15px 25px;
                 border: 1px solid black;
                 border-radius: 10px; }
-                #glass #cs-select-glass .container .column .select-shape .shapes .shapes-item a:hover {
+  #custom-select .container .column .select-shape .shapes .shapes-item a:hover {
                   background-color: #0A6AB7;
                   color:white;
                   transition: background-color 0.5s linear; }
-            #glass #cs-select-glass .container .column .select-shape .shapes .measurement {
+  #custom-select .container .column .select-shape .shapes .measurement {
               width: 100%;
               display: flex;
               justify-content: center;
@@ -12509,22 +12509,29 @@ body {
               flex-direction: column;
               justify-content: space-between;
               align-items: flex-start; }
-              #glass #cs-select-glass .container .column .select-shape .shapes .measurement a {
-                text-decoration: underline;
+  #custom-select .container .column .select-shape .shapes .measurement a {
                 color: #0A6AB7; }
-              #glass #cs-select-glass .container .column .select-shape .shapes .measurement .mt-contain {
+  #custom-select .container .column .select-shape .shapes .measurement .mt-contain {
                 display: flex;
                 justify-content: center;
                 align-items: center;
                 flex-direction: row;
                 justify-content: space-around;
                 align-items: flex-start; }
-                #glass #cs-select-glass .container .column .select-shape .shapes .measurement .mt-contain .mtimg img {
-                  width: 60%; }
-          #glass #cs-select-glass .container .column .select-shape a {
-            font-size: 20px;
-            text-decoration: none;
-            color: orange; }
+  #custom-select .container .column .select-shape .shapes .measurement .mt-contain .mtimg img {
+                  width: 80%; }
+  #custom-select .container .column .select-shape .shapes .measurement .mt-contain .mt-right input{
+                    width:80%;
+                    padding:10px;
+                }
+  #custom-select .container .column .select-shape a {
+                    font-size: 20px;
+                    text-decoration: none;
+                    color: orange;
+                }
+
+
+
   #glass #about-us {
     width: 100%; }
     #glass #about-us .container {
@@ -12571,32 +12578,7 @@ body {
           width: 100%; }
         #glass #safety .container .row .sft-right p {
           font-size: 20px; }
-  #glass #faq {
-    width: 100%; }
-    #glass #faq .container {
-      padding: 45px 25px; }
-      #glass #faq .container h4, #glass #faq .container .h4 {
-        text-align: center; }
-      #glass #faq .container .column {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        justify-content: space-between;
-        align-items: flex-start; }
-        #glass #faq .container .column .accordion {
-          width: 100%;
-          border: none;
-          background-color: #0A6AB7;
-          text-align: left;
-          color:white;
-          padding: 15px; }
-        #glass #faq .container .column .panel {
-          padding: 0 18px;
-          max-height: 0;
-          margin-top: 15px;
-          overflow: hidden;
-          transition: max-height 0.2s ease-out; }
+  
   #glass #videos {
     width: 100%; }
     #glass #videos .container {
@@ -12641,9 +12623,9 @@ body {
  
 
 @media only screen and (max-width: 774px) {
-  #cs-select-glass .container .column .shapes {
+  #custom-select .container .column .shapes {
     flex-direction: column !important; }
-    #cs-select-glass .container .column .shapes .shapes-item {
+    #custom-select .container .column .shapes .shapes-item {
       width: 100%; }
   #where-use .container .row {
     flex-direction: column !important; }
@@ -12673,29 +12655,29 @@ body {
   flex-direction: column;
   width: 100%;
   height: max-content; }
-  #mirror #cs-select-glass {
+  #mirror #custom-select {
     width: 100%; }
-    #mirror #cs-select-glass .container {
+    #mirror #custom-select .container {
       padding: 35px 15px;
       background-color: none; }
-      #mirror #cs-select-glass .container .column {
+      #mirror #custom-select .container .column {
         display: flex;
         justify-content: center;
         align-items: center;
         flex-direction: column;
         align-items: center; }
-        #mirror #cs-select-glass .container .column .select-shape {
+        #mirror #custom-select .container .column .select-shape {
           display: flex;
           justify-content: center;
           align-items: center;
           flex-direction: column; }
-          #mirror #cs-select-glass .container .column .select-shape .shape-head {
+          #mirror #custom-select .container .column .select-shape .shape-head {
             background-color: #0A6AB7;
             text-align: center;
             padding: 15px;
             border-top-left-radius: 10px;
             border-top-right-radius: 10px; }
-          #mirror #cs-select-glass .container .column .select-shape .shapes {
+          #mirror #custom-select .container .column .select-shape .shapes {
             display: flex;
             justify-content: center;
             align-items: center;
@@ -12706,23 +12688,23 @@ body {
             border-top: none;
             border-bottom-left-radius: 10px;
             border-bottom-right-radius: 10px; }
-            #mirror #cs-select-glass .container .column .select-shape .shapes .shapes-item {
+            #mirror #custom-select .container .column .select-shape .shapes .shapes-item {
               text-align: center;
               border-radius: 10px;
               padding: 25px 10px; }
-              #mirror #cs-select-glass .container .column .select-shape .shapes .shapes-item img {
+              #mirror #custom-select .container .column .select-shape .shapes .shapes-item img {
                 width: 100%;
                 height: 100px; }
-              #mirror #cs-select-glass .container .column .select-shape .shapes .shapes-item a {
+              #mirror #custom-select .container .column .select-shape .shapes .shapes-item a {
                 text-decoration: none;
                 color: black;
                 padding: 15px 25px;
                 border: 1px solid black;
                 border-radius: 10px; }
-                #mirror #cs-select-glass .container .column .select-shape .shapes .shapes-item a:hover {
+                #mirror #custom-select .container .column .select-shape .shapes .shapes-item a:hover {
                   background-color: #0A6AB7;
                   transition: background-color 0.5s linear; }
-            #mirror #cs-select-glass .container .column .select-shape .shapes .measurement {
+            #mirror #custom-select .container .column .select-shape .shapes .measurement {
               width: 100%;
               display: flex;
               justify-content: center;
@@ -12730,19 +12712,19 @@ body {
               flex-direction: column;
               justify-content: space-between;
               align-items: flex-start; }
-              #mirror #cs-select-glass .container .column .select-shape .shapes .measurement a {
+              #mirror #custom-select .container .column .select-shape .shapes .measurement a {
                 text-decoration: underline;
                 color: #0A6AB7; }
-              #mirror #cs-select-glass .container .column .select-shape .shapes .measurement .mt-contain {
+              #mirror #custom-select .container .column .select-shape .shapes .measurement .mt-contain {
                 display: flex;
                 justify-content: center;
                 align-items: center;
                 flex-direction: row;
                 justify-content: space-around;
                 align-items: flex-start; }
-                #mirror #cs-select-glass .container .column .select-shape .shapes .measurement .mt-contain .mtimg img {
+                #mirror #custom-select .container .column .select-shape .shapes .measurement .mt-contain .mtimg img {
                   width: 60%; }
-          #mirror #cs-select-glass .container .column .select-shape a {
+          #mirror #custom-select .container .column .select-shape a {
             font-size: 20px;
             text-decoration: none;
             color: orange; }
@@ -12872,26 +12854,27 @@ body {
           font-size: 20   px; }
         #mirror #installation .container .row .inst-right img {
           width: 100%; }
-  #mirror #faq {
+   #faq {
     width: 100%; }
-    #mirror #faq .container {
+     #faq .container {
       padding: 45px 25px; }
-      #mirror #faq .container h4, #mirror #faq .container .h4 {
+      #faq .container h4, #mirror #faq .container .h4 {
         text-align: center; }
-      #mirror #faq .container .column {
+       #faq .container .column {
         display: flex;
         justify-content: center;
         align-items: center;
         flex-direction: column;
         justify-content: space-between;
         align-items: flex-start; }
-        #mirror #faq .container .column .accordion {
+         #faq .container .column .accordion {
           width: 100%;
           border: none;
           background-color: #0A6AB7;
           text-align: left;
+          color:white;
           padding: 15px; }
-        #mirror #faq .container .column .panel {
+         #faq .container .column .panel {
           padding: 0 18px;
           max-height: 0;
           margin-top: 15px;
@@ -12900,11 +12883,11 @@ body {
   
 
 @media only screen and (max-width: 772px) {
-  #cs-select-glass .container .column .measurement .mt-contain {
+  #custom-select .container .column .measurement .mt-contain {
     flex-direction: column !important; }
-    #cs-select-glass .container .column .measurement .mt-contain .mtimg {
+    #custom-select .container .column .measurement .mt-contain .mtimg {
       width: 100%; }
-    #cs-select-glass .container .column .measurement .mt-contain .mt-right {
+    #custom-select .container .column .measurement .mt-contain .mt-right {
       width: 100%; }
   #instockmirror .container .row {
     flex-direction: column !important; }
@@ -12946,29 +12929,29 @@ body {
   flex-direction: column;
   width: 100%;
   height: max-content; }
-  #glassshelve #cs-select-glass {
+  #glassshelve #custom-select {
     width: 100%; }
-    #glassshelve #cs-select-glass .container {
+    #glassshelve #custom-select .container {
       padding: 35px 15px;
       background-color: none; }
-      #glassshelve #cs-select-glass .container .column {
+      #glassshelve #custom-select .container .column {
         display: flex;
         justify-content: center;
         align-items: center;
         flex-direction: column;
         align-items: center; }
-        #glassshelve #cs-select-glass .container .column .select-shape {
+        #glassshelve #custom-select .container .column .select-shape {
           display: flex;
           justify-content: center;
           align-items: center;
           flex-direction: column; }
-          #glassshelve #cs-select-glass .container .column .select-shape .shape-head {
+          #glassshelve #custom-select .container .column .select-shape .shape-head {
             background-color: #0A6AB7;
             text-align: center;
             padding: 15px;
             border-top-left-radius: 10px;
             border-top-right-radius: 10px; }
-          #glassshelve #cs-select-glass .container .column .select-shape .shapes {
+          #glassshelve #custom-select .container .column .select-shape .shapes {
             display: flex;
             justify-content: center;
             align-items: center;
@@ -12980,23 +12963,23 @@ body {
             border-top: none;
             border-bottom-left-radius: 10px;
             border-bottom-right-radius: 10px; }
-            #glassshelve #cs-select-glass .container .column .select-shape .shapes .shapes-item {
+            #glassshelve #custom-select .container .column .select-shape .shapes .shapes-item {
               text-align: center;
               border-radius: 10px;
               padding: 25px 10px; }
-              #glassshelve #cs-select-glass .container .column .select-shape .shapes .shapes-item img {
+              #glassshelve #custom-select .container .column .select-shape .shapes .shapes-item img {
                 width: 100%;
                 height: 100px; }
-              #glassshelve #cs-select-glass .container .column .select-shape .shapes .shapes-item a {
+              #glassshelve #custom-select .container .column .select-shape .shapes .shapes-item a {
                 text-decoration: none;
                 color: black;
                 padding: 15px 25px;
                 border: 1px solid black;
                 border-radius: 10px; }
-                #glassshelve #cs-select-glass .container .column .select-shape .shapes .shapes-item a:hover {
+                #glassshelve #custom-select .container .column .select-shape .shapes .shapes-item a:hover {
                   background-color: #0A6AB7;
                   transition: background-color 0.5s linear; }
-            #glassshelve #cs-select-glass .container .column .select-shape .shapes .measurement {
+            #glassshelve #custom-select .container .column .select-shape .shapes .measurement {
               width: 100%;
               display: flex;
               justify-content: center;
@@ -13004,19 +12987,19 @@ body {
               flex-direction: column;
               justify-content: space-between;
               align-items: flex-start; }
-              #glassshelve #cs-select-glass .container .column .select-shape .shapes .measurement a {
+              #glassshelve #custom-select .container .column .select-shape .shapes .measurement a {
                 text-decoration: underline;
                 color: #0A6AB7; }
-              #glassshelve #cs-select-glass .container .column .select-shape .shapes .measurement .mt-contain {
+              #glassshelve #custom-select .container .column .select-shape .shapes .measurement .mt-contain {
                 display: flex;
                 justify-content: center;
                 align-items: center;
                 flex-direction: row;
                 justify-content: space-around;
                 align-items: flex-start; }
-                #glassshelve #cs-select-glass .container .column .select-shape .shapes .measurement .mt-contain .mtimg img {
+                #glassshelve #custom-select .container .column .select-shape .shapes .measurement .mt-contain .mtimg img {
                   width: 60%; }
-          #glassshelve #cs-select-glass .container .column .select-shape a {
+          #glassshelve #custom-select .container .column .select-shape a {
             font-size: 20px;
             text-decoration: none;
             color: orange; }

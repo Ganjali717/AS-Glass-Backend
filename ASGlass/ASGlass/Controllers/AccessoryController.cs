@@ -22,7 +22,7 @@ namespace ASGlass.Controllers
 
         public IActionResult Detail(int id)
         {
-            var acessory = _context.Accessories.FirstOrDefault(x => x.Id == id); 
+            var acessory = _context.Products.FirstOrDefault(x => x.Id == id); 
 
             return View(acessory);
         }

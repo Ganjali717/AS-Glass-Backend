@@ -18,24 +18,20 @@ btnrec.addEventListener('click', function(e) {
     e.preventDefault();
     shapeitem.forEach(x => x.classList.add('d-none'));
     recmea.classList.remove('d-none');
-    console.log("Salam");
 })
 btnsq.addEventListener('click', function(e) {
     e.preventDefault();
     shapeitem.forEach(x => x.classList.add('d-none'));
     sqmea.classList.remove('d-none');
-    console.log("Salam");
 })
 btnround.addEventListener('click', function(e) {
     e.preventDefault();
     shapeitem.forEach(x => x.classList.add('d-none'));
     roundmea.classList.remove('d-none');
-    console.log("Salam");
 })
 btnoval.addEventListener('click', function(e) {
     e.preventDefault();
     shapeitem.forEach(x => x.classList.add('d-none'));
     ovalmea.classList.remove('d-none');
-    console.log("Salam");
 })
 

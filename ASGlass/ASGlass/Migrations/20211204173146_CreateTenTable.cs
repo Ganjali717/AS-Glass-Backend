@@ -2,7 +2,7 @@
 
 namespace ASGlass.Migrations
 {
-    public partial class CreateTenModels : Migration
+    public partial class CreateTenTable : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -14,24 +14,6 @@ namespace ASGlass.Migrations
                 oldClrType: typeof(string),
                 oldType: "nvarchar(250)",
                 oldMaxLength: 250);
-
-            migrationBuilder.CreateTable(
-                name: "Accessories",
-                columns: table => new
-                {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(maxLength: 100, nullable: true),
-                    Price = table.Column<double>(nullable: false),
-                    Count = table.Column<int>(nullable: false),
-                    DiscountPrice = table.Column<double>(nullable: true),
-                    Image = table.Column<string>(maxLength: 100, nullable: true),
-                    Desc = table.Column<string>(nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Accessories", x => x.Id);
-                });
 
             migrationBuilder.CreateTable(
                 name: "Categories",
@@ -140,9 +122,11 @@ namespace ASGlass.Migrations
                     CornerId = table.Column<int>(nullable: true),
                     Name = table.Column<string>(nullable: true),
                     Price = table.Column<double>(nullable: false),
+                    Count = table.Column<int>(nullable: false),
                     DiscountPrice = table.Column<double>(nullable: false),
                     Desc = table.Column<string>(nullable: true),
-                    Image = table.Column<string>(nullable: true)
+                    Image = table.Column<string>(nullable: true),
+                    IsAccessory = table.Column<bool>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -254,9 +238,6 @@ namespace ASGlass.Migrations
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropTable(
-                name: "Accessories");
-
             migrationBuilder.DropTable(
                 name: "ProductCategories");
 

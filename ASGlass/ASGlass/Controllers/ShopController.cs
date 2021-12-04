@@ -1,4 +1,5 @@
 ﻿using ASGlass.DAL;
+using ASGlass.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -17,7 +18,14 @@ namespace ASGlass.Controllers
         }
         public IActionResult Index()
         {
-            return View();
+            ShopViewModel shopVM = new ShopViewModel
+            {
+                Categories = _context.Categories.ToList(), 
+                Products = _context.Products.ToList(), 
+                Colors = _context.Colors.ToList(),
+                Thicknesses = _context.Thicknesses.ToList()
+            };
+            return View(shopVM);
         }
     }
 }

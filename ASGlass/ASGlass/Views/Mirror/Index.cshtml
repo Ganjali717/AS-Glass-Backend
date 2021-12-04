@@ -1,8 +1,11 @@
-﻿
+﻿@section Measurement{
+    <script src="~/assets/js/measurement.js"></script>
+
+}
 
 
 <main id="mirror">
-    <section id="cs-select-glass">
+    <section id="custom-select">
         <div class="container">
             <div class="column">
                 <h3>GÜZGÜ</h3>
@@ -22,278 +25,26 @@
                             <a href="" class="recbtn">Seçin</a>
                         </div>
                         <div class="measurement d-none" id="recmea">
-                            <a asp-action="index" asp-controller="glass" class="redirecturl"><i class="bi bi-arrow-left"></i> BACK TO SHAPE SELECTION</a>
+                            <a asp-action="index" asp-controller="mirror" class="redirecturl"><i class="bi bi-arrow-left"></i> GERİYƏ DÖN</a>
                             <br>
                             <div class="mt-contain col-12">
                                 <div class="mtimg col-6">
                                     <img src="~/assets/images/products/mea-rec.png" alt="">
                                 </div>
                                 <div class="mt-right col-6">
-                                    <table class="table table-hover">
-                                        <thead><tr><th></th><th>Inches</th><th>Fraction of an Inch</th></tr></thead>
-                                        <tfoot>
-                                            <tr>
-                                                <td colspan="3" class="text-center">
-                                                    <strong>All measurements are in inches</strong>
-                                                    <span class="help-block small">Cutting Tolerance is +/- 1/8"</span>
+                                    <form>
+                                        <label><b>Uzunlugu Qeyd Edin:</b></label>
+                                        <br /><br />
+                                        <input type="number" placeholder="Mesel ucun: 2.5, 22.5 sm" />
+                                        <br /><br />
+                                        <label><b>Enini Qeyd Edin:</b></label>
+                                        <br /><br />
+                                        <input type="number" placeholder="Mesel ucun: 2.5, 22.5 sm" />
+                                        <br />
+                                        <br />
+                                        <input type="submit" value="Davam Et" />
+                                    </form>
 
-                                                    <p>
-                                                        <input type="submit" class="btn btn-lg btn-block btn-checkout" value="Continue">
-                                                    </p>
-                                                </td>
-                                            </tr>
-                                        </tfoot>
-                                        <tbody>
-                                            <tr>
-                                                <th scope="row">Width</th>
-                                                <td>
-                                                    <select class="form-control" id="sa" name="sa">
-                                                        <option>3</option>
-                                                        <option>4</option>
-                                                        <option>5</option>
-                                                        <option>6</option>
-                                                        <option>7</option>
-                                                        <option>8</option>
-                                                        <option>9</option>
-                                                        <option>10</option>
-                                                        <option>11</option>
-                                                        <option>12</option>
-                                                        <option>13</option>
-                                                        <option>14</option>
-                                                        <option>15</option>
-                                                        <option>16</option>
-                                                        <option>17</option>
-                                                        <option>18</option>
-                                                        <option>19</option>
-                                                        <option>20</option>
-                                                        <option>21</option>
-                                                        <option>22</option>
-                                                        <option>23</option>
-                                                        <option>24</option>
-                                                        <option>25</option>
-                                                        <option>26</option>
-                                                        <option>27</option>
-                                                        <option>28</option>
-                                                        <option>29</option>
-                                                        <option>30</option>
-                                                        <option>31</option>
-                                                        <option>32</option>
-                                                        <option>33</option>
-                                                        <option>34</option>
-                                                        <option>35</option>
-                                                        <option>36</option>
-                                                        <option>37</option>
-                                                        <option>38</option>
-                                                        <option>39</option>
-                                                        <option>40</option>
-                                                        <option>41</option>
-                                                        <option>42</option>
-                                                        <option>43</option>
-                                                        <option>44</option>
-                                                        <option>45</option>
-                                                        <option>46</option>
-                                                        <option>47</option>
-                                                        <option>48</option>
-                                                        <option>49</option>
-                                                        <option>50</option>
-                                                        <option>51</option>
-                                                        <option>52</option>
-                                                        <option>53</option>
-                                                        <option>54</option>
-                                                        <option>55</option>
-                                                        <option>56</option>
-                                                        <option>57</option>
-                                                        <option>58</option>
-                                                        <option>59</option>
-                                                        <option>60</option>
-                                                        <option>61</option>
-                                                        <option>62</option>
-                                                        <option>63</option>
-                                                        <option>64</option>
-                                                        <option>65</option>
-                                                        <option>66</option>
-                                                        <option>67</option>
-                                                        <option>68</option>
-                                                        <option>69</option>
-                                                        <option>70</option>
-                                                        <option>71</option>
-                                                        <option>72</option>
-                                                        <option>73</option>
-                                                        <option>74</option>
-                                                        <option>75</option>
-                                                        <option>76</option>
-                                                        <option>77</option>
-                                                        <option>78</option>
-                                                        <option>79</option>
-                                                    </select>
-                                                </td>
-                                                <td>
-                                                    <select class="form-control" id="saf" name="saf">
-                                                        <option value="0">0</option>
-                                                        <option value="1/16">1/16</option>
-                                                        <option value="1/8">1/8</option>
-                                                        <option value="3/16">3/16</option>
-                                                        <option value="1/4">1/4</option>
-                                                        <option value="5/16">5/16</option>
-                                                        <option value="3/8">3/8</option>
-                                                        <option value="7/16">7/16</option>
-                                                        <option value="1/2">1/2</option>
-                                                        <option value="9/16">9/16</option>
-                                                        <option value="5/8">5/8</option>
-                                                        <option value="11/16">11/16</option>
-                                                        <option value="3/4">3/4</option>
-                                                        <option value="13/16">13/16</option>
-                                                        <option value="7/8">7/8</option>
-                                                        <option value="15/16">15/16</option>
-                                                    </select>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">Length</th>
-                                                <td>
-                                                    <select class="form-control" id="sb" name="sb">
-                                                        <option>3</option>
-                                                        <option>4</option>
-                                                        <option>5</option>
-                                                        <option>6</option>
-                                                        <option>7</option>
-                                                        <option>8</option>
-                                                        <option>9</option>
-                                                        <option>10</option>
-                                                        <option>11</option>
-                                                        <option>12</option>
-                                                        <option>13</option>
-                                                        <option>14</option>
-                                                        <option>15</option>
-                                                        <option>16</option>
-                                                        <option>17</option>
-                                                        <option>18</option>
-                                                        <option>19</option>
-                                                        <option>20</option>
-                                                        <option>21</option>
-                                                        <option>22</option>
-                                                        <option>23</option>
-                                                        <option>24</option>
-                                                        <option>25</option>
-                                                        <option>26</option>
-                                                        <option>27</option>
-                                                        <option>28</option>
-                                                        <option>29</option>
-                                                        <option>30</option>
-                                                        <option>31</option>
-                                                        <option>32</option>
-                                                        <option>33</option>
-                                                        <option>34</option>
-                                                        <option>35</option>
-                                                        <option>36</option>
-                                                        <option>37</option>
-                                                        <option>38</option>
-                                                        <option>39</option>
-                                                        <option>40</option>
-                                                        <option>41</option>
-                                                        <option>42</option>
-                                                        <option>43</option>
-                                                        <option>44</option>
-                                                        <option>45</option>
-                                                        <option>46</option>
-                                                        <option>47</option>
-                                                        <option>48</option>
-                                                        <option>49</option>
-                                                        <option>50</option>
-                                                        <option>51</option>
-                                                        <option>52</option>
-                                                        <option>53</option>
-                                                        <option>54</option>
-                                                        <option>55</option>
-                                                        <option>56</option>
-                                                        <option>57</option>
-                                                        <option>58</option>
-                                                        <option>59</option>
-                                                        <option>60</option>
-                                                        <option>61</option>
-                                                        <option>62</option>
-                                                        <option>63</option>
-                                                        <option>64</option>
-                                                        <option>65</option>
-                                                        <option>66</option>
-                                                        <option>67</option>
-                                                        <option>68</option>
-                                                        <option>69</option>
-                                                        <option>70</option>
-                                                        <option>71</option>
-                                                        <option>72</option>
-                                                        <option>73</option>
-                                                        <option>74</option>
-                                                        <option>75</option>
-                                                        <option>76</option>
-                                                        <option>77</option>
-                                                        <option>78</option>
-                                                        <option>79</option>
-                                                        <option>80</option>
-                                                        <option>81</option>
-                                                        <option>82</option>
-                                                        <option>83</option>
-                                                        <option>84</option>
-                                                        <option>85</option>
-                                                        <option>86</option>
-                                                        <option>87</option>
-                                                        <option>88</option>
-                                                        <option>89</option>
-                                                        <option>90</option>
-                                                        <option>91</option>
-                                                        <option>92</option>
-                                                        <option>93</option>
-                                                        <option>94</option>
-                                                        <option>95</option>
-                                                        <option>96</option>
-                                                        <option>97</option>
-                                                        <option>98</option>
-                                                        <option>99</option>
-                                                        <option>100</option>
-                                                        <option>101</option>
-                                                        <option>102</option>
-                                                        <option>103</option>
-                                                        <option>104</option>
-                                                        <option>105</option>
-                                                        <option>106</option>
-                                                        <option>107</option>
-                                                        <option>108</option>
-                                                        <option>109</option>
-                                                        <option>110</option>
-                                                        <option>111</option>
-                                                        <option>112</option>
-                                                        <option>113</option>
-                                                        <option>114</option>
-                                                        <option>115</option>
-                                                        <option>116</option>
-                                                        <option>117</option>
-                                                        <option>118</option>
-                                                        <option>119</option>
-                                                    </select>
-                                                </td>
-                                                <td>
-                                                    <select class="form-control" id="sbf" name="sbf">
-                                                        <option value="0">0</option>
-                                                        <option value="1/16">1/16</option>
-                                                        <option value="1/8">1/8</option>
-                                                        <option value="3/16">3/16</option>
-                                                        <option value="1/4">1/4</option>
-                                                        <option value="5/16">5/16</option>
-                                                        <option value="3/8">3/8</option>
-                                                        <option value="7/16">7/16</option>
-                                                        <option value="1/2">1/2</option>
-                                                        <option value="9/16">9/16</option>
-                                                        <option value="5/8">5/8</option>
-                                                        <option value="11/16">11/16</option>
-                                                        <option value="3/4">3/4</option>
-                                                        <option value="13/16">13/16</option>
-                                                        <option value="7/8">7/8</option>
-                                                        <option value="15/16">15/16</option>
-                                                    </select>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
                                 </div>
                             </div>
 
@@ -306,278 +57,25 @@
                             <a href="" class="sqbtn">Seçin</a>
                         </div>
                         <div class="measurement d-none" id="sqmea">
-                            <a asp-action="index" asp-controller="glass"><i class="bi bi-arrow-left"></i>  BACK TO SHAPE SELECTION</a>
+                            <a asp-action="index" asp-controller="mirror"><i class="bi bi-arrow-left"></i>  GERİYƏ DÖN</a>
                             <br>
                             <div class="mt-contain col-12">
                                 <div class="mtimg col-6">
                                     <img src="~/assets/images/products/mea-sqr.png" alt="">
                                 </div>
                                 <div class="mt-right col-6">
-                                    <table class="table table-hover">
-                                        <thead><tr><th></th><th>Inches</th><th>Fraction of an Inch</th></tr></thead>
-                                        <tfoot>
-                                            <tr>
-                                                <td colspan="3" class="text-center">
-                                                    <strong>All measurements are in inches</strong>
-                                                    <span class="help-block small">Cutting Tolerance is +/- 1/8"</span>
-
-                                                    <p>
-                                                        <input type="submit" class="btn btn-lg btn-block btn-checkout" value="Continue">
-                                                    </p>
-                                                </td>
-                                            </tr>
-                                        </tfoot>
-                                        <tbody>
-                                            <tr>
-                                                <th scope="row">Width</th>
-                                                <td>
-                                                    <select class="form-control" id="sa" name="sa">
-                                                        <option>3</option>
-                                                        <option>4</option>
-                                                        <option>5</option>
-                                                        <option>6</option>
-                                                        <option>7</option>
-                                                        <option>8</option>
-                                                        <option>9</option>
-                                                        <option>10</option>
-                                                        <option>11</option>
-                                                        <option>12</option>
-                                                        <option>13</option>
-                                                        <option>14</option>
-                                                        <option>15</option>
-                                                        <option>16</option>
-                                                        <option>17</option>
-                                                        <option>18</option>
-                                                        <option>19</option>
-                                                        <option>20</option>
-                                                        <option>21</option>
-                                                        <option>22</option>
-                                                        <option>23</option>
-                                                        <option>24</option>
-                                                        <option>25</option>
-                                                        <option>26</option>
-                                                        <option>27</option>
-                                                        <option>28</option>
-                                                        <option>29</option>
-                                                        <option>30</option>
-                                                        <option>31</option>
-                                                        <option>32</option>
-                                                        <option>33</option>
-                                                        <option>34</option>
-                                                        <option>35</option>
-                                                        <option>36</option>
-                                                        <option>37</option>
-                                                        <option>38</option>
-                                                        <option>39</option>
-                                                        <option>40</option>
-                                                        <option>41</option>
-                                                        <option>42</option>
-                                                        <option>43</option>
-                                                        <option>44</option>
-                                                        <option>45</option>
-                                                        <option>46</option>
-                                                        <option>47</option>
-                                                        <option>48</option>
-                                                        <option>49</option>
-                                                        <option>50</option>
-                                                        <option>51</option>
-                                                        <option>52</option>
-                                                        <option>53</option>
-                                                        <option>54</option>
-                                                        <option>55</option>
-                                                        <option>56</option>
-                                                        <option>57</option>
-                                                        <option>58</option>
-                                                        <option>59</option>
-                                                        <option>60</option>
-                                                        <option>61</option>
-                                                        <option>62</option>
-                                                        <option>63</option>
-                                                        <option>64</option>
-                                                        <option>65</option>
-                                                        <option>66</option>
-                                                        <option>67</option>
-                                                        <option>68</option>
-                                                        <option>69</option>
-                                                        <option>70</option>
-                                                        <option>71</option>
-                                                        <option>72</option>
-                                                        <option>73</option>
-                                                        <option>74</option>
-                                                        <option>75</option>
-                                                        <option>76</option>
-                                                        <option>77</option>
-                                                        <option>78</option>
-                                                        <option>79</option>
-                                                    </select>
-                                                </td>
-                                                <td>
-                                                    <select class="form-control" id="saf" name="saf">
-                                                        <option value="0">0</option>
-                                                        <option value="1/16">1/16</option>
-                                                        <option value="1/8">1/8</option>
-                                                        <option value="3/16">3/16</option>
-                                                        <option value="1/4">1/4</option>
-                                                        <option value="5/16">5/16</option>
-                                                        <option value="3/8">3/8</option>
-                                                        <option value="7/16">7/16</option>
-                                                        <option value="1/2">1/2</option>
-                                                        <option value="9/16">9/16</option>
-                                                        <option value="5/8">5/8</option>
-                                                        <option value="11/16">11/16</option>
-                                                        <option value="3/4">3/4</option>
-                                                        <option value="13/16">13/16</option>
-                                                        <option value="7/8">7/8</option>
-                                                        <option value="15/16">15/16</option>
-                                                    </select>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">Length</th>
-                                                <td>
-                                                    <select class="form-control" id="sb" name="sb">
-                                                        <option>3</option>
-                                                        <option>4</option>
-                                                        <option>5</option>
-                                                        <option>6</option>
-                                                        <option>7</option>
-                                                        <option>8</option>
-                                                        <option>9</option>
-                                                        <option>10</option>
-                                                        <option>11</option>
-                                                        <option>12</option>
-                                                        <option>13</option>
-                                                        <option>14</option>
-                                                        <option>15</option>
-                                                        <option>16</option>
-                                                        <option>17</option>
-                                                        <option>18</option>
-                                                        <option>19</option>
-                                                        <option>20</option>
-                                                        <option>21</option>
-                                                        <option>22</option>
-                                                        <option>23</option>
-                                                        <option>24</option>
-                                                        <option>25</option>
-                                                        <option>26</option>
-                                                        <option>27</option>
-                                                        <option>28</option>
-                                                        <option>29</option>
-                                                        <option>30</option>
-                                                        <option>31</option>
-                                                        <option>32</option>
-                                                        <option>33</option>
-                                                        <option>34</option>
-                                                        <option>35</option>
-                                                        <option>36</option>
-                                                        <option>37</option>
-                                                        <option>38</option>
-                                                        <option>39</option>
-                                                        <option>40</option>
-                                                        <option>41</option>
-                                                        <option>42</option>
-                                                        <option>43</option>
-                                                        <option>44</option>
-                                                        <option>45</option>
-                                                        <option>46</option>
-                                                        <option>47</option>
-                                                        <option>48</option>
-                                                        <option>49</option>
-                                                        <option>50</option>
-                                                        <option>51</option>
-                                                        <option>52</option>
-                                                        <option>53</option>
-                                                        <option>54</option>
-                                                        <option>55</option>
-                                                        <option>56</option>
-                                                        <option>57</option>
-                                                        <option>58</option>
-                                                        <option>59</option>
-                                                        <option>60</option>
-                                                        <option>61</option>
-                                                        <option>62</option>
-                                                        <option>63</option>
-                                                        <option>64</option>
-                                                        <option>65</option>
-                                                        <option>66</option>
-                                                        <option>67</option>
-                                                        <option>68</option>
-                                                        <option>69</option>
-                                                        <option>70</option>
-                                                        <option>71</option>
-                                                        <option>72</option>
-                                                        <option>73</option>
-                                                        <option>74</option>
-                                                        <option>75</option>
-                                                        <option>76</option>
-                                                        <option>77</option>
-                                                        <option>78</option>
-                                                        <option>79</option>
-                                                        <option>80</option>
-                                                        <option>81</option>
-                                                        <option>82</option>
-                                                        <option>83</option>
-                                                        <option>84</option>
-                                                        <option>85</option>
-                                                        <option>86</option>
-                                                        <option>87</option>
-                                                        <option>88</option>
-                                                        <option>89</option>
-                                                        <option>90</option>
-                                                        <option>91</option>
-                                                        <option>92</option>
-                                                        <option>93</option>
-                                                        <option>94</option>
-                                                        <option>95</option>
-                                                        <option>96</option>
-                                                        <option>97</option>
-                                                        <option>98</option>
-                                                        <option>99</option>
-                                                        <option>100</option>
-                                                        <option>101</option>
-                                                        <option>102</option>
-                                                        <option>103</option>
-                                                        <option>104</option>
-                                                        <option>105</option>
-                                                        <option>106</option>
-                                                        <option>107</option>
-                                                        <option>108</option>
-                                                        <option>109</option>
-                                                        <option>110</option>
-                                                        <option>111</option>
-                                                        <option>112</option>
-                                                        <option>113</option>
-                                                        <option>114</option>
-                                                        <option>115</option>
-                                                        <option>116</option>
-                                                        <option>117</option>
-                                                        <option>118</option>
-                                                        <option>119</option>
-                                                    </select>
-                                                </td>
-                                                <td>
-                                                    <select class="form-control" id="sbf" name="sbf">
-                                                        <option value="0">0</option>
-                                                        <option value="1/16">1/16</option>
-                                                        <option value="1/8">1/8</option>
-                                                        <option value="3/16">3/16</option>
-                                                        <option value="1/4">1/4</option>
-                                                        <option value="5/16">5/16</option>
-                                                        <option value="3/8">3/8</option>
-                                                        <option value="7/16">7/16</option>
-                                                        <option value="1/2">1/2</option>
-                                                        <option value="9/16">9/16</option>
-                                                        <option value="5/8">5/8</option>
-                                                        <option value="11/16">11/16</option>
-                                                        <option value="3/4">3/4</option>
-                                                        <option value="13/16">13/16</option>
-                                                        <option value="7/8">7/8</option>
-                                                        <option value="15/16">15/16</option>
-                                                    </select>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
+                                    <form>
+                                        <label><b>Uzunlugu Qeyd Edin:</b></label>
+                                        <br /><br />
+                                        <input type="number" placeholder="Mesel ucun: 2.5, 22.5 sm" />
+                                        <br /><br />
+                                        <label><b>Enini Qeyd Edin:</b></label>
+                                        <br /><br />
+                                        <input type="number" placeholder="Mesel ucun: 2.5, 22.5 sm" />
+                                        <br />
+                                        <br />
+                                        <input type="submit" value="Davam Et" />
+                                    </form>
                                 </div>
                             </div>
 
@@ -590,278 +88,21 @@
                             <a href="" class="roundbtn">Seçin</a>
                         </div>
                         <div class="measurement d-none" id="roundmea">
-                            <a asp-action="index" asp-controller="glass"><i class="bi bi-arrow-left"></i>BACK TO SHAPE SELECTION</a>
+                            <a asp-action="index" asp-controller="mirror"><i class="bi bi-arrow-left"></i> GERİYƏ DÖN</a>
                             <br>
                             <div class="mt-contain col-12">
                                 <div class="mtimg col-6">
-                                    <img src="~/assets/images/products/mea-sqr.png" alt="">
+                                    <img src="~/assets/images/products/mea-rnd.png" alt="">
                                 </div>
                                 <div class="mt-right col-6">
-                                    <table class="table table-hover">
-                                        <thead><tr><th></th><th>Inches</th><th>Fraction of an Inch</th></tr></thead>
-                                        <tfoot>
-                                            <tr>
-                                                <td colspan="3" class="text-center">
-                                                    <strong>All measurements are in inches</strong>
-                                                    <span class="help-block small">Cutting Tolerance is +/- 1/8"</span>
-
-                                                    <p>
-                                                        <input type="submit" class="btn btn-lg btn-block btn-checkout" value="Continue">
-                                                    </p>
-                                                </td>
-                                            </tr>
-                                        </tfoot>
-                                        <tbody>
-                                            <tr>
-                                                <th scope="row">Width</th>
-                                                <td>
-                                                    <select class="form-control" id="sa" name="sa">
-                                                        <option>3</option>
-                                                        <option>4</option>
-                                                        <option>5</option>
-                                                        <option>6</option>
-                                                        <option>7</option>
-                                                        <option>8</option>
-                                                        <option>9</option>
-                                                        <option>10</option>
-                                                        <option>11</option>
-                                                        <option>12</option>
-                                                        <option>13</option>
-                                                        <option>14</option>
-                                                        <option>15</option>
-                                                        <option>16</option>
-                                                        <option>17</option>
-                                                        <option>18</option>
-                                                        <option>19</option>
-                                                        <option>20</option>
-                                                        <option>21</option>
-                                                        <option>22</option>
-                                                        <option>23</option>
-                                                        <option>24</option>
-                                                        <option>25</option>
-                                                        <option>26</option>
-                                                        <option>27</option>
-                                                        <option>28</option>
-                                                        <option>29</option>
-                                                        <option>30</option>
-                                                        <option>31</option>
-                                                        <option>32</option>
-                                                        <option>33</option>
-                                                        <option>34</option>
-                                                        <option>35</option>
-                                                        <option>36</option>
-                                                        <option>37</option>
-                                                        <option>38</option>
-                                                        <option>39</option>
-                                                        <option>40</option>
-                                                        <option>41</option>
-                                                        <option>42</option>
-                                                        <option>43</option>
-                                                        <option>44</option>
-                                                        <option>45</option>
-                                                        <option>46</option>
-                                                        <option>47</option>
-                                                        <option>48</option>
-                                                        <option>49</option>
-                                                        <option>50</option>
-                                                        <option>51</option>
-                                                        <option>52</option>
-                                                        <option>53</option>
-                                                        <option>54</option>
-                                                        <option>55</option>
-                                                        <option>56</option>
-                                                        <option>57</option>
-                                                        <option>58</option>
-                                                        <option>59</option>
-                                                        <option>60</option>
-                                                        <option>61</option>
-                                                        <option>62</option>
-                                                        <option>63</option>
-                                                        <option>64</option>
-                                                        <option>65</option>
-                                                        <option>66</option>
-                                                        <option>67</option>
-                                                        <option>68</option>
-                                                        <option>69</option>
-                                                        <option>70</option>
-                                                        <option>71</option>
-                                                        <option>72</option>
-                                                        <option>73</option>
-                                                        <option>74</option>
-                                                        <option>75</option>
-                                                        <option>76</option>
-                                                        <option>77</option>
-                                                        <option>78</option>
-                                                        <option>79</option>
-                                                    </select>
-                                                </td>
-                                                <td>
-                                                    <select class="form-control" id="saf" name="saf">
-                                                        <option value="0">0</option>
-                                                        <option value="1/16">1/16</option>
-                                                        <option value="1/8">1/8</option>
-                                                        <option value="3/16">3/16</option>
-                                                        <option value="1/4">1/4</option>
-                                                        <option value="5/16">5/16</option>
-                                                        <option value="3/8">3/8</option>
-                                                        <option value="7/16">7/16</option>
-                                                        <option value="1/2">1/2</option>
-                                                        <option value="9/16">9/16</option>
-                                                        <option value="5/8">5/8</option>
-                                                        <option value="11/16">11/16</option>
-                                                        <option value="3/4">3/4</option>
-                                                        <option value="13/16">13/16</option>
-                                                        <option value="7/8">7/8</option>
-                                                        <option value="15/16">15/16</option>
-                                                    </select>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">Length</th>
-                                                <td>
-                                                    <select class="form-control" id="sb" name="sb">
-                                                        <option>3</option>
-                                                        <option>4</option>
-                                                        <option>5</option>
-                                                        <option>6</option>
-                                                        <option>7</option>
-                                                        <option>8</option>
-                                                        <option>9</option>
-                                                        <option>10</option>
-                                                        <option>11</option>
-                                                        <option>12</option>
-                                                        <option>13</option>
-                                                        <option>14</option>
-                                                        <option>15</option>
-                                                        <option>16</option>
-                                                        <option>17</option>
-                                                        <option>18</option>
-                                                        <option>19</option>
-                                                        <option>20</option>
-                                                        <option>21</option>
-                                                        <option>22</option>
-                                                        <option>23</option>
-                                                        <option>24</option>
-                                                        <option>25</option>
-                                                        <option>26</option>
-                                                        <option>27</option>
-                                                        <option>28</option>
-                                                        <option>29</option>
-                                                        <option>30</option>
-                                                        <option>31</option>
-                                                        <option>32</option>
-                                                        <option>33</option>
-                                                        <option>34</option>
-                                                        <option>35</option>
-                                                        <option>36</option>
-                                                        <option>37</option>
-                                                        <option>38</option>
-                                                        <option>39</option>
-                                                        <option>40</option>
-                                                        <option>41</option>
-                                                        <option>42</option>
-                                                        <option>43</option>
-                                                        <option>44</option>
-                                                        <option>45</option>
-                                                        <option>46</option>
-                                                        <option>47</option>
-                                                        <option>48</option>
-                                                        <option>49</option>
-                                                        <option>50</option>
-                                                        <option>51</option>
-                                                        <option>52</option>
-                                                        <option>53</option>
-                                                        <option>54</option>
-                                                        <option>55</option>
-                                                        <option>56</option>
-                                                        <option>57</option>
-                                                        <option>58</option>
-                                                        <option>59</option>
-                                                        <option>60</option>
-                                                        <option>61</option>
-                                                        <option>62</option>
-                                                        <option>63</option>
-                                                        <option>64</option>
-                                                        <option>65</option>
-                                                        <option>66</option>
-                                                        <option>67</option>
-                                                        <option>68</option>
-                                                        <option>69</option>
-                                                        <option>70</option>
-                                                        <option>71</option>
-                                                        <option>72</option>
-                                                        <option>73</option>
-                                                        <option>74</option>
-                                                        <option>75</option>
-                                                        <option>76</option>
-                                                        <option>77</option>
-                                                        <option>78</option>
-                                                        <option>79</option>
-                                                        <option>80</option>
-                                                        <option>81</option>
-                                                        <option>82</option>
-                                                        <option>83</option>
-                                                        <option>84</option>
-                                                        <option>85</option>
-                                                        <option>86</option>
-                                                        <option>87</option>
-                                                        <option>88</option>
-                                                        <option>89</option>
-                                                        <option>90</option>
-                                                        <option>91</option>
-                                                        <option>92</option>
-                                                        <option>93</option>
-                                                        <option>94</option>
-                                                        <option>95</option>
-                                                        <option>96</option>
-                                                        <option>97</option>
-                                                        <option>98</option>
-                                                        <option>99</option>
-                                                        <option>100</option>
-                                                        <option>101</option>
-                                                        <option>102</option>
-                                                        <option>103</option>
-                                                        <option>104</option>
-                                                        <option>105</option>
-                                                        <option>106</option>
-                                                        <option>107</option>
-                                                        <option>108</option>
-                                                        <option>109</option>
-                                                        <option>110</option>
-                                                        <option>111</option>
-                                                        <option>112</option>
-                                                        <option>113</option>
-                                                        <option>114</option>
-                                                        <option>115</option>
-                                                        <option>116</option>
-                                                        <option>117</option>
-                                                        <option>118</option>
-                                                        <option>119</option>
-                                                    </select>
-                                                </td>
-                                                <td>
-                                                    <select class="form-control" id="sbf" name="sbf">
-                                                        <option value="0">0</option>
-                                                        <option value="1/16">1/16</option>
-                                                        <option value="1/8">1/8</option>
-                                                        <option value="3/16">3/16</option>
-                                                        <option value="1/4">1/4</option>
-                                                        <option value="5/16">5/16</option>
-                                                        <option value="3/8">3/8</option>
-                                                        <option value="7/16">7/16</option>
-                                                        <option value="1/2">1/2</option>
-                                                        <option value="9/16">9/16</option>
-                                                        <option value="5/8">5/8</option>
-                                                        <option value="11/16">11/16</option>
-                                                        <option value="3/4">3/4</option>
-                                                        <option value="13/16">13/16</option>
-                                                        <option value="7/8">7/8</option>
-                                                        <option value="15/16">15/16</option>
-                                                    </select>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
+                                    <form>
+                                        <label><b>Diametri Qeyd Edin:</b></label>
+                                        <br /><br />
+                                        <input type="number" placeholder="Mesel ucun: 2.5, 22.5 sm" />
+                                        <br /><br />
+                                        <br />
+                                        <input type="submit" value="Davam et" />
+                                    </form>
                                 </div>
                             </div>
                         </div>
@@ -873,278 +114,25 @@
                             <a href="" class="ovalbtn">Seçin</a>
                         </div>
                         <div class="measurement d-none" id="ovalmea">
-                            <a asp-action="index" asp-controller="glass"><i class="bi bi-arrow-left"></i>BACK TO SHAPE SELECTION</a>
+                            <a asp-action="index" asp-controller="mirror"><i class="bi bi-arrow-left"></i> GERİYƏ DÖN</a>
                             <br>
                             <div class="mt-contain col-12">
                                 <div class="mtimg col-6">
-                                    <img src="~/assets/images/products/mea-sqr.png" alt="">
+                                    <img src="~/assets/images/products/mea-ovl.png" alt="">
                                 </div>
                                 <div class="mt-right col-6">
-                                    <table class="table table-hover">
-                                        <thead><tr><th></th><th>Inches</th><th>Fraction of an Inch</th></tr></thead>
-                                        <tfoot>
-                                            <tr>
-                                                <td colspan="3" class="text-center">
-                                                    <strong>All measurements are in inches</strong>
-                                                    <span class="help-block small">Cutting Tolerance is +/- 1/8"</span>
-
-                                                    <p>
-                                                        <input type="submit" class="btn btn-lg btn-block btn-checkout" value="Continue">
-                                                    </p>
-                                                </td>
-                                            </tr>
-                                        </tfoot>
-                                        <tbody>
-                                            <tr>
-                                                <th scope="row">Width</th>
-                                                <td>
-                                                    <select class="form-control" id="sa" name="sa">
-                                                        <option>3</option>
-                                                        <option>4</option>
-                                                        <option>5</option>
-                                                        <option>6</option>
-                                                        <option>7</option>
-                                                        <option>8</option>
-                                                        <option>9</option>
-                                                        <option>10</option>
-                                                        <option>11</option>
-                                                        <option>12</option>
-                                                        <option>13</option>
-                                                        <option>14</option>
-                                                        <option>15</option>
-                                                        <option>16</option>
-                                                        <option>17</option>
-                                                        <option>18</option>
-                                                        <option>19</option>
-                                                        <option>20</option>
-                                                        <option>21</option>
-                                                        <option>22</option>
-                                                        <option>23</option>
-                                                        <option>24</option>
-                                                        <option>25</option>
-                                                        <option>26</option>
-                                                        <option>27</option>
-                                                        <option>28</option>
-                                                        <option>29</option>
-                                                        <option>30</option>
-                                                        <option>31</option>
-                                                        <option>32</option>
-                                                        <option>33</option>
-                                                        <option>34</option>
-                                                        <option>35</option>
-                                                        <option>36</option>
-                                                        <option>37</option>
-                                                        <option>38</option>
-                                                        <option>39</option>
-                                                        <option>40</option>
-                                                        <option>41</option>
-                                                        <option>42</option>
-                                                        <option>43</option>
-                                                        <option>44</option>
-                                                        <option>45</option>
-                                                        <option>46</option>
-                                                        <option>47</option>
-                                                        <option>48</option>
-                                                        <option>49</option>
-                                                        <option>50</option>
-                                                        <option>51</option>
-                                                        <option>52</option>
-                                                        <option>53</option>
-                                                        <option>54</option>
-                                                        <option>55</option>
-                                                        <option>56</option>
-                                                        <option>57</option>
-                                                        <option>58</option>
-                                                        <option>59</option>
-                                                        <option>60</option>
-                                                        <option>61</option>
-                                                        <option>62</option>
-                                                        <option>63</option>
-                                                        <option>64</option>
-                                                        <option>65</option>
-                                                        <option>66</option>
-                                                        <option>67</option>
-                                                        <option>68</option>
-                                                        <option>69</option>
-                                                        <option>70</option>
-                                                        <option>71</option>
-                                                        <option>72</option>
-                                                        <option>73</option>
-                                                        <option>74</option>
-                                                        <option>75</option>
-                                                        <option>76</option>
-                                                        <option>77</option>
-                                                        <option>78</option>
-                                                        <option>79</option>
-                                                    </select>
-                                                </td>
-                                                <td>
-                                                    <select class="form-control" id="saf" name="saf">
-                                                        <option value="0">0</option>
-                                                        <option value="1/16">1/16</option>
-                                                        <option value="1/8">1/8</option>
-                                                        <option value="3/16">3/16</option>
-                                                        <option value="1/4">1/4</option>
-                                                        <option value="5/16">5/16</option>
-                                                        <option value="3/8">3/8</option>
-                                                        <option value="7/16">7/16</option>
-                                                        <option value="1/2">1/2</option>
-                                                        <option value="9/16">9/16</option>
-                                                        <option value="5/8">5/8</option>
-                                                        <option value="11/16">11/16</option>
-                                                        <option value="3/4">3/4</option>
-                                                        <option value="13/16">13/16</option>
-                                                        <option value="7/8">7/8</option>
-                                                        <option value="15/16">15/16</option>
-                                                    </select>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">Length</th>
-                                                <td>
-                                                    <select class="form-control" id="sb" name="sb">
-                                                        <option>3</option>
-                                                        <option>4</option>
-                                                        <option>5</option>
-                                                        <option>6</option>
-                                                        <option>7</option>
-                                                        <option>8</option>
-                                                        <option>9</option>
-                                                        <option>10</option>
-                                                        <option>11</option>
-                                                        <option>12</option>
-                                                        <option>13</option>
-                                                        <option>14</option>
-                                                        <option>15</option>
-                                                        <option>16</option>
-                                                        <option>17</option>
-                                                        <option>18</option>
-                                                        <option>19</option>
-                                                        <option>20</option>
-                                                        <option>21</option>
-                                                        <option>22</option>
-                                                        <option>23</option>
-                                                        <option>24</option>
-                                                        <option>25</option>
-                                                        <option>26</option>
-                                                        <option>27</option>
-                                                        <option>28</option>
-                                                        <option>29</option>
-                                                        <option>30</option>
-                                                        <option>31</option>
-                                                        <option>32</option>
-                                                        <option>33</option>
-                                                        <option>34</option>
-                                                        <option>35</option>
-                                                        <option>36</option>
-                                                        <option>37</option>
-                                                        <option>38</option>
-                                                        <option>39</option>
-                                                        <option>40</option>
-                                                        <option>41</option>
-                                                        <option>42</option>
-                                                        <option>43</option>
-                                                        <option>44</option>
-                                                        <option>45</option>
-                                                        <option>46</option>
-                                                        <option>47</option>
-                                                        <option>48</option>
-                                                        <option>49</option>
-                                                        <option>50</option>
-                                                        <option>51</option>
-                                                        <option>52</option>
-                                                        <option>53</option>
-                                                        <option>54</option>
-                                                        <option>55</option>
-                                                        <option>56</option>
-                                                        <option>57</option>
-                                                        <option>58</option>
-                                                        <option>59</option>
-                                                        <option>60</option>
-                                                        <option>61</option>
-                                                        <option>62</option>
-                                                        <option>63</option>
-                                                        <option>64</option>
-                                                        <option>65</option>
-                                                        <option>66</option>
-                                                        <option>67</option>
-                                                        <option>68</option>
-                                                        <option>69</option>
-                                                        <option>70</option>
-                                                        <option>71</option>
-                                                        <option>72</option>
-                                                        <option>73</option>
-                                                        <option>74</option>
-                                                        <option>75</option>
-                                                        <option>76</option>
-                                                        <option>77</option>
-                                                        <option>78</option>
-                                                        <option>79</option>
-                                                        <option>80</option>
-                                                        <option>81</option>
-                                                        <option>82</option>
-                                                        <option>83</option>
-                                                        <option>84</option>
-                                                        <option>85</option>
-                                                        <option>86</option>
-                                                        <option>87</option>
-                                                        <option>88</option>
-                                                        <option>89</option>
-                                                        <option>90</option>
-                                                        <option>91</option>
-                                                        <option>92</option>
-                                                        <option>93</option>
-                                                        <option>94</option>
-                                                        <option>95</option>
-                                                        <option>96</option>
-                                                        <option>97</option>
-                                                        <option>98</option>
-                                                        <option>99</option>
-                                                        <option>100</option>
-                                                        <option>101</option>
-                                                        <option>102</option>
-                                                        <option>103</option>
-                                                        <option>104</option>
-                                                        <option>105</option>
-                                                        <option>106</option>
-                                                        <option>107</option>
-                                                        <option>108</option>
-                                                        <option>109</option>
-                                                        <option>110</option>
-                                                        <option>111</option>
-                                                        <option>112</option>
-                                                        <option>113</option>
-                                                        <option>114</option>
-                                                        <option>115</option>
-                                                        <option>116</option>
-                                                        <option>117</option>
-                                                        <option>118</option>
-                                                        <option>119</option>
-                                                    </select>
-                                                </td>
-                                                <td>
-                                                    <select class="form-control" id="sbf" name="sbf">
-                                                        <option value="0">0</option>
-                                                        <option value="1/16">1/16</option>
-                                                        <option value="1/8">1/8</option>
-                                                        <option value="3/16">3/16</option>
-                                                        <option value="1/4">1/4</option>
-                                                        <option value="5/16">5/16</option>
-                                                        <option value="3/8">3/8</option>
-                                                        <option value="7/16">7/16</option>
-                                                        <option value="1/2">1/2</option>
-                                                        <option value="9/16">9/16</option>
-                                                        <option value="5/8">5/8</option>
-                                                        <option value="11/16">11/16</option>
-                                                        <option value="3/4">3/4</option>
-                                                        <option value="13/16">13/16</option>
-                                                        <option value="7/8">7/8</option>
-                                                        <option value="15/16">15/16</option>
-                                                    </select>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
+                                    <form>
+                                        <label><b>Uzunlugu Qeyd Edin:</b></label>
+                                        <br /><br />
+                                        <input type="number" placeholder="Mesel ucun: 2.5, 22.5 sm" />
+                                        <br /><br />
+                                        <label><b>Enini Qeyd Edin:</b></label>
+                                        <br /><br />
+                                        <input type="number" placeholder="Mesel ucun: 2.5, 22.5 sm" />
+                                        <br />
+                                        <br />
+                                        <input type="submit" value="Davam Et" />
+                                    </form>
                                 </div>
                             </div>
                         </div>
@@ -1194,8 +182,6 @@
             </div>
         </div>
     </section>
-
-   
 
     <section id="about">
         <div class="container">
@@ -1272,49 +258,22 @@
                 </div>
                 <div class="edgetype-right col-8">
                     <h3>
-                        Edge Types for Custom Mirrors
+                        Xüsusi güzgülər üçün kənar növləri
                     </h3>
                     <br>
-                    <p>We recommend several edge types for your custom mirror. You'll choose these options during the customization step of ordering your mirror.</p>
+                    <p>Fərdi güzgü üçün bir neçə kənar növləri tövsiyə edirik. Güzgü sifarişinin fərdiləşdirmə mərhələsində bu seçimləri seçəcəksiniz.</p>
                     <br>
                     <ul>
                         <li>
-                            <p><b>Flat Polish Edge: </b> In this application the edges of the mirror have been polished to a smooth shiny finish. Choose a flat polish when the edges of your mirror are visible and you prefer a minimalistic look.</p>
+                            <p><b>Düz hamar kənar: </b> Bu tətbiqdə güzgünün kənarları hamar bir parlaq bitirmə üçün cilalanmışdır. Güzgünüzün kənarları görünən və minimalist görünüşə üstünlük verdiyiniz zaman düz cila seçin.</p>
                         </li>
                         <li>
-                            <p><b>Beveled Polish Edge: </b>In this edge type the edges of the mirror are cut and polished in an angle with a specific bevel width to produce a certain "look". This process leaves the mirror thinner around the edges and thicker in the center. This is normally used in places where the mirror is a focal point in the room. The bevel width around the mirror can range in size from 1/4" to 1 3/4". Please choose your bevel width during the customization step of your order.</p>
+                            <p><b>Əyilmiş hamar kənar: </b>Bu kənar tipində güzgünün kənarları müəyyən bir "görünüş" yaratmaq üçün müəyyən bir əyilmə eni ilə bucaq altında kəsilir və cilalanır. Bu proses güzgünün kənarlarını daha incə, mərkəzdə isə daha qalın edir. Bu, adətən güzgünün otaqda diqqət mərkəzində olduğu yerlərdə istifadə olunur. Güzgü ətrafındakı əyilmə eni 1/4" ilə 1 3/4" arasında dəyişə bilər. Zəhmət olmasa, sifarişinizin fərdiləşdirmə mərhələsində əyilmə eninizi seçin.</p>
                         </li>
                         <li>
-                            <p><b>Seamed Edge: </b> In this application, after the mirror is cut the edges are sanded to dull the sharp edges. This is to make the mirror safe to handle. Choose a seamed edge if the mirror is to be framed and in applications where the edges are not visible.</p>
+                            <p><b>Dikişli kənar: </b> Bu tətbiqdə güzgü kəsildikdən sonra iti kənarları tutqunlaşdırmaq üçün kənarları zımparalanır. Bu güzgünün idarə olunmasını təhlükəsiz etmək üçündür. Güzgü çərçivəyə salınacaqsa və kənarların görünməyən tətbiqlərdə tikişli kənarı seçin.</p>
                         </li>
                     </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="safety">
-        <div class="container">
-            <div class="row">
-                <div class="safety-left col-8">
-                    <h3>Safety Backing for Your Custom Mirror</h3>
-                    <br>
-                    <p>Safety backing is a custom option you can choose when ordering your custom mirror. Here are a few facts about safety backing that will help you decide if you need it.</p>
-                    <br>
-                    <ul>
-                        <li>
-                            <p>If your mirror breaks, glass fragments are held in place to reduce the risk of injury from shattered glass. This also makes cleanup easier.</p>
-                        </li>
-                        <li>
-                            <p>Strengthens the mirror overall so that if an object strikes the mirror, it is more durable against breakage.</p>
-                        </li>
-                        <li>
-                            <p>Safety backing prevents moisture entrapment to keep mirror from delamination.</p>
-                        </li>
-                    </ul>
-                </div>
-                <div class="safety-right col-4">
-                    <img src="~/assets/images/technica/fotosel.jpg" alt="">
                 </div>
             </div>
         </div>
@@ -1322,48 +281,45 @@
 
     <section id="installation">
         <div class="container">
-            <h2>Custom Mirror Installation</h2>
+            <h2>Güzgü Quraşdırılması</h2>
             <br>
-            <p>You have several choices for installing your custom mirror. In general, you will need to be sure to install your mirror on a sturdy part of your wall (on studs if you can). Typically, we recommend that our customers use mirror mastic and either decorative clips or j-bars to install their mirror, for extra support.</p>
+            <p>Fərdi güzgü quraşdırmaq üçün bir neçə seçiminiz var. Ümumiyyətlə, güzgünüzü divarınızın möhkəm hissəsinə (mümkünsə, dirəklərə) quraşdırmağınızdan əmin olmalısınız. Tipik olaraq, müştərilərimizə əlavə dəstək üçün güzgü mastikasından və ya dekorativ kliplərdən və ya j-barlardan istifadə etməyi tövsiyə edirik.</p>
             <br>
             <div class="row">
                 <div class="inst-left col-8">
-                    <h4>Mirror Mastic:</h4>
+                    <h4>Güzgü Mastikası:</h4>
                     <ul>
                         <li>
-                            <p>Provides tight and permanent bond.</p>
+                            <p>Sıx və qalıcı bir əlaqə təmin edir.</p>
                         </li>
                         <li>
-                            <p>Perfect for DIY projects.</p>
+                            <p>DIY layihələri üçün mükəmməldir.</p>
                         </li>
                         <li>
-                            <p>Can be used in high humidity areas (30° up to 100°F).</p>
+                            <p>Yüksək rütubətli yerlərdə (30°-dən 100°F-ə qədər) istifadə edilə bilər.</p>
                         </li>
                         <li>
-                            <p>Environmentally friendly & low emitting material.</p>
+                            <p>Ekoloji cəhətdən təmiz və az emissiya edən material.</p>
                         </li>
                     </ul>
                     <br>
-                    <h4>Decorative Clips:</h4>
+                    <h4>Dekorativ kliplər:</h4>
                     <ul>
                         <li>
-                            <p>Install on corners or sides of lighter weight mirrors.</p>
+                            <p>Daha yüngül çəkidə olan güzgülərin künclərinə və ya yanlarına quraşdırın.</p>
                         </li>
                         <li>
-                            <p>Installation screws and anchors are included.</p>
-                        </li>
-                        <li>
-                            <p>Come in three finishes: chrome, brass, and brushed nickel.</p>
+                            <p>Quraşdırma vintləri və ankerlər daxildir.</p>
                         </li>
                     </ul>
                     <br>
                     <h4>J-bars or L-bars</h4>
                     <ul>
                         <li>
-                            <p>Used to support the top or bottom of a heavier mirror.</p>
+                            <p>Daha ağır bir güzgünün üst və ya alt hissəsini dəstəkləmək üçün istifadə olunur.</p>
                         </li>
                         <li>
-                            <p>Available in three finishes: chrome, brushed nickel and brass</p>
+                            <p>Üç rəngdə mövcuddur: xrom, fırçalanmış nikel və mis</p>
                         </li>
                     </ul>
                 </div>

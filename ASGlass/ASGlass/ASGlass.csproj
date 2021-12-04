@@ -19,6 +19,10 @@
     <Compile Remove="Migrations\20211129164129_AddSomeItemsInAccessory.Designer.cs" />
     <Compile Remove="Migrations\20211129164444_AddSomeItemsInAccessory.cs" />
     <Compile Remove="Migrations\20211129164444_AddSomeItemsInAccessory.Designer.cs" />
+    <Compile Remove="Migrations\20211201154818_CreateTenModels.cs" />
+    <Compile Remove="Migrations\20211201154818_CreateTenModels.Designer.cs" />
+    <Compile Remove="Migrations\20211204132455_CreateTenTable.cs" />
+    <Compile Remove="Migrations\20211204132455_CreateTenTable.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

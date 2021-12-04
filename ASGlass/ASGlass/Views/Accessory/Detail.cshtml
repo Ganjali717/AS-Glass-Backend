@@ -1,141 +1,145 @@
-﻿@model Accessory
-<main id="accessdetail">
-    <section id="accdetail-head">
-        <div class="container">
-            <div class="row">
-                <div class="accdetail-head-left col-5">
-                    <img src="~/assets/images/accessories/@Model.Image" alt="">
-                </div>
-                <div class="accdetail-head-right col-6">
-                    <h3>@Model.Name</h3>
-                    <br>
-                    <small>11 Reviews 6 Questions \ 6 Answers</small>
-                    <br>
-                    <p>SKU: IC80HV-20GR</p>
-                    <br>
-                    <p>$@Model.DiscountPrice <span>$@Model.Price</span></p>
-                    <span>Count:</span>
-                    <select name="" id="acccount">
-                        <option value="">1</option>
-                        <option value="">2</option>
-                        <option value="">3</option>
-                        <option value="">4</option>
-                        <option value="">5</option>
-                        <option value="">6</option>
-                        <option value="">7</option>
-                        <option value="">8</option>
-                        <option value="">9</option>
-                        <option value="">10</option>
-                        <option value="">11</option>
-                        <option value="">12</option>
-                        <option value="">13</option>
-                        <option value="">14</option>
-                        <option value="">15</option>
-                        <option value="">16</option>
-                    </select>
-                    <br>
-                    <a href="" class="accdetail-btn">ADD TO CARD</a>
-                    <br>
-                    <p><b>Aviability:</b> In stock, leaves warehouse in 1-3 business days.</p>
-                    <br>
-                    <a href="">Need to buy bulk?</a>
-                </div>
-            </div>
-        </div>
-
-    </section>
-
-    <section id="accdetail-body">
-        <div class="container">
-            <div class="column">
-                <h4>Product Description</h4>
-                <br>
-                <b>Professional-Grade Decorative Glass Glue for Construction Projects</b>
-                <br><br>
-                <p>
-                   @Model.Desc
-                </p>
-                <br>
-                <b>Features: </b>
-                <br>
-                <ul>
-                    <li>100% safe</li>
-                    <li>High viscosity</li>
-                    <li>Easy to use</li>
-                    <li>Invisible liquid</li>
-                    <li>Ideal for load bearing projects</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <section id="advertising">
-        <div class="container">
-            <div class="adv-item">
-                <h1>Sənin Güzgün, </h1>
-                <h1 class="adv-txt">Sənin Yolun</h1>
-            </div>
-        </div>
-    </section>
-
-    <section id="blog">
-        <div class="container">
-            <h1>From the Blog</h1>
-            <div class="column">
-                <div class="blog-head col-12">
-                    <div class="blog-head-item col-5">
-                        <img src="~/assets/images/blog/glass-ideas-for-home-and-office.png" alt="">
-                        <br><br>
-                        <a href="">Office Glass Ideas for Home & Business</a>
-                        <br><br>
-                        <p>
-                            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odio fuga accusamus fugiat
-                            atque ex quibusdam consequuntur ab consectetur, repellendus obcaecati, harum saepe
-                            eligendi aperiam..
-                        </p>
+﻿@model Product
+@if (Model.IsAccessory == true)
+{
+    <main id="accessdetail">
+        <section id="accdetail-head">
+            <div class="container">
+                <div class="row">
+                    <div class="accdetail-head-left col-5">
+                        <img src="~/assets/images/accessories/@Model.Image" alt="">
                     </div>
-                    <div class="blog-head-item col-5">
-                        <img src="~/assets/images/blog/foam-mirror-diy.png" alt="">
-                        <br><br>
-                        <a href="">Summer DIY Trend - Foam Mirrors</a>
-                        <br><br>
-                        <p>
-                            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odio fuga accusamus fugiat
-                            atque ex quibusdam consequuntur ab consectetur, repellendus obcaecati, harum saepe
-                            eligendi aperiam..
-                        </p>
-                    </div>
-                </div>
-                <div class="blog-body col-12">
-                    <div class="blog-body-item col-4">
-                        <i class="bi bi-sliders"></i>
+                    <div class="accdetail-head-right col-6">
+                        <h3>@Model.Name</h3>
                         <br>
-                        <h4>Customization</h4>
+                        <small>11 Reviews 6 Questions \ 6 Answers</small>
                         <br>
-                        <span></span>
+                        <p>SKU: IC80HV-20GR</p>
                         <br>
-                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tempore, magni!</p>
-                    </div>
-                    <div class="blog-body-item col-4">
-                        <i class="bi bi-currency-dollar"></i>
+                        <p>$@Model.DiscountPrice <span>$@Model.Price</span></p>
+                        <span>Count:</span>
+                        <select name="" id="acccount">
+                            <option value="">1</option>
+                            <option value="">2</option>
+                            <option value="">3</option>
+                            <option value="">4</option>
+                            <option value="">5</option>
+                            <option value="">6</option>
+                            <option value="">7</option>
+                            <option value="">8</option>
+                            <option value="">9</option>
+                            <option value="">10</option>
+                            <option value="">11</option>
+                            <option value="">12</option>
+                            <option value="">13</option>
+                            <option value="">14</option>
+                            <option value="">15</option>
+                            <option value="">16</option>
+                        </select>
                         <br>
-                        <h4>Customization</h4>
+                        <a href="" class="accdetail-btn">ADD TO CARD</a>
                         <br>
-                        <span></span>
+                        <p><b>Aviability:</b> In stock, leaves warehouse in 1-3 business days.</p>
                         <br>
-                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tempore, magni!</p>
-                    </div>
-                    <div class="blog-body-item col-4">
-                        <i class="bi bi-truck"></i>
-                        <br>
-                        <h4>Customization</h4>
-                        <br>
-                        <span></span>
-                        <br>
-                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tempore, magni!</p>
+                        <a href="">Need to buy bulk?</a>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-</main>
+
+        </section>
+
+        <section id="accdetail-body">
+            <div class="container">
+                <div class="column">
+                    <h4>Product Description</h4>
+                    <br>
+                    <b>Professional-Grade Decorative Glass Glue for Construction Projects</b>
+                    <br><br>
+                    <p>
+                        @Model.Desc
+                    </p>
+                    <br>
+                    <b>Features: </b>
+                    <br>
+                    <ul>
+                        <li>100% safe</li>
+                        <li>High viscosity</li>
+                        <li>Easy to use</li>
+                        <li>Invisible liquid</li>
+                        <li>Ideal for load bearing projects</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="advertising">
+            <div class="container">
+                <div class="adv-item">
+                    <h1>Sənin Güzgün, </h1>
+                    <h1 class="adv-txt">Sənin Yolun</h1>
+                </div>
+            </div>
+        </section>
+
+        <section id="blog">
+            <div class="container">
+                <h1>From the Blog</h1>
+                <div class="column">
+                    <div class="blog-head col-12">
+                        <div class="blog-head-item col-5">
+                            <img src="~/assets/images/blog/glass-ideas-for-home-and-office.png" alt="">
+                            <br><br>
+                            <a href="">Office Glass Ideas for Home & Business</a>
+                            <br><br>
+                            <p>
+                                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odio fuga accusamus fugiat
+                                atque ex quibusdam consequuntur ab consectetur, repellendus obcaecati, harum saepe
+                                eligendi aperiam..
+                            </p>
+                        </div>
+                        <div class="blog-head-item col-5">
+                            <img src="~/assets/images/blog/foam-mirror-diy.png" alt="">
+                            <br><br>
+                            <a href="">Summer DIY Trend - Foam Mirrors</a>
+                            <br><br>
+                            <p>
+                                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odio fuga accusamus fugiat
+                                atque ex quibusdam consequuntur ab consectetur, repellendus obcaecati, harum saepe
+                                eligendi aperiam..
+                            </p>
+                        </div>
+                    </div>
+                    <div class="blog-body col-12">
+                        <div class="blog-body-item col-4">
+                            <i class="bi bi-sliders"></i>
+                            <br>
+                            <h4>Customization</h4>
+                            <br>
+                            <span></span>
+                            <br>
+                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tempore, magni!</p>
+                        </div>
+                        <div class="blog-body-item col-4">
+                            <i class="bi bi-currency-dollar"></i>
+                            <br>
+                            <h4>Customization</h4>
+                            <br>
+                            <span></span>
+                            <br>
+                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tempore, magni!</p>
+                        </div>
+                        <div class="blog-body-item col-4">
+                            <i class="bi bi-truck"></i>
+                            <br>
+                            <h4>Customization</h4>
+                            <br>
+                            <span></span>
+                            <br>
+                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tempore, magni!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+}
+

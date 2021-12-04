@@ -22,11 +22,12 @@ namespace ASGlass.Controllers
         }
         public IActionResult Index()
         {
+            
             HomeViewModel homeVM = new HomeViewModel
             {
                 Sliders = _context.Sliders.ToList(), 
-                Categories = _context.Categories.ToList(), 
-                Accessories = _context.Accessories.ToList()
+                Categories = _context.Categories.ToList(),
+                Products = _context.Products.ToList()
             };
             return View(homeVM);
         }

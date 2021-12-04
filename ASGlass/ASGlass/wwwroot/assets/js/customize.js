@@ -6,5 +6,5 @@ typeitem.forEach(x => x.addEventListener('click', function (e)
     let inputs = document.querySelector('.gl-type-item #checkitem');
 
      inputs.toggleAttribute("checked");
-    
+     
 }))

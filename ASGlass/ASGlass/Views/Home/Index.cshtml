@@ -58,7 +58,7 @@
             <br />
             <br />
             <div class="row">
-                @foreach (var card in Model.Categories)
+                @foreach (var card in Model.Categories.Take(3))
                 {
                     <div class="card-item col-3">
                         <h3>@card.Name</h3>
@@ -143,17 +143,20 @@
         <div class="container">
             <h2>AKSESUARLAR</h2>
             <div class="row">
-                @foreach (var acc in Model.Accessories.Take(3))
+                @foreach (var acc in Model.Products.Take(3))
                 {
-                    <div class="acs-items col-3">
-                        <h4><a asp-route-id="@acc.Id" asp-action="detail" asp-controller="accessory">@acc.Name</a></h4>
-                        <p>"@acc.Desc.Substring(0, 150) ...."</p>
-                        <img src="~/assets/images/accessories/@acc.Image" alt="">
-                        <br><br>
-                        <a asp-route-id="@acc.Id" asp-action="detail" asp-controller="accessory" class="acs-btn">SHOP NOW</a>
-                    </div>
-                }
+                    @if (acc.IsAccessory == true)
+                    {
+                        <div class="acs-items col-3">
+                            <h4><a asp-route-id="@acc.Id" asp-action="detail" asp-controller="accessory">@acc.Name</a></h4>
+                            <p>"@acc.Desc.Substring(0, 150) ...."</p>
+                            <img src="~/assets/images/accessories/@acc.Image" alt="">
+                            <br><br>
+                            <a asp-route-id="@acc.Id" asp-action="detail" asp-controller="accessory" class="acs-btn">SHOP NOW</a>
+                        </div>
+                    }
 
+                }
             </div>
         </div>
     </section>
