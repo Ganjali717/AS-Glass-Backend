@@ -1,7 +1,9 @@
 ﻿using ASGlass.DAL;
 using ASGlass.Models;
 using ASGlass.ViewModels;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -13,10 +15,12 @@ namespace ASGlass.Controllers
     public class ShopController : Controller
     {
         private readonly AppDbContext _context;
+        private readonly UserManager<AppUser> _userManager;
 
-        public ShopController(AppDbContext context)
+        public ShopController(AppDbContext context, UserManager<AppUser> userManager)
         {
             _context = context;
+            _userManager = userManager;
         }
         public IActionResult Index()
         {
@@ -43,31 +47,68 @@ namespace ASGlass.Controllers
             CartViewModel cartVM = null;
             List<CartViewModel> products = new List<CartViewModel>();
 
-            string productStr;
+            if (product == null) return RedirectToAction("index", "error");
 
-            if (HttpContext.Request.Cookies["Products"] != null)
+            AppUser member = null;
+
+            if (User.Identity.IsAuthenticated)
             {
-                productStr = HttpContext.Request.Cookies["Products"];
-                products = JsonConvert.DeserializeObject<List<CartViewModel>>(productStr);
-
-                cartVM = products.FirstOrDefault(x => x.ProductId == id);
+                member = _userManager.Users.FirstOrDefault(x => x.UserName == User.Identity.Name && !x.IsAdmin);
             }
 
-            if (cartVM == null)
+            if (member == null)
             {
-                cartVM = new CartViewModel
+                string productStr;
+
+                if (HttpContext.Request.Cookies["Products"] != null)
                 {
-                    ProductId = product.Id,
-                    Name = product.Name,
-                    Image = product.Image,
-                    Price = product.Price,
-                    DiscountPrice = product.DiscountPrice,
-                    IsAccessory = product.IsAccessory
-                };
-                products.Add(cartVM);
+                    productStr = HttpContext.Request.Cookies["Products"];
+                    products = JsonConvert.DeserializeObject<List<CartViewModel>>(productStr);
+
+                    cartVM = products.FirstOrDefault(x => x.ProductId == id);
+                }
+
+                if (cartVM == null)
+                {
+                    cartVM = new CartViewModel
+                    {
+                        ProductId = product.Id,
+                        Name = product.Name,
+                        Image = product.Image,
+                        Price = product.Price,
+                        DiscountPrice = product.DiscountPrice,
+                        IsAccessory = product.IsAccessory
+                    };
+                    products.Add(cartVM);
+                }
+                productStr = JsonConvert.SerializeObject(products);
+                HttpContext.Response.Cookies.Append("Products", productStr);
             }
-            productStr = JsonConvert.SerializeObject(products);
-            HttpContext.Response.Cookies.Append("Products", productStr);
+            else
+            {
+                CartItem cartItem = _context.CartItems.FirstOrDefault(x => x.AppUserId == member.Id && x.ProductId == id);
+                if (cartItem == null)
+                {
+                    cartItem = new CartItem
+                    {
+                        AppUserId = member.Id,
+                        ProductId = id,
+                        Count = 1,
+
+                    };
+                    _context.CartItems.Add(cartItem);
+                }
+                else
+                {
+                    cartItem.Count++;
+                }
+
+                _context.SaveChanges();
+                products = _context.CartItems.Include(x => x.Product).Where(x => x.AppUserId == member.Id)
+                    .Select(x => new CartViewModel { ProductId = x.ProductId, Name = x.Product.Name, Price = x.Product.Price, DiscountPrice = x.Product.DiscountPrice, Image = x.Product.Image }).ToList();
+            }
+
+            
 
             return RedirectToAction("index", "shop");
         }

@@ -1,4 +1,10 @@
-﻿<main id="registration">
+﻿@model MemberRegisterViewModel
+@{
+    ViewData["Title"] = "Register";
+}
+
+
+<main id="registration">
     <section id="register">
         <div class="container">
             <div class="column">
@@ -7,33 +13,39 @@
                 </div>
                 <hr>
                 <div class="register-body col-12">
-                    <form action="">
+                    <form method="post">
                         <div class="register-left col-5">
-                            <label for="ad">Ad*:</label>
-                            <input type="text" name="ad" placeholder="Adinizi daxil edin" required>
+                            <label asp-for="FullName">Ad ve Soyad*:</label>
+                            <input asp-for="FullName" type="text"  placeholder="Adinizi daxil edin" id="FullName">
+                            <span class="text-danger" asp-validation-for="FullName"></span>
+
                             <br>
-                            <label for="soyad">Soyad*:</label>
-                            <input type="text" name="soyad" placeholder="Soyadinizi daxil edin" required>
+                            <label asp-for="UserName">Istifadeci Adi*:</label>
+                            <input asp-for="UserName" type="text"  placeholder="Soyadinizi daxil edin" id="UserName">
+                            <span class="text-danger" asp-validation-for="UserName"></span>
+
                             <br>
-                            <label for="tel">Nomrenizi daxil edin*:</label>
-                            <input type="tel" name="tel" placeholder="(+994)**-***-**-**" pattern="[0-9]{3}-[0-9]{3}-[0-9]{2}-[0-9]{2}" required>
-                            <br>
-                            <label for="sifre">Sifrenizi daxil*:</label>
-                            <input type="password" name="sifre" id="">
+                            <label asp-for="Phone">Nomrenizi daxil edin*:</label>
+                            <input asp-for="Phone" type="tel"  placeholder="(+994)**-***-**-**">
+
                         </div>
                         <div class="register-right col-5">
-                            <label for="email">Emailinizi daxil edin*:</label>
-                            <input type="email" name="email" placeholder="Emaili daxil edin">
+                            <label asp-for="Email">Emailinizi daxil edin*:</label>
+                            <input asp-for="Email" type="email" id="Email" placeholder="Emaili daxil edin">
+                            <span class="text-danger" asp-validation-for="Email"></span>
+
                             <br>
-                            <label for="wirket">Wirket adini daxil edin</label>
-                            <input type="text" name="wirket" placeholder="Wirket adini daxil edin">
+                            <label asp-for="Password">Sifrenizi daxil edin*:</label>
+                            <input asp-for="Password" type="password" id="password">
+                            <span class="text-danger" asp-validation-for="Password"></span>
+
                             <br>
-                            <label for="unvan">Unvan daxil edin*:</label>
-                            <input type="text" name="unvan" placeholder="Unvan daxil edin">
+                            <label asp-for="ConfirmPassword">Sifrenizi tekrarliyin*:</label>
+                            <input asp-for="ConfirmPassword" type="password"  id="ConfirmPassword">
+                            <span class="text-danger" asp-validation-for="ConfirmPassword"></span>
+
                             <br>
-                            <label for="sifre">Sifrenizi tekrarliyin*:</label>
-                            <input type="password" name="sifre" id="">
-                            <br>
+                            <div class="text-danger" asp-validation-summary="ModelOnly"></div>
                             <br>
                             <input type="submit" placeholder="Qeydiyyat" value="Qeydiyyat">
 

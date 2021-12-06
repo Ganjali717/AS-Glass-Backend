@@ -11322,7 +11322,7 @@ header {
         header #navbar .container .row .header-shop-cart .login-container {
           position: absolute;
           width: 300px;
-          background-color: rgba(255, 255, 255, 0.918);
+          background-color: white;
           border-radius: 15px;
           padding: 15px;
           z-index: 9999;

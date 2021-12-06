@@ -1,7 +1,11 @@
 ﻿@inject LayoutService service
+@inject UserManager<AppUser> userManager
 
-@{ 
+@{
     Setting setting = service.GetSetting();
+    List<CartViewModel> cartVM = service.GetCartItems();
+
+    AppUser member = User.Identity.IsAuthenticated ? userManager.Users.FirstOrDefault(x => x.UserName == User.Identity.Name && !x.IsAdmin) : null;
 }
 
 <!DOCTYPE html>
@@ -12,7 +16,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AS Glass Azerbaijan</title>
-    <link href="~/assets/images/logo/headlogo.png"   rel="shortcut icon" type="image/x-icon">
+    <link href="~/assets/images/logo/headlogo.png" rel="shortcut icon" type="image/x-icon">
     <link rel="stylesheet" href="~/assets/css/style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -47,7 +51,7 @@
                     <div class="logo col-4">
                         <a asp-action="index" asp-controller="home">
                             <img src="~/assets/images/logo/tamlogo2.png" alt="">
-                           
+
                         </a>
                     </div>
                     <div class="input-group mb-3 col-5">
@@ -67,7 +71,7 @@
                         <div class="shop-cart-container col-2">
                             <a asp-action="index" asp-controller="card">
                                 <i class="bi bi-cart3"></i>
-                                <span class="cart-count">1</span>
+                                <span class="cart-count">@cartVM.Count</span>
                             </a>
                         </div>
                         <div class="login-icon col-2">
@@ -75,8 +79,18 @@
                         </div>
                         <div class="login-container">
                             <ul>
-                                <li><a asp-action="login" asp-controller="account">Daxil ol<i class="bi bi-box-arrow-in-right"></i></a></li>
-                                <li><a asp-action="register" asp-controller="account">Qeydiyyatdan kec</a></li>
+
+                                @if (User.Identity.IsAuthenticated)
+                                {
+                                    <li>  <a asp-action="showaccount" asp-controller="account" asp-route-id="@member.Id">@User.Identity.Name</a></li>
+                                    <li>  <a class="font-weight-bold" asp-action="logout" asp-controller="account">Çıxış</a></li>
+                                }
+                                else
+                                {
+                                    <li><a asp-action="login" asp-controller="account">Daxil ol<i class="bi bi-box-arrow-in-right"></i></a></li>
+                                    <li><a asp-action="register" asp-controller="account">Qeydiyyatdan kec</a></li>
+                                }
+
                             </ul>
                         </div>
                     </div>
@@ -395,9 +409,9 @@
                         <h5>AS Glass</h5>
 
                         <br><br>
-                            <p>
-                                AS Glass, xüsusi kəsilmiş şüşələr, güzgülər üçün onlayn pərakəndə satıcınızdır. <br />Şüşənizi və güzgünüzü düzəldirik və paytaxt daxilində sizə pulsuz göndəririk.
-                            </p>
+                        <p>
+                            AS Glass, xüsusi kəsilmiş şüşələr, güzgülər üçün onlayn pərakəndə satıcınızdır. <br />Şüşənizi və güzgünüzü düzəldirik və paytaxt daxilində sizə pulsuz göndəririk.
+                        </p>
                         <br>
                         <ul>
                             <li><a href="">Haqqımızda</a></li>
@@ -452,11 +466,11 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"></script>
     <script src="~/assets/js/fetch.js"></script>
-    @RenderSection("overlay", required:false)
+    @RenderSection("overlay", required: false)
     @RenderSection("slider", required: false)
     @RenderSection("measurement", required: false)
-    @RenderSection("customize", required:false)
-   
+    @RenderSection("customize", required: false)
+
 </body>
 
 </html>

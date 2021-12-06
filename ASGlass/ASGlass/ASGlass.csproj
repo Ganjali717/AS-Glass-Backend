@@ -25,6 +25,10 @@
     <Compile Remove="Migrations\20211204132455_CreateTenTable.Designer.cs" />
     <Compile Remove="Migrations\20211204173146_CreateTenTable.cs" />
     <Compile Remove="Migrations\20211204173146_CreateTenTable.Designer.cs" />
+    <Compile Remove="Migrations\20211206105012_CreateAppUSer.cs" />
+    <Compile Remove="Migrations\20211206105012_CreateAppUSer.Designer.cs" />
+    <Compile Remove="Migrations\20211206105104_CreateAppUserTable.cs" />
+    <Compile Remove="Migrations\20211206105104_CreateAppUserTable.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

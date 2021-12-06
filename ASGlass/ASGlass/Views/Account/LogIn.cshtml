@@ -1,4 +1,9 @@
-﻿<main id="userform">
+﻿@model MemberLoginViewModel
+@{
+    ViewData["Title"] = "Register";
+}
+
+<main id="userform">
     <section id="user-login">
         <div class="container">
             <div class="column">
@@ -7,22 +12,23 @@
                 </div>
                 <hr>
                 <div class="login-body">
-                    <form action="" id="form">
-                        <label for="">Adinizi ve ya Username daxil edin</label>
+                    <form method="post" id="form">
+                        <label asp-for="UserName">Adinizi ve ya Username daxil edin</label>
                         <br>
-                        <input type="text" id="email" placeholder="Adinizi daxil edin">
+                        <input type="text" id="email" placeholder="Adinizi daxil edin" asp-for="UserName" type="text" id="UserName">
+                        <span class="text-danger" asp-validation-for="UserName"></span>
                         <small class="log-in-email"></small>
                         <br>
-                        <label for="">Sifrenizi daxil edin</label>
+                        <label asp-for="Password">Sifrenizi daxil edin</label>
                         <br>
-                        <input type="password" id="password" placeholder="Sifrenizi daxil edin">
+                        <input asp-for="Password" type="password" id="password" placeholder="Sifrenizi daxil edin">
                         <small class="log-in-password"></small>
                         <br><br>
-                        <input type="submit">
+                        <input type="submit" >
                         <br><br>
-                        <a href="">Sifrenizi unutmusunuz?</a>
+                        <a asp-action="forgotpassword" asp-controller="account">Sifrenizi unutmusunuz?</a>
                         <br>
-                        <a href="">Qeydiyyatdan kec</a>
+                        <a asp-action="register" asp-controller="account">Qeydiyyatdan kec</a>
                     </form>
                 </div>
             </div>

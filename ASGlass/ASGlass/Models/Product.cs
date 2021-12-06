@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -29,5 +31,15 @@ namespace ASGlass.Models
         public Color Colors { get; set; }
         public Shape Shape { get; set; }
         public List<ProductCategory> ProductCategories { get; set; }
+
+        public List<CartItem> CartItems { get; set; }
+
+        [NotMapped]
+        public IFormFile PosterFile { get; set; }
+        [NotMapped]
+        public List<IFormFile> ImageFiles { get; set; }
+
+        [NotMapped]
+        public List<int> HouseImageIds { get; set; } = new List<int>();
     }
 }

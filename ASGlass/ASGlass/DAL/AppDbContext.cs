@@ -15,6 +15,7 @@ namespace ASGlass.DAL
 
         }
 
+        public DbSet<AppUser> AppUsers { get; set; }
         public DbSet<Slider> Sliders { get; set; }
         public DbSet<Setting> Settings { get; set; }
         public DbSet<Category> Categories { get; set; }
@@ -25,5 +26,6 @@ namespace ASGlass.DAL
         public DbSet<ProductCategory> ProductCategories { get; set; }
         public DbSet<Shape> Shapes { get; set; }
         public DbSet<Thickness> Thicknesses { get; set; }
+        public DbSet<CartItem> CartItems { get; set; }
     }
 }
