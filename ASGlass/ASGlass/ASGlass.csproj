@@ -23,6 +23,8 @@
     <Compile Remove="Migrations\20211201154818_CreateTenModels.Designer.cs" />
     <Compile Remove="Migrations\20211204132455_CreateTenTable.cs" />
     <Compile Remove="Migrations\20211204132455_CreateTenTable.Designer.cs" />
+    <Compile Remove="Migrations\20211204173146_CreateTenTable.cs" />
+    <Compile Remove="Migrations\20211204173146_CreateTenTable.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -95,9 +97,11 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.5" />
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Areas\Manage\ViewModels\" />
     <Folder Include="wwwroot\assets\images\decors\" />
     <Folder Include="wwwroot\assets\images\employees\" />
   </ItemGroup>

@@ -1,4 +1,5 @@
 ﻿using ASGlass.DAL;
+using ASGlass.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -18,6 +19,18 @@ namespace ASGlass.Controllers
         public IActionResult Index()
         {
             return View();
+        }
+
+        public IActionResult Customize()
+        {
+            GlassViewModel glassVM = new GlassViewModel()
+            {
+                Colors = _context.Colors.ToList(),
+                Polishes = _context.Polishes.ToList(),
+                Thicknesses = _context.Thicknesses.ToList(),
+                Corners = _context.Corners.ToList()
+            };
+            return View(glassVM);
         }
     }
 }

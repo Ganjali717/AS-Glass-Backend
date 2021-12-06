@@ -1,0 +1,141 @@
+﻿@model Product
+
+<main id="accessdetail">
+    <section id="accdetail-head">
+        <div class="container">
+            <div class="row">
+                <div class="accdetail-head-left col-5">
+                    @if (Model.IsAccessory == true)
+                    {
+                        <img src="~/assets/images/accessories/@Model.Image" alt="">
+                    }
+                    else
+                    {
+                        <img src="~/assets/images/decors/@Model.Image" alt="">
+                    }
+                </div>
+                <div class="accdetail-head-right col-6">
+                    <h3>@Model.Name</h3>
+                    <br>
+                    <small>11 Reviews 6 Questions \ 6 Answers</small>
+                    <br>
+                    <p>SKU: IC80HV-20GR</p>
+                    <br>
+                    @if (Model.DiscountPrice == 0)
+                    {
+                         <p>@Model.Price ₼</p>
+                    }
+                    else
+                    {
+                         <p>@Model.DiscountPrice ₼ <span style="text-decoration:line-through;">@Model.Price ₼</span></p>
+
+                    }
+                    <span>Say:</span>
+                    <select name="" id="acccount">
+                        @for (int i = 1; i <= Model.Count; i++)
+                        {
+                            <option value="">@i</option>
+                        }
+                    </select>
+                    <br>
+                    <a href="" class="accdetail-btn">SƏBƏTƏ AT</a>
+                    <br>
+                    <p><b>Aviability:</b> @(Model.Count > 0 ? "Bu mehsuldan " + Model.Count + " eded var":"Bu mehsuldan ambarda yoxdur")</p>
+                    <br>
+                    <a href="">Need to buy bulk?</a>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <section id="accdetail-body">
+        <div class="container">
+            <div class="column">
+                <h4>Product Description</h4>
+                <br>
+                <b>Professional-Grade Decorative Glass Glue for Construction Projects</b>
+                <br><br>
+                <p>
+                    @Model.Desc
+                </p>
+                <br>
+                <b>Features: </b>
+                <br>
+                <ul>
+                    <li>100% safe</li>
+                    <li>High viscosity</li>
+                    <li>Easy to use</li>
+                    <li>Invisible liquid</li>
+                    <li>Ideal for load bearing projects</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="advertising">
+        <div class="container">
+            <div class="adv-item">
+                <h1>Sənin Güzgün, </h1>
+                <h1 class="adv-txt">Sənin Yolun</h1>
+            </div>
+        </div>
+    </section>
+
+    <section id="blog">
+        <div class="container">
+            <h2>BLOG</h2>
+            <div class="column">
+                <div class="blog-head col-12">
+                    <div class="blog-head-item col-5">
+                        <img src="~/assets/images/blog/glass-ideas-for-home-and-office.png" alt="">
+                        <br><br>
+                        <a href="">Ev və biznes üçün ofis şüşələri ideyaları</a>
+                        <br><br>
+                        <p>
+                            Ofisinizin görünüşünü yaxşılaşdırmağın yollarını axtarırsınız? Dulles Glass-dan üstün fərdiləşdirilə bilən şüşə və güzgülərimizlə sizə lazım olanı tam olaraq əldə edirik! Dizaynerlərimizin ən son ideyaları üçün bizi izləyin və iş yerinizi yeniləmək üçün ilham alın.
+                        </p>
+                    </div>
+                    <div class="blog-head-item col-5">
+                        <img src="~/assets/images/blog/foam-mirror-diy.png" alt="">
+                        <br><br>
+                        <a href="">Yay tendensiyası - köpük güzgülər</a>
+                        <br><br>
+                        <p>
+                            Bu tez və asan DIY köpük güzgü layihəsi ilə ev dekorunuzu gözəlləşdirin. Cəmi bir neçə materialla, evinizdə valehedici amil yaradacaq bulud kimi bir güzgü, köpük strafor bəzək yaradın..
+                        </p>
+                    </div>
+                </div>
+                <div class="blog-body col-12">
+                    <div class="blog-body-item col-4">
+                        <i class="bi bi-sliders"></i>
+                        <br>
+                        <h4>FƏRQLİ KƏSİM</h4>
+                        <br>
+                        <span></span>
+                        <br>
+                        <p>Fərqli kəsim sayəsində verilən kəsim növlərindən seçin.</p>
+                    </div>
+                    <div class="blog-body-item col-4">
+                        <i class="bi bi-currency-dollar"></i>
+                        <br>
+                        <h4>PULSUZ ÇATDIRILMA</h4>
+                        <br>
+                        <span></span>
+                        <br>
+                        <p>Bakı şəhərinin hər bir yerinə pulsuz çatdırılma</p>
+                    </div>
+                    <div class="blog-body-item col-4">
+                        <i class="bi bi-truck"></i>
+                        <br>
+                        <h4>SIĞORTALI ÇATDIRILMA</h4>
+                        <br>
+                        <span></span>
+                        <br>
+                        <p>Bütün məhsullar qırılmadan və 100% təmiz çatdırılma</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>

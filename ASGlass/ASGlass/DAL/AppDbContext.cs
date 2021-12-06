@@ -25,6 +25,5 @@ namespace ASGlass.DAL
         public DbSet<ProductCategory> ProductCategories { get; set; }
         public DbSet<Shape> Shapes { get; set; }
         public DbSet<Thickness> Thicknesses { get; set; }
-        public DbSet<Models.Type> Types { get; set; }
     }
 }

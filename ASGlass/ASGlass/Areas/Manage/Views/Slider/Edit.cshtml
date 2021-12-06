@@ -1,0 +1,61 @@
+﻿@model Slider
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<div class="main-panel">
+    <div class="container-fluid">
+
+        <h1>Create</h1>
+        <form method="post" enctype="multipart/form-data">
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label asp-for="Title">Title</label>
+                    <input asp-for="Title" class="form-control" placeholder="Title">
+                    <span class="text-danger" asp-validation-for="Title"></span>
+                </div>
+                <div class="form-group col-md-6">
+                    <label asp-for="SubTitle">SubTitle</label>
+                    <input asp-for="SubTitle" class="form-control" placeholder="SubTitle">
+                    <span class="text-danger" asp-validation-for="SubTitle"></span>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label asp-for="Order">Order</label>
+                    <input asp-for="Order" class="form-control" placeholder="Order">
+                    <span class="text-danger" asp-validation-for="Order"></span>
+                </div>
+                <div class="form-group col-md-4">
+                    <label asp-for="RedirectUrl">RedirectUrl</label>
+                    <input asp-for="RedirectUrl" class="form-control" placeholder="RedirectUrl">
+                    <span class="text-danger" asp-validation-for="RedirectUrl"></span>
+                </div>
+            </div>
+           @* <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label asp-for="ImageFile">ImageFile</label>
+                    <input asp-for="ImageFile" class="form-control" placeholder="ImageFile">
+                    <span class="text-danger" asp-validation-for="ImageFile"></span>
+                </div>
+                <div class="form-group col-md-8">
+                    <label asp-for="Desc">Description</label>
+                    <input asp-for="Desc" class="form-control" placeholder="Desc">
+                    <span class="text-danger" asp-validation-for="Desc"></span>
+                </div>
+            </div>*@
+
+            <div class="img-box" style="display: inline-block; position: relative;">
+                <input type="hidden" name="Image" value="@Model.Image" />
+                <img style="max-width:300px" src="~/assets/images/technica/@Model.Image" alt="Alternate Text" />
+                <span class="remove-img-box" style="position: absolute; top: -10px; right: -5px; cursor:pointer">
+                    <i class="fa fa-times" style="color: red; font-size: 24px;"></i>
+                </span>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">Edit</button>
+            </div>
+
+        </form>
+    </div>
+</div>

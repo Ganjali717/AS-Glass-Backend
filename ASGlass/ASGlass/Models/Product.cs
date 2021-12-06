@@ -10,7 +10,6 @@ namespace ASGlass.Models
         public int Id { get; set; }
         public int? ThicknessId { get; set; }
         public int? PolishId { get; set; }
-        public int? TypeId { get; set; }
         public int? ShapeId { get; set; }
         public int? ColorId { get; set; }
         public int? CornerId { get; set; }
@@ -27,7 +26,6 @@ namespace ASGlass.Models
         public Thickness Thickness { get; set; }
         public Corner Corner { get; set; }
         public Polish Polish { get; set; }
-        public Type Type { get; set; }
         public Color Colors { get; set; }
         public Shape Shape { get; set; }
         public List<ProductCategory> ProductCategories { get; set; }

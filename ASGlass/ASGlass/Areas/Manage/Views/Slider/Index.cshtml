@@ -1,0 +1,50 @@
+﻿@model List<Slider>
+@{
+    ViewData["Title"] = "Index";
+    int order = 0;
+}
+<div class="main-panel">
+    <div class="container-fluid" style="margin:0; padding:25px;">
+        <div class="column">
+            <div class="d-flex justify-content-between align-items-center">
+                <h1>Sliders</h1>
+                <a asp-action="create" class="btn btn-primary">Create</a>
+            </div>
+            <table class="table" style="width:max-content;">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Title</th>
+                        <th scope="col">SubTitle</th>
+                        <th scope="col">Order</th>
+                        <th scope="col">Image</th>
+                        <th scope="col">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var slider in Model)
+                    {
+                        order++;
+                        <tr>
+                            <th scope="row">@order</th>
+                            <td>@slider.Title</td>
+                            <td>@slider.SubTitle.Trim()</td>
+                            <td>@slider.Order</td>
+                            <td><img src="~/assets/images/technica/@slider.Image" style="max-width:100px" alt="Alternate Text" /></td>
+                            <td>
+                                <a asp-action="edit" asp-route-id="@slider.Id" class="btn btn-warning">Edit</a>
+                                <a asp-action="deletefetch" asp-route-id="@slider.Id" class="btn btn-danger btn-item-delete">Delete</a>
+                            </td>
+                        </tr>
+                    }
+
+                </tbody>
+            </table>
+
+        </div>
+
+    </div>
+
+</div>
+
+

@@ -1,89 +1,55 @@
-﻿<main id="cart">
+﻿@model List<CartViewModel>
+
+<main id="cart">
     <section id="cart-body">
 
         <div class="container">
-            <a href="" class="shop-cont"><i class="bi bi-cart4"></i>Continue Shopping</a>
+            <a asp-action="index" asp-controller="shop" class="shop-cont"><i class="bi bi-cart4"></i>Continue Shopping</a>
             <br><br>
             <div class="row">
                 <div class="cart-left col-8">
                     <h4>CART ITEMS</h4>
                     <div class="cart-left-body">
-                        <div class="cart-item">
-                            <div class="cart-item-img col-3">
-                                <img src="assets/images/technica/cns2.jpg" alt="">
+                        @foreach (var item in Model)
+                        {
+                            <div class="cart-item">
+                                <div class="cart-item-img col-3">
+                                    @if (item.IsAccessory == true)
+                                    {
+                                        <img src="~/assets/images/accessories/@item.Image" alt="">
+                                    }
+                                    else
+                                    {
+                                        <img src="~/assets/images/decors/@item.Image" alt="">
+                                    }
+                                </div>
+                                <div class="cart-item-txt col-3">
+                                    <p>24" x 36" Custom Replacement Glass</p>
+                                    <br>
+                                    <b>Specifications</b>
+                                    <p><b>Shape:</b> Rectangle</p>
+                                    <p><b>Size: </b> 24" x 36" </p>
+                                    <p><b>Edge:</b>Seamed</p>
+                                    <p>Beveled </p>
+                                    <p><b>Center Hole: </b></p>
+                                </div>
+                                <div class="cart-item-count col-2">
+                                    <small>@item.Price/each</small>
+                                    <select name="" id="">
+                                        @for (int i = 0; i <= item.Count; i++)
+                                        {
+                                            <option value="">@i</option>
+                                        }
+                                    </select>
+                                    <br><br>
+                                    <a asp-action="deleteproduct" asp-controller="shop" asp-route-id="@item.ProductId">Remove Item</a>
+                                </div>
+                                <div class="cart-item-price col-1">
+                                    <b>134.64$</b>
+                                </div>
                             </div>
-                            <div class="cart-item-txt col-3">
-                                <p>24" x 36" Custom Replacement Glass</p>
-                                <br>
-                                <b>Specifications</b>
-                                <p><b>Shape:</b> Rectangle</p>
-                                <p><b>Size: </b> 24" x 36" </p>
-                                <p><b>Edge:</b>Seamed</p>
-                                <p>Beveled </p>
-                                <p><b>Center Hole: </b></p>
-                            </div>
-                            <div class="cart-item-count col-2">
-                                <small>$134/each</small>
-                                <select name="" id="">
-                                    <option value="">1</option>
-                                    <option value="">2</option>
-                                    <option value="">3</option>
-                                    <option value="">4</option>
-                                    <option value="">5</option>
-                                    <option value="">6</option>
-                                    <option value="">7</option>
-                                    <option value="">8</option>
-                                    <option value="">9</option>
-                                    <option value="">10</option>
-                                    <option value="">11</option>
-                                    <option value="">12</option>
-                                    <option value="">13</option>
-                                </select>
-                                <br><br>
-                                <a href="">Remove Item</a>
-                            </div>
-                            <div class="cart-item-price col-1">
-                                <b>134.64$</b>
-                            </div>
-                        </div>
-                        <div class="cart-item">
-                            <div class="cart-item-img col-3">
-                                <img src="assets/images/technica/cns2.jpg" alt="">
-                            </div>
-                            <div class="cart-item-txt col-3">
-                                <p>24" x 36" Custom Replacement Glass</p>
-                                <br>
-                                <b>Specifications</b>
-                                <p><b>Shape:</b> Rectangle</p>
-                                <p><b>Size: </b> 24" x 36" </p>
-                                <p><b>Edge:</b>Seamed</p>
-                                <p>Beveled </p>
-                                <p><b>Center Hole: </b></p>
-                            </div>
-                            <div class="cart-item-count col-2">
-                                <small>$134/each</small>
-                                <select name="" id="">
-                                    <option value="">1</option>
-                                    <option value="">2</option>
-                                    <option value="">3</option>
-                                    <option value="">4</option>
-                                    <option value="">5</option>
-                                    <option value="">6</option>
-                                    <option value="">7</option>
-                                    <option value="">8</option>
-                                    <option value="">9</option>
-                                    <option value="">10</option>
-                                    <option value="">11</option>
-                                    <option value="">12</option>
-                                    <option value="">13</option>
-                                </select>
-                                <br><br>
-                                <a href="">Remove Item</a>
-                            </div>
-                            <div class="cart-item-price col-1">
-                                <b>134.64$</b>
-                            </div>
-                        </div>
+                        }
+
                     </div>
                 </div>
                 <div class="cart-right col-4">

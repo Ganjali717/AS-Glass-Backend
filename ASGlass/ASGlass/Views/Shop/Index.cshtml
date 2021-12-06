@@ -19,7 +19,7 @@
                     </div>
                     <!-- Price -->
                     <div class="single-block">
-                        <h3 class="sidebar-title">Fillter By Price</h3>
+                        <h3 class="sidebar-title">Filter By Price</h3>
                         <input type="range" name="price-max" id="price-max" value="800" min="0" max="1000">
                     </div>
                     <!-- Size -->
@@ -109,17 +109,31 @@
                         @foreach (var item in Model.Products)
                         {
                             <div class="shop-item">
-                                <img src="~/assets/images/accessories/@item.Image" alt="">
+                                @if (item.IsAccessory == true)
+                                {
+                                    <img src="~/assets/images/accessories/@item.Image" alt="">
+                                }
+                                else
+                                {
+                                    <img src="~/assets/images/decors/@item.Image" alt="">
+                                }
                                 <br>
-                                <p><a href="">@item.Name (20 G)</a></p>
-                                <small>Ships in 1-3 business days.</small>
+                                <p><a asp-action="detail" asp-controller="shop" asp-route-id="@item.Id">@item.Name</a></p>
+                                <small>Çatdırılma 1-3 iş gün ərzində olur.</small>
                                 <br><br>
-                                <div class="acc-item-price">
-                                    <p>Price: @item.Price</p>
-                                    <p>Discount Price: @item.DiscountPrice</p>
-                                </div>
+                                    <div class="acc-item-price">
+                                        @if (item.DiscountPrice == 0)
+                                        {
+                                        <p>Qiyməti: @item.Price ₼</p>
+                                        }
+                                        else
+                                        {
+                                            <p style="text-decoration:line-through;">Qiyməti: @item.Price ₼</p>
+                                            <p>Endirimli qiymət: @item.DiscountPrice ₼</p>
+                                        }
+                                    </div>
                                 <br>
-                                <a href="" class="shop-btn">ADD TO CARD</a>
+                                <a asp-action="addtocart" asp-controller="shop" asp-route-id="@item.Id" data-id="@item.Id" class="shop-btn">SƏBƏTƏ AT</a>
                             </div>
                         }
                     </div>

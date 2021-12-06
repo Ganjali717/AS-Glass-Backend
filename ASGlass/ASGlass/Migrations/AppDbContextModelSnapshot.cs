@@ -128,9 +128,6 @@ namespace ASGlass.Migrations
                     b.Property<int?>("ThicknessId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("TypeId")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
 
                     b.HasIndex("ColorId");
@@ -142,8 +139,6 @@ namespace ASGlass.Migrations
                     b.HasIndex("ShapeId");
 
                     b.HasIndex("ThicknessId");
-
-                    b.HasIndex("TypeId");
 
                     b.ToTable("Products");
                 });
@@ -263,21 +258,6 @@ namespace ASGlass.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Thicknesses");
-                });
-
-            modelBuilder.Entity("ASGlass.Models.Type", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Types");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -497,10 +477,6 @@ namespace ASGlass.Migrations
                     b.HasOne("ASGlass.Models.Thickness", "Thickness")
                         .WithMany("Products")
                         .HasForeignKey("ThicknessId");
-
-                    b.HasOne("ASGlass.Models.Type", "Type")
-                        .WithMany("Products")
-                        .HasForeignKey("TypeId");
                 });
 
             modelBuilder.Entity("ASGlass.Models.ProductCategory", b =>

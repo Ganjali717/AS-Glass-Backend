@@ -11469,7 +11469,6 @@ header {
           position: absolute;
           visibility: hidden;
           opacity: 0;
-          transition: visibility 1s, opacity 0.5s ease-in;
           padding: 50px 100px;
           top: 75px;
           right: 0;
@@ -13757,7 +13756,7 @@ body {
             color: #0A6AB7; }
           #shop .container .row .shop-right .shop-items .row .shop-item p {
             color: black;
-            font-size: 25px; }
+            font-size: 19px; }
           #shop .container .row .shop-right .shop-items .row .shop-item .shop-btn {
             padding: 15px;
             border-radius: 10px;
@@ -14082,51 +14081,6 @@ body {
         font-size: 65px; }
       #accessdetail #advertising .container .adv-item .adv-txt {
         color: white; }
-  #accessdetail #blog {
-    width: 100%;
-    padding: 45px 25px; }
-    #accessdetail #blog .container h1, #accessdetail #blog .container .h1 {
-      text-align: center; }
-    #accessdetail #blog .container .column {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column; }
-      #accessdetail #blog .container .column .blog-head {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: row;
-        justify-content: space-between;
-        padding: 35px; }
-        #accessdetail #blog .container .column .blog-head .blog-head-item img {
-          width: 100%; }
-        #accessdetail #blog .container .column .blog-head .blog-head-item a {
-          font-size: 25px; }
-        #accessdetail #blog .container .column .blog-head .blog-head-item p {
-          font-size: 18px; }
-      #accessdetail #blog .container .column .blog-body {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: row;
-        justify-content: space-around;
-        padding: 45px 35px; }
-        #accessdetail #blog .container .column .blog-body .blog-body-item {
-          text-align: center;
-          cursor: pointer;
-          padding: 45px 25px; }
-          #accessdetail #blog .container .column .blog-body .blog-body-item i {
-            font-size: 55px;
-            color: #0A6AB7; }
-          #accessdetail #blog .container .column .blog-body .blog-body-item h4, #accessdetail #blog .container .column .blog-body .blog-body-item .h4 {
-            font-size: 35px; }
-          #accessdetail #blog .container .column .blog-body .blog-body-item span {
-            width: 35px;
-            height: 20px;
-            background-color: brown; }
-          #accessdetail #blog .container .column .blog-body .blog-body-item p {
-            font-size: 20px; }
 
 @media only screen and (max-width: 774px) {
   #accdetail-head .container .row {
