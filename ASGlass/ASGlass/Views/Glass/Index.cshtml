@@ -22,7 +22,7 @@
                             <br>
                             <img src="~/assets/images/products/rectangle-customize.webp" alt="">
                             <br><br><br>
-                            <a href="" class="recbtn">Seçin</a>
+                            <a asp-action="addtocustomize" asp-controller="glass" asp-route-id="1" class="recbtn">Seçin</a>
                         </div>
                         <div class="measurement d-none" id="recmea">
                             <a asp-action="index" asp-controller="glass" class="redirecturl"><i class="bi bi-arrow-left"></i> GERİYƏ DÖN</a>
@@ -32,7 +32,7 @@
                                     <img src="~/assets/images/products/mea-rec.png" alt="">
                                 </div>
                                 <div class="mt-right col-6">
-                                    <form>
+                                   
                                         <label><b>Uzunlugu Qeyd Edin:</b></label>
                                         <br /><br />
                                         <input type="number" placeholder="Mesel ucun: 2.5, 22.5 sm" />
@@ -42,8 +42,8 @@
                                         <input type="number" placeholder="Mesel ucun: 2.5, 22.5 sm" />
                                         <br />
                                         <br />
-                                        <input type="submit" value="Davam Et"/>
-                                    </form>
+                                    <a asp-action="customize" asp-controller="glass">Davam Et</a>
+                                    
                                    
                                 </div>
                             </div>

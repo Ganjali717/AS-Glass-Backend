@@ -13,6 +13,13 @@ namespace ASGlass.ViewModels
         public double DiscountPrice { get; set; }
         public string Name { get; set; }
         public int Count { get; set; }
+        public double? Uzunluq { get; set; }
+        public double? En { get; set; }
+        public double? Diametr { get; set; }
+        public int? ThincknessId { get; set; }
+        public int? PolishId { get; set; }
+        public int? ColorId { get; set; }
+        public int? CornerId { get; set; }
         public bool? IsAccessory { get; set; }
     }
 }

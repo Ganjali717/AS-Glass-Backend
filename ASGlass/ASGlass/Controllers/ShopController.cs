@@ -22,14 +22,25 @@ namespace ASGlass.Controllers
             _context = context;
             _userManager = userManager;
         }
-        public IActionResult Index()
+        public IActionResult Index(int? categoryId = null)
         {
+
+            AppUser member = User.Identity.IsAuthenticated ? _userManager.Users.FirstOrDefault(x => x.UserName == User.Identity.Name && !x.IsAdmin) : null;
+
+            var query = _context.Products.AsQueryable();
+
+            ViewBag.CategoryId = categoryId;
+
+            if (categoryId != null)
+                query = query.Where(x => x.ProductCategories.Any(c => c.CategoryId == categoryId));
+           
+
             ShopViewModel shopVM = new ShopViewModel
             {
-                Categories = _context.Categories.ToList(), 
-                Products = _context.Products.ToList(), 
-                Colors = _context.Colors.ToList(),
-                Thicknesses = _context.Thicknesses.ToList()
+                Categories = _context.Categories.Include(x => x.ProductCategories).ThenInclude(x => x.Product).ToList(), 
+                Products = query.ToList(), 
+                Colors = _context.Colors.Include(x => x.Product).ToList(),
+                Thicknesses = _context.Thicknesses.Include(x => x.Products).ToList()
             };
             return View(shopVM);
         }
@@ -39,7 +50,6 @@ namespace ASGlass.Controllers
             var product = _context.Products.FirstOrDefault(x => x.Id == id);
             return View(product);
         }
-
 
         public IActionResult AddToCart(int id)
         {
@@ -77,7 +87,14 @@ namespace ASGlass.Controllers
                         Image = product.Image,
                         Price = product.Price,
                         DiscountPrice = product.DiscountPrice,
-                        IsAccessory = product.IsAccessory
+                        IsAccessory = product.IsAccessory,
+                        Uzunluq = product.Uzunluq,
+                        En = product.En,
+                        Diametr = product.Diametr,
+                        ThincknessId = product.ThicknessId,
+                        CornerId = product.CornerId, 
+                        PolishId = product.PolishId, 
+                        ColorId = product.ColorId
                     };
                     products.Add(cartVM);
                 }
@@ -117,20 +134,50 @@ namespace ASGlass.Controllers
         {
             Product product = _context.Products.FirstOrDefault(x => x.Id == id);
             CartViewModel cartVM = null;
+
+            if (product == null) return RedirectToAction("index", "error");
+
+            AppUser member = null;
+
+            if (User.Identity.IsAuthenticated)
+            {
+                member = _userManager.Users.FirstOrDefault(x => x.UserName == User.Identity.Name && !x.IsAdmin);
+
+            }
+
             List<CartViewModel> houses = new List<CartViewModel>();
 
-            string productStr = HttpContext.Request.Cookies["Products"];
-            houses = JsonConvert.DeserializeObject<List<CartViewModel>>(productStr);
+            if (member == null)
+            {
+                string productStr = HttpContext.Request.Cookies["Products"];
+                houses = JsonConvert.DeserializeObject<List<CartViewModel>>(productStr);
 
-            cartVM = houses.FirstOrDefault(x => x.ProductId == id);
+                cartVM = houses.FirstOrDefault(x => x.ProductId == id);
 
 
-            houses.Remove(cartVM);
+                houses.Remove(cartVM);
 
-            cartVM.Count--;
+                cartVM.Count--;
 
-            productStr = JsonConvert.SerializeObject(houses);
-            HttpContext.Response.Cookies.Append("Products", productStr);
+                productStr = JsonConvert.SerializeObject(houses);
+                HttpContext.Response.Cookies.Append("Products", productStr);
+            }
+            else
+            {
+                CartItem cartItem = _context.CartItems.Include(x => x.Product).FirstOrDefault(x => x.AppUserId == member.Id && x.ProductId == id);
+
+
+                _context.CartItems.Remove(cartItem);
+
+
+                cartItem.Count--;
+
+
+                _context.SaveChanges();
+
+                houses = _context.CartItems.Include(x => x.Product).Where(x => x.AppUserId == member.Id)
+                    .Select(x => new CartViewModel { ProductId = x.ProductId, Count = x.Count, Name = x.Product.Name, Price = x.Product.Price, DiscountPrice = x.Product.DiscountPrice, Image = x.Product.Image }).ToList();
+            }
 
             return RedirectToAction("index", "card");
         }

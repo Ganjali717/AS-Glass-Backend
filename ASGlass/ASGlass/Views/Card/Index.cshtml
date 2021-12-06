@@ -1,14 +1,37 @@
 ﻿@model List<CartViewModel>
 
+@{ 
+    double totalProductPrice = 0;
+    double totalPrice = 0;
+    @foreach (var item in Model)
+    {
+        if (item.DiscountPrice > 0)
+        {
+            totalProductPrice = item.DiscountPrice;
+
+        }
+        else
+        {
+            totalProductPrice = item.Price;
+
+        }
+
+        totalPrice += totalProductPrice;
+    }
+
+
+
+}
+
 <main id="cart">
     <section id="cart-body">
 
         <div class="container">
-            <a asp-action="index" asp-controller="shop" class="shop-cont"><i class="bi bi-cart4"></i>Continue Shopping</a>
+            <a asp-action="index" asp-controller="shop" class="shop-cont"><i class="bi bi-cart4"></i> Alış-Verişə Davam Et</a>
             <br><br>
             <div class="row">
                 <div class="cart-left col-8">
-                    <h4>CART ITEMS</h4>
+                    <h4>SƏBƏTDƏKİ MƏHSULLAR</h4>
                     <div class="cart-left-body">
                         @foreach (var item in Model)
                         {
@@ -24,28 +47,29 @@
                                     }
                                 </div>
                                 <div class="cart-item-txt col-3">
-                                    <p>24" x 36" Custom Replacement Glass</p>
+                                    <p>@item.Name</p>
                                     <br>
-                                    <b>Specifications</b>
-                                    <p><b>Shape:</b> Rectangle</p>
-                                    <p><b>Size: </b> 24" x 36" </p>
-                                    <p><b>Edge:</b>Seamed</p>
+                                    <b style="text-decoration:underline;">Spesifikasiyalar:</b>
+                                    <br /><br />
+                                    <p><b>Kəsim:</b></p>
+                                    <p><b>Ölçü: </b> 24" x 36" </p>
+                                    <p><b>Rəng:</b>Seamed</p>
                                     <p>Beveled </p>
-                                    <p><b>Center Hole: </b></p>
+                                    <p><b>Mərkəzdə Dəlik: </b></p>
                                 </div>
                                 <div class="cart-item-count col-2">
-                                    <small>@item.Price/each</small>
+                                    <small>@item.Price ₼ / each</small>
                                     <select name="" id="">
-                                        @for (int i = 0; i <= item.Count; i++)
+                                        @for (int i = 1; i <= item.Count; i++)
                                         {
                                             <option value="">@i</option>
                                         }
                                     </select>
                                     <br><br>
-                                    <a asp-action="deleteproduct" asp-controller="shop" asp-route-id="@item.ProductId">Remove Item</a>
+                                    <a asp-action="deleteproduct" asp-controller="shop" asp-route-id="@item.ProductId" class="remove-item">Remove Item</a>
                                 </div>
                                 <div class="cart-item-price col-1">
-                                    <b>134.64$</b>
+                                    <b>@(item.DiscountPrice>0?item.DiscountPrice:item.Price) ₼</b>
                                 </div>
                             </div>
                         }
@@ -53,13 +77,17 @@
                     </div>
                 </div>
                 <div class="cart-right col-4">
-                    <h4>CART TOTALS</h4>
+                    <h4>MƏHSULLARIN QİYMƏTİ</h4>
                     <br>
                     <div class="cart-right-body">
                         <ul>
-                            <li>Merchandise <span>$485</span></li>
+                            @foreach (var item in Model)
+                            {
+                                <li>@item.Name <span>@(item.DiscountPrice>0?item.DiscountPrice:item.Price) ₼</span></li>
+
+                            }
                             <li>Shopping & Handling <span>FREE</span></li>
-                            <li><b>TOTAL</b><b class="pr-right">$485</b></li>
+                            <li><b>TOTAL</b><b class="pr-right">@totalPrice AZN</b></li>
                             <br>
                             <li><a href="">Proceed to Checkout</a></li>
                         </ul>
@@ -71,3 +99,4 @@
 
     </section>
 </main>
+

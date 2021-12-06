@@ -22,6 +22,9 @@ namespace ASGlass.Models
         public string Desc { get; set; }
         public string Image { get; set; }
         public bool? IsAccessory { get; set; }
+        public double? Uzunluq { get; set; }
+        public double? En { get; set; }
+        public double? Diametr { get; set; }
 
 
 

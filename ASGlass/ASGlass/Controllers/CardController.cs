@@ -49,8 +49,10 @@ namespace ASGlass.Controllers
                         {
                             item.Name = product.Name;
                             item.Price = product.Price;
+                            item.Count = product.Count;
                             item.DiscountPrice = product.DiscountPrice;
-                            item.Image = product?.Image;
+                            item.Image = product.Image;
+                            item.IsAccessory = product.IsAccessory;
                         }
                     }
                 }
@@ -63,6 +65,8 @@ namespace ASGlass.Controllers
                     ProductId = x.ProductId,
                     Image = x.Product?.Image,
                     Name = x.Product.Name,
+                    Count = x.Product.Count, 
+                    IsAccessory = x.Product.IsAccessory,
                     Price = x.Product.Price,
                     DiscountPrice = x.Product.DiscountPrice
                 }).ToList();

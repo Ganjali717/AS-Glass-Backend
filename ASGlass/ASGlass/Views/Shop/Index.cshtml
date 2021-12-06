@@ -13,7 +13,7 @@
                         <ul class="sidebar-menu--shop">
                             @foreach (var item in Model.Categories)
                             {
-                                <li><a href="#">@item.Name (5)</a></li>
+                                <li><a asp-action="index" asp-controller="shop" asp-route-categoryId="@item.Id" data-id="@item.Id">@item.Name (@item.ProductCategories.Count())</a></li>
                             }
                         </ul>
                     </div>
@@ -28,7 +28,7 @@
                         <ul class="sidebar-menu--shop menu-type-2">
                             @foreach (var item in Model.Thicknesses)
                             {
-                                <li><a href="#">@item.Size</a></li>
+                                <li><a href="#">@item.Size <span>(@item.Products.Count())</span></a></li>
 
                             }
                         </ul>
@@ -39,7 +39,7 @@
                         <ul class="sidebar-menu--shop menu-type-2">
                             @foreach (var item in Model.Colors)
                             {
-                                <li><a href="#">@item.Name <span>(5)</span></a></li>
+                                <li><a href="#">@item.Name <span>(@item.Product.Count())</span></a></li>
 
                             }
                         </ul>
