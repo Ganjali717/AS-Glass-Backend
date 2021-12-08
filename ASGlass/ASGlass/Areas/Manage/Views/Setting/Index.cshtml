@@ -1,0 +1,44 @@
+﻿@model Setting
+
+
+@{
+    ViewData["Title"] = "Index";
+    int order = 1;
+}
+
+<div class="panel-header panel-header-sm">
+</div>
+<div class="content mt-5">
+    <div class="col-12">
+        <div class="d-flex justify-content-between align-items-center">
+            <h1>Maklerler</h1>
+            <a asp-action="create" class="btn btn-primary">Create</a>
+        </div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Header Logo</th>
+                    <th scope="col">Footer Logo</th>
+                    <th scope="col">Support Phone</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Address</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">@order</th>
+                    <td scope="col">@Html.Raw(Model.HeaderLogo)</td>
+                    <td scope="col">@Html.Raw(Model.FooterLogo)</td>
+                    <td scope="col">@Model.SupportPhone</td>
+                    <td scope="col">@Model.Email</td>
+                    <td scope="col">@Model.Address</td>
+                    <td>
+                        <a asp-action="edit" asp-route-id="@Model.Id" class="btn btn-warning">Edit</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,41 @@
+﻿@model List<AppUser>
+@{
+    ViewData["Title"] = "Index";
+    int order = 0;
+}
+
+<div class="panel-header panel-header-sm">
+</div>
+<div class="content mt-5">
+    <div class="col-12">
+        <div class="d-flex justify-content-between align-items-center">
+            <h1>Users</h1>
+        </div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Fullname</th>
+                    <th scope="col">Username</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Status</th>
+                </tr>
+
+            </thead>
+            <tbody>
+                @foreach (var users in Model)
+                {
+                    order++;
+                    <tr>
+                        <th scope="row">@order</th>
+                        <td>@users.FullName</td>
+                        <td>@users.UserName</td>
+                        <td>@users.Email</td>
+                        <td>@(users.ConnectionId == null?"offline":"online")</td>
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+    </div>
+</div>

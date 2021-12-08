@@ -44,30 +44,45 @@ namespace ASGlass.Controllers
 
                     foreach (var item in items)
                     {
-                        Product product = _context.Products.FirstOrDefault(x => x.Id == item.ProductId);
+                        Product product = _context.Products.Include(x => x.Shape).Include(x => x.Colors).FirstOrDefault(x => x.Id == item.ProductId);
                         if (product != null)
                         {
                             item.Name = product.Name;
-                            item.Price = product.Price;
+                            item.Price = product.Price; 
                             item.Count = product.Count;
                             item.DiscountPrice = product.DiscountPrice;
-                            item.Image = product.Image;
                             item.IsAccessory = product.IsAccessory;
+                            item.Diametr = product.Diametr;
+                            item.Uzunluq = product.Uzunluq;
+                            item.En = product.En;
+                            item.Image = product.ProductImages.FirstOrDefault(x => x.PosterStatus == true)?.Image;
+                            if (product.ShapeId != null || product.ColorId != null)
+                            {
+                                item.Shape = product.Shape.Name;
+                                item.Color = product.Colors.Name;
+                            }
                         }
                     }
                 }
             }
             else
             {
-                List<CartItem> cartItems = _context.CartItems.Include(x => x.Product).Where(x => x.AppUserId == member.Id).ToList();
+                List<CartItem> cartItems = _context.CartItems.Include(x => x.Product).Include(x => x.Product.Shape).Include(x => x.Product.Colors).Where(x => x.AppUserId == member.Id).ToList();
+
+
                 items = cartItems.Select(x => new CartViewModel
                 {
                     ProductId = x.ProductId,
-                    Image = x.Product?.Image,
+                    Image = x.Product.ProductImages.FirstOrDefault(x => x.PosterStatus == true)?.Image,
                     Name = x.Product.Name,
-                    Count = x.Product.Count, 
+                    Diametr = x.Product.Diametr,
+                    Count = x.Product.Count,
                     IsAccessory = x.Product.IsAccessory,
                     Price = x.Product.Price,
+                    Shape = x.Product.ShapeId != null ? x.Product.Shape.Name : null,
+                    Uzunluq = x.Product.Uzunluq,
+                    En = x.Product.En,
+                    Color = x.Product.ShapeId != null ? x.Product.Colors.Name : null,
                     DiscountPrice = x.Product.DiscountPrice
                 }).ToList();
             }

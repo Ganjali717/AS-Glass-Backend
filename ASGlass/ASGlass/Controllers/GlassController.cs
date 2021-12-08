@@ -58,17 +58,13 @@ namespace ASGlass.Controllers
                 {
                     ProductId = product.Id,
                     Name = product.Name,
-                    Image = product.Image,
+                    Image = product.ProductImages.FirstOrDefault(x => x.PosterStatus == true)?.Image,
                     Price = product.Price,
                     DiscountPrice = product.DiscountPrice,
                     IsAccessory = product.IsAccessory,
                     Uzunluq = product.Uzunluq,
                     En = product.En,
-                    Diametr = product.Diametr,
-                    ThincknessId = product.ThicknessId,
-                    CornerId = product.CornerId,
-                    PolishId = product.PolishId,
-                    ColorId = product.ColorId
+                    Diametr = product.Diametr
 
                 };
                 products.Add(cartVM);

@@ -6,7 +6,7 @@
             <div class="container">
                 <div class="row">
                     <div class="accdetail-head-left col-5">
-                        <img src="~/assets/images/accessories/@Model.Image" alt="">
+                        <img src="~/assets/images/accessories/@Model.ProductImages.FirstOrDefault(x => x.PosterStatus == true).Image" alt="">
                     </div>
                     <div class="accdetail-head-right col-6">
                         <h3>@Model.Name</h3>

@@ -13,7 +13,6 @@ namespace ASGlass.ViewModels
         public List<Polish> Polishes { get; set; }
         public List<Corner> Corners { get; set; }
 
-        public List<CartViewModel> CartViewModels { get; set; }
 
     }
 }

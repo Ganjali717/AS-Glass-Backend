@@ -47,7 +47,7 @@ namespace ASGlass.Controllers
 
         public IActionResult Detail(int id)
         {
-            var product = _context.Products.FirstOrDefault(x => x.Id == id);
+            var product = _context.Products.Include(x => x.Shape).Include(x => x.Colors).FirstOrDefault(x => x.Id == id);
             return View(product);
         }
 
@@ -84,17 +84,13 @@ namespace ASGlass.Controllers
                     {
                         ProductId = product.Id,
                         Name = product.Name,
-                        Image = product.Image,
+                        Image = product.ProductImages.FirstOrDefault(x => x.PosterStatus == true)?.Image,
                         Price = product.Price,
                         DiscountPrice = product.DiscountPrice,
                         IsAccessory = product.IsAccessory,
                         Uzunluq = product.Uzunluq,
                         En = product.En,
-                        Diametr = product.Diametr,
-                        ThincknessId = product.ThicknessId,
-                        CornerId = product.CornerId, 
-                        PolishId = product.PolishId, 
-                        ColorId = product.ColorId
+                        Diametr = product.Diametr
                     };
                     products.Add(cartVM);
                 }
@@ -122,7 +118,7 @@ namespace ASGlass.Controllers
 
                 _context.SaveChanges();
                 products = _context.CartItems.Include(x => x.Product).Where(x => x.AppUserId == member.Id)
-                    .Select(x => new CartViewModel { ProductId = x.ProductId, Name = x.Product.Name, Price = x.Product.Price, DiscountPrice = x.Product.DiscountPrice, Image = x.Product.Image }).ToList();
+                    .Select(x => new CartViewModel { ProductId = x.ProductId, Name = x.Product.Name, Price = x.Product.Price, DiscountPrice = x.Product.DiscountPrice, Image = x.Product.ProductImages.FirstOrDefault(x => x.PosterStatus == true).Image }).ToList();
             }
 
             
@@ -176,7 +172,7 @@ namespace ASGlass.Controllers
                 _context.SaveChanges();
 
                 houses = _context.CartItems.Include(x => x.Product).Where(x => x.AppUserId == member.Id)
-                    .Select(x => new CartViewModel { ProductId = x.ProductId, Count = x.Count, Name = x.Product.Name, Price = x.Product.Price, DiscountPrice = x.Product.DiscountPrice, Image = x.Product.Image }).ToList();
+                    .Select(x => new CartViewModel { ProductId = x.ProductId, Count = x.Count, Name = x.Product.Name, Price = x.Product.Price, DiscountPrice = x.Product.DiscountPrice, Image = x.Product.ProductImages.FirstOrDefault(x => x.PosterStatus == true).Image }).ToList();
             }
 
             return RedirectToAction("index", "card");

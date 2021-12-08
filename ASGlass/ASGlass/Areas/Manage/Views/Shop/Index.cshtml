@@ -1,0 +1,118 @@
+﻿@model PagenatedList<Product>
+@{
+    ViewData["Title"] = "Index";
+    int order = (Model.PageIndex - 1) * 4;
+}
+
+<div class="panel-header panel-header-sm">
+</div>
+<div class="content mt-5">
+    <div class="d-flex justify-content-between align-items-center">
+        <h1>Mehsullar</h1>
+        <div class=" col-md-8">
+            <form method="get">
+                <div class="form-row">
+                    <div class="form-group col-md-5">
+                        <input name="search" class="form-control" placeholder="Enter text" value="@ViewBag.CurrentSearch">
+                    </div>
+                    <div class="form-group col-md-5">
+                        <select class="form-control" name="categoryId">
+                            <option value="">Categories</option>
+                            @foreach (Category category in ViewBag.Categories)
+                            {
+                                if (category.Id == ViewBag.CurrentCityId)
+                                {
+                                    <option selected value="@category.Id">@category.Name</option>
+                                }
+                                else
+                                {
+                                    <option value="@category.Id">@category.Name</option>
+                                }
+                            }
+                        </select>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group col-md-5">
+                            <button type="submit" class="btn btn-primary">Filter</button>
+                        </div>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+        <a asp-action="create" class="btn btn-primary">Create</a>
+    </div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Color</th>
+                <th scope="col">Shape</th>
+                <th scope="col">Thickness</th>
+                <th scope="col">Polish</th>
+                <th scope="col">Corner</th>
+                <th scope="col" style="white-space: nowrap;">
+                    Price
+                    <a asp-action="index" asp-route-sort="price_desc" asp-route-genreId="@ViewBag.CurrentGenreId" asp-route-search="@ViewBag.CurrentSearch">
+                        <i class="fas fa-arrow-down"></i>
+                    </a>
+                    <a asp-action="index" asp-route-sort="price" asp-route-genreId="@ViewBag.CurrentGenreId" asp-route-search="@ViewBag.CurrentSearch">
+                        <i class="fas fa-arrow-up"></i>
+                    </a>
+                </th>
+                <th scope="col">Image</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var product in Model)
+            {
+                order++;
+                <tr>
+                    <th scope="row">@order</th>
+                    <td>@product.Name</td>
+                    <td>@product.Colors.Name</td>
+                    <td>@product.Shape.Name</td>
+                    <td>@product.Thickness.Size</td>
+                    <td>@product.Polish.Name</td>
+                    <td>@product.Corner.Name</td>
+                    <td>@product.Price AZN</td>
+                    <td><img src="~/uploads/products/@product.ProductImages.FirstOrDefault(x => x.PosterStatus == true)?.Image" style="max-width:100px" alt="Alternate Text" /></td>
+                    <td>
+                        <a asp-action="edit" asp-route-id="@product.Id" class="btn btn-warning">Edit</a>
+                        <a asp-action="deletehousefetch" asp-route-id="@product.Id" class="btn btn-danger btn-item-delete">Delete</a>
+                        <a asp-action="comment" asp-route-id="@product.Id" class="btn btn-success">Comments</a>
+                    </td>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+
+
+
+
+    <div class="d-flex justify-content-center">
+        <nav aria-label="Page navigation example">
+            <ul class="pagination">
+                <li class="page-item @(Model.HasPrev?"":"disabled")">
+                    <a class="page-link" asp-action="index" asp-route-page="@(Model.PageIndex-1)" asp-route-search="@ViewBag.CurrentSearch" asp-route-genreId="@ViewBag.CurrentGenreId" asp-route-sort="@ViewBag.CurrentSort" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                </li>
+                @for (int i = 1; i <= Model.TotalPages; i++)
+                {
+                    <li class="page-item @(i==Model.PageIndex?"active":"")"><a class="page-link" asp-action="index" asp-route-page="@i" asp-route-search="@ViewBag.CurrentSearch" asp-route-genreId="@ViewBag.CurrentGenreId" asp-route-sort="@ViewBag.CurrentSort">@i</a></li>
+                }
+                <li class="page-item @(Model.HasNext?"":"disabled")">
+                    <a class="page-link" asp-action="index" asp-route-page="@(Model.PageIndex+1)" asp-route-search="@ViewBag.CurrentSearch" asp-route-genreId="@ViewBag.CurrentGenreId" asp-route-sort="@ViewBag.CurrentSort" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>

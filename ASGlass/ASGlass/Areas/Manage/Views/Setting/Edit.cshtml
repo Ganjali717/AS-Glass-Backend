@@ -1,0 +1,59 @@
+﻿@model Setting
+    <div class="panel-header panel-header-sm">
+    </div>
+<div class="content mt-5">
+    <div class="col-12">
+        <h1>Setting</h1>
+        <form method="post" enctype="multipart/form-data">
+            <div class="form-group col-md-6">
+                <label asp-for="HeaderLogo">HeaderLogo</label>
+                <input asp-for="HeaderLogo" class="form-control" placeholder="HeaderLogo">
+                <span class="text-danger" asp-validation-for="HeaderLogo"></span>
+            </div>
+            <div class="img-box" style="display: inline-block; position: relative;">
+                <input type="hidden" name="Image" value="@Model.HeaderLogo" />
+                <img style="max-width:300px" src="~/assets/images/logo/@Model.HeaderLogo" alt="Alternate Text" />
+                <span class="remove-img-box" style="position: absolute; top: -10px; right: -5px; cursor:pointer">
+                    <i class="fa fa-times" style="color: red; font-size: 24px;"></i>
+                </span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FooterLogo">FooterLogo</label>
+                <input asp-for="FooterLogo" class="form-control" placeholder="FooterLogo">
+                <span class="text-danger" asp-validation-for="FooterLogo"></span>
+            </div>
+
+            <div class="img-box" style="display: inline-block; position: relative;">
+                <input type="hidden" name="Image" value="@Model.FooterLogo" />
+                <img style="max-width:300px" src="~/assets/images/logo/@Model.FooterLogo" alt="Alternate Text" />
+                <span class="remove-img-box" style="position: absolute; top: -10px; right: -5px; cursor:pointer">
+                    <i class="fa fa-times" style="color: red; font-size: 24px;"></i>
+                </span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Address">Address</label>
+                <input asp-for="Address" class="form-control" placeholder="Address">
+                <span class="text-danger" asp-validation-for="Address"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="SupportPhone">SupportPhone</label>
+                <input asp-for="SupportPhone" class="form-control" placeholder="SupportPhone">
+                <span class="text-danger" asp-validation-for="SupportPhone"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Email">Email</label>
+                <input asp-for="Email" class="form-control" placeholder="Email">
+                <span class="text-danger" asp-validation-for="Email"></span>
+            </div>
+
+
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">Edit</button>
+            </div>
+
+        </form>
+    </div>
+</div>

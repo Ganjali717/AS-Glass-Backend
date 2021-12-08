@@ -150,7 +150,7 @@
                         <div class="acs-items col-3">
                             <h4><a asp-route-id="@acc.Id" asp-action="detail" asp-controller="accessory">@acc.Name</a></h4>
                             <p>"@acc.Desc.Substring(0, 150) ...."</p>
-                            <img src="~/assets/images/accessories/@acc.Image" alt="">
+                            <img src="~/assets/images/accessories/@acc.ProductImages.FirstOrDefault(x => x.PosterStatus == true).Image" alt="">
                             <br><br>
                             <a asp-route-id="@acc.Id" asp-action="detail" asp-controller="accessory" class="acs-btn">SHOP NOW</a>
                         </div>

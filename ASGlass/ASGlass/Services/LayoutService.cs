@@ -59,7 +59,7 @@ namespace ASGlass.Services
                             item.Name = product.Name;
                             item.Price = product.Price;
                             item.DiscountPrice = product.DiscountPrice;
-                            item.Image = product?.Image;
+                            item.Image = product.ProductImages.FirstOrDefault(x => x.PosterStatus == true)?.Image;
                         }
                     }
                 }
@@ -70,10 +70,10 @@ namespace ASGlass.Services
                 items = cartItems.Select(x => new CartViewModel
                 {
                     ProductId = x.ProductId,
-                    Image = x.Product?.Image,
                     Name = x.Product.Name,
                     Price = x.Product.Price,
-                    DiscountPrice = x.Product.DiscountPrice
+                    DiscountPrice = x.Product.DiscountPrice,
+                    Image = x.Product.ProductImages.FirstOrDefault(x => x.PosterStatus == true)?.Image
                 }).ToList();
             }
 

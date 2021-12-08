@@ -35,7 +35,7 @@
                     <div class="cart-left-body">
                         @foreach (var item in Model)
                         {
-                            <div class="cart-item">
+                            <div class="cart-item col-12">
                                 <div class="cart-item-img col-3">
                                     @if (item.IsAccessory == true)
                                     {
@@ -46,16 +46,23 @@
                                         <img src="~/assets/images/decors/@item.Image" alt="">
                                     }
                                 </div>
-                                <div class="cart-item-txt col-3">
+                                <div class="cart-item-txt col-4">
                                     <p>@item.Name</p>
                                     <br>
                                     <b style="text-decoration:underline;">Spesifikasiyalar:</b>
                                     <br /><br />
-                                    <p><b>Kəsim:</b></p>
-                                    <p><b>Ölçü: </b> 24" x 36" </p>
-                                    <p><b>Rəng:</b>Seamed</p>
-                                    <p>Beveled </p>
-                                    <p><b>Mərkəzdə Dəlik: </b></p>
+                                    @if (item.IsAccessory == false)
+                                    {
+                                        <p><b>Kəsim:</b> @item.Shape</p>
+                                        <p><b>Ölçü: </b> @item.Uzunluq sm x @item.En sm</p>
+                                        <p><b>Rəng:</b> @item.Color </p>
+                                        <p><b>Mərkəzdə Dəlik: </b></p>
+                                    }
+                                    else
+                                    {
+                                        <p><b>Yapiwqanlig:</b> Tam yapiwgandir</p>
+                                    }
+
                                 </div>
                                 <div class="cart-item-count col-2">
                                     <small>@item.Price ₼ / each</small>
@@ -88,7 +95,7 @@
                             }
                             <li>Shopping & Handling <span>FREE</span></li>
                             <li><b>TOTAL</b><b class="pr-right">@totalPrice AZN</b></li>
-                            <br>
+                           
                             <li><a href="">Proceed to Checkout</a></li>
                         </ul>
                     </div>

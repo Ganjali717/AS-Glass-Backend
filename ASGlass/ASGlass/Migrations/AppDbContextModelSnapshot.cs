@@ -19,6 +19,26 @@ namespace ASGlass.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+            modelBuilder.Entity("ASGlass.Models.About", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Image")
+                        .HasColumnType("nvarchar(100)")
+                        .HasMaxLength(100);
+
+                    b.Property<string>("Title")
+                        .HasColumnType("nvarchar(1000)")
+                        .HasMaxLength(1000);
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Abouts");
+                });
+
             modelBuilder.Entity("ASGlass.Models.CartItem", b =>
                 {
                     b.Property<int>("Id")
@@ -117,49 +137,48 @@ namespace ASGlass.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int?>("ColorId")
+                    b.Property<int>("ColorId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("CornerId")
+                    b.Property<int>("CornerId")
                         .HasColumnType("int");
 
                     b.Property<int>("Count")
                         .HasColumnType("int");
 
                     b.Property<string>("Desc")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<double?>("Diametr")
+                    b.Property<double>("Diametr")
                         .HasColumnType("float");
 
                     b.Property<double>("DiscountPrice")
                         .HasColumnType("float");
 
-                    b.Property<double?>("En")
+                    b.Property<double>("En")
                         .HasColumnType("float");
 
-                    b.Property<string>("Image")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool?>("IsAccessory")
+                    b.Property<bool>("IsAccessory")
                         .HasColumnType("bit");
 
                     b.Property<string>("Name")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("PolishId")
+                    b.Property<int>("PolishId")
                         .HasColumnType("int");
 
                     b.Property<double>("Price")
                         .HasColumnType("float");
 
-                    b.Property<int?>("ShapeId")
+                    b.Property<int>("ShapeId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("ThicknessId")
+                    b.Property<int>("ThicknessId")
                         .HasColumnType("int");
 
-                    b.Property<double?>("Uzunluq")
+                    b.Property<double>("Uzunluq")
                         .HasColumnType("float");
 
                     b.HasKey("Id");
@@ -197,6 +216,29 @@ namespace ASGlass.Migrations
                     b.HasIndex("ProductId");
 
                     b.ToTable("ProductCategories");
+                });
+
+            modelBuilder.Entity("ASGlass.Models.ProductImage", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Image")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool?>("PosterStatus")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("ProductId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ProductId");
+
+                    b.ToTable("ProductImage");
                 });
 
             modelBuilder.Entity("ASGlass.Models.Setting", b =>
@@ -535,23 +577,33 @@ namespace ASGlass.Migrations
                 {
                     b.HasOne("ASGlass.Models.Color", "Colors")
                         .WithMany("Product")
-                        .HasForeignKey("ColorId");
+                        .HasForeignKey("ColorId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("ASGlass.Models.Corner", "Corner")
                         .WithMany("Products")
-                        .HasForeignKey("CornerId");
+                        .HasForeignKey("CornerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("ASGlass.Models.Polish", "Polish")
                         .WithMany("Products")
-                        .HasForeignKey("PolishId");
+                        .HasForeignKey("PolishId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("ASGlass.Models.Shape", "Shape")
                         .WithMany("Products")
-                        .HasForeignKey("ShapeId");
+                        .HasForeignKey("ShapeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("ASGlass.Models.Thickness", "Thickness")
                         .WithMany("Products")
-                        .HasForeignKey("ThicknessId");
+                        .HasForeignKey("ThicknessId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("ASGlass.Models.ProductCategory", b =>
@@ -564,6 +616,15 @@ namespace ASGlass.Migrations
 
                     b.HasOne("ASGlass.Models.Product", "Product")
                         .WithMany("ProductCategories")
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("ASGlass.Models.ProductImage", b =>
+                {
+                    b.HasOne("ASGlass.Models.Product", "Product")
+                        .WithMany("ProductImages")
                         .HasForeignKey("ProductId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();

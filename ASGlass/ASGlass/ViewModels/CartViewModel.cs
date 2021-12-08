@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ASGlass.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,10 +17,8 @@ namespace ASGlass.ViewModels
         public double? Uzunluq { get; set; }
         public double? En { get; set; }
         public double? Diametr { get; set; }
-        public int? ThincknessId { get; set; }
-        public int? PolishId { get; set; }
-        public int? ColorId { get; set; }
-        public int? CornerId { get; set; }
+        public string Shape { get; set; }
+        public string Color { get; set; }
         public bool? IsAccessory { get; set; }
     }
 }

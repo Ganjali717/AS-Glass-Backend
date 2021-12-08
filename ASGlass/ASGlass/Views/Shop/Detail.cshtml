@@ -7,11 +7,11 @@
                 <div class="accdetail-head-left col-5">
                     @if (Model.IsAccessory == true)
                     {
-                        <img src="~/assets/images/accessories/@Model.Image" alt="">
+                        <img src="~/assets/images/accessories/@Model.ProductImages.FirstOrDefault(x => x.PosterStatus == true).Image" alt="">
                     }
                     else
                     {
-                        <img src="~/assets/images/decors/@Model.Image" alt="">
+                        <img src="~/assets/images/decors/@Model.ProductImages.FirstOrDefault(x => x.PosterStatus == true).Image" alt="">
                     }
                 </div>
                 <div class="accdetail-head-right col-6">
@@ -23,13 +23,22 @@
                     <br>
                     @if (Model.DiscountPrice == 0)
                     {
-                         <p>@Model.Price ₼</p>
+                        <p>@Model.Price ₼</p>
                     }
                     else
                     {
-                         <p>@Model.DiscountPrice ₼ <span style="text-decoration:line-through;">@Model.Price ₼</span></p>
+                        <p>@Model.DiscountPrice ₼ <span style="text-decoration:line-through;">@Model.Price ₼</span></p>
 
                     }
+
+                    <b style="text-decoration:underline;">Spesifikasiyalar:</b>
+                    <br />
+                    <p><b>Kəsim:</b> @Model.Shape.Name</p>
+                    <p><b>Ölçü: </b> @Model.Uzunluq sm x @Model.En sm</p>
+                    <p><b>Rəng:</b> @Model.Colors.Name </p>
+                    <p><b>Mərkəzdə Dəlik: </b></p>
+
+                    <br />
                     <span>Say:</span>
                     <select name="" id="acccount">
                         @for (int i = 1; i <= Model.Count; i++)

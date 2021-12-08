@@ -174,3 +174,15 @@ C:\Users\LENOVO\OneDrive\Desktop\AS-Glass-Backend\ASGlass\ASGlass\obj\Debug\netc
 C:\Users\LENOVO\OneDrive\Desktop\AS-Glass-Backend\ASGlass\ASGlass\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Slider\Index.cshtml.g.cs
 C:\Users\LENOVO\OneDrive\Desktop\AS-Glass-Backend\ASGlass\ASGlass\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Slider\Create.cshtml.g.cs
 C:\Users\LENOVO\OneDrive\Desktop\AS-Glass-Backend\ASGlass\ASGlass\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Slider\Edit.cshtml.g.cs
+C:\Users\LENOVO\OneDrive\Desktop\AS-Glass-Backend\ASGlass\ASGlass\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\About\Index.cshtml.g.cs
+C:\Users\LENOVO\OneDrive\Desktop\AS-Glass-Backend\ASGlass\ASGlass\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\About\Edit.cshtml.g.cs
+C:\Users\LENOVO\OneDrive\Desktop\AS-Glass-Backend\ASGlass\ASGlass\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Setting\Index.cshtml.g.cs
+C:\Users\LENOVO\OneDrive\Desktop\AS-Glass-Backend\ASGlass\ASGlass\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Setting\Edit.cshtml.g.cs
+C:\Users\LENOVO\OneDrive\Desktop\AS-Glass-Backend\ASGlass\ASGlass\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Role\Index.cshtml.g.cs
+C:\Users\LENOVO\OneDrive\Desktop\AS-Glass-Backend\ASGlass\ASGlass\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Role\Edit.cshtml.g.cs
+C:\Users\LENOVO\OneDrive\Desktop\AS-Glass-Backend\ASGlass\ASGlass\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Role\Create.cshtml.g.cs
+C:\Users\LENOVO\OneDrive\Desktop\AS-Glass-Backend\ASGlass\ASGlass\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\User\Index.cshtml.g.cs
+C:\Users\LENOVO\OneDrive\Desktop\AS-Glass-Backend\ASGlass\ASGlass\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Account\Login.cshtml.g.cs
+C:\Users\LENOVO\OneDrive\Desktop\AS-Glass-Backend\ASGlass\ASGlass\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Account\AddAdmin.cshtml.g.cs
+C:\Users\LENOVO\OneDrive\Desktop\AS-Glass-Backend\ASGlass\ASGlass\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Shop\Index.cshtml.g.cs
+C:\Users\LENOVO\OneDrive\Desktop\AS-Glass-Backend\ASGlass\ASGlass\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Shop\Create.cshtml.g.cs

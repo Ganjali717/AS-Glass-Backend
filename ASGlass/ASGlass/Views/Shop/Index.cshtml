@@ -111,11 +111,11 @@
                             <div class="shop-item">
                                 @if (item.IsAccessory == true)
                                 {
-                                    <img src="~/assets/images/accessories/@item.Image" alt="">
+                                    <img src="~/assets/images/accessories/@item.ProductImages.FirstOrDefault(x => x.PosterStatus == true).Image" alt="">
                                 }
                                 else
                                 {
-                                    <img src="~/assets/images/decors/@item.Image" alt="">
+                                    <img src="~/assets/images/decors/@item.ProductImages.FirstOrDefault(x => x.PosterStatus == true).Image" alt="">
                                 }
                                 <br>
                                 <p><a asp-action="detail" asp-controller="shop" asp-route-id="@item.Id">@item.Name</a></p>

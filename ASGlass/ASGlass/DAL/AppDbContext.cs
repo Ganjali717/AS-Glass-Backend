@@ -15,6 +15,7 @@ namespace ASGlass.DAL
 
         }
 
+        public DbSet<About> Abouts { get; set; }
         public DbSet<AppUser> AppUsers { get; set; }
         public DbSet<Slider> Sliders { get; set; }
         public DbSet<Setting> Settings { get; set; }
