@@ -1,0 +1,144 @@
+﻿
+@model Product
+@{
+    ViewData["Title"] = "Edit";
+}
+
+
+
+<div class="container-fluid ">
+    <div class="col-12">
+        <h1>Create</h1>
+        <form method="post" enctype="multipart/form-data">
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label asp-for="Name">Name</label>
+                    <input asp-for="Name" class="form-control" placeholder="Name" style="background-color: #295484; color: white;">
+                    <span class="text-danger" asp-validation-for="Name"></span>
+                </div>
+                <div class="form-group col-md-6">
+                    <label asp-for="Count">Count</label>
+                    <input asp-for="Count" class="form-control" placeholder="Count" style="background-color: #295484; color: white;">
+                    <span class="text-danger" asp-validation-for="Count"></span>
+                </div>
+                <div class="form-group col-md-6">
+                    <label asp-for="Price">Sale Price</label>
+                    <input asp-for="Price" class="form-control" placeholder="Price" style="background-color: #295484; color: white;">
+                    <span class="text-danger" asp-validation-for="Price"></span>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label asp-for="ColorId">Color</label>
+                    <select asp-for="ColorId" class="form-control" id="ColorId" asp-items="@(new SelectList(ViewBag.Colors,"Id","Name"))">
+                    </select>
+                </div>
+                <div class="form-group col-md-6">
+                    <label asp-for="PolishId">Polish</label>
+                    <select asp-for="PolishId" class="form-control" id="PolishId" asp-items="@(new SelectList(ViewBag.Polishes,"Id","Name"))">
+                    </select>
+                </div>
+                <div class="form-group col-md-4">
+                    <label asp-for="CategoryIds">Categories</label>
+                    <select asp-for="CategoryIds" class="form-control" id="CategoryIds" asp-items="@(new SelectList(ViewBag.Categories,"Id","Name"))">
+                    </select>
+                </div>
+
+            </div>
+            <div class="form-row">
+
+                <div class="form-group col-md-3">
+                    <label asp-for="DiscountPrice">DiscountPrice</label>
+                    <input asp-for="DiscountPrice" class="form-control" placeholder="DiscountPrice" style="background-color: #295484; color: white;">
+                    <span class="text-danger" asp-validation-for="DiscountPrice"></span>
+                </div>
+                <div class="form-group col-md-4">
+                    <label asp-for="ThicknessId">Thickness</label>
+                    <select asp-for="ThicknessId" class="form-control" id="ThicknessId" asp-items="@(new SelectList(ViewBag.Thicknesses,"Id","Size"))">
+                    </select>
+                </div>
+                <div class="form-group col-md-4">
+                    <label asp-for="ShapeId">Shape</label>
+                    <select asp-for="ShapeId" class="form-control" id="ShapeId" asp-items="@(new SelectList(ViewBag.Shapes,"Id","Name"))">
+                    </select>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <div class="form-check">
+                        <input asp-for="IsAccessory" class="form-check-input" placeholder="IsAccessory" style="background-color: #295484; color: white;">
+                        <label asp-for="IsAccessory" class="form-check-label">IsAccessory</label>
+                        <span class="text-danger" asp-validation-for="IsAccessory"></span>
+                    </div>
+                </div>
+                <div class="form-group col-md-6">
+                    <label asp-for="Uzunluq">Uzunluq</label>
+                    <input asp-for="Uzunluq" class="form-control" placeholder="Uzunluq" style="background-color: #295484; color: white;">
+                    <span class="text-danger" asp-validation-for="Uzunluq"></span>
+                </div>
+                <div class="form-group col-md-6">
+                    <label asp-for="En">Current Floor</label>
+                    <input asp-for="En" class="form-control" placeholder="En" style="background-color: #295484; color: white;">
+                    <span class="text-danger" asp-validation-for="En"></span>
+                </div>
+                <div class="form-group col-md-6">
+                    <label asp-for="Diametr">Diametr</label>
+                    <input asp-for="Diametr" class="form-control" placeholder="Diametr" style="background-color: #295484; color: white;">
+                    <span class="text-danger" asp-validation-for="Diametr"></span>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-12">
+                    <label asp-for="Desc">Description</label>
+                    <textarea asp-for="Desc" class="form-control" placeholder="Description" style="background-color: #295484; color: white;"></textarea>
+                    <span class="text-danger" asp-validation-for="Desc"></span>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label asp-for="PosterFile">PosterFile</label>
+                    <br />
+                    <br />
+                    <input asp-for="PosterFile" class="form-control" placeholder="PosterFile" style="background-color: #295484; color: #295484;">
+                    <span class="text-danger" asp-validation-for="PosterFile"></span>
+                </div>
+
+                <div class="img-box" style="display: inline-block; position: relative;">
+                    <input type="hidden" name="Image" value="@Model.ProductImages.FirstOrDefault(x => x.PosterStatus == true)?.Image" />
+                    <img style="max-width:300px" src="~/uploads/products/@Model.ProductImages.FirstOrDefault(x=>x.PosterStatus==true)?.Image" alt="Alternate Text" />
+                    <span class="remove-img-box" style="position: absolute; top: -10px; right: -5px; cursor:pointer">
+                        <i class="fa fa-times" style="color: red; font-size: 24px;"></i>
+                    </span>
+                </div>
+
+                <div class="form-group col-md-6">
+                    <label asp-for="ImageFiles">ImageFiles</label>
+                    <input asp-for="ImageFiles" class="form-control" placeholder="ImageFiles">
+                    <span class="text-danger" asp-validation-for="ImageFiles"></span>
+                </div>
+                @foreach (var file in Model.ProductImages.Where(x => x.PosterStatus == null))
+                {
+                    <div>
+
+                        <div class="img-box" style="display: inline-block; position: relative;margin-right:8px">
+                            <input type="hidden" name="BookImageIds[]" value="@file.Id" />
+                            <img style="max-width:150px" src="~/uploads/products/@file.Image" alt="Alternate Text" />
+                            <span class="remove-img-box" style="position: absolute; top: -10px; right: -5px; cursor:pointer">
+                                <i class="fa fa-times" style="color: red; font-size: 24px;"></i>
+                            </span>
+                        </div>
+                    </div>
+
+                }
+
+
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">Edit</button>
+            </div>
+
+        </form>
+    </div>
+
+</div>
+

@@ -25,6 +25,7 @@ namespace ASGlass.DAL
         public DbSet<Polish> Polishes { get; set; }
         public DbSet<Product> Products { get; set; }
         public DbSet<ProductCategory> ProductCategories { get; set; }
+        public DbSet<ProductImage> ProductImages { get; set; }
         public DbSet<Shape> Shapes { get; set; }
         public DbSet<Thickness> Thicknesses { get; set; }
         public DbSet<CartItem> CartItems { get; set; }

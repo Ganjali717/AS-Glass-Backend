@@ -28,7 +28,7 @@
                         <ul class="sidebar-menu--shop menu-type-2">
                             @foreach (var item in Model.Thicknesses)
                             {
-                                <li><a href="#">@item.Size <span>(@item.Products.Count())</span></a></li>
+                                <li><a asp-action="index" asp-controller="shop" asp-route-thicknessId="@item.Id">@item.Size <span>(@item.Products.Count())</span></a></li>
 
                             }
                         </ul>
@@ -39,7 +39,7 @@
                         <ul class="sidebar-menu--shop menu-type-2">
                             @foreach (var item in Model.Colors)
                             {
-                                <li><a href="#">@item.Name <span>(@item.Product.Count())</span></a></li>
+                                <li><a asp-action="index" asp-controller="shop" asp-route-colorId="@item.Id">@item.Name <span>(@item.Product.Count())</span></a></li>
 
                             }
                         </ul>
@@ -111,18 +111,18 @@
                             <div class="shop-item">
                                 @if (item.IsAccessory == true)
                                 {
-                                    <img src="~/assets/images/accessories/@item.ProductImages.FirstOrDefault(x => x.PosterStatus == true).Image" alt="">
+                                    <img src="~/uploads/products/@item.ProductImages.FirstOrDefault(x => x.PosterStatus == true)?.Image" alt="">
                                 }
                                 else
                                 {
-                                    <img src="~/assets/images/decors/@item.ProductImages.FirstOrDefault(x => x.PosterStatus == true).Image" alt="">
+                                    <img src="~/uploads/products/@item.ProductImages.FirstOrDefault(x => x.PosterStatus == true)?.Image" alt="">
                                 }
                                 <br>
                                 <p><a asp-action="detail" asp-controller="shop" asp-route-id="@item.Id">@item.Name</a></p>
                                 <small>Çatdırılma 1-3 iş gün ərzində olur.</small>
                                 <br><br>
                                     <div class="acc-item-price">
-                                        @if (item.DiscountPrice == 0)
+                                        @if (item.DiscountPrice == null)
                                         {
                                         <p>Qiyməti: @item.Price ₼</p>
                                         }

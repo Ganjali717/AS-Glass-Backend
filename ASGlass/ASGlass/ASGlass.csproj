@@ -5,6 +5,21 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="wwwroot\manage\demo\**" />
+    <Compile Remove="wwwroot\manage\fonts\**" />
+    <Compile Remove="wwwroot\manage\scss\**" />
+    <Content Remove="wwwroot\manage\demo\**" />
+    <Content Remove="wwwroot\manage\fonts\**" />
+    <Content Remove="wwwroot\manage\scss\**" />
+    <EmbeddedResource Remove="wwwroot\manage\demo\**" />
+    <EmbeddedResource Remove="wwwroot\manage\fonts\**" />
+    <EmbeddedResource Remove="wwwroot\manage\scss\**" />
+    <None Remove="wwwroot\manage\demo\**" />
+    <None Remove="wwwroot\manage\fonts\**" />
+    <None Remove="wwwroot\manage\scss\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Compile Remove="Migrations\20211121162206_CreateSettingTable.cs" />
     <Compile Remove="Migrations\20211121162206_CreateSettingTable.Designer.cs" />
     <Compile Remove="Migrations\20211122152736_CreateTenModels.cs" />
@@ -45,6 +60,8 @@
     <Compile Remove="Migrations\20211208112723_CreateAboutTable.Designer.cs" />
     <Compile Remove="Migrations\20211208125039_CreateTwelveTable.cs" />
     <Compile Remove="Migrations\20211208125039_CreateTwelveTable.Designer.cs" />
+    <Compile Remove="Migrations\20211209090125_SomeNullableItemsinProducts.cs" />
+    <Compile Remove="Migrations\20211209090125_SomeNullableItemsinProducts.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -107,13 +124,16 @@
     <None Include="wwwroot\assets\vendors\bootstrap-5.0.2\.github\workflows\lint.yml" />
     <None Include="wwwroot\assets\vendors\bootstrap-5.0.2\.github\workflows\node-sass.yml" />
     <None Include="wwwroot\assets\vendors\bootstrap-5.0.2\.github\workflows\release-notes.yml" />
+    <None Include="wwwroot\lib\microsoft\signalr\dist\browser\signalr.js" />
+    <None Include="wwwroot\lib\microsoft\signalr\dist\browser\signalr.min.js" />
     <None Include="wwwroot\manage\css\now-ui-dashboard.css.map" />
-    <None Include="wwwroot\manage\demo\demo.js" />
-    <None Include="wwwroot\manage\fonts\nucleo-license.md" />
-    <None Include="wwwroot\manage\fonts\nucleo-outline.woff2" />
     <None Include="wwwroot\manage\js\core\bootstrap.min.js" />
     <None Include="wwwroot\manage\js\core\jquery.min.js" />
     <None Include="wwwroot\manage\js\core\popper.min.js" />
+    <None Include="wwwroot\manage\js\demo\chart-area-demo.js" />
+    <None Include="wwwroot\manage\js\demo\chart-bar-demo.js" />
+    <None Include="wwwroot\manage\js\demo\chart-pie-demo.js" />
+    <None Include="wwwroot\manage\js\demo\datatables-demo.js" />
     <None Include="wwwroot\manage\js\main.js" />
     <None Include="wwwroot\manage\js\now-ui-dashboard.js" />
     <None Include="wwwroot\manage\js\now-ui-dashboard.js.map" />
@@ -123,39 +143,6 @@
     <None Include="wwwroot\manage\js\plugins\dropzone.js" />
     <None Include="wwwroot\manage\js\plugins\jquery.iframe-transport.js" />
     <None Include="wwwroot\manage\js\plugins\perfect-scrollbar.jquery.min.js" />
-    <None Include="wwwroot\manage\scss\now-ui-dashboard.scss" />
-    <None Include="wwwroot\manage\scss\now-ui-dashboard\cards\_card-chart.scss" />
-    <None Include="wwwroot\manage\scss\now-ui-dashboard\cards\_card-map.scss" />
-    <None Include="wwwroot\manage\scss\now-ui-dashboard\cards\_card-plain.scss" />
-    <None Include="wwwroot\manage\scss\now-ui-dashboard\cards\_card-user.scss" />
-    <None Include="wwwroot\manage\scss\now-ui-dashboard\mixins\_buttons.scss" />
-    <None Include="wwwroot\manage\scss\now-ui-dashboard\mixins\_cards.scss" />
-    <None Include="wwwroot\manage\scss\now-ui-dashboard\mixins\_dropdown.scss" />
-    <None Include="wwwroot\manage\scss\now-ui-dashboard\mixins\_inputs.scss" />
-    <None Include="wwwroot\manage\scss\now-ui-dashboard\mixins\_page-header.scss" />
-    <None Include="wwwroot\manage\scss\now-ui-dashboard\mixins\_transparency.scss" />
-    <None Include="wwwroot\manage\scss\now-ui-dashboard\mixins\_vendor-prefixes.scss" />
-    <None Include="wwwroot\manage\scss\now-ui-dashboard\plugins\_plugin-animate-bootstrap-notify.scss" />
-    <None Include="wwwroot\manage\scss\now-ui-dashboard\plugins\_plugin-perfect-scrollbar.scss" />
-    <None Include="wwwroot\manage\scss\now-ui-dashboard\_alerts.scss" />
-    <None Include="wwwroot\manage\scss\now-ui-dashboard\_buttons.scss" />
-    <None Include="wwwroot\manage\scss\now-ui-dashboard\_cards.scss" />
-    <None Include="wwwroot\manage\scss\now-ui-dashboard\_checkboxes-radio.scss" />
-    <None Include="wwwroot\manage\scss\now-ui-dashboard\_dropdown.scss" />
-    <None Include="wwwroot\manage\scss\now-ui-dashboard\_fixed-plugin.scss" />
-    <None Include="wwwroot\manage\scss\now-ui-dashboard\_footers.scss" />
-    <None Include="wwwroot\manage\scss\now-ui-dashboard\_images.scss" />
-    <None Include="wwwroot\manage\scss\now-ui-dashboard\_inputs.scss" />
-    <None Include="wwwroot\manage\scss\now-ui-dashboard\_misc.scss" />
-    <None Include="wwwroot\manage\scss\now-ui-dashboard\_mixins.scss" />
-    <None Include="wwwroot\manage\scss\now-ui-dashboard\_navbar.scss" />
-    <None Include="wwwroot\manage\scss\now-ui-dashboard\_nucleo-outline.scss" />
-    <None Include="wwwroot\manage\scss\now-ui-dashboard\_page-header.scss" />
-    <None Include="wwwroot\manage\scss\now-ui-dashboard\_responsive.scss" />
-    <None Include="wwwroot\manage\scss\now-ui-dashboard\_sidebar-and-main-panel.scss" />
-    <None Include="wwwroot\manage\scss\now-ui-dashboard\_tables.scss" />
-    <None Include="wwwroot\manage\scss\now-ui-dashboard\_typography.scss" />
-    <None Include="wwwroot\manage\scss\now-ui-dashboard\_variables.scss" />
     <None Include="wwwroot\manage\vendor\bootstrap\js\bootstrap.bundle.js" />
     <None Include="wwwroot\manage\vendor\bootstrap\js\bootstrap.bundle.js.map" />
     <None Include="wwwroot\manage\vendor\bootstrap\js\bootstrap.bundle.min.js" />

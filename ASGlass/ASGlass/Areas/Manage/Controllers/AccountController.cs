@@ -25,26 +25,26 @@ namespace ASGlass.Areas.Manage.Controllers
         }
         public IActionResult Index()
         {
-            /*AppUser admin = new AppUser
-            {
-                UserName = "SuperAdmin",
-                FullName = "Ali Imanov"
-            };
+            /* AppUser admin = new AppUser
+             {
+                 UserName = "SuperAdmin",
+                 FullName = "Ali Imanov"
+             };
 
-            var result = await _userManager.CreateAsync(admin, "Admin123");
+             var result = await _userManager.CreateAsync(admin, "Admin123");
 
-            List<string> errors = new List<string>();
-            if (!result.Succeeded)
-            {
-                foreach (var item in result.Errors)
-                {
-                    errors.Add(item.Description);
-                }
+             List<string> errors = new List<string>();
+             if (!result.Succeeded)
+             {
+                 foreach (var item in result.Errors)
+                 {
+                     errors.Add(item.Description);
+                 }
 
-                return Ok(errors);
-            }*/
-/*
-            AppUser appUser = await _userManager.FindByNameAsync("SuperAdmin");
+                 return Ok(errors);
+             }*/
+
+            /*AppUser appUser = await _userManager.FindByNameAsync("SuperAdmin");
             await _userManager.AddToRoleAsync(appUser, "SuperAdmin");*/
 
             return View();

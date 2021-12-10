@@ -7,11 +7,11 @@
                 <div class="accdetail-head-left col-5">
                     @if (Model.IsAccessory == true)
                     {
-                        <img src="~/assets/images/accessories/@Model.ProductImages.FirstOrDefault(x => x.PosterStatus == true).Image" alt="">
+                        <img src="~/uploads/products/@Model.ProductImages.FirstOrDefault(x => x.PosterStatus == true).Image" alt="">
                     }
                     else
                     {
-                        <img src="~/assets/images/decors/@Model.ProductImages.FirstOrDefault(x => x.PosterStatus == true).Image" alt="">
+                        <img src="~/uploads/products/@Model.ProductImages.FirstOrDefault(x => x.PosterStatus == true).Image" alt="">
                     }
                 </div>
                 <div class="accdetail-head-right col-6">
@@ -21,7 +21,7 @@
                     <br>
                     <p>SKU: IC80HV-20GR</p>
                     <br>
-                    @if (Model.DiscountPrice == 0)
+                    @if (Model.DiscountPrice == null)
                     {
                         <p>@Model.Price ₼</p>
                     }

@@ -53,10 +53,10 @@ namespace ASGlass.Services
 
                     foreach (var item in items)
                     {
-                        Product product = _context.Products.FirstOrDefault(x => x.Id == item.ProductId);
+                        Product product = _context.Products.Include(x => x.ProductImages).FirstOrDefault(x => x.Id == item.ProductId);
                         if (product != null)
                         {
-                            item.Name = product.Name;
+                            item.Name = product.Name;   
                             item.Price = product.Price;
                             item.DiscountPrice = product.DiscountPrice;
                             item.Image = product.ProductImages.FirstOrDefault(x => x.PosterStatus == true)?.Image;
@@ -80,5 +80,12 @@ namespace ASGlass.Services
             return items;
         }
 
+
+        public List<Category> GetCategories()
+        {
+            List<Category> categories = _context.Categories.ToList();
+
+            return categories;
+        }
     }
 }

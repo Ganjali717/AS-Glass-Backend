@@ -22,7 +22,7 @@ namespace ASGlass.Controllers
             _context = context;
             _userManager = userManager;
         }
-        public IActionResult Index(int? categoryId = null)
+        public IActionResult Index(int? categoryId = null, int? thicknessId = null, int? colorId = null)
         {
 
             AppUser member = User.Identity.IsAuthenticated ? _userManager.Users.FirstOrDefault(x => x.UserName == User.Identity.Name && !x.IsAdmin) : null;
@@ -30,15 +30,21 @@ namespace ASGlass.Controllers
             var query = _context.Products.AsQueryable();
 
             ViewBag.CategoryId = categoryId;
+            ViewBag.ThicknessId = thicknessId;
+            ViewBag.ColorId = colorId; 
 
             if (categoryId != null)
                 query = query.Where(x => x.ProductCategories.Any(c => c.CategoryId == categoryId));
-           
+            if (thicknessId != null)
+                query = query.Where(x => x.Thickness.Id == thicknessId);
+            if (colorId != null)
+                query = query.Where(x => x.Colors.Id == colorId);
+
 
             ShopViewModel shopVM = new ShopViewModel
             {
                 Categories = _context.Categories.Include(x => x.ProductCategories).ThenInclude(x => x.Product).ToList(), 
-                Products = query.ToList(), 
+                Products = query.Include(x => x.ProductImages).ToList(), 
                 Colors = _context.Colors.Include(x => x.Product).ToList(),
                 Thicknesses = _context.Thicknesses.Include(x => x.Products).ToList()
             };
@@ -47,13 +53,13 @@ namespace ASGlass.Controllers
 
         public IActionResult Detail(int id)
         {
-            var product = _context.Products.Include(x => x.Shape).Include(x => x.Colors).FirstOrDefault(x => x.Id == id);
+            var product = _context.Products.Include(x => x.ProductImages).Include(x => x.Thickness).Include(x => x.Shape).Include(x => x.Polish).Include(x => x.Corner).Include(x => x.Colors).FirstOrDefault(x => x.Id == id);
             return View(product);
         }
 
         public IActionResult AddToCart(int id)
         {
-            Product product = _context.Products.FirstOrDefault(x => x.Id == id);
+            Product product = _context.Products.Include(x => x.ProductCategories).Include(x => x.ProductImages).Include(x => x.Colors).Include(x => x.Shape).Include(x=> x.Thickness).Include(x => x.Corner).Include(x => x.Polish).FirstOrDefault(x => x.Id == id);
             CartViewModel cartVM = null;
             List<CartViewModel> products = new List<CartViewModel>();
 
@@ -86,11 +92,16 @@ namespace ASGlass.Controllers
                         Name = product.Name,
                         Image = product.ProductImages.FirstOrDefault(x => x.PosterStatus == true)?.Image,
                         Price = product.Price,
-                        DiscountPrice = product.DiscountPrice,
+                        DiscountPrice = product.DiscountPrice != null? product.DiscountPrice: null,
                         IsAccessory = product.IsAccessory,
-                        Uzunluq = product.Uzunluq,
-                        En = product.En,
-                        Diametr = product.Diametr
+                        Uzunluq = product.Uzunluq != null? product.Uzunluq:null,
+                        En = product.En != null? product.En: null,
+                        Diametr = product.Diametr != null? product.Diametr:null,
+                        Shape = product.ShapeId != null? product.Shape.Name:null, 
+                        Color = product.ColorId !=null? product.Colors.Name:null, 
+                        Polish = product.PolishId !=null? product.Polish.Name:null, 
+                        Thickness = product.ThicknessId !=null? product.Thickness.Size:null, 
+                        Corner = product.CornerId != null? product.Corner.Name:null
                     };
                     products.Add(cartVM);
                 }
@@ -118,7 +129,7 @@ namespace ASGlass.Controllers
 
                 _context.SaveChanges();
                 products = _context.CartItems.Include(x => x.Product).Where(x => x.AppUserId == member.Id)
-                    .Select(x => new CartViewModel { ProductId = x.ProductId, Name = x.Product.Name, Price = x.Product.Price, DiscountPrice = x.Product.DiscountPrice, Image = x.Product.ProductImages.FirstOrDefault(x => x.PosterStatus == true).Image }).ToList();
+                    .Select(x => new CartViewModel { ProductId = x.ProductId, Name = x.Product.Name, Price = x.Product.Price, DiscountPrice = x.Product.DiscountPrice, Image = x.Product.ProductImages.FirstOrDefault(x => x.PosterStatus == true).Image, Color = x.Product.Colors.Name, Shape = x.Product.Shape.Name, Corner = x.Product.Corner.Name, Thickness = x.Product.Thickness.Size, Polish = x.Product.Polish.Name }).ToList();
             }
 
             

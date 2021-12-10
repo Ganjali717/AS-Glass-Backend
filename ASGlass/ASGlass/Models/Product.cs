@@ -11,23 +11,23 @@ namespace ASGlass.Models
     public class Product
     {
         public int Id { get; set; }
-        public int ThicknessId { get; set; }
-        public int PolishId { get; set; }
-        public int ShapeId { get; set; }
-        public int ColorId { get; set; }
-        public int CornerId { get; set; }
+        public int? ThicknessId { get; set; }
+        public int? PolishId { get; set; }
+        public int? ShapeId { get; set; }
+        public int? ColorId { get; set; }
+        public int? CornerId { get; set; }
         [Required]
         public string Name { get; set; }
         [Required]
         public double Price { get; set; }
         public int Count { get; set; }
-        public double DiscountPrice { get; set; }
+        public double? DiscountPrice { get; set; }
         [Required]
         public string Desc { get; set; }
         public bool IsAccessory { get; set; }
-        public double Uzunluq { get; set; }
-        public double En { get; set; }
-        public double Diametr { get; set; }
+        public double? Uzunluq { get; set; }
+        public double? En { get; set; }
+        public double? Diametr { get; set; }
 
 
 

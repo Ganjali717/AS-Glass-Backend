@@ -2,6 +2,7 @@
 using ASGlass.Models;
 using ASGlass.ViewModels;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -27,7 +28,7 @@ namespace ASGlass.Controllers
             {
                 Sliders = _context.Sliders.ToList(), 
                 Categories = _context.Categories.ToList(),
-                Products = _context.Products.ToList()
+                Products = _context.Products.Include(x => x.ProductImages).ToList()
             };
             return View(homeVM);
         }

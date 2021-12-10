@@ -2,6 +2,7 @@
 using ASGlass.Models;
 using ASGlass.ViewModels;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -20,62 +21,68 @@ namespace ASGlass.Controllers
         }
         public IActionResult Index()
         {
-            return View();
-        }
-
-        public IActionResult Customize()
-        {
             GlassViewModel glassVM = new GlassViewModel()
             {
+                Shapes = _context.Shapes.ToList(),
                 Colors = _context.Colors.ToList(),
                 Polishes = _context.Polishes.ToList(),
                 Thicknesses = _context.Thicknesses.ToList(),
-                Corners = _context.Corners.ToList()
-                
+                Corners = _context.Corners.ToList(),
             };
             return View(glassVM);
         }
 
-
-        public IActionResult AddToCustomize(int id)
+        [HttpPost]
+        public IActionResult Index(int id)
         {
-            var product = new Product() { ShapeId = id };
-            CartViewModel cartVM = null;
-            List<CartViewModel> products = new List<CartViewModel>();
+            Product product = new Product()
+            {
+                Uzunluq = Convert.ToDouble(HttpContext.Request.Form["uzunluq"]),
+                ShapeId = id,
+                En = Convert.ToDouble(HttpContext.Request.Form["en"])
+            };
 
+            GlassViewModel cartVm = null;
+            List<GlassViewModel> products = new List<GlassViewModel>();
+
+            
             string productStr;
 
             if (HttpContext.Request.Cookies["Products"] != null)
             {
                 productStr = HttpContext.Request.Cookies["Products"];
-                products = JsonConvert.DeserializeObject<List<CartViewModel>>(productStr);
+                products = JsonConvert.DeserializeObject<List<GlassViewModel>>(productStr);
 
+             /*   cartVm = products.FirstOrDefault(x => x.Product.ShapeId == id);*/
             }
 
-            if (cartVM == null)
+            if (cartVm == null)
             {
-                cartVM = new CartViewModel
+                cartVm = new GlassViewModel
                 {
-                    ProductId = product.Id,
-                    Name = product.Name,
-                    Image = product.ProductImages.FirstOrDefault(x => x.PosterStatus == true)?.Image,
-                    Price = product.Price,
-                    DiscountPrice = product.DiscountPrice,
-                    IsAccessory = product.IsAccessory,
-                    Uzunluq = product.Uzunluq,
-                    En = product.En,
-                    Diametr = product.Diametr
-
+                    Colors = _context.Colors.ToList(),
+                    Shapes = _context.Shapes.ToList(),
+                    Polishes = _context.Polishes.ToList(),
+                    Thicknesses = _context.Thicknesses.ToList(),
+                    Corners = _context.Corners.ToList(),
+                    Uzunluq = product.Uzunluq != null?product.Uzunluq:null,
+                    En = product.En != null ? product.En:null,
+                    Shape = product.Shape.Name
                 };
-                products.Add(cartVM);
+                products.Add(cartVm);
+
             }
             productStr = JsonConvert.SerializeObject(products);
             HttpContext.Response.Cookies.Append("Products", productStr);
-            _context.SaveChanges();
-
-
 
             return RedirectToAction("customize", "glass");
+        }
+
+
+
+        public IActionResult Customize()
+        {
+            return View();
         }
     }
 }

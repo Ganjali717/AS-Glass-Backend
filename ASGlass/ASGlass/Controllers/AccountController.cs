@@ -3,6 +3,7 @@ using ASGlass.Models;
 using ASGlass.ViewModels;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.SignalR;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,13 +17,16 @@ namespace ASGlass.Controllers
         private readonly RoleManager<IdentityRole> _roleManager;
         private readonly SignInManager<AppUser> _signInManager;
         private readonly AppDbContext _context;
+        private readonly IHubContext<ASGlassHub> _hubContext;
 
-        public AccountController(UserManager<AppUser> userManager, RoleManager<IdentityRole> roleManager, SignInManager<AppUser> signInManager, AppDbContext context)
+
+        public AccountController(UserManager<AppUser> userManager, RoleManager<IdentityRole> roleManager, SignInManager<AppUser> signInManager, AppDbContext context, IHubContext<ASGlassHub> hubContext)
         {
             _userManager = userManager;
             _roleManager = roleManager;
             _signInManager = signInManager;
             _context = context;
+            _hubContext = hubContext;
         }
 
         public async Task<IActionResult> Index()
@@ -68,7 +72,7 @@ namespace ASGlass.Controllers
                 return View();
             }
 
-           /* await _hubContext.Clients.All.SendAsync("Login");*/
+            await _hubContext.Clients.All.SendAsync("Login");
 
 
             return RedirectToAction("index", "home");

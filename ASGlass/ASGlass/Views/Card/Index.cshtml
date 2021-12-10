@@ -1,8 +1,8 @@
 ﻿@model List<CartViewModel>
 
 @{ 
-    double totalProductPrice = 0;
-    double totalPrice = 0;
+    double? totalProductPrice = 0;
+    double? totalPrice = 0;
     @foreach (var item in Model)
     {
         if (item.DiscountPrice > 0)
@@ -39,11 +39,11 @@
                                 <div class="cart-item-img col-3">
                                     @if (item.IsAccessory == true)
                                     {
-                                        <img src="~/assets/images/accessories/@item.Image" alt="">
+                                        <img src="~/uploads/products/@item.Image" alt="">
                                     }
                                     else
                                     {
-                                        <img src="~/assets/images/decors/@item.Image" alt="">
+                                        <img src="~/uploads/products/@item.Image" alt="">
                                     }
                                 </div>
                                 <div class="cart-item-txt col-4">

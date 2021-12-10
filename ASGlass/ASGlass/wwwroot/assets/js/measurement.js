@@ -1,3 +1,6 @@
+
+
+
 let shapeitem = document.querySelectorAll('.shapes .shapes-item');
 
 let btnrec = document.querySelector('.recbtn');
@@ -13,9 +16,25 @@ let roundmea = document.querySelector('#roundmea');
 let ovalmea = document.querySelector('#ovalmea');
 
 
+let customizebtn = document.querySelectorAll('#davametcustom');
+let glass = document.querySelector('#glass');
+let customize = document.querySelector('#customize');
+let inputnum = document.querySelectorAll(".numberinput").nodeValue;
+let error = document.querySelectorAll(".input-error");
+
+customizebtn.forEach(x => x.addEventListener('click', function () {
+   
+  
+        glass.classList.add('d-none');
+        customize.classList.remove('d-none');
+        console.log("salam");
+}))
+
+
+
 
 btnrec.addEventListener('click', function(e) {
-    e.preventDefault();
+    
     shapeitem.forEach(x => x.classList.add('d-none'));
     recmea.classList.remove('d-none');
 })

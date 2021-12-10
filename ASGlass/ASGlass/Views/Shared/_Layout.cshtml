@@ -4,6 +4,7 @@
 @{
     Setting setting = service.GetSetting();
     List<CartViewModel> cartVM = service.GetCartItems();
+    List<Category> categories = service.GetCategories();
 
     AppUser member = User.Identity.IsAuthenticated ? userManager.Users.FirstOrDefault(x => x.UserName == User.Identity.Name && !x.IsAdmin) : null;
 }
@@ -144,236 +145,245 @@
             <ul>
                 <li><a asp-action="index" asp-controller="home">ANA SƏHİFƏ</a></li>
                 <li><a asp-action="index" asp-controller="about">HAQQIMIZDA</a></li>
-                <li>
-                    <a asp-action="index" asp-controller="glass">ŞÜŞƏ</a>
-                    <div class="menu-detail">
-                        <div class="container">
-                            <div class="row">
-                                <div class="menu-first-column col-3">
-                                    <p>ŞÜŞƏ NÖVLƏRİ</p>
-                                    <ul class="first-list">
-                                        <li>
-                                            <img src="~/assets/images/icons/glass.png" alt=""><a href="">SADƏ ŞÜŞƏ</a>
-                                        </li>
-                                        <li>
-                                            <img src="~/assets/images/icons/combo-mirror-2.png" alt=""><a href="">
-                                                FƏRQLİ
-                                                KƏSİM
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <img src="~/assets/images/icons/glass.png" alt=""><a href="">BİŞMİŞ ŞÜŞƏ</a>
-                                        </li>
-                                        <li>
-                                            <img src="~/assets/images/icons/faska-mirror.png" alt=""><a href="">
-                                                FASETLİ
-                                                ŞÜŞƏ
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="menu-second-column col-3">
-                                    <p>XÜSUSİ ŞÜŞƏLƏR</p>
-                                    <ul class="second-list">
-                                        <li><img src="~/assets/images/icons/glass.png" alt=""><a href="">AĞ ŞÜŞƏ</a></li>
-                                        <li>
-                                            <img src="~/assets/images/icons/grey-glass.png" alt=""><a href="">BOZ ŞÜŞƏ</a>
-                                        </li>
-                                        <li>
-                                            <img src="~/assets/images/icons/brown-glass.png" alt=""><a href="">
-                                                QƏHVƏYİ
-                                                ŞÜŞƏ
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <img src="~/assets/images/icons/glass.png" alt=""><a href="">
-                                                SƏTİN
-                                                ŞÜŞƏ
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="third-menu-column col-3">
-                                    <p>ŞÜŞƏ TƏMİZLƏYİCİLƏR</p>
-                                    <ul class="third-list">
-                                        <li>
-                                            <img src="~/assets/images/icons/glass-cleaner.png" alt=""><a href="">
-                                                ŞÜŞƏ
-                                                TƏMİZLƏYİCİ VASİTƏLƏR
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <img src="~/assets/images/icons/nano-cleaner.png" alt=""><a href="">
-                                                NANO
-                                                TƏMİZLƏYİCİ VASİTƏ
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="list-image col-3">
-                                    <img src="~/assets/images/technica/faska.jpg" alt="">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-
-                <li>
-                    <a asp-action="index" asp-controller="mirror">GÜZGÜ</a>
-                    <div class="menu-detail">
-                        <div class="container">
-                            <div class="row">
-                                <div class="menu-first-column col-3">
-                                    <p>XÜSUSİ GÜZGÜLƏR</p>
-                                    <ul class="first-list">
-                                        <li>
-                                            <img src="~/assets/images/icons/combo-mirror-2.png" alt=""><a href="">
-                                                XÜSUSİ
-                                                GÜZGÜLƏR
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <img src="~/assets/images/icons/faska-mirror.png" alt=""><a href="">
-                                                FASETLİ
-                                                GÜZGÜ
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <img src="~/assets/images/icons/glass.png" alt=""><a href="">
-                                                SADƏ KƏSİM
-                                                GÜZGÜ
-                                            </a>
-                                        </li>
-                                        <br>
-                                        <p>RƏNGLİ GÜZGÜLƏR</p>
-                                        <li>
-                                            <img src="~/assets/images/icons/grey-glass.png" alt=""><a href="">
-                                                BOZ
-                                                GÜZGÜ
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <img src="~/assets/images/icons/brown-glass.png" alt=""><a href="">
-                                                QƏHVƏYİ
-                                                GÜZGÜ
-                                            </a>
-                                        </li>
-                                    </ul>
-
-
-                                </div>
-                                <div class="menu-second-column col-3">
-                                    <p>HAZIR OLAN GÜZGÜLƏR</p>
-                                    <ul class="second-list">
-                                        <li>
-                                            <img src="~/assets/images/icons/circle-mirror.png" alt=""><a href="">
-                                                YUMRU
-                                                GÜZGÜ
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <img src="~/assets/images/icons/oval-mirror.png" alt=""><a href="">
-                                                OVAL
-                                                GÜZGÜ
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <img src="~/assets/images/icons/glass.png" alt=""><a href="">
-                                                DÜZBUCAQ
-                                                GÜZGÜ
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <img src="~/assets/images/icons/gym-mirror.png" alt=""><a href="">
-                                                İDMAN ZALI
-                                                GÜZGÜLƏRİ
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="third-menu-column col-3">
-                                    <p>GÜZGÜ AKSESUARLARI</p>
-                                    <ul class="third-list">
-                                        <li>
-                                            <img src="~/assets/images/icons/mirror-clips.png" alt=""><a href="">
-                                                GÜZGÜ
-                                                KLİPLƏRİ
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <img src="~/assets/images/icons/mirror-adhesives.png" alt=""><a href="">
-                                                GÜZGÜ
-                                                YAPIŞTIRICILARI
-                                            </a>
-                                        </li>
-                                        <li><img src="~/assets/images/icons/j-bars.png" alt=""><a href="">NİKEL-J</a></li>
-                                        <li><img src="~/assets/images/icons/l-bars.png" alt=""><a href="">NİKEL-L</a></li>
-                                    </ul>
-                                </div>
-                                <div class="list-image col-3">
-                                    <img src="~/assets/images/technica/faska.jpg" alt="">
+                @foreach (var item in categories)
+                {
+                    <li>
+                        <a asp-action="index" asp-controller="@(item.Id == 1 ? "glass":(item.Id == 2?"glassshelve":"mirror"))" asp-route-id="@item.Id">@item.Name</a>
+                        @if (item.Id == 1)
+                        {
+                            <div class="menu-detail">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="menu-first-column col-3">
+                                            <p>ŞÜŞƏ NÖVLƏRİ</p>
+                                            <ul class="first-list">
+                                                <li>
+                                                    <img src="~/assets/images/icons/glass.png" alt=""><a href="">SADƏ ŞÜŞƏ</a>
+                                                </li>
+                                                <li>
+                                                    <img src="~/assets/images/icons/combo-mirror-2.png" alt=""><a href="">
+                                                        FƏRQLİ
+                                                        KƏSİM
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <img src="~/assets/images/icons/glass.png" alt=""><a href="">BİŞMİŞ ŞÜŞƏ</a>
+                                                </li>
+                                                <li>
+                                                    <img src="~/assets/images/icons/faska-mirror.png" alt=""><a href="">
+                                                        FASETLİ
+                                                        ŞÜŞƏ
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="menu-second-column col-3">
+                                            <p>XÜSUSİ ŞÜŞƏLƏR</p>
+                                            <ul class="second-list">
+                                                <li><img src="~/assets/images/icons/glass.png" alt=""><a href="">AĞ ŞÜŞƏ</a></li>
+                                                <li>
+                                                    <img src="~/assets/images/icons/grey-glass.png" alt=""><a href="">BOZ ŞÜŞƏ</a>
+                                                </li>
+                                                <li>
+                                                    <img src="~/assets/images/icons/brown-glass.png" alt=""><a href="">
+                                                        QƏHVƏYİ
+                                                        ŞÜŞƏ
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <img src="~/assets/images/icons/glass.png" alt=""><a href="">
+                                                        SƏTİN
+                                                        ŞÜŞƏ
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="third-menu-column col-3">
+                                            <p>ŞÜŞƏ TƏMİZLƏYİCİLƏR</p>
+                                            <ul class="third-list">
+                                                <li>
+                                                    <img src="~/assets/images/icons/glass-cleaner.png" alt=""><a href="">
+                                                        ŞÜŞƏ
+                                                        TƏMİZLƏYİCİ VASİTƏLƏR
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <img src="~/assets/images/icons/nano-cleaner.png" alt=""><a href="">
+                                                        NANO
+                                                        TƏMİZLƏYİCİ VASİTƏ
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="list-image col-3">
+                                            <img src="~/assets/images/technica/faska.jpg" alt="">
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <a asp-action="index" asp-controller="glassshelve">ŞÜŞƏ RƏFLƏR</a>
-                    <div class="menu-detail">
-                        <div class="container">
-                            <div class="row">
-                                <div class="menu-first-column col-3">
-                                    <p>ŞÜŞƏ RƏFLƏR</p>
-                                    <ul class="first-list">
-                                        <li>
-                                            <img src="~/assets/images/icons/mirror-shelves.png" alt=""><a href="">
-                                                ŞÜŞƏ
-                                                RƏFİ
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <img src="~/assets/images/icons/quarter-glass.png" alt=""><a href="">
-                                                KÜNC
-                                                ŞÜŞƏ RƏFLƏR
-                                            </a>
-                                        </li>
-                                        <br>
-                                        <p>DƏMİR MƏMULATI</p>
-                                        <li>
-                                            <img src="~/assets/images/icons/shelf-brackets.png" alt=""><a href="">TUTACAQ</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="menu-second-column col-3">
-                                    <p>HAZIRDA OLAN RƏFLƏR</p>
-                                    <ul class="second-list">
-                                        <li>
-                                            <img src="~/assets/images/icons/triangle-glass.png" alt=""><a href="">
-                                                ÜÇ-KÜNC
-                                                ŞÜŞƏ RƏFİ
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <img src="~/assets/images/icons/mirror-shelves.png" alt=""><a href="">DÖRDBUCAQLI ŞÜŞƏ RƏFİ</a>
-                                        </li>
-                                        <li>
-                                            <img src="~/assets/images/icons/pentagon-glass.png" alt=""><a href="">BEŞBUCAQLI ŞÜŞƏ RƏFİ</a>
-                                        </li>
-                                        <li>
-                                            <img src="~/assets/images/icons/quarter-glass.png" alt=""><a href="">
-                                                DÖRBƏK
-                                                DİRƏKLİ ŞÜŞƏ RƏFLƏR
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="list-image col-3">
-                                    <img src="~/assets/images/technica/dewme.jpg" alt="">
+
+                        }
+                        else if (item.Id == 2)
+                        {
+                            <div class="menu-detail">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="menu-first-column col-3">
+                                            <p>ŞÜŞƏ RƏFLƏR</p>
+                                            <ul class="first-list">
+                                                <li>
+                                                    <img src="~/assets/images/icons/mirror-shelves.png" alt=""><a href="">
+                                                        ŞÜŞƏ
+                                                        RƏFİ
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <img src="~/assets/images/icons/quarter-glass.png" alt=""><a href="">
+                                                        KÜNC
+                                                        ŞÜŞƏ RƏFLƏR
+                                                    </a>
+                                                </li>
+                                                <br>
+                                                <p>DƏMİR MƏMULATI</p>
+                                                <li>
+                                                    <img src="~/assets/images/icons/shelf-brackets.png" alt=""><a href="">TUTACAQ</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="menu-second-column col-3">
+                                            <p>HAZIRDA OLAN RƏFLƏR</p>
+                                            <ul class="second-list">
+                                                <li>
+                                                    <img src="~/assets/images/icons/triangle-glass.png" alt=""><a href="">
+                                                        ÜÇ-KÜNC
+                                                        ŞÜŞƏ RƏFİ
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <img src="~/assets/images/icons/mirror-shelves.png" alt=""><a href="">DÖRDBUCAQLI ŞÜŞƏ RƏFİ</a>
+                                                </li>
+                                                <li>
+                                                    <img src="~/assets/images/icons/pentagon-glass.png" alt=""><a href="">BEŞBUCAQLI ŞÜŞƏ RƏFİ</a>
+                                                </li>
+                                                <li>
+                                                    <img src="~/assets/images/icons/quarter-glass.png" alt=""><a href="">
+                                                        DÖRBƏK
+                                                        DİRƏKLİ ŞÜŞƏ RƏFLƏR
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="list-image col-3">
+                                            <img src="~/assets/images/technica/dewme.jpg" alt="">
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                </li>
+
+                        }
+                        else
+                        {
+                            <div class="menu-detail">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="menu-first-column col-3">
+                                            <p>XÜSUSİ GÜZGÜLƏR</p>
+                                            <ul class="first-list">
+                                                <li>
+                                                    <img src="~/assets/images/icons/combo-mirror-2.png" alt=""><a href="">
+                                                        XÜSUSİ
+                                                        GÜZGÜLƏR
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <img src="~/assets/images/icons/faska-mirror.png" alt=""><a href="">
+                                                        FASETLİ
+                                                        GÜZGÜ
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <img src="~/assets/images/icons/glass.png" alt=""><a href="">
+                                                        SADƏ KƏSİM
+                                                        GÜZGÜ
+                                                    </a>
+                                                </li>
+                                                <br>
+                                                <p>RƏNGLİ GÜZGÜLƏR</p>
+                                                <li>
+                                                    <img src="~/assets/images/icons/grey-glass.png" alt=""><a href="">
+                                                        BOZ
+                                                        GÜZGÜ
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <img src="~/assets/images/icons/brown-glass.png" alt=""><a href="">
+                                                        QƏHVƏYİ
+                                                        GÜZGÜ
+                                                    </a>
+                                                </li>
+                                            </ul>
+
+
+                                        </div>
+                                        <div class="menu-second-column col-3">
+                                            <p>HAZIR OLAN GÜZGÜLƏR</p>
+                                            <ul class="second-list">
+                                                <li>
+                                                    <img src="~/assets/images/icons/circle-mirror.png" alt=""><a href="">
+                                                        YUMRU
+                                                        GÜZGÜ
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <img src="~/assets/images/icons/oval-mirror.png" alt=""><a href="">
+                                                        OVAL
+                                                        GÜZGÜ
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <img src="~/assets/images/icons/glass.png" alt=""><a href="">
+                                                        DÜZBUCAQ
+                                                        GÜZGÜ
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <img src="~/assets/images/icons/gym-mirror.png" alt=""><a href="">
+                                                        İDMAN ZALI
+                                                        GÜZGÜLƏRİ
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="third-menu-column col-3">
+                                            <p>GÜZGÜ AKSESUARLARI</p>
+                                            <ul class="third-list">
+                                                <li>
+                                                    <img src="~/assets/images/icons/mirror-clips.png" alt=""><a href="">
+                                                        GÜZGÜ
+                                                        KLİPLƏRİ
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <img src="~/assets/images/icons/mirror-adhesives.png" alt=""><a href="">
+                                                        GÜZGÜ
+                                                        YAPIŞTIRICILARI
+                                                    </a>
+                                                </li>
+                                                <li><img src="~/assets/images/icons/j-bars.png" alt=""><a href="">NİKEL-J</a></li>
+                                                <li><img src="~/assets/images/icons/l-bars.png" alt=""><a href="">NİKEL-L</a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="list-image col-3">
+                                            <img src="~/assets/images/technica/faska.jpg" alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        }
+                    </li>
+
+                }
                 <li><a asp-action="index" asp-controller="shop">ÜMUMİ MƏHSULLAR</a></li>
                 <li><a asp-action="index" asp-controller="contact">ƏLAQƏ</a></li>
                 <li class="pro"><a href="">PRO ÜÇÜN</a></li>
@@ -469,7 +479,20 @@
     @RenderSection("overlay", required: false)
     @RenderSection("slider", required: false)
     @RenderSection("measurement", required: false)
-    @RenderSection("customize", required: false)
+
+    <script src="~/lib/microsoft/signalr/dist/browser/signalr.min.js"></script>
+
+    <script>
+        var connection = new signalR.HubConnectionBuilder().withUrl("/asglasshub").build();
+
+        connection.start().then(function () {
+            document.getElementById("circle").style.backgroundColor = "green"
+        })
+
+        connection.on("Login", function () {
+            console.log("accepted")
+        })
+    </script>
 
 </body>
 

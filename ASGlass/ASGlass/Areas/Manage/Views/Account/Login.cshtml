@@ -14,7 +14,9 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Login</title>
+    <title>AS Glass Azerbaijan Admin</title>
+    <link href="~/assets/images/logo/headlogo.png" rel="shortcut icon" type="image/x-icon">
+
 
     <!-- Custom fonts for this template-->
     <link href="~/manage/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -34,7 +36,7 @@
         <div class="row justify-content-center">
 
             <div class="col-xl-10 col-lg-12 col-md-9">
-
+                <h1 class="text-white text-center p-5">ALFA SALON GÜZGÜ VƏ ŞÜŞƏ</h1>
                 <div class="card o-hidden border-0 shadow-lg my-5">
                     <div class="card-body p-0">
                         <!-- Nested Row within Card Body -->
@@ -43,40 +45,39 @@
                             <div class="col-lg-6">
                                 <div class="p-5">
                                     <div class="text-center">
-                                        <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
+                                        <h1 class="h4 text-gray-900 mb-4">Xoş Gəldiniz !</h1>
                                     </div>
                                     <form class="user" method="post">
                                         <div class="form-group">
-                                            <input asp-for="UserName" class="form-control form-control-user" placeholder="UserName or Fullname">
+                                            <input asp-for="UserName" class="form-control form-control-user" placeholder="Ad Soyad və ya İstifadəşi adı">
                                             <span class="text-danger" asp-validation-for="UserName"></span>
                                         </div>
                                         <div class="form-group">
-                                            <input asp-for="Password" class="form-control form-control-user" placeholder="Password">
+                                            <input asp-for="Password" class="form-control form-control-user" placeholder="Şifrə">
                                             <span class="text-danger" asp-validation-for="Password"></span>
                                         </div>
                                         <div class="form-group">
                                             <div class="custom-control custom-checkbox small">
                                                 <input type="checkbox" asp-for="IsPersistent" class="custom-control-input" id="IsPersistent">
                                                 <label class="custom-control-label" for="IsPersistent">
-                                                    Remember
-                                                    Me
+                                                    Yadda saxla
                                                 </label>
                                             </div>
                                         </div>
                                         <div class="text-danger" asp-validation-summary="ModelOnly"></div>
 
                                         <button type="submit" class="btn btn-primary btn-user btn-block">
-                                            Login
+                                            Daxil Ol
                                         </button>
                                         <hr>
                                     </form>
                                     <hr>
-                                    <div class="text-center">
+                                   @* <div class="text-center">
                                         <a class="small" href="forgot-password.html">Forgot Password?</a>
                                     </div>
                                     <div class="text-center">
                                         <a class="small" href="register.html">Create an Account!</a>
-                                    </div>
+                                    </div>*@
                                 </div>
                             </div>
                         </div>

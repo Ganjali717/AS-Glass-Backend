@@ -4,9 +4,7 @@
     int order = (Model.PageIndex - 1) * 4;
 }
 
-<div class="panel-header panel-header-sm">
-</div>
-<div class="content mt-5">
+<div class="container-fluid">
     <div class="d-flex justify-content-between align-items-center">
         <h1>Mehsullar</h1>
         <div class=" col-md-8">
@@ -20,7 +18,7 @@
                             <option value="">Categories</option>
                             @foreach (Category category in ViewBag.Categories)
                             {
-                                if (category.Id == ViewBag.CurrentCityId)
+                                if (category.Id == ViewBag.CurrentCategoryId)
                                 {
                                     <option selected value="@category.Id">@category.Name</option>
                                 }
@@ -72,16 +70,16 @@
                 <tr>
                     <th scope="row">@order</th>
                     <td>@product.Name</td>
-                    <td>@product.Colors.Name</td>
-                    <td>@product.Shape.Name</td>
-                    <td>@product.Thickness.Size</td>
-                    <td>@product.Polish.Name</td>
-                    <td>@product.Corner.Name</td>
+                    <td>@(product.ColorId != null? product.Colors.Name:null)</td>
+                    <td>@(product.ShapeId != null? product.Shape.Name:null)</td>
+                    <td>@(product.ThicknessId != null? product.Thickness.Size:null) mm </td>
+                    <td>@(product.PolishId != null? product.Polish.Name:null)</td>
+                    <td>@(product.CornerId != null? product.Corner.Name:null)</td>
                     <td>@product.Price AZN</td>
                     <td><img src="~/uploads/products/@product.ProductImages.FirstOrDefault(x => x.PosterStatus == true)?.Image" style="max-width:100px" alt="Alternate Text" /></td>
                     <td>
-                        <a asp-action="edit" asp-route-id="@product.Id" class="btn btn-warning">Edit</a>
-                        <a asp-action="deletehousefetch" asp-route-id="@product.Id" class="btn btn-danger btn-item-delete">Delete</a>
+                        <a asp-action="edit" asp-controller="shop" asp-route-id="@product.Id" class="btn btn-warning">Edit</a>
+                        <a asp-action="deleteproductfetch" asp-route-id="@product.Id" class="btn btn-danger btn-item-delete">Delete</a>
                         <a asp-action="comment" asp-route-id="@product.Id" class="btn btn-success">Comments</a>
                     </td>
                 </tr>
