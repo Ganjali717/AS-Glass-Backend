@@ -45,9 +45,9 @@
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" asp-action="index" asp-controller="dashboard">
                 <div class="sidebar-brand-icon">
-                    <img src="~/assets/images/logo/@setting.HeaderLogo" style="width:130px; height:80px;"/>
+                    <img src="~/assets/images/logo/@setting.HeaderLogo" style="width:130px; height:80px;" />
                 </div>
-                <div class="sidebar-brand-text mx-3">Guzgu ve Wuwe</div>
+                <div class="sidebar-brand-text">Glass & Mirror</div>
             </a>
 
             <!-- Divider -->
@@ -57,7 +57,7 @@
             <li class="nav-item active">
                 <a class="nav-link" asp-action="index" asp-controller="dashboard">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Dashboard</span>
+                    <span>İdarə Paneli</span>
                 </a>
             </li>
 
@@ -66,34 +66,33 @@
 
 
             <!-- Heading -->
-            <div class="sidebar-heading">
-                Addons
-            </div>
-
+            <!--<div class="sidebar-heading">
+        Addons
+    </div>-->
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
                    aria-expanded="true" aria-controls="collapsePages">
                     <i class="fas fa-fw fa-table"></i>
-                    <span>Pages</span>
+                    <span>Səhfələr:</span>
                 </a>
                 <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Web pages:</h6>
-                        <a class="collapse-item" asp-action="index" asp-controller="about">About Us</a>
+                        <h6 class="collapse-header">Səhfələr:</h6>
+                        <a class="collapse-item" asp-action="index" asp-controller="about">Haqqımızda</a>
                         <a class="collapse-item" asp-action="index" asp-controller="service">Service</a>
-                        <a class="collapse-item" asp-action="index" asp-controller="slider">Slider</a>
+                        <a class="collapse-item" asp-action="index" asp-controller="slider">Slayderlər</a>
                         <a class="collapse-item" asp-action="index" asp-controller="team">Team</a>
-                        <a class="collapse-item" asp-action="index" asp-controller="shop">Houses</a>
-                        <a class="collapse-item" asp-action="index" asp-controller="order">Orders</a>
+                        <a class="collapse-item" asp-action="index" asp-controller="shop">Məhsullar</a>
+                        <a class="collapse-item" asp-action="index" asp-controller="order">Sifarişlər</a>
                         <div class="collapse-divider"></div>
                     </div>
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Account and Setting:</h6>
-                        <a class="collapse-item" asp-action="index" asp-controller="role">Roles</a>
-                        <a class="collapse-item" asp-action="addadmin" asp-controller="account">Add Admin</a>
-                        <a class="collapse-item" asp-action="index" asp-controller="setting">Setting</a>
-                        <a class="collapse-item" asp-action="index" asp-controller="user">Users</a>
+                        <h6 class="collapse-header">Hesablar və Quraşdırma:</h6>
+                        <a class="collapse-item" asp-action="index" asp-controller="role">Rollar</a>
+                        <a class="collapse-item" asp-action="addadmin" asp-controller="account">Admin Əlavə Et</a>
+                        <a class="collapse-item" asp-action="index" asp-controller="setting">Quraşdırma(Setting)</a>
+                        <a class="collapse-item" asp-action="index" asp-controller="user">İstifadəçilər</a>
                     </div>
                 </div>
             </li>

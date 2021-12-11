@@ -3,6 +3,10 @@
 @{ 
     double? totalProductPrice = 0;
     double? totalPrice = 0;
+
+    
+    
+
     @foreach (var item in Model)
     {
         if (item.DiscountPrice > 0)
@@ -19,9 +23,9 @@
         totalPrice += totalProductPrice;
     }
 
-
-
+    
 }
+
 
 <main id="cart">
     <section id="cart-body">
@@ -65,18 +69,24 @@
 
                                 </div>
                                 <div class="cart-item-count col-2">
-                                    <small>@item.Price ₼ / each</small>
-                                    <select name="" id="">
-                                        @for (int i = 1; i <= item.Count; i++)
-                                        {
-                                            <option value="">@i</option>
-                                        }
-                                    </select>
+                                    <small>@totalProductPrice ₼ / hər biri</small>
+                                    <div class="btn-group">
+                                        <button class="btn btn-warning btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            Məhsul sayı
+                                        </button>
+                                        <div class="dropdown-menu">
+                                            @for (int i = 1; i <=item.Count; i++)
+                                            {
+                                                <a class="dropdown-item " href="#" data="@i">@i</a>
+                                            }
+
+                                        </div>
+                                    </div>
                                     <br><br>
-                                    <a asp-action="deleteproduct" asp-controller="shop" asp-route-id="@item.ProductId" class="remove-item">Remove Item</a>
+                                    <a asp-action="deleteproduct" asp-controller="shop" asp-route-id="@item.ProductId" class="remove-item">Məhsulu Sil</a>
                                 </div>
                                 <div class="cart-item-price col-1">
-                                    <b>@(item.DiscountPrice>0?item.DiscountPrice:item.Price) ₼</b>
+                                    <b class="qiymet">@(item.DiscountPrice>0?item.DiscountPrice:item.Price) ₼</b>
                                 </div>
                             </div>
                         }

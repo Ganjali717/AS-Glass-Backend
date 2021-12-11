@@ -8,7 +8,7 @@ namespace ASGlass.ViewModels
 {
     public class ShopViewModel
     {
-        public List<Product> Products { get; set; }
+        public PagenatedList<Product> Products { get; set; }
         public List<Category> Categories { get; set; }
         public List<Color> Colors { get; set; }
         public List<Thickness> Thicknesses { get; set; }

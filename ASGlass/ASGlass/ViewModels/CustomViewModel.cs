@@ -6,17 +6,10 @@ using System.Threading.Tasks;
 
 namespace ASGlass.ViewModels
 {
-    public class GlassViewModel
+    public class CustomViewModel
     {
-        public List<Color> Colors { get; set; }
-        public List<Thickness> Thicknesses { get; set; }
-        public List<Polish> Polishes { get; set; }
-        public List<Corner> Corners { get; set; }
         public List<Shape> Shapes { get; set; }
 
         public Product Product { get; set; }
-
-
-       
     }
 }

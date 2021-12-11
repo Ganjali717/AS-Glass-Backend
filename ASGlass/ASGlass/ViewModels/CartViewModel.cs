@@ -8,7 +8,7 @@ namespace ASGlass.ViewModels
 {
     public class CartViewModel
     {
-        public int ProductId { get; set; }
+        public int? ProductId { get; set; }
         public string Image { get; set; }
         public double Price { get; set; }
         public double? DiscountPrice { get; set; }

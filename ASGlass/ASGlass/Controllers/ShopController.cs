@@ -22,7 +22,7 @@ namespace ASGlass.Controllers
             _context = context;
             _userManager = userManager;
         }
-        public IActionResult Index(int? categoryId = null, int? thicknessId = null, int? colorId = null)
+        public IActionResult Index(int page = 1, int? categoryId = null, int? thicknessId = null, int? colorId = null, string sort = null)
         {
 
             AppUser member = User.Identity.IsAuthenticated ? _userManager.Users.FirstOrDefault(x => x.UserName == User.Identity.Name && !x.IsAdmin) : null;
@@ -40,11 +40,25 @@ namespace ASGlass.Controllers
             if (colorId != null)
                 query = query.Where(x => x.Colors.Id == colorId);
 
+            switch (sort)
+            {
+                case "price":
+                    query = query.OrderBy(x => x.Price);
+                    break;
+                case "price_desc":
+                    query = query.OrderByDescending(x => x.Price);
+                    break;
+                default:
+                    query = query.OrderByDescending(x => x.Id);
+                    break;
+            }
+
+            
 
             ShopViewModel shopVM = new ShopViewModel
             {
                 Categories = _context.Categories.Include(x => x.ProductCategories).ThenInclude(x => x.Product).ToList(), 
-                Products = query.Include(x => x.ProductImages).ToList(), 
+                Products = PagenatedList<Product>.Create(query.Include(x => x.ProductImages), 4, page),
                 Colors = _context.Colors.Include(x => x.Product).ToList(),
                 Thicknesses = _context.Thicknesses.Include(x => x.Products).ToList()
             };

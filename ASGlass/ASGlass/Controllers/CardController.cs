@@ -86,6 +86,7 @@ namespace ASGlass.Controllers
                     Color = x.Product.ColorId != null ? x.Product.Colors.Name : null,
                 }).ToList();
             }
+
             return View(items);
         }
     }

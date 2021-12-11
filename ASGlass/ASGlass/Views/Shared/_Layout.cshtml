@@ -148,7 +148,7 @@
                 @foreach (var item in categories)
                 {
                     <li>
-                        <a asp-action="index" asp-controller="@(item.Id == 1 ? "glass":(item.Id == 2?"glassshelve":"mirror"))" asp-route-id="@item.Id">@item.Name</a>
+                        <a asp-action="index" asp-controller="@(item.Id == 1 ? "glass":(item.Id == 2?"glassshelve":"mirror"))">@item.Name</a>
                         @if (item.Id == 1)
                         {
                             <div class="menu-detail">
@@ -473,12 +473,16 @@
     <script src="~/assets/js/main.js"></script>
     <script src="~/assets/js/accordion.js"></script>
     <script src="~/assets/js/backtop.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"></script>
     <script src="~/assets/js/fetch.js"></script>
     @RenderSection("overlay", required: false)
     @RenderSection("slider", required: false)
     @RenderSection("measurement", required: false)
+    @RenderSection("customize", required: false)
 
     <script src="~/lib/microsoft/signalr/dist/browser/signalr.min.js"></script>
 

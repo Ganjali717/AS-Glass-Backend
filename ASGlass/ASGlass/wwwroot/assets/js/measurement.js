@@ -1,5 +1,5 @@
 
-
+/*
 
 let shapeitem = document.querySelectorAll('.shapes .shapes-item');
 
@@ -13,10 +13,10 @@ let redirect = document.querySelector('.redirecturl');
 let recmea = document.querySelector('#recmea');
 let sqmea = document.querySelector('#sqmea');
 let roundmea = document.querySelector('#roundmea');
-let ovalmea = document.querySelector('#ovalmea');
+let ovalmea = document.querySelector('#ovalmea');*/
 
 
-let customizebtn = document.querySelectorAll('#davametcustom');
+/*let customizebtn = document.querySelectorAll('#davametcustom');
 let glass = document.querySelector('#glass');
 let customize = document.querySelector('#customize');
 let inputnum = document.querySelectorAll(".numberinput").nodeValue;
@@ -28,14 +28,13 @@ customizebtn.forEach(x => x.addEventListener('click', function () {
         glass.classList.add('d-none');
         customize.classList.remove('d-none');
         console.log("salam");
-}))
-
+}))*/
+/*
 
 
 
 btnrec.addEventListener('click', function(e) {
     
-    shapeitem.forEach(x => x.classList.add('d-none'));
     recmea.classList.remove('d-none');
 })
 btnsq.addEventListener('click', function(e) {
@@ -53,4 +52,4 @@ btnoval.addEventListener('click', function(e) {
     shapeitem.forEach(x => x.classList.add('d-none'));
     ovalmea.classList.remove('d-none');
 })
-
+*/

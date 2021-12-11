@@ -19,8 +19,8 @@
                                 @slide.SubTitle
                             </p>
                             <br><br>
-                            <a href="">
-                                EXPLORE NOW<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
+                            <a asp-action="index" asp-controller="about">
+                                HAQQIMIZDA<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
                                                 fill="currentColor" class="bi bi-arrow-right-short" viewBox="0 0 16 16">
                                     <path fill-rule="evenodd"
                                           d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z">
@@ -63,9 +63,9 @@
                     <div class="card-item col-3">
                         <h3>@card.Name</h3>
                         <br>
-                        <p>@card.Desc</p>
+                       @* <p>@card.Desc</p>*@
                         <img src="~/assets/images/decors/@card.BgImage" />
-                        <br><br>
+                        <br><br><br />
                         <a asp-action="index" asp-controller="shop" asp-route-categoryId="@card.Id" class="card-btn">ALIŞ-VERİŞ ET</a>
                     </div>
 
@@ -108,33 +108,57 @@
     <section id="feature">
         <div class="container">
             <div class="column">
-                @foreach (var feature in Model.Categories.Take(2))
+                @for (int i = 0; i < Model.Categories.Take(2).Count(); i++)
                 {
                     <div class="feature-item col-12">
-                        <div class="ft-left col-5">
-                            <h4>@feature.Name</h4>
-                            <br />
-                            <p>
-                                @feature.Desc
-                            </p>
-                            <br />
+                        @if (i % 2 == 1)
+                        {
+                            <div class="ft-left col-5">
+                                <h4>@Model.Categories[i].Name</h4>
+                                <br />
+                                <p>
+                                    @Model.Categories[i].Desc
+                                </p>
+                                <br />
 
-                            <a href="">
-                                SHOP SHOWER DOORS<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
+                                <a asp-action="index" asp-controller="glassshelve">
+                                    ALIŞ VERİŞ ET<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
+                                                          fill="currentColor" class="bi bi-arrow-right-short" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd"
+                                              d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z">
+                                        </path>
+                                    </svg>
+                                </a>
+                            </div>
+                            <div class="ft-right col-6">
+                                <img src="~/assets/images/products/01shelf.webp" alt="">
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="ft-right col-6">
+                                <img src="~/assets/images/bg-images/mirror-modern.webp" alt="">
+                            </div>
+                            <div class="ft-left col-5">
+                                <h4>@Model.Categories[i].Name</h4>
+                                <br />
+                                <p>
+                                    @Model.Categories[i].Desc
+                                </p>
+                                <br />
+
+                                <a asp-action="index" asp-controller="glass">
+                                    ALIŞ VERİŞ ET<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
                                                       fill="currentColor" class="bi bi-arrow-right-short" viewBox="0 0 16 16">
-                                    <path fill-rule="evenodd"
-                                          d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z">
-                                    </path>
-                                </svg>
-                            </a>
-                        </div>
-                        <div class="ft-right col-6">
-                            <img src="~/assets/images/technica/cns2.jpg" alt="">
-                        </div>
+                                        <path fill-rule="evenodd"
+                                              d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z">
+                                        </path>
+                                    </svg>
+                                </a>
+                            </div>
+                        }
                     </div>
-                    <br>
                 }
-
             </div>
         </div>
     </section>
@@ -167,18 +191,18 @@
                 <div class="scnd-card-item col-5">
                     <h2>TEMPER OLUNMUŞ ŞÜŞƏ</h2>
                     <img src="~/assets/images/technica/tempered-safety-glass.webp" alt="">
-                    <a href="" class="scnd-card-btn-left">ALIŞ-VERİŞ ET</a>
+                    <a asp-action="index" asp-controller="shop" class="scnd-card-btn-left">ALIŞ-VERİŞ ET</a>
                 </div>
                 <div class="scnd-card-item col-5">
                     <h2>SADƏ ŞÜŞƏ</h2>
                     <img src="~/assets/images/technica/opaque-clear-glass-3.webp" alt="">
-                    <a href="" class="scnd-card-btn-right">ALIŞ-VERİŞ ET</a>
+                    <a asp-action="index" asp-controller="shop" class="scnd-card-btn-right">ALIŞ-VERİŞ ET</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="categories">
+   @* <section id="categories">
         <div class="container">
             <h2>KATEQORİYAYA UYĞUN ALIŞ-VERİŞ ET</h2>
             <br>
@@ -229,7 +253,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section>*@
 
     <section id="reviews">
         <div class="container">
@@ -240,11 +264,11 @@
                     </div>
                     <div class="rvw-head-right col-6">
                         <p>1276 Rəy</p>
-                        <a class="btn btn-primary mb-3 mr-1" href="#carouselExampleIndicators2" role="button"
+                        <a class="btn btn-warning mb-3 mr-1" href="#carouselExampleIndicators2" role="button"
                            data-slide="prev">
                             <i class="fa fa-arrow-left"></i>
                         </a>
-                        <a class="btn btn-primary mb-3 " href="#carouselExampleIndicators2" role="button"
+                        <a class="btn btn-warning mb-3 " href="#carouselExampleIndicators2" role="button"
                            data-slide="next">
                             <i class="fa fa-arrow-right"></i>
                         </a>
@@ -407,7 +431,7 @@
             <div class="row">
                 <div class="instock-left col-7">
                     <img src="~/assets/images/products/custom-mirrors.png" alt="">
-                    <a href="">HAZIR GÜZGÜLƏR AL</a>
+                    <a asp-action="index" asp-controller="shop">HAZIR GÜZGÜLƏR AL</a>
                 </div>
                 <div class="instock-right col-5">
                     <img src="~/assets/images/products/custom-mirrors-2.png" alt="">
