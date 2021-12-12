@@ -202,59 +202,6 @@
         </div>
     </section>
 
-   @* <section id="categories">
-        <div class="container">
-            <h2>KATEQORİYAYA UYĞUN ALIŞ-VERİŞ ET</h2>
-            <br>
-            <div class="row">
-                <div class="ctg-item col-2">
-                    <h5>ŞÜŞƏ</h5>
-                    <ul>
-                        <li><a href="">Custom Glass</a></li>
-                        <li><a href="">Tempered Glass</a></li>
-                        <li><a href="">Round Table Tops</a></li>
-                        <li><a href="">Rectangle Table Tops</a></li>
-                        <li><a href="">Square Table Tops</a></li>
-                        <li><a href="">Plastic Desk Buttons</a></li>
-                    </ul>
-                </div>
-                <div class="ctg-item col-2">
-                    <h5>GÜZGÜ</h5>
-                    <ul>
-                        <li><a href="">Custom Glass</a></li>
-                        <li><a href="">Tempered Glass</a></li>
-                        <li><a href="">Round Table Tops</a></li>
-                        <li><a href="">Rectangle Table Tops</a></li>
-                        <li><a href="">Square Table Tops</a></li>
-                        <li><a href="">Plastic Desk Buttons</a></li>
-                    </ul>
-                </div>
-                <div class="ctg-item col-2">
-                    <h5>ŞÜŞƏ RƏFLƏR</h5>
-                    <ul>
-                        <li><a href="">Custom Glass</a></li>
-                        <li><a href="">Tempered Glass</a></li>
-                        <li><a href="">Round Table Tops</a></li>
-                        <li><a href="">Rectangle Table Tops</a></li>
-                        <li><a href="">Square Table Tops</a></li>
-                        <li><a href="">Plastic Desk Buttons</a></li>
-                    </ul>
-                </div>
-                <div class="ctg-item col-2">
-                    <h5>AKSESUARLAR</h5>
-                    <ul>
-                        <li><a href="">Custom Glass</a></li>
-                        <li><a href="">Tempered Glass</a></li>
-                        <li><a href="">Round Table Tops</a></li>
-                        <li><a href="">Rectangle Table Tops</a></li>
-                        <li><a href="">Square Table Tops</a></li>
-                        <li><a href="">Plastic Desk Buttons</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>*@
-
     <section id="reviews">
         <div class="container">
             <div class="column">
@@ -279,72 +226,31 @@
                         <div class="carousel-inner">
                             <div class="rvw-item carousel-item active">
                                 <div class="row">
-                                    <div class="col-md-4 mb-3">
-                                        <div class="card">
+                                    @foreach (var com in Model.Comments)
+                                    {
+                                        <div class="col-md-6">
+                                            <div class="card">
 
-                                            <i>10/04/21</i>
-                                            <p>Perfection</p>
-                                            <div class="rvw-stars">
-                                                <i class="bi bi-star-fill"></i>
-                                                <i class="bi bi-star-fill"></i>
-                                                <i class="bi bi-star-fill"></i>
-                                                <i class="bi bi-star-fill"></i>
+                                                <i>@com.Date.ToShortDateString()</i>
+                                                <p>Perfection</p>
+                                                <div class="rvw-stars">
+                                                    @for (int i = 1; i <= com.Rate; i++)
+                                                    {
+                                                        <i class="bi bi-star-fill"></i>
+
+                                                    }
+                                                </div>
+                                                <br>
+                                                <p>
+                                                    @com.Text
+                                                </p>
+                                                <br>
+                                                <small><i>@com.Username</i></small>
+
                                             </div>
-                                            <br>
-                                            <p>
-                                                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minus nisi
-                                                quam odit
-                                                reprehenderit velit illum perferendis.
-                                            </p>
-                                            <br>
-                                            <small><i>Ganjali Imanov</i></small>
-
                                         </div>
-                                    </div>
-                                    <div class="col-md-4 mb-3">
-                                        <div class="card">
 
-                                            <i>10/04/21</i>
-                                            <p>Perfection</p>
-                                            <div class="rvw-stars">
-                                                <i class="bi bi-star-fill"></i>
-                                                <i class="bi bi-star-fill"></i>
-                                                <i class="bi bi-star-fill"></i>
-                                                <i class="bi bi-star-fill"></i>
-                                            </div>
-                                            <br>
-                                            <p>
-                                                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minus nisi
-                                                quam odit
-                                                reprehenderit velit illum perferendis.
-                                            </p>
-                                            <br>
-                                            <small><i>Ganjali Imanov</i></small>
-
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4 mb-3">
-                                        <div class="card">
-
-                                            <i>10/04/21</i>
-                                            <p>Perfection</p>
-                                            <div class="rvw-stars">
-                                                <i class="bi bi-star-fill"></i>
-                                                <i class="bi bi-star-fill"></i>
-                                                <i class="bi bi-star-fill"></i>
-                                                <i class="bi bi-star-fill"></i>
-                                            </div>
-                                            <br>
-                                            <p>
-                                                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minus nisi
-                                                quam odit
-                                                reprehenderit velit illum perferendis.
-                                            </p>
-                                            <br>
-                                            <small><i>Ganjali Imanov</i></small>
-
-                                        </div>
-                                    </div>
+                                    }
                                 </div>
                             </div>
                             <div class="rvw-item carousel-item">

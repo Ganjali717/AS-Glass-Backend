@@ -12,5 +12,6 @@ namespace ASGlass.ViewModels
         public List<Setting> Settings { get; set; }
         public List<Category> Categories { get; set; }
         public List<Product> Products { get; set; }
+        public List<Comment> Comments { get; set; }
     }
 }

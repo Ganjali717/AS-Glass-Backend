@@ -1,9 +1,11 @@
 ﻿using ASGlass.DAL;
 using ASGlass.Models;
 using ASGlass.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SignalR;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -135,6 +137,55 @@ namespace ASGlass.Controllers
 
             var roleResult = await _userManager.AddToRoleAsync(member, "Member");
             await _signInManager.SignInAsync(member, true);
+
+            return RedirectToAction("index", "home");
+        }
+
+        public IActionResult ShowAccount(string id)
+        {
+            AppUser appUsers = _context.AppUsers.Include(x => x.Orders).ThenInclude(x => x.Product).FirstOrDefault(x => x.Id == id);
+
+            if (appUsers == null || appUsers.Id != id) return RedirectToAction("index", "error");
+
+            ChangePasswordViewModel passwordVM = new ChangePasswordViewModel
+            {
+                appUser = appUsers
+            };
+
+            return View(passwordVM);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> ShowAccount(ChangePasswordViewModel model)
+        {
+            AppUser existUser = _context.AppUsers.Include(x => x.Orders).ThenInclude(x => x.Product).FirstOrDefault(x => x.Id == model.appUser.Id);
+            var result = await _userManager.RemovePasswordAsync(existUser);
+            if (result.Succeeded)
+            {
+                result = await _userManager.AddPasswordAsync(existUser, model.NewPassword);
+                if (result.Succeeded)
+                {
+                    return RedirectToAction("index", "home");
+                }
+
+            }
+            else
+            {
+                ModelState.AddModelError("", "istifadeci adi ve ya sifre yanlisdir!");
+            }
+
+            if (_context.AppUsers.Any(x => x.UserName == model.appUser.UserName && x.Id != model.appUser.Id)) return RedirectToAction("index", "error");
+
+            existUser.FullName = model.appUser.FullName ?? existUser.FullName;
+            existUser.Email = model.appUser.Email ?? existUser.Email;
+            existUser.UserName = model.appUser.UserName ?? existUser.UserName;
+
+
+
+
+            await _userManager.UpdateAsync(existUser);
+            await _signInManager.SignInAsync(existUser, true);
 
             return RedirectToAction("index", "home");
         }

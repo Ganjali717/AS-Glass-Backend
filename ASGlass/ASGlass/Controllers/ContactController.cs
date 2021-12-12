@@ -1,4 +1,5 @@
 ﻿using ASGlass.DAL;
+using ASGlass.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -17,7 +18,11 @@ namespace ASGlass.Controllers
         }
         public IActionResult Index()
         {
-            return View();
+            ContactViewModel contactVM = new ContactViewModel()
+            {
+                Setting = _context.Settings.FirstOrDefault()
+            };
+            return View(contactVM);
         }
     }
 }

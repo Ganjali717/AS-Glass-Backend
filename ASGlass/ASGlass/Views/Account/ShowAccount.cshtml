@@ -1,0 +1,137 @@
+﻿@model ChangePasswordViewModel
+
+@{
+    int order = 0;
+
+}
+
+@section Account{ 
+<script src="~/assets/js/account.js"></script>
+}
+
+<section id="account-detail">
+    <div class="container">
+        <div class="row justify-content-around">
+            <div class="acc-detail-left col-3">
+                <div class="column">
+                    <a href="#" id="account-order-btn">Sifarişlər <i class="bi bi-person-circle"></i></a>
+                    <br /><br />
+                    <br />
+                    <a href="#" id="account-btn">Account Detalları <i class="bi bi-person-circle"></i></a>
+                    <br /><br />
+                    <br />
+                    <a asp-action="logout" asp-controller="account">Çıxış et <i class="bi bi-box-arrow-right"></i></a>
+                </div>
+            </div>
+            <div class="acc-detail-right col-8">
+                <div class="tab-content">
+                    <div class="fade active show"  id="tab-pane-order">
+                        <div class="ltn__myaccount-tab-content-inner">
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>Sifariş No</th>
+                                            <th>Şəkil</th>
+                                            <th>Status</th>
+                                            <th>Satış Qiymeti</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var item in Model.appUser.Orders)
+                                        {
+                                            order++;
+                                            <tr>
+                                                <td scope="row">@order</td>
+                                                <td><img src="~/uploads/products/@item.ProductImage" style="width:250px; height:180px;" /></td>
+                                                <td>
+                                                    @if (item.Status == OrderStatus.Accepted)
+                                                    {
+                                                        <span style="background-color:forestgreen; border-radius:10px; padding:10px;">Accepted</span>
+                                                    }
+                                                    else if (item.Status == OrderStatus.Rejected)
+                                                    {
+                                                        <span style="background-color:red; border-radius:10px; padding:10px;">Rejected</span>
+                                                    }
+                                                    else
+                                                    {
+                                                        <span style="background-color:deepskyblue; border-radius:10px; padding:10px;">Pending</span>
+                                                    }
+                                                </td>
+                                                <td>@item.Price AZN</td>
+                                                <td>
+                                                    <a asp-action="detail" asp-controller="shop" asp-route-id="@item.Product.Id" class="btn btn-danger mr-2">Detallı göstər</a>
+                                                    <a asp-action="deletefromorder" asp-controller="order" asp-route-id="@item.Id" class="btn btn-dark">Sil</a>
+                                                </td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="fade" id="tab-pane-account">
+                        <p>The following addresses will be used on the checkout page by default.</p>
+                        <div class="ltn__form-box">
+                            <form method="post" enctype="multipart/form-data">
+                                <input type="hidden" asp-for="@Model.appUser.Id" />
+                                <div class="column mb-50">
+                                    <div class="form-group">
+                                        <label asp-for="@Model.appUser.FullName">Fullname:</label>
+                                        <input asp-for="@Model.appUser.FullName" class="form-control" placeholder="Area">
+                                        <span class="text-danger" asp-validation-for="@Model.appUser.FullName"></span>
+                                    </div>
+                                    <br />
+                                    <div class="form-group">
+                                        <label asp-for="@Model.appUser.UserName">Display Name:</label>
+                                        <input asp-for="@Model.appUser.UserName" class="form-control" placeholder="Username">
+                                        <span class="text-danger" asp-validation-for="@Model.appUser.UserName"></span>
+                                    </div>
+                                    <br />
+                                    <div class="form-group">
+                                        <label asp-for="@Model.appUser.Email">Email:</label>
+                                        <input asp-for="@Model.appUser.Email" class="form-control" placeholder="Email">
+                                        <span class="text-danger" asp-validation-for="@Model.appUser.Email"></span>
+                                    </div>
+                                </div>
+                                <br />
+                                <br />
+                                <br />
+                                <fieldset style="width:100%;">
+                                    <legend>Şifrənizi yeniləyin</legend>
+                                    <div class="column">
+                                        <div class="form-group">
+                                            <label asp-for="OldPassword">Hazırki şifrə:</label>
+                                            <br />
+                                            <input type="password" asp-for="OldPassword" class="form-control">
+                                        </div>
+                                        <br />
+
+                                        <div class="form-group">
+                                            <label asp-for="NewPassword">Yeni şifrə:</label>
+                                            <br />
+                                            <input type="password" asp-for="NewPassword" class="form-control">
+                                        </div>
+                                        <br />
+
+                                        <div class="form-group">
+                                            <label asp-for="ConfirmPassword">Yeni şifrəni təkrarlıyın:</label>
+                                            <br />
+                                            <input type="password" asp-for="ConfirmPassword" class="form-control">
+                                        </div>
+                                    </div>
+                                </fieldset>
+                                <br />
+                                <div class="btn-wrapper">
+                                    <button type="submit" class="btn btn-warning text-uppercase">Yenilə</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+

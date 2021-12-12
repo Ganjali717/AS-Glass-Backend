@@ -11,6 +11,8 @@ namespace ASGlass.Models
         public string FullName { get; set; }
         public bool IsAdmin { get; set; }
         public List<CartItem> CartItems { get; set; }
+        public List<Order> Orders { get; set; }
+        public List<Comment> Comments { get; set; }
 
         public string Phone { get; set; }
         public string ConnectionId { get; set; }

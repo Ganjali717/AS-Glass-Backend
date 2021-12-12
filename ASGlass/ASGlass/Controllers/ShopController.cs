@@ -22,7 +22,7 @@ namespace ASGlass.Controllers
             _context = context;
             _userManager = userManager;
         }
-        public IActionResult Index(int page = 1, int? categoryId = null, int? thicknessId = null, int? colorId = null, string sort = null)
+        public IActionResult Index(int page = 1, int? categoryId = null, int? thicknessId = null, int? colorId = null, int? shapeId = null, string sort = null)
         {
 
             AppUser member = User.Identity.IsAuthenticated ? _userManager.Users.FirstOrDefault(x => x.UserName == User.Identity.Name && !x.IsAdmin) : null;
@@ -31,6 +31,7 @@ namespace ASGlass.Controllers
 
             ViewBag.CategoryId = categoryId;
             ViewBag.ThicknessId = thicknessId;
+            ViewBag.ShapeId = shapeId;
             ViewBag.ColorId = colorId; 
 
             if (categoryId != null)
@@ -39,6 +40,8 @@ namespace ASGlass.Controllers
                 query = query.Where(x => x.Thickness.Id == thicknessId);
             if (colorId != null)
                 query = query.Where(x => x.Colors.Id == colorId);
+            if (shapeId != null)
+                query = query.Where(x => x.Shape.Id == shapeId);
 
             switch (sort)
             {
@@ -67,8 +70,13 @@ namespace ASGlass.Controllers
 
         public IActionResult Detail(int id)
         {
-            var product = _context.Products.Include(x => x.ProductImages).Include(x => x.Thickness).Include(x => x.Shape).Include(x => x.Polish).Include(x => x.Corner).Include(x => x.Colors).FirstOrDefault(x => x.Id == id);
-            return View(product);
+            DetailViewModel detailVM = new DetailViewModel()
+            {
+                Product = _context.Products.Include(x => x.ProductImages).Include(x => x.Shape).Include(x => x.Thickness).Include(x => x.Polish).Include(x => x.Corner).Include(x => x.Colors).FirstOrDefault(x => x.Id == id)
+            };
+
+           
+            return View(detailVM);
         }
 
         public IActionResult AddToCart(int id)
@@ -201,6 +209,38 @@ namespace ASGlass.Controllers
             }
 
             return RedirectToAction("index", "card");
+        }
+
+
+        [HttpPost]
+        public async Task<IActionResult> AddComment(int id, Comment comment)
+        {
+            var house = _context.Products.FirstOrDefault(x => x.Id == id);
+
+            AppUser member = null;
+
+            if (User.Identity.IsAuthenticated)
+            {
+                member = await _userManager.FindByNameAsync(User.Identity.Name);
+            }
+
+            Comment comment1 = new Comment
+            {
+                AppUserId = User.Identity.IsAuthenticated ? member.Id : null,
+                Date = DateTime.UtcNow,
+                Text = comment.Text,
+                Username = comment.Username,
+                Rate = Convert.ToInt32(HttpContext.Request.Form["stars"]),
+                Email = comment.Email,
+                ProductId = id
+            };
+
+            _context.Comments.Add(comment1);
+            _context.SaveChanges();
+
+
+            return Redirect(HttpContext.Request.Headers["Referer"].ToString());
+
         }
     }
 }

@@ -35,20 +35,27 @@ using ASGlass.ViewModels;
 #nullable disable
 #nullable restore
 #line 4 "C:\Users\LENOVO\OneDrive\Desktop\AS-Glass-Backend\ASGlass\ASGlass\Views\_ViewImports.cshtml"
-using ASGlass.Services;
+using ASGlass.Models.Enums;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
 #line 5 "C:\Users\LENOVO\OneDrive\Desktop\AS-Glass-Backend\ASGlass\ASGlass\Views\_ViewImports.cshtml"
+using ASGlass.Services;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 6 "C:\Users\LENOVO\OneDrive\Desktop\AS-Glass-Backend\ASGlass\ASGlass\Views\_ViewImports.cshtml"
 using Microsoft.AspNetCore.Identity;
 
 #line default
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"90511cbfe19d893127bce3bca5f0b5f91669c763", @"/Views/Service/Index.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"371bcd20e4804f5f36b1c51cf1dba9aa238e94f5", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"f96611a6467f4114bc417bbc3e10c3569ee1d6a4", @"/Views/_ViewImports.cshtml")]
     public class Views_Service_Index : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("src", new global::Microsoft.AspNetCore.Html.HtmlString("~/assets/js/overlay.js"), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -85,7 +92,7 @@ using Microsoft.AspNetCore.Identity;
         {
             DefineSection("Overlay", async() => {
                 WriteLiteral("\r\n    ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "90511cbfe19d893127bce3bca5f0b5f91669c7636124", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "90511cbfe19d893127bce3bca5f0b5f91669c7636325", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -107,7 +114,7 @@ using Microsoft.AspNetCore.Identity;
             BeginWriteAttribute("class", " class=\"", 237, "\"", 245, 0);
             EndWriteAttribute();
             WriteLiteral(">CUSTOMER CARE</a>\r\n            </div>\r\n            <div class=\"cancel-overlay-body\">\r\n                <div class=\"container\">\r\n                    <h3>MÜŞTƏRİ SERVİSİ</h3>\r\n                    <ul>\r\n                        <li>");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "90511cbfe19d893127bce3bca5f0b5f91669c7637943", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "90511cbfe19d893127bce3bca5f0b5f91669c7638144", async() => {
                 WriteLiteral("Əlaqə saxlıyın");
             }
             );
@@ -125,7 +132,7 @@ using Microsoft.AspNetCore.Identity;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("</li>\r\n                        <li>");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "90511cbfe19d893127bce3bca5f0b5f91669c7639345", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "90511cbfe19d893127bce3bca5f0b5f91669c7639546", async() => {
                 WriteLiteral("Tez-tez verilən suallar");
             }
             );
@@ -143,7 +150,7 @@ using Microsoft.AspNetCore.Identity;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("</li>\r\n                    </ul>\r\n                    <br>\r\n                    <h3>ALIŞ-VERİŞ VƏ GERİ QAYTARMA</h3>\r\n                    <ul>\r\n                        <li>");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "90511cbfe19d893127bce3bca5f0b5f91669c76310901", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "90511cbfe19d893127bce3bca5f0b5f91669c76311102", async() => {
                 WriteLiteral("Qaytarma Siyasəti");
             }
             );
@@ -161,7 +168,7 @@ using Microsoft.AspNetCore.Identity;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("</li>\r\n                    </ul>\r\n                    <br>\r\n                    <h3>SİZİN SİFARİŞİNİZ</h3>\r\n                    <ul>\r\n                        <li>");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "90511cbfe19d893127bce3bca5f0b5f91669c76312442", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "90511cbfe19d893127bce3bca5f0b5f91669c76312643", async() => {
                 WriteLiteral("Sifarişin Statusu");
             }
             );
@@ -179,7 +186,7 @@ using Microsoft.AspNetCore.Identity;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("</li>\r\n                        <li>");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "90511cbfe19d893127bce3bca5f0b5f91669c76313848", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "90511cbfe19d893127bce3bca5f0b5f91669c76314049", async() => {
                 WriteLiteral("Sifarişi Rədd Etmək");
             }
             );
@@ -209,7 +216,7 @@ using Microsoft.AspNetCore.Identity;
                     <h3>MÜŞTƏRİ SERVİSİ</h3>
                     <ul>
                         <li>");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "90511cbfe19d893127bce3bca5f0b5f91669c76315572", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "90511cbfe19d893127bce3bca5f0b5f91669c76315773", async() => {
                 WriteLiteral("Əlaqə saxlıyın");
             }
             );
@@ -227,7 +234,7 @@ using Microsoft.AspNetCore.Identity;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("</li>\r\n                        <li>");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "90511cbfe19d893127bce3bca5f0b5f91669c76316975", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "90511cbfe19d893127bce3bca5f0b5f91669c76317176", async() => {
                 WriteLiteral("Tez-tez verilən suallar");
             }
             );
@@ -245,7 +252,7 @@ using Microsoft.AspNetCore.Identity;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("</li>\r\n                    </ul>\r\n                    <br>\r\n                    <h3>ALIŞ-VERİŞ VƏ GERİ QAYTARMA</h3>\r\n                    <ul>\r\n                        <li>");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "90511cbfe19d893127bce3bca5f0b5f91669c76318532", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "90511cbfe19d893127bce3bca5f0b5f91669c76318733", async() => {
                 WriteLiteral("Qaytarma Siyasəti");
             }
             );
@@ -263,7 +270,7 @@ using Microsoft.AspNetCore.Identity;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("</li>\r\n                    </ul>\r\n                    <br>\r\n                    <h3>SİZİN SİFARİŞİNİZ</h3>\r\n                    <ul>\r\n                        <li>");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "90511cbfe19d893127bce3bca5f0b5f91669c76320073", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "90511cbfe19d893127bce3bca5f0b5f91669c76320274", async() => {
                 WriteLiteral("Sifarişin Statusu");
             }
             );
@@ -281,7 +288,7 @@ using Microsoft.AspNetCore.Identity;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("</li>\r\n                        <li>");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "90511cbfe19d893127bce3bca5f0b5f91669c76321479", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "90511cbfe19d893127bce3bca5f0b5f91669c76321680", async() => {
                 WriteLiteral("Sifarişi Rədd Etmək");
             }
             );
@@ -311,7 +318,7 @@ using Microsoft.AspNetCore.Identity;
             BeginWriteAttribute("href", " href=\"", 2820, "\"", 2827, 0);
             EndWriteAttribute();
             WriteLiteral(">Keyfiyyət standartlarınız hansılardır?</a></li>\r\n                    </ul>\r\n                    <br>\r\n                    <h4>Sifarişim haradadır?</h4>\r\n                    <br>\r\n                    <p>Sifarişinizin vəziyyətini yoxlamağın ən asan yolu ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "90511cbfe19d893127bce3bca5f0b5f91669c76324137", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "90511cbfe19d893127bce3bca5f0b5f91669c76324338", async() => {
                 WriteLiteral("Sifariş Statusu");
             }
             );
@@ -333,7 +340,7 @@ using Microsoft.AspNetCore.Identity;
                     <h4>Qaytarma Siyasətiniz nədir?</h4>
                     <br>
                     <p>Sifarişinizdən razı qalmağınıza 100% sadiqik. ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "90511cbfe19d893127bce3bca5f0b5f91669c76325855", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "90511cbfe19d893127bce3bca5f0b5f91669c76326056", async() => {
                 WriteLiteral("Qaytarma Siyasətimizi");
             }
             );

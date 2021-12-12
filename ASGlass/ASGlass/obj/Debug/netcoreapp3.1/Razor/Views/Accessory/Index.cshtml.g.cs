@@ -35,20 +35,27 @@ using ASGlass.ViewModels;
 #nullable disable
 #nullable restore
 #line 4 "C:\Users\LENOVO\OneDrive\Desktop\AS-Glass-Backend\ASGlass\ASGlass\Views\_ViewImports.cshtml"
-using ASGlass.Services;
+using ASGlass.Models.Enums;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
 #line 5 "C:\Users\LENOVO\OneDrive\Desktop\AS-Glass-Backend\ASGlass\ASGlass\Views\_ViewImports.cshtml"
+using ASGlass.Services;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 6 "C:\Users\LENOVO\OneDrive\Desktop\AS-Glass-Backend\ASGlass\ASGlass\Views\_ViewImports.cshtml"
 using Microsoft.AspNetCore.Identity;
 
 #line default
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"a48073cb87d32b41df9f75e200f4c8ca49d01dd7", @"/Views/Accessory/Index.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"371bcd20e4804f5f36b1c51cf1dba9aa238e94f5", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"f96611a6467f4114bc417bbc3e10c3569ee1d6a4", @"/Views/_ViewImports.cshtml")]
     public class Views_Accessory_Index : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("value", "", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -106,7 +113,7 @@ using Microsoft.AspNetCore.Identity;
                 <select class=""form-control nice-select sort-select "">
                  ");
             WriteLiteral("   ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "a48073cb87d32b41df9f75e200f4c8ca49d01dd76308", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "a48073cb87d32b41df9f75e200f4c8ca49d01dd76509", async() => {
                 WriteLiteral("Default Sorting");
             }
             );
@@ -123,7 +130,7 @@ using Microsoft.AspNetCore.Identity;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n                    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "a48073cb87d32b41df9f75e200f4c8ca49d01dd77579", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "a48073cb87d32b41df9f75e200f4c8ca49d01dd77780", async() => {
                 WriteLiteral("\r\n                        Sort\r\n                        By:Name (A - Z)\r\n                    ");
             }
             );
@@ -139,7 +146,7 @@ using Microsoft.AspNetCore.Identity;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n                    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "a48073cb87d32b41df9f75e200f4c8ca49d01dd78851", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "a48073cb87d32b41df9f75e200f4c8ca49d01dd79052", async() => {
                 WriteLiteral("\r\n                        Sort\r\n                        By:Name (Z - A)\r\n                    ");
             }
             );
@@ -155,7 +162,7 @@ using Microsoft.AspNetCore.Identity;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n                    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "a48073cb87d32b41df9f75e200f4c8ca49d01dd710123", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "a48073cb87d32b41df9f75e200f4c8ca49d01dd710324", async() => {
                 WriteLiteral("\r\n                        Sort\r\n                        By:Price (Low &gt; High)\r\n                    ");
             }
             );
@@ -171,7 +178,7 @@ using Microsoft.AspNetCore.Identity;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n                    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "a48073cb87d32b41df9f75e200f4c8ca49d01dd711405", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "a48073cb87d32b41df9f75e200f4c8ca49d01dd711606", async() => {
                 WriteLiteral("\r\n                        Sort\r\n                        By:Price (High &gt; Low)\r\n                    ");
             }
             );
@@ -187,7 +194,7 @@ using Microsoft.AspNetCore.Identity;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n                    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "a48073cb87d32b41df9f75e200f4c8ca49d01dd712687", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "a48073cb87d32b41df9f75e200f4c8ca49d01dd712888", async() => {
                 WriteLiteral("\r\n                        Sort\r\n                        By:Rating (Highest)\r\n                    ");
             }
             );
@@ -203,7 +210,7 @@ using Microsoft.AspNetCore.Identity;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n                    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "a48073cb87d32b41df9f75e200f4c8ca49d01dd713964", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "a48073cb87d32b41df9f75e200f4c8ca49d01dd714165", async() => {
                 WriteLiteral("\r\n                        Sort\r\n                        By:Rating (Lowest)\r\n                    ");
             }
             );
@@ -219,7 +226,7 @@ using Microsoft.AspNetCore.Identity;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n                    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "a48073cb87d32b41df9f75e200f4c8ca49d01dd715240", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "a48073cb87d32b41df9f75e200f4c8ca49d01dd715441", async() => {
                 WriteLiteral("\r\n                        Sort\r\n                        By:Model (A - Z)\r\n                    ");
             }
             );
@@ -235,7 +242,7 @@ using Microsoft.AspNetCore.Identity;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n                    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "a48073cb87d32b41df9f75e200f4c8ca49d01dd716514", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "a48073cb87d32b41df9f75e200f4c8ca49d01dd716715", async() => {
                 WriteLiteral("\r\n                        Sort\r\n                        By:Model (Z - A)\r\n                    ");
             }
             );
@@ -251,7 +258,7 @@ using Microsoft.AspNetCore.Identity;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n                </select>\r\n            </div>\r\n        </div>\r\n    </section>\r\n    <section id=\"glaccbody\">\r\n        <div class=\"container\">\r\n            <div class=\"row\">\r\n                <div class=\"acc-item \">\r\n                    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "a48073cb87d32b41df9f75e200f4c8ca49d01dd718026", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "a48073cb87d32b41df9f75e200f4c8ca49d01dd718227", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -280,7 +287,7 @@ using Microsoft.AspNetCore.Identity;
             BeginWriteAttribute("href", " href=\"", 2960, "\"", 2967, 0);
             EndWriteAttribute();
             WriteLiteral(" class=\"acc-item-btn\">ADD TO CARD</a>\r\n                </div>\r\n                <div class=\"acc-item \">\r\n                    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "a48073cb87d32b41df9f75e200f4c8ca49d01dd719972", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "a48073cb87d32b41df9f75e200f4c8ca49d01dd720173", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -309,7 +316,7 @@ using Microsoft.AspNetCore.Identity;
             BeginWriteAttribute("href", " href=\"", 3573, "\"", 3580, 0);
             EndWriteAttribute();
             WriteLiteral(" class=\"acc-item-btn\">ADD TO CARD</a>\r\n                </div>\r\n                <div class=\"acc-item \">\r\n                    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "a48073cb87d32b41df9f75e200f4c8ca49d01dd721918", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "a48073cb87d32b41df9f75e200f4c8ca49d01dd722119", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -338,7 +345,7 @@ using Microsoft.AspNetCore.Identity;
             BeginWriteAttribute("href", " href=\"", 4186, "\"", 4193, 0);
             EndWriteAttribute();
             WriteLiteral(" class=\"acc-item-btn\">ADD TO CARD</a>\r\n                </div>\r\n                <div class=\"acc-item \">\r\n                    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "a48073cb87d32b41df9f75e200f4c8ca49d01dd723864", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "a48073cb87d32b41df9f75e200f4c8ca49d01dd724065", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -367,7 +374,7 @@ using Microsoft.AspNetCore.Identity;
             BeginWriteAttribute("href", " href=\"", 4799, "\"", 4806, 0);
             EndWriteAttribute();
             WriteLiteral(" class=\"acc-item-btn\">ADD TO CARD</a>\r\n                </div>\r\n                <div class=\"acc-item \">\r\n                    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "a48073cb87d32b41df9f75e200f4c8ca49d01dd725810", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "a48073cb87d32b41df9f75e200f4c8ca49d01dd726011", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -396,7 +403,7 @@ using Microsoft.AspNetCore.Identity;
             BeginWriteAttribute("href", " href=\"", 5412, "\"", 5419, 0);
             EndWriteAttribute();
             WriteLiteral(" class=\"acc-item-btn\">ADD TO CARD</a>\r\n                </div>\r\n                <div class=\"acc-item \">\r\n                    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "a48073cb87d32b41df9f75e200f4c8ca49d01dd727756", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "a48073cb87d32b41df9f75e200f4c8ca49d01dd727957", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -425,7 +432,7 @@ using Microsoft.AspNetCore.Identity;
             BeginWriteAttribute("href", " href=\"", 6025, "\"", 6032, 0);
             EndWriteAttribute();
             WriteLiteral(" class=\"acc-item-btn\">ADD TO CARD</a>\r\n                </div>\r\n                <div class=\"acc-item \">\r\n                    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "a48073cb87d32b41df9f75e200f4c8ca49d01dd729702", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "a48073cb87d32b41df9f75e200f4c8ca49d01dd729903", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -454,7 +461,7 @@ using Microsoft.AspNetCore.Identity;
             BeginWriteAttribute("href", " href=\"", 6638, "\"", 6645, 0);
             EndWriteAttribute();
             WriteLiteral(" class=\"acc-item-btn\">ADD TO CARD</a>\r\n                </div>\r\n                <div class=\"acc-item \">\r\n                    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "a48073cb87d32b41df9f75e200f4c8ca49d01dd731648", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "a48073cb87d32b41df9f75e200f4c8ca49d01dd731849", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();

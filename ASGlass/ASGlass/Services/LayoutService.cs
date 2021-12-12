@@ -66,7 +66,7 @@ namespace ASGlass.Services
             }
             else
             {
-                List<CartItem> cartItems = _context.CartItems.Include(x => x.Product).Where(x => x.AppUserId == member.Id).ToList();
+                List<CartItem> cartItems = _context.CartItems.Include(x => x.Product).ThenInclude(x => x.ProductImages ).Where(x => x.AppUserId == member.Id).ToList();
                 items = cartItems.Select(x => new CartViewModel
                 {
                     ProductId = x.ProductId,

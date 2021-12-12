@@ -1,5 +1,7 @@
-﻿@section Measurement{
+﻿@model CustomViewModel
+@section Measurement{
     <script src="~/assets/js/measurement.js"></script>
+    <script src="~/assets/js/customize.js"></script>
 
 }
 
@@ -10,132 +12,23 @@
             <div class="column">
                 <h3>GÜZGÜ</h3>
                 <br>
-                <p>İstədiyiniz bu 4 formadan olan şüşə ni seçin</p>
+                <p>İstədiyiniz bu 4 formadan olan güzgünü seçin</p>
                 <br>
                 <div class="select-shape col-12">
                     <div class="shape-head col-12">
                         <h5>Kəsim formasını seçin</h5>
                     </div>
                     <div class="shapes col-12">
-                        <div class="shapes-item">
-                            <h5>Düzbucaq</h5>
-                            <br>
-                            <img src="~/assets/images/products/rectangle-customize.webp" alt="">
-                            <br><br><br>
-                            <a href="" class="recbtn">Seçin</a>
-                        </div>
-                        <div class="measurement d-none" id="recmea">
-                            <a asp-action="index" asp-controller="mirror" class="redirecturl"><i class="bi bi-arrow-left"></i> GERİYƏ DÖN</a>
-                            <br>
-                            <div class="mt-contain col-12">
-                                <div class="mtimg col-6">
-                                    <img src="~/assets/images/products/mea-rec.png" alt="">
-                                </div>
-                                <div class="mt-right col-6">
-                                    <form>
-                                        <label><b>Uzunlugu Qeyd Edin:</b></label>
-                                        <br /><br />
-                                        <input type="number" placeholder="Mesel ucun: 2.5, 22.5 sm" />
-                                        <br /><br />
-                                        <label><b>Enini Qeyd Edin:</b></label>
-                                        <br /><br />
-                                        <input type="number" placeholder="Mesel ucun: 2.5, 22.5 sm" />
-                                        <br />
-                                        <br />
-                                        <input type="submit" value="Davam Et" />
-                                    </form>
-
-                                </div>
+                        @foreach (var item in Model.Shapes)
+                        {
+                            <div class="shapes-item">
+                                <h5>@item.Name</h5>
+                                <br>
+                                <img src="~/assets/images/products/@item.Image" alt="">
+                                <br><br><br>
+                                <a asp-action="customize" asp-controller="mirror" asp-route-shapeid="@item.Id">Seçin</a>
                             </div>
-
-                        </div>
-                        <div class="shapes-item">
-                            <h5>Kvadrat</h5>
-                            <br>
-                            <img src="~/assets/images/products/square-customize.webp" alt="">
-                            <br><br><br>
-                            <a href="" class="sqbtn">Seçin</a>
-                        </div>
-                        <div class="measurement d-none" id="sqmea">
-                            <a asp-action="index" asp-controller="mirror"><i class="bi bi-arrow-left"></i>  GERİYƏ DÖN</a>
-                            <br>
-                            <div class="mt-contain col-12">
-                                <div class="mtimg col-6">
-                                    <img src="~/assets/images/products/mea-sqr.png" alt="">
-                                </div>
-                                <div class="mt-right col-6">
-                                    <form>
-                                        <label><b>Uzunlugu Qeyd Edin:</b></label>
-                                        <br /><br />
-                                        <input type="number" placeholder="Mesel ucun: 2.5, 22.5 sm" />
-                                        <br /><br />
-                                        <label><b>Enini Qeyd Edin:</b></label>
-                                        <br /><br />
-                                        <input type="number" placeholder="Mesel ucun: 2.5, 22.5 sm" />
-                                        <br />
-                                        <br />
-                                        <input type="submit" value="Davam Et" />
-                                    </form>
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="shapes-item">
-                            <h5>Dairəvi</h5>
-                            <br>
-                            <img src="~/assets/images/products/round-customize.webp" alt="">
-                            <br><br><br>
-                            <a href="" class="roundbtn">Seçin</a>
-                        </div>
-                        <div class="measurement d-none" id="roundmea">
-                            <a asp-action="index" asp-controller="mirror"><i class="bi bi-arrow-left"></i> GERİYƏ DÖN</a>
-                            <br>
-                            <div class="mt-contain col-12">
-                                <div class="mtimg col-6">
-                                    <img src="~/assets/images/products/mea-rnd.png" alt="">
-                                </div>
-                                <div class="mt-right col-6">
-                                    <form>
-                                        <label><b>Diametri Qeyd Edin:</b></label>
-                                        <br /><br />
-                                        <input type="number" placeholder="Mesel ucun: 2.5, 22.5 sm" />
-                                        <br /><br />
-                                        <br />
-                                        <input type="submit" value="Davam et" />
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="shapes-item">
-                            <h5>Oval</h5>
-                            <br>
-                            <img src="~/assets/images/products/oval-customize.webp" alt="">
-                            <br><br><br>
-                            <a href="" class="ovalbtn">Seçin</a>
-                        </div>
-                        <div class="measurement d-none" id="ovalmea">
-                            <a asp-action="index" asp-controller="mirror"><i class="bi bi-arrow-left"></i> GERİYƏ DÖN</a>
-                            <br>
-                            <div class="mt-contain col-12">
-                                <div class="mtimg col-6">
-                                    <img src="~/assets/images/products/mea-ovl.png" alt="">
-                                </div>
-                                <div class="mt-right col-6">
-                                    <form>
-                                        <label><b>Uzunlugu Qeyd Edin:</b></label>
-                                        <br /><br />
-                                        <input type="number" placeholder="Mesel ucun: 2.5, 22.5 sm" />
-                                        <br /><br />
-                                        <label><b>Enini Qeyd Edin:</b></label>
-                                        <br /><br />
-                                        <input type="number" placeholder="Mesel ucun: 2.5, 22.5 sm" />
-                                        <br />
-                                        <br />
-                                        <input type="submit" value="Davam Et" />
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
+                        }
                     </div>
                     <br>
                     <a href="">Toplu sifariş üçün bura klikləyin</a>
@@ -156,28 +49,28 @@
                     <br>
                     <img src="~/assets/images/products/round-mirror-shape.webp" alt="">
                     <br><br><br>
-                    <a href="">Alış-Veriş Et</a>
+                    <a asp-action="index" asp-controller="shop" asp-route-shapeId="@Model.Shapes.FirstOrDefault(x => x.Id == 4).Id">Alış-Veriş Et</a>
                 </div>
                 <div class="mirror-item col-3">
-                    <h5>Oval Güzgü</h5>
+                    <h5>Oval Güzgü</h5> 
                     <br>
                     <img src="~/assets/images/products/oval-mirror-shape.webp" alt="">
                     <br><br><br>
-                    <a href="">Alış-Veriş Et</a>
+                    <a asp-action="index" asp-controller="shop" asp-route-shapeId="@Model.Shapes.FirstOrDefault(x => x.Id == 3).Id">Alış-Veriş Et</a>
                 </div>
                 <div class="mirror-item col-3">
                     <h5>Düzbucaq Güzgü</h5>
                     <br>
                     <img src="~/assets/images/products/rectangle-mirror-shape.webp" alt="">
                     <br><br><br>
-                    <a href="">Alış-Veriş Et</a>
+                    <a asp-action="index" asp-controller="shop" asp-route-shapeId="@Model.Shapes.FirstOrDefault(x => x.Id == 1).Id">Alış-Veriş Et</a>
                 </div>
                 <div class="mirror-item col-3">
                     <h5>İdman Zalı Güzgüsü</h5>
                     <br>
                     <img src="~/assets/images/products/gym-mirror-shape.webp" alt="">
                     <br><br><br>
-                    <a href="">Alış-Veriş Et</a>
+                    <a asp-action="index" asp-controller="shop">Alış-Veriş Et</a>
                 </div>
             </div>
         </div>

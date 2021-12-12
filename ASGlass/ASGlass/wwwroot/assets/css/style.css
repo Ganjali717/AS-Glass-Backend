@@ -11650,11 +11650,12 @@ footer {
       position: absolute;
       padding: 35px 15px;
       top: -200px; }
-      footer .column .foot-head .foot-head-left {
-        background-color: #0A6AB7;
-        background-repeat: no-repeat;
-        padding: 42px;
-        color: white; }
+        footer .column .foot-head .foot-head-left {
+            background-color: #FD7E14;
+            background-repeat: no-repeat;
+            padding: 42px;
+            color: white;
+        }
       footer .column .foot-head .foot-head-right {
         background-color: white;
         padding: 25px; }
@@ -13189,19 +13190,23 @@ body {
           color: red;
           font-size: 10px; }
       #contact #con-body .container .row .con-form form input {
-        width: 100%;
         padding: 5px;
         border: 1px solid rgba(0, 0, 0, 0.089); }
       #contact #con-body .container .row .con-form form textarea {
         width: 100%;
         border: 1px solid rgba(0, 0, 0, 0.089); }
-      #contact #con-body .container .row .con-form form input[type=checkbox] {
-        display: inline; }
-      #contact #con-body .container .row .con-form form input[type=submit] {
-        background-color: #0A6AB7;
-        border: none;
-        cursor: pointer;
-        padding: 10px; }
+      #contact #con-body .container .row .con-form form input[type=text] {
+        width:100%; }
+        #contact #con-body .container .row .con-form form input[type=number] {
+            width: 100%;
+        }
+        #contact #con-body .container .row .con-form form input[type=submit] {
+            background-color: #0A6AB7;
+            border: none;
+            width: 100%;
+            cursor: pointer;
+            padding: 10px;
+        }
 
 @media only screen and (max-width: 1400px) {
   #contact #con-body .container .row {
@@ -14297,3 +14302,95 @@ body {
     #checkout .container .column .checkout-body .checkout-right {
       width: 100%;
       margin-top: 25px; } }
+
+
+
+
+#account-detail{
+    width:100%;
+    height:max-content;
+    padding:105px 35px;
+}
+    #account-detail .container .row .acc-detail-left{
+         border:1px black solid;
+         border-radius:5px;
+         padding:85px 45px;
+         height:max-content;
+
+    }
+        #account-detail .container .row .acc-detail-left a {
+            margin-top: 10px;
+            text-decoration: none;
+            color: #0A6AB7;
+            font-size: 20px;
+            border-bottom: 1px black solid;
+            cursor: pointer;
+        }
+
+
+
+.rating {
+    display: inline-block;
+    position: relative;
+    height: 50px;
+    line-height: 50px;
+    font-size: 30px;
+}
+
+    .rating label {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        cursor: pointer;
+    }
+
+        .rating label:last-child {
+            position: static;
+        }
+
+        .rating label:nth-child(1) {
+            z-index: 5;
+        }
+
+        .rating label:nth-child(2) {
+            z-index: 4;
+        }
+
+        .rating label:nth-child(3) {
+            z-index: 3;
+        }
+
+        .rating label:nth-child(4) {
+            z-index: 2;
+        }
+
+        .rating label:nth-child(5) {
+            z-index: 1;
+        }
+
+        .rating label input {
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+        }
+
+        .rating label .icon {
+            float: left;
+            color: transparent;
+        }
+
+        .rating label:last-child .icon {
+            color: #000;
+        }
+
+    .rating:not(:hover) label input:checked ~ .icon,
+    .rating:hover label:hover input ~ .icon {
+        color: #FFC12D;
+    }
+
+    .rating label input:focus:not(:checked) ~ .icon:last-child {
+        color: #000;
+        text-shadow: 0 0 5px #09f;
+    }

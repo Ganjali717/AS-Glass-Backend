@@ -1,4 +1,4 @@
-﻿
+﻿@model ContactViewModel
 
 <main id="contact">
     <section id="con-head">
@@ -17,13 +17,13 @@
             <br>
             <ul>
                 <li>
-                    <p><b>Toll Free Line: </b> 050 593 40 40</p>
+                    <p><b>Əlaqə nömrəsi: </b> @Model.Setting.SupportPhone</p>
                 </li>
                 <li>
                     <p><b>Fax: </b> 012 567 11 02</p>
                 </li>
                 <li>
-                    <p><b>Email: </b>ganjali.imanov@gmail.com</p>
+                    <p><b>Email ünvanı: </b>@Model.Setting.Email</p>
                 </li>
             </ul>
         </div>
@@ -35,60 +35,58 @@
                 <div class="con-form col-6">
                     <h5>AS Glass Güzgü və Şüşə Servisinə Email göndərin</h5>
                     <hr>
-                    <small>Have questions? Ask a glass & mirror expert!</small>
+                    <small>Sualınız var? Güzgü və şüşə ekspertindən soruşun!</small>
                     <br><br>
-                    <form action="">
-                        <label for="">Email Address <i class="bi bi-asterisk"></i></label>
-                        <br>
-                        <input type="text" placeholder="Email adresini daxil edin">
-                        <br><br>
-                        <label for="">Name <i class="bi bi-asterisk"></i></label>
-                        <br>
-                        <input type="text" placeholder="Adinizi daxil edin">
-                        <br><br>
-                        <label for="">Phone Number <i class="bi bi-asterisk"></i></label>
-                        <br>
-                        <input type="number" placeholder="Telefon nomrenizi daxil edin">
-                        <br><br>
-                        <label for="">Message <i class="bi bi-asterisk"></i></label>
-                        <br>
-                        <textarea name="" id="" cols="30" rows="10" placeholder="Mesajinizi daxil edin"></textarea>
-                        <br><br>
-                        
-                        <label for="checkbox"> <input type="checkbox">Sign me up to get special discounts and new product info.</label>
-                        <br><br>
-                        <p>
-                            We <b>will not share</b> your email address or other information with any third parties.
-                            Read our <a href="">Privacy Statement</a>
-                        </p>
-                        <br>
-                        <input type="submit">
-                    </form>
+                        <form action="">
+                            <label for="">Email Ünvanı<i class="bi bi-asterisk"></i></label>
+                            <br>
+                            <input type="text" placeholder="Email adresini daxil edin">
+                            <br><br>
+                            <label for="">Ad<i class="bi bi-asterisk"></i></label>
+                            <br>
+                            <input type="text" placeholder="Adinizi daxil edin">
+                            <br><br>
+                            <label for="">Mobil nömrə<i class="bi bi-asterisk"></i></label>
+                            <br>
+                            <input type="number" placeholder="Telefon nomrenizi daxil edin">
+                            <br><br>
+                            <label for="">Məktub yaz <i class="bi bi-asterisk"></i></label>
+                            <br>
+                            <textarea name="" id="" cols="30" rows="10" placeholder="Mesajinizi daxil edin"></textarea>
+                            <br><br>
+                            <div class="form-check row">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                                <label class="form-check-label" for="flexCheckChecked">
+                                    Xüsusi endirimlər və yeni məhsul haqqında məlumat əldə etmək üçün məni qeydiyyatdan keçirin.
+                                </label>
+                            </div>
+                            <br><br>
+                            <p>
+                                E-poçt ünvanınızı və ya digər məlumatlarınızı üçüncü tərəflərlə <b>paylaşmayacağıq.</b>
+                                <a href="">Qanun və Qaydanı</a> oxuyun.
+                            </p>
+                            <br>
+                            <input type="submit" value="GÖNDƏR" class="text-white">
+                        </form>
                 </div>
                 <div class="con-address col-6">
                     <h5>Ofisimiz</h5>
                     <hr>
                     <p><b>Phone: </b>050 593 40 40</p>
+                    <p>Mühasibat uçotu ilə bağlı bütün sorğularınızı aşağıdakı ünvana göndərin.</p>
                     <br>
-                    <p>Please direct all your accounting related inquiries to the following address.</p>
-                    <br>
-                    <b>Headquarters address:</b>
+                    <b>Mağazanın ünvanı:</b>
                     <br>
                     <p>
-                        7610 Doane Dr.
-                        Manassas, VA 20109
+                        @Model.Setting.Address  
                     </p>
                     <br>
-                    <h5>Showroom: Karl Marks</h5>
+                    <h5>Emalatxana:</h5>
                     <p><b>Phone: </b>050 593 40 40</p>
-                    <br>
-                    <p>Please direct all your accounting related inquiries to the following address.</p>
-                    <br>
-                    <b>Headquarters address:</b>
+                    <b>Emalatxananın ünvanı:</b>
                     <br>
                     <p>
-                        7610 Doane Dr.
-                        Manassas, VA 20109
+                       Bakı şəhəri, Biləcəri qəsəbəsi
                     </p>
                 </div>
             </div>

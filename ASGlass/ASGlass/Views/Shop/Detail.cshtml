@@ -1,47 +1,63 @@
-﻿@model Product
+﻿@model DetailViewModel
+@inject UserManager<AppUser> userManager
+
+@{
+    ViewData["Title"] = "Detail";
+    AppUser member = User.Identity.IsAuthenticated ? userManager.Users.FirstOrDefault(x => x.UserName == User.Identity.Name && !x.IsAdmin) : null;
+
+    <script>
+        $(':radio').change(function () {
+            console.log('New star rating: ' + this.value);
+        }); 
+    </script>
+   
+}
+
+
+
 
 <main id="accessdetail">
     <section id="accdetail-head">
         <div class="container">
             <div class="row">
                 <div class="accdetail-head-left col-5">
-                    @if (Model.IsAccessory == true)
+                    @if (Model.Product.IsAccessory == true)
                     {
-                        <img src="~/uploads/products/@Model.ProductImages.FirstOrDefault(x => x.PosterStatus == true).Image" alt="">
+                        <img src="~/uploads/products/@Model.Product.ProductImages.FirstOrDefault(x => x.PosterStatus == true).Image" alt="">
                     }
                     else
                     {
-                        <img src="~/uploads/products/@Model.ProductImages.FirstOrDefault(x => x.PosterStatus == true).Image" alt="">
+                        <img src="~/uploads/products/@Model.Product.ProductImages.FirstOrDefault(x => x.PosterStatus == true).Image" alt="">
                     }
                 </div>
                 <div class="accdetail-head-right col-6">
-                    <h3>@Model.Name</h3>
+                    <h3>@Model.Product.Name</h3>
                     <br>
                     <small>11 Reviews 6 Questions \ 6 Answers</small>
                     <br>
                     <p>SKU: IC80HV-20GR</p>
                     <br>
-                    @if (Model.DiscountPrice == null)
+                    @if (Model.Product.DiscountPrice == null)
                     {
-                        <p>@Model.Price ₼</p>
+                        <p>@Model.Product.Price ₼</p>
                     }
                     else
                     {
-                        <p>@Model.DiscountPrice ₼ <span style="text-decoration:line-through;">@Model.Price ₼</span></p>
+                        <p>@Model.Product.DiscountPrice ₼ <span style="text-decoration:line-through;">@Model.Product.Price ₼</span></p>
 
                     }
 
                     <b style="text-decoration:underline;">Spesifikasiyalar:</b>
                     <br />
-                    <p><b>Kəsim:</b> @Model.Shape.Name</p>
-                    <p><b>Ölçü: </b> @Model.Uzunluq sm x @Model.En sm</p>
-                    <p><b>Rəng:</b> @Model.Colors.Name </p>
+                    <p><b>Kəsim:</b> @Model.Product.Shape.Name</p>
+                    <p><b>Ölçü: </b> @Model.Product.Uzunluq sm x @Model.Product.En sm</p>
+                    <p><b>Rəng:</b> @Model.Product.Colors.Name </p>
                     <p><b>Mərkəzdə Dəlik: </b></p>
 
                     <br />
                     <span>Say:</span>
                     <select name="" id="acccount">
-                        @for (int i = 1; i <= Model.Count; i++)
+                        @for (int i = 1; i <= Model.Product.Count; i++)
                         {
                             <option value="">@i</option>
                         }
@@ -49,7 +65,7 @@
                     <br>
                     <a href="" class="accdetail-btn">SƏBƏTƏ AT</a>
                     <br>
-                    <p><b>Aviability:</b> @(Model.Count > 0 ? "Bu mehsuldan " + Model.Count + " eded var":"Bu mehsuldan ambarda yoxdur")</p>
+                    <p><b>Aviability:</b> @(Model.Product.Count > 0 ? "Bu mehsuldan " + Model.Product.Count + " eded var":"Bu mehsuldan ambarda yoxdur")</p>
                     <br>
                     <a href="">Need to buy bulk?</a>
                 </div>
@@ -66,7 +82,7 @@
                 <b>Professional-Grade Decorative Glass Glue for Construction Projects</b>
                 <br><br>
                 <p>
-                    @Model.Desc
+                    @Model.Product.Desc
                 </p>
                 <br>
                 <b>Features: </b>
@@ -79,6 +95,74 @@
                     <li>Ideal for load bearing projects</li>
                 </ul>
             </div>
+        </div>
+    </section>
+
+    <section id="commentation">
+        <div class="container">
+            <form method="post" action="/shop/addcomment/@Model.Product.Id" class="border rounded-1 p-3">
+                <h4 style="text-align:center;">Məhsul haqqında kommentariyanızı bildirin </h4>
+                <div class="mb-30">
+                    <div class="add-a-review">
+                        <div class="rating">
+                            <label>
+                                <input type="radio" name="stars" value="1" />
+                                <span class="icon">★</span>
+                            </label>
+                            <label>
+                                <input type="radio" name="stars" value="2" />
+                                <span class="icon">★</span>
+                                <span class="icon">★</span>
+                            </label>
+                            <label>
+                                <input type="radio" name="stars" value="3" />
+                                <span class="icon">★</span>
+                                <span class="icon">★</span>
+                                <span class="icon">★</span>
+                            </label>
+                            <label>
+                                <input type="radio" name="stars" value="4" />
+                                <span class="icon">★</span>
+                                <span class="icon">★</span>
+                                <span class="icon">★</span>
+                                <span class="icon">★</span>
+                            </label>
+                            <label>
+                                <input type="radio" name="stars" value="5" />
+                                <span class="icon">★</span>
+                                <span class="icon">★</span>
+                                <span class="icon">★</span>
+                                <span class="icon">★</span>
+                                <span class="icon">★</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <br />
+                <div class="form-group">
+                    <label asp-for="@Model.comment.Text" class="font-weight-bold">Kommentariyanizi daxil edin:</label>
+                    <br />
+                    <textarea class="form-control" rows="3" placeholder="Komment yazın...." asp-for="@Model.comment.Text"></textarea>
+                </div>
+                <br />
+                <div class="form-group">
+                    <label asp-for="@Model.comment.Username" class="font-weight-bold">Istifadeci adinizi daxil edin:</label>
+                    <br />
+
+                    <input class="form-control" type="text" placeholder="Type your name...." value="@(User.Identity.IsAuthenticated?member.FullName:"")" asp-for="@Model.comment.Username">
+                </div>
+                <br />
+                <div class="form-group">
+                    <label asp-for="@Model.comment.Email" class="font-weight-bold">Email adresinizi daxil edin:</label>
+                    <br />
+
+                    <input class="form-control" type="email" placeholder="Type your email...." value="@(User.Identity.IsAuthenticated?member.Email:"")" asp-for="@Model.comment.Email">
+                </div>
+                <br />
+                <div class="btn-wrapper">
+                    <button class="btn btn-warning text-uppercase w-100" type="submit">Komment at</button>
+                </div>
+            </form>
         </div>
     </section>
 

@@ -37,8 +37,7 @@ namespace ASGlass.Controllers
             ViewBag.Thicknesses = _context.Thicknesses.ToList();
             ViewBag.Polishes = _context.Polishes.ToList();
             ViewBag.Corners = _context.Corners.ToList();
-
-           
+            
             return View();
         }
 
@@ -63,28 +62,23 @@ namespace ASGlass.Controllers
                 productStr = HttpContext.Request.Cookies["Products"];
                 products = JsonConvert.DeserializeObject<List<CartViewModel>>(productStr);
 
-                /*   cartVm = products.FirstOrDefault(x => x.Product.ShapeId == id);*/
+                cartVm = products.FirstOrDefault(x => x.ProductId == product.Id);
             }
 
             if (cartVm == null)
             {
-                cartVm = new CartViewModel
-                {
-                    ProductId = null,
-                    Image = null,
-                    Name = product.Name,
-                    Price = product.Price,
-                    DiscountPrice = product.DiscountPrice != null ? product.DiscountPrice : null,
-                    Count = 0,
-                    Uzunluq = product.Uzunluq != null ? product.Uzunluq : null,
-                    En = product.En != null ? product.En : null,
-                    Diametr = product.Diametr != null ? product.Diametr : null,
-                    Shape = product.ShapeId != null ? product.Shape.Name : null,
-                    Color = product.ColorId != null ? product.Colors.Name : null,
-                    Polish = product.PolishId != null ? product.Polish.Name : null,
-                    Thickness = product.ThicknessId != null ? product.Thickness.Size : null,
-                    Corner = product.CornerId != null ? product.Corner.Name : null
-                };
+                cartVm = new CartViewModel();
+                cartVm.Name = "Ferqli kesim wuwe";
+                cartVm.Image = "wuwe.png";
+                cartVm.ProductId = null;
+                cartVm.Uzunluq = product.Uzunluq;
+                cartVm.En = product.En;
+             /*   cartVm.Shape = product.ShapeId != null ? product.Shape.Name : null;
+                cartVm.Color = product.ColorId != null ? product.Colors.Name : null;
+                cartVm.Polish = product.PolishId != null ? product.Polish.Name : null;
+                cartVm.Thickness = product.ThicknessId != null ? product.Thickness.Size : null;
+                cartVm.Corner = product.CornerId != null ? product.Corner.Name : null;*/
+                cartVm.IsAccessory = false;
                 products.Add(cartVm);
 
             }

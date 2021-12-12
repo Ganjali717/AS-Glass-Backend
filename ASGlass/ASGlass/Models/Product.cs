@@ -36,6 +36,8 @@ namespace ASGlass.Models
         public Polish Polish { get; set; }
         public Color Colors { get; set; }
         public Shape Shape { get; set; }
+        public List<Comment> Comments { get; set; }
+        public List<Order> Orders { get; set; }
         public List<ProductCategory> ProductCategories { get; set; }
         public List<ProductImage> ProductImages { get; set; }
         public List<CartItem> CartItems { get; set; }

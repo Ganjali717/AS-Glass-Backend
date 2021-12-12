@@ -340,6 +340,24 @@ namespace ASGlass.Areas.Manage.Controllers
         }
 
 
+        public IActionResult Comment(int id)
+        {
+            Product house = _context.Products.Include(x => x.Comments).FirstOrDefault(x => x.Id == id);
 
+            if (house == null) return NotFound();
+
+            return View(house);
+        }
+
+        public IActionResult DeleteComment(int id)
+        {
+            var comment = _context.Comments.Include(x => x.Product).FirstOrDefault(x => x.Id == id);
+
+            if (comment == null) return NotFound();
+
+            _context.Comments.Remove(comment);
+            _context.SaveChanges();
+            return RedirectToAction("index");
+        }
     }
 }

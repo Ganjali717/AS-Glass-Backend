@@ -21,6 +21,7 @@ namespace ASGlass.DAL
         public DbSet<Setting> Settings { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<Color> Colors { get; set; }
+        public DbSet<Comment> Comments { get; set; }
         public DbSet<Corner> Corners { get; set; }
         public DbSet<Polish> Polishes { get; set; }
         public DbSet<Product> Products { get; set; }
@@ -29,5 +30,6 @@ namespace ASGlass.DAL
         public DbSet<Shape> Shapes { get; set; }
         public DbSet<Thickness> Thicknesses { get; set; }
         public DbSet<CartItem> CartItems { get; set; }
+        public DbSet<Order> Orders { get; set; }
     }
 }
