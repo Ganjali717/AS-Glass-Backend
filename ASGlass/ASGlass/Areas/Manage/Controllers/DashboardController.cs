@@ -2,6 +2,7 @@
 using ASGlass.DAL;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,7 +24,7 @@ namespace ASGlass.Areas.Manage.Controllers
         {
             DashboardViewModel dashboardVM = new DashboardViewModel()
             {
-                CartItems = _context.CartItems.ToList()
+                CartItems = _context.CartItems.Include(x => x.Product).ToList()
             };
             return View(dashboardVM);
         }

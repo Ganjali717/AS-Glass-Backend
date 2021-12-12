@@ -190,3 +190,6 @@ C:\Users\LENOVO\OneDrive\Desktop\AS-Glass-Backend\ASGlass\ASGlass\obj\Debug\netc
 C:\Users\LENOVO\OneDrive\Desktop\AS-Glass-Backend\ASGlass\ASGlass\obj\Debug\netcoreapp3.1\Razor\Views\Mirror\Customize.cshtml.g.cs
 C:\Users\LENOVO\OneDrive\Desktop\AS-Glass-Backend\ASGlass\ASGlass\obj\Debug\netcoreapp3.1\Razor\Views\Account\ShowAccount.cshtml.g.cs
 C:\Users\LENOVO\OneDrive\Desktop\AS-Glass-Backend\ASGlass\ASGlass\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Shop\Comment.cshtml.g.cs
+C:\Users\LENOVO\OneDrive\Desktop\AS-Glass-Backend\ASGlass\ASGlass\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Order\Index.cshtml.g.cs
+C:\Users\LENOVO\OneDrive\Desktop\AS-Glass-Backend\ASGlass\ASGlass\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Order\Edit.cshtml.g.cs
+C:\Users\LENOVO\OneDrive\Desktop\AS-Glass-Backend\ASGlass\ASGlass\obj\Debug\netcoreapp3.1\Razor\Views\Checkout\Index.cshtml.g.cs

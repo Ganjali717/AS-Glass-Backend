@@ -41,7 +41,7 @@ namespace ASGlass.Controllers
             if (colorId != null)
                 query = query.Where(x => x.Colors.Id == colorId);
             if (shapeId != null)
-                query = query.Where(x => x.Shape.Id == shapeId);
+                query = query.Where(x => x.ShapeId != null?x.Shape.Id == shapeId:x.ShapeId == null);
 
             switch (sort)
             {
@@ -60,10 +60,10 @@ namespace ASGlass.Controllers
 
             ShopViewModel shopVM = new ShopViewModel
             {
-                Categories = _context.Categories.Include(x => x.ProductCategories).ThenInclude(x => x.Product).ToList(), 
-                Products = PagenatedList<Product>.Create(query.Include(x => x.ProductImages), 4, page),
+                Categories = _context.Categories.Include(x => x.ProductCategories).ThenInclude(x => x.Product).ToList(),
                 Colors = _context.Colors.Include(x => x.Product).ToList(),
-                Thicknesses = _context.Thicknesses.Include(x => x.Products).ToList()
+                Thicknesses = _context.Thicknesses.Include(x => x.Products).ToList(),
+                Products = PagenatedList<Product>.Create(query.Include(x => x.ProductImages), 4, page)
             };
             return View(shopVM);
         }

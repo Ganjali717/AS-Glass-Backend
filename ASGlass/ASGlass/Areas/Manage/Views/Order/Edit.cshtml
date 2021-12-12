@@ -1,0 +1,35 @@
+﻿@model Order
+@{
+    ViewData["Title"] = "Edit";
+}
+
+
+<div class="container-fluid">
+    <h1>Edit</h1>
+    <div class="card" style="width: 40%; margin:0 auto;">
+        <div class="card-body">
+            <p class="card-text">
+                Full Name - @Model.FullName
+            </p>
+            <p class="card-text">
+                Email - @Model.Email
+            </p>
+            <p class="card-text">
+                Date - @Model.CreatedAt.AddHours(4).ToString("HH:mm dd MMM yyyy")
+            </p>
+            <p class="card-text">
+                Status - @Model.Status
+            </p>
+        </div>
+        @* <ul class="list-group list-group-flush">
+                @foreach (var orderItem in Model..Take(1))
+                {
+                    <li class="list-group-item">@orderItem.House.Location   @orderItem.SalePrice AZN</li>
+                }
+            </ul>*@
+        <div class="card-body">
+            <a asp-action="accept" asp-route-id="@Model.Id" class="btn btn-success">Accept</a>
+            <a asp-action="reject" asp-route-id="@Model.Id" class="btn btn-danger">Reject</a>
+        </div>
+    </div>
+</div>

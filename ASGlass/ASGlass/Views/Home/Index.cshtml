@@ -21,7 +21,7 @@
                             <br><br>
                             <a asp-action="index" asp-controller="about">
                                 HAQQIMIZDA<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
-                                                fill="currentColor" class="bi bi-arrow-right-short" viewBox="0 0 16 16">
+                                               fill="currentColor" class="bi bi-arrow-right-short" viewBox="0 0 16 16">
                                     <path fill-rule="evenodd"
                                           d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z">
                                     </path>
@@ -63,7 +63,7 @@
                     <div class="card-item col-3">
                         <h3>@card.Name</h3>
                         <br>
-                       @* <p>@card.Desc</p>*@
+                        @* <p>@card.Desc</p>*@
                         <img src="~/assets/images/decors/@card.BgImage" />
                         <br><br><br />
                         <a asp-action="index" asp-controller="shop" asp-route-categoryId="@card.Id" class="card-btn">ALIŞ-VERİŞ ET</a>
@@ -123,7 +123,7 @@
 
                                 <a asp-action="index" asp-controller="glassshelve">
                                     ALIŞ VERİŞ ET<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
-                                                          fill="currentColor" class="bi bi-arrow-right-short" viewBox="0 0 16 16">
+                                                      fill="currentColor" class="bi bi-arrow-right-short" viewBox="0 0 16 16">
                                         <path fill-rule="evenodd"
                                               d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z">
                                         </path>
@@ -202,134 +202,139 @@
         </div>
     </section>
 
-    <section id="reviews">
-        <div class="container">
-            <div class="column">
-                <div class="rvw-head col-12">
-                    <div class="rvw-head-left col-6">
-                        <h5>Müştərilərimizin Real Rəyləri</h5>
+    @if (Model.Comments.Count() > 0)
+    {
+        <section id="reviews">
+            <div class="container">
+                <div class="column">
+                    <div class="rvw-head col-12">
+                        <div class="rvw-head-left col-6">
+                            <h5>Müştərilərimizin Real Rəyləri</h5>
+                        </div>
+                        <div class="rvw-head-right col-6">
+                            <p>1276 Rəy</p>
+                            <a class="btn btn-warning mb-3 mr-1" href="#carouselExampleIndicators2" role="button"
+                               data-slide="prev">
+                                <i class="fa fa-arrow-left"></i>
+                            </a>
+                            <a class="btn btn-warning mb-3 " href="#carouselExampleIndicators2" role="button"
+                               data-slide="next">
+                                <i class="fa fa-arrow-right"></i>
+                            </a>
+                        </div>
                     </div>
-                    <div class="rvw-head-right col-6">
-                        <p>1276 Rəy</p>
-                        <a class="btn btn-warning mb-3 mr-1" href="#carouselExampleIndicators2" role="button"
-                           data-slide="prev">
-                            <i class="fa fa-arrow-left"></i>
-                        </a>
-                        <a class="btn btn-warning mb-3 " href="#carouselExampleIndicators2" role="button"
-                           data-slide="next">
-                            <i class="fa fa-arrow-right"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="rvw-items-sec">
-                    <div class="carousel slide" data-ride="carousel" id="carouselExampleIndicators2">
-                        <div class="carousel-inner">
-                            <div class="rvw-item carousel-item active">
-                                <div class="row">
-                                    @foreach (var com in Model.Comments)
-                                    {
-                                        <div class="col-md-6">
+                    <div class="rvw-items-sec">
+                        <div class="carousel slide" data-ride="carousel" id="carouselExampleIndicators2">
+                            <div class="carousel-inner">
+                                <div class="rvw-item carousel-item active">
+                                    <div class="row">
+                                        @foreach (var com in Model.Comments)
+                                        {
+                                            if (com.Rate >= 4)
+                                            {
+                                                <div class="col-md-4 mb-3">
+                                                    <div class="card">
+
+                                                        <i>@com.Date.ToShortDateString()</i>
+                                                        <p>Perfection</p>
+                                                        <div class="rvw-stars">
+                                                            @for (int i = 1; i <= com.Rate; i++)
+                                                            {
+                                                                <i class="bi bi-star-fill"></i>
+
+                                                            }
+                                                        </div>
+                                                        <br>
+                                                        <p>
+                                                            @com.Text
+                                                        </p>
+                                                        <br>
+                                                        <small><i>@com.Username</i></small>
+
+                                                    </div>
+                                                </div>
+                                            }
+                                        }
+                                    </div>
+                                </div>
+                                <div class="rvw-item carousel-item">
+                                    <div class="row">
+                                        <div class="col-md-4 mb-3">
                                             <div class="card">
 
-                                                <i>@com.Date.ToShortDateString()</i>
+                                                <i>10/04/21</i>
                                                 <p>Perfection</p>
                                                 <div class="rvw-stars">
-                                                    @for (int i = 1; i <= com.Rate; i++)
-                                                    {
-                                                        <i class="bi bi-star-fill"></i>
-
-                                                    }
+                                                    <i class="bi bi-star-fill"></i>
+                                                    <i class="bi bi-star-fill"></i>
+                                                    <i class="bi bi-star-fill"></i>
+                                                    <i class="bi bi-star-fill"></i>
                                                 </div>
                                                 <br>
                                                 <p>
-                                                    @com.Text
+                                                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minus nisi
+                                                    quam odit
+                                                    reprehenderit velit illum perferendis.
                                                 </p>
                                                 <br>
-                                                <small><i>@com.Username</i></small>
+                                                <small><i>Ganjali Imanov</i></small>
 
                                             </div>
                                         </div>
+                                        <div class="col-md-4 mb-3">
+                                            <div class="card">
 
-                                    }
-                                </div>
-                            </div>
-                            <div class="rvw-item carousel-item">
-                                <div class="row">
-                                    <div class="col-md-4 mb-3">
-                                        <div class="card">
+                                                <i>10/04/21</i>
+                                                <p>Perfection</p>
+                                                <div class="rvw-stars">
+                                                    <i class="bi bi-star-fill"></i>
+                                                    <i class="bi bi-star-fill"></i>
+                                                    <i class="bi bi-star-fill"></i>
+                                                    <i class="bi bi-star-fill"></i>
+                                                </div>
+                                                <br>
+                                                <p>
+                                                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minus nisi
+                                                    quam odit
+                                                    reprehenderit velit illum perferendis.
+                                                </p>
+                                                <br>
+                                                <small><i>Ganjali Imanov</i></small>
 
-                                            <i>10/04/21</i>
-                                            <p>Perfection</p>
-                                            <div class="rvw-stars">
-                                                <i class="bi bi-star-fill"></i>
-                                                <i class="bi bi-star-fill"></i>
-                                                <i class="bi bi-star-fill"></i>
-                                                <i class="bi bi-star-fill"></i>
                                             </div>
-                                            <br>
-                                            <p>
-                                                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minus nisi
-                                                quam odit
-                                                reprehenderit velit illum perferendis.
-                                            </p>
-                                            <br>
-                                            <small><i>Ganjali Imanov</i></small>
-
                                         </div>
-                                    </div>
-                                    <div class="col-md-4 mb-3">
-                                        <div class="card">
+                                        <div class="col-md-4 mb-3">
+                                            <div class="card">
 
-                                            <i>10/04/21</i>
-                                            <p>Perfection</p>
-                                            <div class="rvw-stars">
-                                                <i class="bi bi-star-fill"></i>
-                                                <i class="bi bi-star-fill"></i>
-                                                <i class="bi bi-star-fill"></i>
-                                                <i class="bi bi-star-fill"></i>
+                                                <i>10/04/21</i>
+                                                <p>Perfection</p>
+                                                <div class="rvw-stars">
+                                                    <i class="bi bi-star-fill"></i>
+                                                    <i class="bi bi-star-fill"></i>
+                                                    <i class="bi bi-star-fill"></i>
+                                                    <i class="bi bi-star-fill"></i>
+                                                </div>
+                                                <br>
+                                                <p>
+                                                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minus nisi
+                                                    quam odit
+                                                    reprehenderit velit illum perferendis.
+                                                </p>
+                                                <br>
+                                                <small><i>Ganjali Imanov</i></small>
+
                                             </div>
-                                            <br>
-                                            <p>
-                                                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minus nisi
-                                                quam odit
-                                                reprehenderit velit illum perferendis.
-                                            </p>
-                                            <br>
-                                            <small><i>Ganjali Imanov</i></small>
-
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4 mb-3">
-                                        <div class="card">
-
-                                            <i>10/04/21</i>
-                                            <p>Perfection</p>
-                                            <div class="rvw-stars">
-                                                <i class="bi bi-star-fill"></i>
-                                                <i class="bi bi-star-fill"></i>
-                                                <i class="bi bi-star-fill"></i>
-                                                <i class="bi bi-star-fill"></i>
-                                            </div>
-                                            <br>
-                                            <p>
-                                                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minus nisi
-                                                quam odit
-                                                reprehenderit velit illum perferendis.
-                                            </p>
-                                            <br>
-                                            <small><i>Ganjali Imanov</i></small>
-
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
 
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    }
 
     <section id="instock">
         <div class="container">
@@ -363,20 +368,20 @@
                     <div class="blog-head-item col-5">
                         <img src="~/assets/images/blog/glass-ideas-for-home-and-office.png" alt="">
                         <br><br>
-                            <a href="">Ev və biznes üçün ofis şüşələri ideyaları</a>
+                        <a href="">Ev və biznes üçün ofis şüşələri ideyaları</a>
                         <br><br>
-                            <p>
-                                Ofisinizin görünüşünü yaxşılaşdırmağın yollarını axtarırsınız? Dulles Glass-dan üstün fərdiləşdirilə bilən şüşə və güzgülərimizlə sizə lazım olanı tam olaraq əldə edirik! Dizaynerlərimizin ən son ideyaları üçün bizi izləyin və iş yerinizi yeniləmək üçün ilham alın.
-                            </p>
+                        <p>
+                            Ofisinizin görünüşünü yaxşılaşdırmağın yollarını axtarırsınız? Dulles Glass-dan üstün fərdiləşdirilə bilən şüşə və güzgülərimizlə sizə lazım olanı tam olaraq əldə edirik! Dizaynerlərimizin ən son ideyaları üçün bizi izləyin və iş yerinizi yeniləmək üçün ilham alın.
+                        </p>
                     </div>
                     <div class="blog-head-item col-5">
                         <img src="~/assets/images/blog/foam-mirror-diy.png" alt="">
                         <br><br>
-                            <a href="">Yay tendensiyası - köpük güzgülər</a>
+                        <a href="">Yay tendensiyası - köpük güzgülər</a>
                         <br><br>
-                            <p>
-                                Bu tez və asan DIY köpük güzgü layihəsi ilə ev dekorunuzu gözəlləşdirin. Cəmi bir neçə materialla, evinizdə valehedici amil yaradacaq bulud kimi bir güzgü, köpük strafor bəzək yaradın..
-                            </p>
+                        <p>
+                            Bu tez və asan DIY köpük güzgü layihəsi ilə ev dekorunuzu gözəlləşdirin. Cəmi bir neçə materialla, evinizdə valehedici amil yaradacaq bulud kimi bir güzgü, köpük strafor bəzək yaradın..
+                        </p>
                     </div>
                 </div>
                 <div class="blog-body col-12">

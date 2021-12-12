@@ -1,0 +1,46 @@
+﻿@model List<Order>
+@{
+    ViewData["Title"] = "Index";
+    int index = 0;
+}
+
+<div class="container-fluid">
+    <div class="d-flex justify-content-between align-items-center">
+        <h1>Orders</h1>
+    </div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Full Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Date</th>
+                <th scope="col">Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var order in Model)
+            {
+                index++;
+                <tr>
+                    <th scope="row">@index</th>
+                    <td>@order.FullName</td>
+                    <td>@order.Email</td>
+                    <td>@order.CreatedAt.AddHours(4).ToString("HH:mm dd MMM yyyy")</td>
+                    <td>
+                        <h5>
+                            <span class="badge badge-@(order.Status== OrderStatus.Accepted?"success":order.Status== OrderStatus.Rejected?"danger":"info")">
+                                @(order.Status== OrderStatus.Accepted?"accepted":order.Status== OrderStatus.Rejected?"rejected":"pending")
+                            </span>
+                        </h5>
+                    </td>
+                    <td>
+                        <a asp-action="edit" asp-route-id="@order.Id" class="btn btn-warning">Edit</a>
+                        <a asp-action="deletefetch" asp-route-id="@order.Id" class="btn btn-danger btn-item-delete">Delete</a>
+                    </td>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+</div>

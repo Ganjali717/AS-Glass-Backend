@@ -49,7 +49,11 @@
 
                     <b style="text-decoration:underline;">Spesifikasiyalar:</b>
                     <br />
-                    <p><b>Kəsim:</b> @Model.Product.Shape.Name</p>
+                    @if (Model.Product.ShapeId != null)
+                    {
+                        <p><b>Kəsim:</b> @Model.Product.Shape.Name</p>
+
+                    }
                     <p><b>Ölçü: </b> @Model.Product.Uzunluq sm x @Model.Product.En sm</p>
                     <p><b>Rəng:</b> @Model.Product.Colors.Name </p>
                     <p><b>Mərkəzdə Dəlik: </b></p>
