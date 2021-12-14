@@ -83,7 +83,7 @@
 
                                 @if (User.Identity.IsAuthenticated)
                                 {
-                                    <li>  <a asp-action="showaccount" asp-controller="account" asp-route-id="@member.Id">@User.Identity.Name</a></li>
+                                    <li>  <a asp-action="showaccount" asp-controller="account" asp-route-id="@member.Id" id="circle">@User.Identity.Name</a></li>
                                     <li>  <a class="font-weight-bold" asp-action="logout" asp-controller="account">Çıxış</a></li>
                                 }
                                 else
@@ -479,26 +479,27 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"></script>
     <script src="~/assets/js/fetch.js"></script>
-    @RenderSection("overlay", required: false)
-    @RenderSection("slider", required: false)
-    @RenderSection("measurement", required: false)
-    @RenderSection("customize", required: false)
-    @RenderSection("account", required:false)
-
     <script src="~/lib/microsoft/signalr/dist/browser/signalr.min.js"></script>
-
     <script>
         var connection = new signalR.HubConnectionBuilder().withUrl("/asglasshub").build();
 
         connection.start().then(function () {
-            document.getElementById("circle").style.backgroundColor = "green"
-        })
+           @*   document.getElementById("circle").style.color = "green"*@
 
-        connection.on("Login", function () {
-            console.log("accepted")
+                console.log(connection.connectionId)
+            })
+
+        connection.on("ChangeOnlineStatus", function (id, status) {
+               var statusStr = status == true ? "online" : "offline";
+            $("#" + id).text("test") 
+
         })
     </script>
-
+    @RenderSection("overlay", required: false)
+    @RenderSection("slider", required: false)
+    @RenderSection("measurement", required: false)
+    @RenderSection("customize", required: false)
+    @RenderSection("account", required: false)
 </body>
 
 </html>

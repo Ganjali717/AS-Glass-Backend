@@ -30,8 +30,6 @@
     <!-- Custom styles for this template-->
     <link href="~/manage/css/sb-admin-2.min.css" rel="stylesheet">
 
-    <link rel="stylesheet" href="~/assets/css/font-icons.css">
-
 </head>
 
 <body id="page-top">
@@ -67,8 +65,8 @@
 
             <!-- Heading -->
             <!--<div class="sidebar-heading">
-        Addons
-    </div>-->
+                Addons
+            </div>-->
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
@@ -380,13 +378,29 @@
     <!-- Custom scripts for all pages-->
     <script src="~/manage/js/sb-admin-2.min.js"></script>
 
-    @RenderSection("PayChart", required: false)
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10/dist/sweetalert2.all.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js" integrity="sha512-37T7leoNS06R80c8Ulq7cdCDU5MNQBwlYoy1TX/WUsLFC2eYNqtKlV0QjH7r8JpG/S0GUMZwebnVFLPd6SU5yg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.12/jquery.validate.unobtrusive.min.js" integrity="sha512-o6XqxgrUsKmchwy9G5VRNWSSxTS4Urr4loO6/0hYdpWmFUfHqGzawGxeQGMDqYzxjY9sbktPbNlkIQJWagVZQg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10/dist/sweetalert2.all.min.js"></script>
-    <script src="~/lib/microsoft/signalr/dist/browser/signalr.min.js"></script>
     <script src="~/manage/js/main.js"></script>
+    <script src="~/lib/microsoft/signalr/dist/browser/signalr.min.js"></script>
+    <script>
+
+        var connection = new signalR.HubConnectionBuilder().withUrl("/asglasshub").build();
+
+        connection.start().then(function () {
+
+            
+        })
+
+
+        connection.on("ChangeOnlineStatus", function (id, status) {
+            var statusStr = status == true ? "Onlayn" : "Offlayn";
+            $("#" + id).text(statusStr)
+
+        })
+    </script>
+    @RenderSection("PayChart", required: false)
 
 
 </body>

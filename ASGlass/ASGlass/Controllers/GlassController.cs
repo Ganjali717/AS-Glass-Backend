@@ -46,9 +46,128 @@ namespace ASGlass.Controllers
 
         public IActionResult Customize(Product product,int shapeid)
         {
+          
             product.Uzunluq = Convert.ToDouble(HttpContext.Request.Form["uzunluq"]);
             product.En = Convert.ToDouble(HttpContext.Request.Form["en"]);
-            product.ShapeId = shapeid;
+            product.ShapeId = shapeid; 
+
+            
+
+            if (product.ThicknessId == 1 && product.ColorId == 1)
+            {
+                if (product.PolishId == null)
+                {
+                    product.Price = ((double)(((product.Uzunluq * product.En) / 10000) * 15));
+                }
+                else if (product.PolishId == 2)
+                {
+                    product.Price = ((double)((((product.Uzunluq * product.En) / 10000) * 15)) + 0.60);
+                }
+                else if (product.PolishId == 1)
+                {
+                    product.Price = ((double)((((product.Uzunluq * product.En) / 10000) * 15)) + 1);
+
+                }
+            }
+            else if (product.ThicknessId == 1 && (product.ColorId == 2 || product.ColorId == 3))
+            {
+                if (product.PolishId == null)
+                {
+                    product.Price = ((double)(((product.Uzunluq * product.En) / 10000) * 20));
+                }
+                else if (product.PolishId == 2)
+                {
+                    product.Price = ((double)((((product.Uzunluq * product.En) / 10000) * 20)) + 0.60);
+                }
+                else if (product.PolishId == 1)
+                {
+                    product.Price = ((double)((((product.Uzunluq * product.En) / 10000) * 20)) + 1);
+
+                }
+            }
+            else if (product.ThicknessId == 1 && product.ColorId == 4)
+            {
+                if (product.PolishId == null)
+                {
+                    product.Price = ((double)(((product.Uzunluq * product.En) / 10000) * 36));
+                }
+                else if (product.PolishId == 2)
+                {
+                    product.Price = ((double)((((product.Uzunluq * product.En) / 10000) * 36)) + 0.60);
+                }
+                else if (product.PolishId == 1)
+                {
+                    product.Price = ((double)((((product.Uzunluq * product.En) / 10000) * 36)) + 1);
+
+                }
+            }
+            else if (product.ThicknessId == 2 && product.ColorId == 1)
+            {
+                if (product.PolishId == null)
+                {
+                    product.Price = ((double)(((product.Uzunluq * product.En) / 10000) * 22));
+                }
+                else if (product.PolishId == 2)
+                {
+                    product.Price = ((double)((((product.Uzunluq * product.En) / 10000) * 22)) + 0.60);
+                }
+            }
+            else if (product.ThicknessId == 2 && (product.ColorId == 2 || product.ColorId == 3))
+            {
+                if (product.PolishId == null)
+                {
+                    product.Price = ((double)(((product.Uzunluq * product.En) / 10000) * 42));
+                }
+                else if (product.PolishId == 2)
+                {
+                    product.Price = ((double)((((product.Uzunluq * product.En) / 10000) * 42)) + 0.60);
+                }
+            }
+            else if (product.ThicknessId == 3 && product.ColorId == 1)
+            {
+                if (product.PolishId == null)
+                {
+                    product.Price = ((double)(((product.Uzunluq * product.En) / 10000) * 32));
+                }
+                else if (product.PolishId == 2)
+                {
+                    product.Price = ((double)((((product.Uzunluq * product.En) / 10000) * 32)) + 0.80);
+                }
+            }
+            else if (product.ThicknessId == 3 && (product.ColorId == 2 || product.ColorId == 3))
+            {
+                if (product.PolishId == null)
+                {
+                    product.Price = ((double)(((product.Uzunluq * product.En) / 10000) * 55));
+                }
+                else if (product.PolishId == 2)
+                {
+                    product.Price = ((double)((((product.Uzunluq * product.En) / 10000) * 55)) + 0.80);
+                }
+            }
+            else if (product.ThicknessId == 4 && product.ColorId == 1)
+            {
+                if (product.PolishId == null)
+                {
+                    product.Price = ((double)(((product.Uzunluq * product.En) / 10000) * 35));
+                }
+                else if (product.PolishId == 2)
+                {
+                    product.Price = ((double)((((product.Uzunluq * product.En) / 10000) * 35)) + 1);
+                }
+            }
+            else if (product.ThicknessId == 4 && (product.ColorId == 2 || product.ColorId == 3))
+            {
+                if (product.PolishId == null)
+                {
+                    product.Price = ((double)(((product.Uzunluq * product.En) / 10000) * 60));
+                }
+                else if (product.PolishId == 2)
+                {
+                    product.Price = ((double)((((product.Uzunluq * product.En) / 10000) * 60)) + 1);
+                }
+            }
+
 
             if (!_context.Colors.Any(x => x.Id == product.ColorId)) ModelState.AddModelError("ColorsId", "Colors not found!");
 
@@ -68,16 +187,17 @@ namespace ASGlass.Controllers
             if (cartVm == null)
             {
                 cartVm = new CartViewModel();
-                cartVm.Name = "Ferqli kesim wuwe";
-                cartVm.Image = "wuwe.png";
+                cartVm.Name = "Fərqli Kəsim Şüşə";
+                cartVm.Image = shapeid == 1? "rectangle-customize.webp":(shapeid == 2? "square-customize.webp":(shapeid == 3? "oval-customize.webp": "round-customize.webp"));
                 cartVm.ProductId = null;
                 cartVm.Uzunluq = product.Uzunluq;
                 cartVm.En = product.En;
-             /*   cartVm.Shape = product.ShapeId != null ? product.Shape.Name : null;
-                cartVm.Color = product.ColorId != null ? product.Colors.Name : null;
-                cartVm.Polish = product.PolishId != null ? product.Polish.Name : null;
-                cartVm.Thickness = product.ThicknessId != null ? product.Thickness.Size : null;
-                cartVm.Corner = product.CornerId != null ? product.Corner.Name : null;*/
+                cartVm.Price = product.Price;
+                cartVm.Shape = shapeid == 1 ? "Düzbucaq" : (shapeid == 2?"Kvadrat":(shapeid == 3?"Oval":"Yumru"));
+                cartVm.Color = product.ColorId == 1 ? "Ağ":(product.ColorId == 2?"Qara":(product.ColorId == 3?"Qəhvəyi":"Sətin"));
+                cartVm.Polish = product.PolishId == 1 ? "Faset" : "Radaj";
+                cartVm.Thickness = product.ThicknessId == 1 ? "4" : (product.ThicknessId == 2 ? "6" : (product.ThicknessId == 3 ? "8" : "10"));
+                cartVm.Corner = product.CornerId == 1 ? "Yumru" : "Düz";
                 cartVm.IsAccessory = false;
                 products.Add(cartVm);
 

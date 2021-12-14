@@ -33,6 +33,7 @@ namespace ASGlass
 
             services.AddControllersWithViews();
 
+
             services.AddDbContext<AppDbContext>(options =>
             {
                 options.UseSqlServer(Configuration.GetConnectionString("Default"));

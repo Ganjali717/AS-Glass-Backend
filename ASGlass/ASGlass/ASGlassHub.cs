@@ -25,6 +25,8 @@ namespace ASGlass
                 user.ConnectionId = Context.ConnectionId;
 
                 var result = _userManager.UpdateAsync(user).Result;
+
+                Clients.All.SendAsync("ChangeOnlineStatus", user.Id, true);
             }
             return base.OnConnectedAsync();
         }
@@ -38,6 +40,8 @@ namespace ASGlass
                 user.LastConnectedDate = DateTime.UtcNow.AddHours(4);
 
                 var result = _userManager.UpdateAsync(user).Result;
+                Clients.All.SendAsync("ChangeOnlineStatus", user.Id, false);
+
             }
             return base.OnDisconnectedAsync(exception);
         }

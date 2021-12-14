@@ -20,7 +20,7 @@
                         <h5>Kəsim formasını seçin</h5>
                     </div>
                     <div class="shapes col-12">
-                        @foreach (var item in Model.Shapes)
+                        @foreach (var item in Model.Shapes.Take(4))
                         {
                             <div class="shapes-item">
                                 <h5>@item.Name</h5>

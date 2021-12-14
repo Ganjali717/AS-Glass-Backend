@@ -10,6 +10,8 @@ using System.Threading.Tasks;
 namespace ASGlass.Areas.Manage.Controllers
 {
     [Area("manage")]
+    [Authorize(Roles = "Admin, SuperAdmin")]
+
     public class OrderController : Controller
     {
         private readonly AppDbContext _context;

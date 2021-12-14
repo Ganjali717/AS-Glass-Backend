@@ -62,176 +62,50 @@
 
                         <div class="glass-type">
                             <div class="column">
-                                <p>Glass Type:<b>Clear Glass</b></p>
+                                <p><b>Rəng</b></p>
 
-                                <label asp-for="ColorId">Color</label>
+                                <label asp-for="ColorId">Şüşə rəngini seçin:</label>
                                 <select class="form-select form-select-lg" asp-for="ColorId" id="ColorId" asp-items="@(new SelectList(ViewBag.Colors,"Id","Name"))">
+                                    <option disabled selected>Rəng seçin</option>
                                 </select>
-                            </div>
-                        </div>
-                        <br>
-                        <div class="glass-thickness">
-                            <div class="column">
-                                <p>Glass Thickness:<b>Clear Glass</b></p>
-
-                                <label asp-for="ThicknessId">Color</label>
-                                <select class="form-select form-select-lg" asp-for="ThicknessId" id="ThicknessId" asp-items="@(new SelectList(ViewBag.Thicknesses,"Id","Size"))">
-                                </select>
-                                @*   @foreach (var item in Model.Thicknesses)
-                                    {
-                                        <div class="gl-thick-item" id="checkitem2">
-                                            <input type="checkbox">
-                                            <div class="thick-item">
-                                                <h5>@item.Size Qalınlıq</h5>
-                                                <p>Thinner glass suitable for lightweight applications like picture frames or cabinet glass. Available in clear glass only.</p>
-                                            </div>
-                                        </div>
-
-                                    }*@
                             </div>
                         </div>
                         <br>
                         <div class="glass-edging">
                             <div class="column">
-                                <p>Edging: <b>Flat Polish</b></p>
-
-                                <label asp-for="PolishId">Color</label>
+                                <p><b>Cilalanma</b></p>
+                                <label asp-for="PolishId">Cilalanma növünü seçin:</label>
                                 <select class="form-select form-select-lg" asp-for="PolishId" id="PolishId" asp-items="@(new SelectList(ViewBag.Polishes,"Id","Name"))">
+                                    <option disabled selected>Cilalanma seçin</option>
                                 </select>
-                                @*  @foreach (var item in Model.Polishes)
-                                    {
-                                        <div class="gl-edging-item">
-                                            <input type="checkbox">
-                                            <div class="edging-item-left col-3">
-                                                <p>@item.Name</p>
-                                                <br>
-                                                <img src="~/assets/images/products/seamededge.gif" alt="">
-                                            </div>
-                                            <div class="edging-item-right col-8">
-                                                <p>Seamed edges are lightly sanded so that the edges aren't sharp and the glass is safe to handle. Choose a seamed edge if the glass will be framed or the edges won't be visible.</p>
-                                            </div>
-                                        </div>
-
-                                    }*@
                             </div>
                         </div>
                         <br>
                         <div class="glass-corner">
                             <div class="column">
-                                <p>Corner Finish: <b>None</b></p>
-                                <div class="gl-corner-item">
-                                    <input type="checkbox">
-                                    <p>None</p>
-                                </div>
-                                <label asp-for="CornerId">Color</label>
+                                <p><b>Künc</b></p>
+                                <label asp-for="CornerId">Şüşənin künc növünü seçin:</label>
                                 <select class="form-select form-select-lg" asp-for="CornerId" id="CornerId" asp-items="@(new SelectList(ViewBag.Corners,"Id","Name"))">
+                                    <option disabled selected>Künc növü</option>
                                 </select>
-                                @* @foreach (var item in Model.Corners)
-                                    {
-                                        <div class="gl-corner-item">
-                                            <input type="checkbox">
-                                            <div class="corner-item-left col-3">
-                                                <p>@item.Name Kunc</p>
-                                                <br>
-                                                <img src="~/assets/images/products/corner-eased.jpg" alt="">
-                                            </div>
-                                            <div class="corner-item-right col-8">
-                                                <p>Our most popular corner finish. Corners are sanded slightly so corners are not sharp.</p>
-                                            </div>
-                                        </div>
-
-                                    }*@
                             </div>
                         </div>
                         <br>
-                        <div class="glass-hole">
-                            <div class="column">
-                                <p>Center Hole: <b>Center Hole</b></p>
-                                <div class="gl-hole-item">
-                                    <input type="checkbox">
-                                    <p>None</p>
-                                </div>
-                                <div class="gl-hole-item">
-                                    <input type="checkbox">
-                                    <p>Center Hole (umbrella hole)</p>
-                                    <br>
-                                    <div class="hole-item">
-                                        <p>Center Hole</p>
-                                        <div class="center-hole col-12">
-                                            <div class="center-hole-left col-7">
-                                                <img src="~/assets/images/products/center-hole.png" alt="">
-                                            </div>
-                                            <div class="center-hole-right col-5">
-                                                <div class="form-group">
-                                                    <label for="holesize">Hole Size:</label>
-                                                    <select name="holesize" id="holesize" class="form-control">
-                                                        <option>1"</option>
-                                                        <option selected="selected">2"</option>
-                                                        <option>4"</option>
-                                                    </select>
-                                                    <br>
-                                                    <p>2" is the most common size for center (umbrella) holes.</p>
-                                                    <br>
-                                                    <p>Please note that the inner edge of the hole is seamed.</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                     <div class="summary-item col-3">
-                        <h5>SUMMARY</h5>
-                        <hr>
-                        <ul>
-                            <li>
-                                <p>List Price</p>
-                                <b>120$</b>
-                            </li>
-                            <li>
-                                <p>Discount </p>
-                                <b>120$</b>
-                            </li>
-                            <li>
-                                <p>Your Price </p>
-                                <b>120$</b>
-                            </li>
-                        </ul>
-                        <br>
-                        <small>Ships within 5-7 business days.</small>
+                        <small>Məhsul 3-7 iş günü ərzində təhvil verilir</small>
                         <br><br>
                         @* <a id="submitform" style="cursor:pointer;">ADD TO CART</a>*@
-                        <input type="submit" value="ADD TO CART" id="submitbtn">
+                        <input type="submit" value="SƏBƏTƏ AT" id="submitbtn">
                         <br><br>
-                        <p>Specifications</p>
-                        <ul>
-                            <li>
-                                <p><b>Product: </b>Replacement glass</p>
-                            </li>
-                            <li>
-                                <p><b>Shape: </b></p>
-                            </li>
-                            <li>
-                                <p><b>Size: </b>24 x 36</p>
-                            </li>
-                            <li>
-                                <p><b>1/4" Clear Glass</b></p>
-                            </li>
-                            <li>
-                                <p><b>Flat Polish Edge</b></p>
-                            </li>
-                            <li>
-                                <p><b>Annealed (Standard) Glass</b></p>
-                            </li>
-                        </ul>
                         <br>
-                        <a href="">SEE IN-STOCK ITEMS</a>
+                        <a asp-action="index" asp-controller="shop">HAZIR OLAN MƏHSULLAR</a>
                     </div>
 
                 </div>
             </div>
         </section>
     </form>
+
 
 </main>

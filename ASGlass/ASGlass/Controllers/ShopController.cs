@@ -164,7 +164,7 @@ namespace ASGlass.Controllers
             Product product = _context.Products.FirstOrDefault(x => x.Id == id);
             CartViewModel cartVM = null;
 
-            if (product == null) return RedirectToAction("index", "error");
+           /* if (product == null) return RedirectToAction("index", "error");*/
 
             AppUser member = null;
 
@@ -181,8 +181,7 @@ namespace ASGlass.Controllers
                 string productStr = HttpContext.Request.Cookies["Products"];
                 houses = JsonConvert.DeserializeObject<List<CartViewModel>>(productStr);
 
-                cartVM = houses.FirstOrDefault(x => x.ProductId == id);
-
+                cartVM = houses.FirstOrDefault(x => x.ProductId == id || x.ProductId == null    );
 
                 houses.Remove(cartVM);
 
@@ -195,12 +194,9 @@ namespace ASGlass.Controllers
             {
                 CartItem cartItem = _context.CartItems.Include(x => x.Product).FirstOrDefault(x => x.AppUserId == member.Id && x.ProductId == id);
 
-
                 _context.CartItems.Remove(cartItem);
 
-
                 cartItem.Count--;
-
 
                 _context.SaveChanges();
 

@@ -52,6 +52,12 @@
     })
 
   
+    var connection = new signalR.HubConnectionBuilder().withUrl("/asglasshub").build();
 
+    $(connection).on("ChangeOnlineStatus", function (id, status) {
+        var statusStr = status == true ? "online" : "offline";
+        $("#" + id).text(statusStr)
+
+    })
 
 })

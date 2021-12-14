@@ -1,4 +1,5 @@
 ﻿using ASGlass.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -9,6 +10,8 @@ using System.Threading.Tasks;
 namespace ASGlass.Areas.Manage.Controllers
 {
     [Area("manage")]
+    [Authorize(Roles = "Admin, SuperAdmin")]
+
     public class UserController : Controller
     {
         private readonly UserManager<AppUser> _userManager;

@@ -83,7 +83,9 @@ namespace ASGlass.Controllers
 
         public async Task<IActionResult> Logout()
         {
+           
             await _signInManager.SignOutAsync();
+            await _hubContext.Clients.All.SendAsync("Logout");
 
             return RedirectToAction("index", "home");
         }

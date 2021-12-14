@@ -11,6 +11,8 @@ using System.Threading.Tasks;
 namespace ASGlass.Areas.Manage.Controllers
 {
     [Area("manage")]
+
+
     public class AccountController : Controller
     {
         private readonly UserManager<AppUser> _userManager;

@@ -13514,23 +13514,21 @@ body {
           flex-direction: column;
           justify-content: space-around;
           align-items: flex-start; }
-          #customize #type .container .row .customize-types .glass-hole .column .gl-hole-item {
-            margin-bottom: 25px;
-            width: 100%;
-            padding: 25px 10px;
-            cursor: pointer;
-            background-color: #0a69b763;
-            border-radius: 5px; }
-            #customize #type .container .row .customize-types .glass-hole .column .gl-hole-item:hover {
-              background-color: #0a69b7dc;
-              transition: background-color 0.3s ease-in-out; }
+            #customize #type .container .row .customize-types .glass-hole .column .gl-hole-item {
+                margin-bottom: 25px;
+                width: 100%;
+                padding: 25px 10px;
+                cursor: pointer;
+                background-color: #0A6AB7;
+                border-radius: 5px;
+                color:white;
+            }
             #customize #type .container .row .customize-types .glass-hole .column .gl-hole-item .hole-item {
               display: flex;
               justify-content: center;
               align-items: center;
               flex-direction: column;
-              border: 1px solid black;
-              border-radius: 5px; }
+            }
               #customize #type .container .row .customize-types .glass-hole .column .gl-hole-item .hole-item p {
                 width: 100%;
                 text-align: center; }
@@ -13546,11 +13544,15 @@ body {
                   width: 60%; }
                 #customize #type .container .row .customize-types .glass-hole .column .gl-hole-item .hole-item .center-hole .center-hole-right {
                   text-align: left; }
-      #customize #type .container .row .summary-item {
-        text-align: center;
-        background-color: rgba(240, 248, 255, 0.274);
-        padding: 20px 25px;
-        border-radius: 10px; }
+                    #customize #type .container .row .customize-types .glass-hole .column .gl-hole-item .hole-item .center-hole .center-hole-right input{
+                        width:100%;
+                    }
+                    #customize #type .container .row .summary-item {
+                        text-align: center;
+                        background-color: rgba(240, 248, 255, 0.274);
+                        padding: 20px 25px;
+                        border-radius: 10px;
+                    }
         #customize #type .container .row .summary-item h5, #customize #type .container .row .summary-item .h5 {
           font-size: 15px; }
         #customize #type .container .row .summary-item ul li {
