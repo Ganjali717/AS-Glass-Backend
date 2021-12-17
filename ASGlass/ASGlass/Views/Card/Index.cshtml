@@ -47,7 +47,7 @@
                                     }
                                     else if (item.ProductId == null)
                                     {
-                                        <img src="~/assets/images/glass/@item.Image" alt="">
+                                        <img src="~/assets/images/mirror/@item.Image" alt="">
 
                                     }
                                     else
@@ -57,7 +57,6 @@
                                 </div>
                                 <div class="cart-item-txt col-4">
                                     <p>@item.Name</p>
-                                    <br>
                                     <b style="text-decoration:underline;">Spesifikasiyalar:</b>
                                     <br /><br />
                                     @if (item.IsAccessory == false)
@@ -65,7 +64,7 @@
                                         <p><b>Kəsim:</b> @item.Shape</p>
                                         <p><b>Ölçü: </b> @item.Uzunluq sm x @item.En sm</p>
                                         <p><b>Rəng:</b> @item.Color </p>
-                                        <p><b>Mərkəzdə Dəlik: </b></p>
+                                        <p><b>Mərkəzdə Dəlik:</b> @item.Diametr mm</p>
                                     }
                                     else
                                     {

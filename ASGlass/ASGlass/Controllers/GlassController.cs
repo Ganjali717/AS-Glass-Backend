@@ -1,6 +1,7 @@
 ﻿using ASGlass.DAL;
 using ASGlass.Models;
 using ASGlass.ViewModels;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
@@ -14,10 +15,12 @@ namespace ASGlass.Controllers
     public class GlassController : Controller
     {
         private readonly AppDbContext _context;
+        private readonly UserManager<AppUser> _userManager;
 
-        public GlassController(AppDbContext context)
+        public GlassController(AppDbContext context, UserManager<AppUser> userManager)
         {
             _context = context;
+            _userManager = userManager;
         }
 
         public IActionResult Index()
@@ -49,9 +52,14 @@ namespace ASGlass.Controllers
           
             product.Uzunluq = Convert.ToDouble(HttpContext.Request.Form["uzunluq"]);
             product.En = Convert.ToDouble(HttpContext.Request.Form["en"]);
-            product.ShapeId = shapeid; 
+            product.ShapeId = shapeid;
+            product.Diametr = Convert.ToDouble(HttpContext.Request.Form["diametr"]);
 
-            
+            if (product.Uzunluq == null) ModelState.AddModelError("Uzunluq", "Diametri qeyd eliyin");
+            if (product.En == null) ModelState.AddModelError("En", "En qeyd eliyin!");
+            if (product.ColorId == null) ModelState.AddModelError("ColorId", "Shape qeyd eliyin");
+            if (product.ThicknessId == null) ModelState.AddModelError("ThicknessId", "Thickness qeyd eliyin");
+
 
             if (product.ThicknessId == 1 && product.ColorId == 1)
             {
@@ -169,41 +177,76 @@ namespace ASGlass.Controllers
             }
 
 
-            if (!_context.Colors.Any(x => x.Id == product.ColorId)) ModelState.AddModelError("ColorsId", "Colors not found!");
-
             CartViewModel cartVm = null;
             List<CartViewModel> products = new List<CartViewModel>();
 
-            string productStr;
+            AppUser member = null;
 
-            if (HttpContext.Request.Cookies["Products"] != null)
+            if (User.Identity.IsAuthenticated)
             {
-                productStr = HttpContext.Request.Cookies["Products"];
-                products = JsonConvert.DeserializeObject<List<CartViewModel>>(productStr);
-
-                cartVm = products.FirstOrDefault(x => x.ProductId == product.Id);
+                member = _userManager.Users.FirstOrDefault(x => x.UserName == User.Identity.Name && !x.IsAdmin);
             }
 
-            if (cartVm == null)
+            if (member == null)
             {
-                cartVm = new CartViewModel();
-                cartVm.Name = "Fərqli Kəsim Şüşə";
-                cartVm.Image = shapeid == 1? "rectangle-customize.webp":(shapeid == 2? "square-customize.webp":(shapeid == 3? "oval-customize.webp": "round-customize.webp"));
-                cartVm.ProductId = null;
-                cartVm.Uzunluq = product.Uzunluq;
-                cartVm.En = product.En;
-                cartVm.Price = product.Price;
-                cartVm.Shape = shapeid == 1 ? "Düzbucaq" : (shapeid == 2?"Kvadrat":(shapeid == 3?"Oval":"Yumru"));
-                cartVm.Color = product.ColorId == 1 ? "Ağ":(product.ColorId == 2?"Qara":(product.ColorId == 3?"Qəhvəyi":"Sətin"));
-                cartVm.Polish = product.PolishId == 1 ? "Faset" : "Radaj";
-                cartVm.Thickness = product.ThicknessId == 1 ? "4" : (product.ThicknessId == 2 ? "6" : (product.ThicknessId == 3 ? "8" : "10"));
-                cartVm.Corner = product.CornerId == 1 ? "Yumru" : "Düz";
-                cartVm.IsAccessory = false;
-                products.Add(cartVm);
+                string productStr;
 
+                if (HttpContext.Request.Cookies["Products"] != null)
+                {
+                    productStr = HttpContext.Request.Cookies["Products"];
+                    products = JsonConvert.DeserializeObject<List<CartViewModel>>(productStr);
+
+                    cartVm = products.FirstOrDefault(x => x.ProductId == product.Id);
+                }
+
+                if (cartVm == null)
+                {
+                    cartVm = new CartViewModel();
+                    cartVm.Name = "Fərqli Kəsim Şüşə";
+                    cartVm.Image = shapeid == 1 ? "rectangle-customize.webp" : (shapeid == 2 ? "square-customize.webp" : (shapeid == 3 ? "oval-customize.webp" : "round-customize.webp"));
+                    cartVm.ProductId = null;
+                    cartVm.Uzunluq = product.Uzunluq;
+                    cartVm.En = product.En;
+                    cartVm.Price = Math.Ceiling(product.Price);
+                    cartVm.Shape = shapeid == 1 ? "Düzbucaq" : (shapeid == 2 ? "Kvadrat" : (shapeid == 3 ? "Oval" : "Yumru"));
+                    cartVm.Color = product.ColorId == 1 ? "Ağ" : (product.ColorId == 2 ? "Qara" : (product.ColorId == 3 ? "Qəhvəyi" : "Sətin"));
+                    cartVm.Polish = product.PolishId == 1 ? "Faset" : "Radaj";
+                    cartVm.Thickness = product.ThicknessId == 1 ? "4" : (product.ThicknessId == 2 ? "6" : (product.ThicknessId == 3 ? "8" : "10"));
+                    cartVm.Corner = product.CornerId == 1 ? "Yumru" : "Düz";
+                    cartVm.IsAccessory = false;
+                    cartVm.Diametr = product.Diametr;
+                    products.Add(cartVm);
+
+                }
+                productStr = JsonConvert.SerializeObject(products);
+                HttpContext.Response.Cookies.Append("Products", productStr);
             }
-            productStr = JsonConvert.SerializeObject(products);
-            HttpContext.Response.Cookies.Append("Products", productStr);
+            else
+            {
+                CartItem cartItem = _context.CartItems.FirstOrDefault(x => x.AppUserId == member.Id);
+                if (cartItem != null)
+                {
+
+                    cartItem = new CartItem
+                    {
+                        AppUserId = member.Id,
+                        ProductId = null,
+                        Count = 1
+
+                    };
+                    _context.CartItems.Add(cartItem);
+                }
+                else
+                {
+                    cartItem.Count++;
+                }
+
+                _context.SaveChanges();
+                products = _context.CartItems.Include(x => x.Product).Where(x => x.AppUserId == member.Id)
+                    .Select(x => new CartViewModel { ProductId = null, Name = x.Product.Name, Price = x.Product.Price, DiscountPrice = x.Product.DiscountPrice, Image = x.Product.ProductImages.FirstOrDefault(x => x.PosterStatus == true).Image, Color = x.Product.Colors.Name, Shape = x.Product.Shape.Name, Corner = x.Product.Corner.Name, Thickness = x.Product.Thickness.Size, Polish = x.Product.Polish.Name }).ToList();
+            }
+
+
 
             return RedirectToAction("index", "card");
         }

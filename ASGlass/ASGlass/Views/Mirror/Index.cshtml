@@ -24,7 +24,31 @@
                             <div class="shapes-item">
                                 <h5>@item.Name</h5>
                                 <br>
-                                <img src="~/assets/images/products/@item.Image" alt="">
+                                <img src="~/assets/images/mirror/@item.Image" alt="">
+                                <br><br><br>
+                                <a asp-action="customize" asp-controller="mirror" asp-route-shapeid="@item.Id">Seçin</a>
+                            </div>
+                        }
+                    </div>
+                    <div class="shapes col-12">
+                        @foreach (var item in Model.Shapes.Skip(4).Take(4))
+                        {
+                            <div class="shapes-item">
+                                <h5>@item.Name</h5>
+                                <br>
+                                <img src="~/assets/images/mirror/@item.Image" alt="">
+                                <br><br><br>
+                                <a asp-action="customize" asp-controller="mirror" asp-route-shapeid="@item.Id">Seçin</a>
+                            </div>
+                        }
+                    </div>
+                    <div class="shapes col-12">
+                        @foreach (var item in Model.Shapes.Skip(8).Take(4))
+                        {
+                            <div class="shapes-item">
+                                <h5>@item.Name</h5>
+                                <br>
+                                <img src="~/assets/images/mirror/@item.Image" alt="">
                                 <br><br><br>
                                 <a asp-action="customize" asp-controller="mirror" asp-route-shapeid="@item.Id">Seçin</a>
                             </div>

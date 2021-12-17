@@ -48,7 +48,7 @@ namespace ASGlass.Controllers
                         if (product != null)
                         {
                             item.Name = product.Name;
-                            item.Price = product.Price; 
+                            item.Price = product.Price;
                             item.Count = product.Count;
                             item.DiscountPrice = product.DiscountPrice;
                             item.IsAccessory = product.IsAccessory;
@@ -67,8 +67,8 @@ namespace ASGlass.Controllers
             }
             else
             {
-                List<CartItem> cartItems = _context.CartItems.Include(x => x.Product.ProductImages).Include(x => x.Product).Include(x => x.Product.Shape).Include(x => x.Product.Colors).Where(x => x.AppUserId == member.Id).ToList();
 
+                List<CartItem> cartItems = _context.CartItems.Include(x => x.Product.ProductImages).Include(x => x.Product).Include(x => x.Product.Shape).Include(x => x.Product.Colors).Where(x => x.AppUserId == member.Id).ToList();
 
                 items = cartItems.Select(x => new CartViewModel
                 {
@@ -88,6 +88,6 @@ namespace ASGlass.Controllers
             }
 
             return View(items);
-        }
+            }
     }
 }

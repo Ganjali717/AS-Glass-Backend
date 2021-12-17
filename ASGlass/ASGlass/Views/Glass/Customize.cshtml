@@ -30,11 +30,13 @@
 
                                         <label><b>Uzunlugu Qeyd Edin:</b></label>
                                         <br /><br />
-                                        <input type="number" name="uzunluq"  placeholder="Mesel ucun: 240 sm = (2 metr 40 sm)" class="numberinput" asp-for="Uzunluq" />
+                                        <input type="number" name="uzunluq" placeholder="Mesel ucun: 240 sm = (2 metr 40 sm)" class="numberinput" asp-for="Uzunluq" required />
+                                        <span asp-validation-for="Uzunluq"></span>
                                         <br /><br />
                                         <label><b>Enini Qeyd Edin:</b></label>
                                         <br /><br />
-                                        <input type="number" name="en"  placeholder="Mesel ucun: 18 sm = (0 metr 18 sm)" class="numberinput" asp-for="En" />
+                                        <input type="number" name="en" placeholder="Mesel ucun: 18 sm = (0 metr 18 sm)" class="numberinput" asp-for="En" required />
+                                        <span asp-validation-for="En"></span>
                                         <br /><br />
                                         <span class="text-danger input-error d-none">Xanalari doldurun!</span>
                                         <br />
@@ -65,9 +67,10 @@
                                 <p><b>Rəng</b></p>
 
                                 <label asp-for="ColorId">Şüşə rəngini seçin:</label>
-                                <select class="form-select form-select-lg" asp-for="ColorId" id="ColorId" asp-items="@(new SelectList(ViewBag.Colors,"Id","Name"))">
-                                    <option disabled selected>Rəng seçin</option>
+                                <select class="form-select form-select-lg" asp-for="ColorId" id="ColorId" asp-items="@(new SelectList(ViewBag.Colors,"Id","Name"))" required>
+                                    <option selected>Rəng seçin</option>
                                 </select>
+                                <span class="text-danger" asp-validation-for="ColorId"></span>
                             </div>
                         </div>
                         <br>
@@ -77,7 +80,7 @@
 
                                 <label asp-for="ThicknessId">Şüşə qalınlığını seçin:</label>
                                 <select class="form-select form-select-lg" asp-for="ThicknessId" id="ThicknessId" asp-items="@(new SelectList(ViewBag.Thicknesses,"Id","Size"))">
-                                    <option disabled selected>Qalınlıq seçin</option>
+                                    <option selected>Qalınlıq seçin</option>
                                 </select>
                             </div>
                         </div>
@@ -88,7 +91,7 @@
 
                                 <label asp-for="PolishId">Cilalanma növünü seçin:</label>
                                 <select class="form-select form-select-lg" asp-for="PolishId" id="PolishId" asp-items="@(new SelectList(ViewBag.Polishes,"Id","Name"))">
-                                    <option disabled selected>Cilalanma seçin</option>
+                                    <option selected>Cilalanma seçin</option>
                                 </select>
                             </div>
                         </div>
@@ -98,7 +101,7 @@
                                 <p><b>Künc</b></p>
                                 <label asp-for="CornerId">Şüşənin künc növünü seçin:</label>
                                 <select class="form-select form-select-lg" asp-for="CornerId" id="CornerId" asp-items="@(new SelectList(ViewBag.Corners,"Id","Name"))">
-                                    <option disabled selected>Künc növü</option>
+                                    <option selected>Künc növü</option>
                                 </select>
                             </div>
                         </div>
@@ -110,15 +113,15 @@
                                     <div class="hole-item">
                                         <p>Mərkəzdə dəliyin diametr ölçüsünü qeyd edin</p>
                                         <div class="center-hole col-12">
-                                            <div class="center-hole-left col-7">
+                                            <div class="center-hole-left col-5">
                                                 <img src="~/assets/images/products/center-hole.png" alt="">
                                             </div>
-                                            <div class="center-hole-right col-5">
+                                            <div class="center-hole-right col-7">
                                                 <label asp-for="Diametr">Ölçü:</label>
                                                 <br /><br />
-                                                <input class="numberinput" asp-for="Diametr" type="number" min="4" max="70" placeholder="Diametri qeyd edin zəhmət olmasa" />
+                                                <input class="numberinput p-2" value="0" asp-for="Diametr" type="number" name="diametr"  max="70" placeholder="Diametri qeyd edin zəhmət olmasa"/>
                                                 <br><br /><br />
-                                                <p>Mərkəzdə dəlik yalnız 4 mm dən 70 mm dək ola bilir!</p>
+                                                <p>Mərkəzdə dəlik yalnız 4 mm dən 70 mm dək ola bilər!</p>
                                             </div>
                                         </div>
                                     </div>
