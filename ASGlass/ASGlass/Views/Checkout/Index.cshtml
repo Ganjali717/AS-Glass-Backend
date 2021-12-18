@@ -23,56 +23,25 @@
                 <div class="checkout-left col-8">
                     <h4>BILLING & SHIPPING INFORMATION</h4>
                     <br>
-                    <form action="">
+                    <form action="" method="post">
+
                         <div class="row col-12">
-                            <div class="form-item col-6">
-                                <label for="email">Email</label>
+                            <div class="form-item col-12">
+                                <label for="">Ad və Soyad  *</label>
                                 <br>
-                                <input type="email" placeholder="Enter email">
-                            </div>
-                            <div class="form-item col-6">
-                                <label for="">Phone</label>
-                                <br>
-                                <input type="tel">
+                                <input type="text" placeholder="Ad və Soyadı daxil edin" name="fullname">
                             </div>
                         </div>
                         <div class="row col-12">
-                            <label for=""><input type="checkbox" name="" id="">Receive updates, news & special offers via email and text message.</label>
-                            <br><br>
-                            <p>By checking this box, you agree to receive recurring automated promotional and personalized marketing text messages (e.g. cart reminders) from Dulles Glass & Mirror at the cell number used when signing up. Consent is not a condition of any purchase. Reply HELP for help and STOP to cancel. Msg frequency varies. Msg & data rates may apply. View <a href="">Terms & Privacy</a></p>
-                        </div>
-                        <div class="row col-12">
-                            <div class="form-item col-6">
-                                <label for="">First Name *</label>
+                            <div class="form-item col-12">
+                                <label for="">Ünvan *</label>
                                 <br>
-                                <input type="text" placeholder="Enter First Name">
-                            </div>
-                            <div class="form-item col-6">
-                                <label for="">Last Name *</label>
-                                <br>
-                                <input type="text" placeholder="Enter Last Name">
+                                <input type="text" placeholder="Ünvan daxil edin">
                             </div>
                         </div>
                         <div class="row col-12">
-                            <div class="form-item col-6">
-                                <label for="">Address *</label>
-                                <br>
-                                <input type="text" placeholder="Enter First Name">
-                            </div>
-                            <div class="form-item col-6">
-                                <label for="">Line 2 *</label>
-                                <br>
-                                <input type="text" placeholder="Enter Last Name">
-                            </div>
-                        </div>
-                        <div class="row col-12">
-                            <div class="form-item col-6">
-                                <label for="">City *</label>
-                                <br>
-                                <input type="text" placeholder="Enter First Name">
-                            </div>
-                            <div class="form-item col-6">
-                                <label for="">State*</label>
+                            <div class="form-item col-12">
+                                <label for="">Şəhər seçin*</label>
                                 <br>
                                 <select name="" id="">
                                     <option value="">Baku</option>
@@ -89,12 +58,24 @@
                                 <input type="text" placeholder="Enter First Name">
                             </div>
                             <div class="form-item col-6">
-                                <label for="">Company Name </label>
+                                <label for="">Şirkət Adı </label>
                                 <br>
-                                <input type="text" placeholder="Enter Company Name">
+                                <input type="text" placeholder="Şirkət adını daxil edin">
                             </div>
                         </div>
-                        <input type="submit" value="Continue to Payment">
+                        <div class="row col-12">
+                            <div class="form-item col-6">
+                                <label for="email">Email</label>
+                                <br>
+                                <input type="email" placeholder="Enter email" name="email">
+                            </div>
+                            <div class="form-item col-6">
+                                <label for="">Əlaqə nömrəsi</label>
+                                <br>
+                                <input type="tel" placeholder="+994 50 *** ** **">
+                            </div>
+                        </div>
+                        <input type="submit" asp-action="checkout" value="Continue to Payment">
                     </form>
                 </div>
                 <div class="checkout-right col-3">
