@@ -8,7 +8,7 @@ $(document).ready(function () {
     // Pie Chart Example
     var ctx = document.getElementById("myPieChart");
 
-    var url = "https://localhost:44369/manage/dashboard/getproperty";
+    var url = "https://localhost:44393/manage/dashboard/getproperty";
 
     fetch(url)
         .then(response => response.json())

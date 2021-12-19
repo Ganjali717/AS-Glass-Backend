@@ -8,6 +8,7 @@ namespace ASGlass.Areas.Manage.ViewModels
 {
     public class DashboardViewModel
     {
-        public List<CartItem> CartItems { get; set; }
+
+        public List<Order> Orders { get; set; }
     }
 }

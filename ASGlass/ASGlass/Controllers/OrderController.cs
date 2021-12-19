@@ -22,11 +22,36 @@ namespace ASGlass.Controllers
             _context = context;
             _userManager = userManager;
         }
+
+        [HttpPost]
         public IActionResult Index()
         {
-            return View();
+            int? ordercode = Convert.ToInt32(HttpContext.Request.Form["orderstatus"]);
+            var query = _context.Orders.Include(x => x.Product).AsQueryable();
+
+            if (ordercode != null)
+            {
+                query = query.Include(x => x.Product).Where(x => x.OrderNumber == ordercode);
+            }
+            else
+            {
+                return BadRequest(404);
+            }
+                
+
+            OrderViewModel orderVM = new OrderViewModel()
+            {
+                ProductName = query.FirstOrDefault().ProductName, 
+                ProductImage = query.FirstOrDefault().ProductImage, 
+                Status = query.FirstOrDefault().Status, 
+                Price = query.FirstOrDefault().Price,
+                CreatedAt = query.FirstOrDefault().CreatedAt
+            };
+                 
+            return View(orderVM);
         }
 
+        
 
 
     }

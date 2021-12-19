@@ -1,0 +1,41 @@
+﻿@model OrderViewModel
+@{
+    ViewData["Title"] = "Sifariwim";
+}
+
+<section class="p-5">
+    <div class="container">
+        <div class="d-flex justify-content-between align-items-center">
+            <h1>Sifariş</h1>
+        </div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Mehsulun adi</th>
+                    <th scope="col">Mehsulun qiymeti</th>
+                    <th scope="col">Mehsulun hazir olma tarixi</th>
+                    <th scope="col">Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>@Model.ProductName</td>
+                    <td>@Model.Price AZN</td>
+                    <td>@Model.CreatedAt.AddDays(5).ToString("HH:mm dd MMM yyyy")</td>
+                    <td>
+                        <h5>
+                            <span class=" text-black-50 badge badge-@(Model.Status== OrderStatus.Accepted?"success":Model.Status== OrderStatus.Rejected?"danger":"info")">
+                                @(Model.Status== OrderStatus.Accepted?"Qəbul olunub":Model.Status== OrderStatus.Rejected?"Rədd edilib":"Gözləmədədir")
+                            </span>
+                        </h5>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+
+
+
+</section>
+

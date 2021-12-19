@@ -23,6 +23,7 @@ namespace ASGlass.Models
         public DateTime CreatedAt { get; set; }
         public OrderStatus Status { get; set; }
         public double Price { get; set; }
+        public int OrderNumber { get; set; }
         public AppUser AppUser { get; set; }
         public Product Product { get; set; }
 

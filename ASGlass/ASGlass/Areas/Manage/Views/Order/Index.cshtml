@@ -6,16 +6,17 @@
 
 <div class="container-fluid">
     <div class="d-flex justify-content-between align-items-center">
-        <h1>Orders</h1>
+        <h1>Sifarişlər</h1>
     </div>
     <table class="table">
         <thead>
             <tr>
                 <th scope="col">#</th>
-                <th scope="col">Full Name</th>
+                <th scope="col">Ad və Soyad</th>
                 <th scope="col">Email</th>
-                <th scope="col">Date</th>
+                <th scope="col">Tarix</th>
                 <th scope="col">Status</th>
+                <th scope="col">Action</th>
             </tr>
         </thead>
         <tbody>
@@ -30,13 +31,13 @@
                     <td>
                         <h5>
                             <span class="badge badge-@(order.Status== OrderStatus.Accepted?"success":order.Status== OrderStatus.Rejected?"danger":"info")">
-                                @(order.Status== OrderStatus.Accepted?"accepted":order.Status== OrderStatus.Rejected?"rejected":"pending")
+                                @(order.Status== OrderStatus.Accepted?"Qəbul olunub":order.Status== OrderStatus.Rejected?"Rədd edilib":"Gözləmədədir")
                             </span>
                         </h5>
                     </td>
                     <td>
-                        <a asp-action="edit" asp-route-id="@order.Id" class="btn btn-warning">Edit</a>
-                        <a asp-action="deletefetch" asp-route-id="@order.Id" class="btn btn-danger btn-item-delete">Delete</a>
+                        <a asp-action="edit" asp-route-id="@order.Id" class="btn btn-warning">Düzəliş Et</a>
+                        <a asp-action="deletefetch" asp-route-id="@order.Id" class="btn btn-danger btn-item-delete">Sil</a>
                     </td>
                 </tr>
             }

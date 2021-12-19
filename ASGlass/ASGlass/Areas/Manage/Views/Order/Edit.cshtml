@@ -21,15 +21,14 @@
                 Status - @Model.Status
             </p>
         </div>
-        @* <ul class="list-group list-group-flush">
-                @foreach (var orderItem in Model..Take(1))
-                {
-                    <li class="list-group-item">@orderItem.House.Location   @orderItem.SalePrice AZN</li>
-                }
-            </ul>*@
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item"> <b>Mehsulun adi: </b> @Model.Product.Name</li>
+            <li class="list-group-item"> <b>Qiymet: </b>  @Model.Product.Price AZN</li>
+
+        </ul>
         <div class="card-body">
-            <a asp-action="accept" asp-route-id="@Model.Id" class="btn btn-success">Accept</a>
-            <a asp-action="reject" asp-route-id="@Model.Id" class="btn btn-danger">Reject</a>
+            <a asp-action="accept" asp-route-id="@Model.Id" class="btn btn-success">Qəbul Et</a>
+            <a asp-action="reject" asp-route-id="@Model.Id" class="btn btn-danger">Rədd Et</a>
         </div>
     </div>
 </div>

@@ -54,34 +54,34 @@
                 </div>
                 <div class="order-status-right col-8">
                     <h2>
-                        Order Status
+                        Sifarişin Statusu
                     </h2>
                     <br>
-                    <p>If you placed your order on dullesglassandmirror.com, you can check order status by entering your order number in the fields below.</p>
+                    <p>Sifarişinizi asglass.com saytında yerləşdirmisinizsə, aşağıdakı sahələrə sifariş nömrənizi daxil etməklə sifariş statusunu yoxlaya bilərsiniz.</p>
                     <br>
-                    <form action="">
-                        <label for="">Order Number:</label>
+                    <form method="post" asp-action="index" asp-controller="order">
+                        <label for="">Sifarişin Kodu:</label>
                         <br>
-                        <input type="text" placeholder="Enter your order status number">
+                        <input type="text" placeholder="Sifariş nömrəsini daxil edin" name="orderstatus">
                         <br><br>
-                        <input type="submit">
+                        <input type="submit" value="Axtar">
                     </form>
                     <br>
-                    <p>Order and Shipping Questions</p>
+                    <p>Sifariş və Çatdırılma Sualları</p>
                     <br>
-                    <b>When will I get my order?</b>
+                    <b>Sifarişimi nə vaxt alacam?</b>
                     <br>
-                    <p>Custom products can take between 5 to 7 business days to be fabricated and will ship after that. In-stock items are normally shipped within 1-2 business days.</p>
+                    <p>Xüsusi məhsulların hazırlanması 5 ilə 7 iş günü çəkə bilər və bundan sonra göndəriləcək. Stokda olan məhsullar adətən 1-2 iş günü ərzində göndərilir.</p>
                     <br>
-                    <b>What do I do if my package did not arrive on time?</b>
+                    <b>Paketim vaxtında çatmasa nə etməliyəm?</b>
                     <br>
-                    <p>If your package does not arrive in the specified shipping time that you asked for, please contact FedEx directly by calling 1 (800) 463-3339 and then contact our office to notify us of the problem</p>
+                    <p>Əgər paketiniz tələb etdiyiniz çatdırılma müddətində çatmazsa, lütfən, 1 (800) 463-3339 nömrəsinə zəng edərək birbaşa FedEx ilə əlaqə saxlayın və problem barədə bizə məlumat vermək üçün ofisimizlə əlaqə saxlayın.</p>
                     <br>
-                    <b>Can I change or cancel my order?</b>
+                    <b>Sifarişimi dəyişdirə və ya ləğv edə bilərəmmi?</b>
                     <br>
-                    <p>Due to the custom nature of our business and to ensure that orders are shipped on time, once your order is submitted and approved we begin working on it immediately. For this reason, most orders cannot be cancelled once submitted. If any changes are necessary, please contact our office immediately at 1-866-GLASS-07 (1-866-452-7707). In most cases, changes cannot be made once an order has been submitted but we will do our best to accommodate your needs.</p>
+                    <p>Biznesimizin xüsusi xarakterinə görə və sifarişlərin vaxtında göndərilməsini təmin etmək üçün, sifarişiniz təqdim edildikdən və təsdiq edildikdən sonra dərhal onun üzərində işləməyə başlayırıq. Bu səbəbdən, əksər sifarişlər təqdim edildikdən sonra ləğv edilə bilməz. Hər hansı bir dəyişiklik lazımdırsa, lütfən, 1-866-GLASS-07 (1-866-452-7707) nömrəsi ilə dərhal ofisimizlə əlaqə saxlayın. Əksər hallarda, sifariş təqdim edildikdən sonra dəyişikliklər edilə bilməz, lakin biz sizin ehtiyaclarınızı ödəmək üçün əlimizdən gələni edəcəyik.</p>
                     <br>
-                    <p>For more information on our shipping and order policies, please see our <a href="">customer service page.</a></p>
+                    <p>Göndərmə və sifariş siyasətlərimiz haqqında ətraflı məlumat üçün  <a href="">müştəri xidməti</a>  səhifəmizə baxın.</p>
                 </div>
             </div>
         </div>

@@ -11,7 +11,7 @@
 <div class="content mt-5">
     <div class="col-12">
         <div class="d-flex justify-content-between align-items-center">
-            <h1>Maklerler</h1>
+            <h1>Quraşdırma</h1>
             <a asp-action="create" class="btn btn-primary">Create</a>
         </div>
         <table class="table">
@@ -23,7 +23,7 @@
                     <th scope="col">Support Phone</th>
                     <th scope="col">Email</th>
                     <th scope="col">Address</th>
-
+                    <th scope="col">Action</th>
                 </tr>
             </thead>
             <tbody>
@@ -35,7 +35,7 @@
                     <td scope="col">@Model.Email</td>
                     <td scope="col">@Model.Address</td>
                     <td>
-                        <a asp-action="edit" asp-route-id="@Model.Id" class="btn btn-warning">Edit</a>
+                        <a asp-action="edit" asp-route-id="@Model.Id" class="btn btn-warning">Düzəliş Et</a>
                     </td>
                 </tr>
             </tbody>

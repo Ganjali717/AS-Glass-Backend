@@ -50,6 +50,7 @@ namespace ASGlass.Controllers
                     foreach (var item in products)
                     {
                         Order orders = new Order();
+                        Random random = new Random();
                         if (products != null)
                         {
                             orders.ProductId = item.ProductId;
@@ -60,12 +61,19 @@ namespace ASGlass.Controllers
                             orders.ProductImage = item.Image;
                             orders.CreatedAt = DateTime.UtcNow;
                             orders.Status = Models.Enums.OrderStatus.Pending;
+                            orders.OrderNumber = random.Next(10000,90000);
                         }
+
+                        Product product = _context.Products.FirstOrDefault(x => x.Id == item.ProductId);
+
                         _context.Orders.Add(orders);
+                        _context.Products.Remove(product);
                     }
                 }
+                HttpContext.Response.Cookies.Delete("Products");
             }
 
+            
            
             _context.SaveChanges();
             return Redirect(HttpContext.Request.Headers["Referer"].ToString());
