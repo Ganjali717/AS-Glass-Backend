@@ -192,7 +192,7 @@ namespace ASGlass.Controllers
             }
             else
             {
-                CartItem cartItem = _context.CartItems.Include(x => x.Product).FirstOrDefault(x => x.AppUserId == member.Id && x.ProductId == id);
+                CartItem cartItem = _context.CartItems.Include(x => x.Product).FirstOrDefault(x => x.AppUserId == member.Id && (x.ProductId == id || x.ProductId == null));
 
                 _context.CartItems.Remove(cartItem);
 

@@ -61,7 +61,7 @@
                                                 </td>
                                                 <td>@item.Price AZN</td>
                                                 <td>
-                                                    <a asp-action="detail" asp-controller="shop" asp-route-id="@item.Product.Id" class="btn btn-danger mr-2">Detallı göstər</a>
+                                                   @* <a asp-action="detail" asp-controller="shop" asp-route-id="@item.Product.Id" class="btn btn-danger mr-2">Detallı göstər</a>*@
                                                     <a asp-action="deletefromorder" asp-controller="order" asp-route-id="@item.Id" class="btn btn-dark">Sil</a>
                                                 </td>
                                             </tr>

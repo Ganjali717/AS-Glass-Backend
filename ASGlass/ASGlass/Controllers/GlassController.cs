@@ -223,22 +223,30 @@ namespace ASGlass.Controllers
             }
             else
             {
-                CartItem cartItem = _context.CartItems.FirstOrDefault(x => x.AppUserId == member.Id);
-                if (cartItem != null)
+                CartItem cartItem = _context.CartItems.Include(x => x.Product).FirstOrDefault(x => x.AppUserId == member.Id && x.ProductId == null);
+                if (cartItem == null)
                 {
 
                     cartItem = new CartItem
                     {
                         AppUserId = member.Id,
                         ProductId = null,
+                        Name = "Fərqli Kəsim Şüşə",
+                        Image = shapeid == 1 ? "rectangle-customize.webp" : (shapeid == 2 ? "square-customize.webp" : (shapeid == 3 ? "oval-customize.webp" : "round-customize.webp")),
+                        Uzunluq = product.Uzunluq,
+                        En = product.En,
+                        Price = Math.Ceiling(product.Price),
+                        Shape = shapeid == 1 ? "Düzbucaq" : (shapeid == 2 ? "Kvadrat" : (shapeid == 3 ? "Oval" : "Yumru")),
+                        Color = product.ColorId == 1 ? "Ağ" : (product.ColorId == 2 ? "Qara" : (product.ColorId == 3 ? "Qəhvəyi" : "Sətin")),
+                        Polish = product.PolishId == 1 ? "Faset" : "Radaj",
+                        Thickness = product.ThicknessId == 1 ? "4" : (product.ThicknessId == 2 ? "6" : (product.ThicknessId == 3 ? "8" : "10")),
+                        Corner = product.CornerId == 1 ? "Yumru" : "Düz",
+                        IsAccessory = false,
+                        Diametr = product.Diametr,
                         Count = 1
 
                     };
                     _context.CartItems.Add(cartItem);
-                }
-                else
-                {
-                    cartItem.Count++;
                 }
 
                 _context.SaveChanges();

@@ -70,10 +70,10 @@ namespace ASGlass.Services
                 items = cartItems.Select(x => new CartViewModel
                 {
                     ProductId = x.ProductId,
-                    Name = x.Product.Name,
-                    Price = x.Product.Price,
-                    DiscountPrice = x.Product.DiscountPrice,
-                    Image = x.Product.ProductImages.FirstOrDefault(x => x.PosterStatus == true)?.Image
+                    Name = x.ProductId != null ? x.Product.Name: x.Name,
+                    Price = x.ProductId !=null ? x.Product.Price: x.Price,
+                    DiscountPrice = x.ProductId != null ? x.Product.DiscountPrice: x.DiscountPrice,
+                    Image = x.ProductId != null ? x.Product.ProductImages.FirstOrDefault(x => x.PosterStatus == true)?.Image: x.Image
                 }).ToList();
             }
 

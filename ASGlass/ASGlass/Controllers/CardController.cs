@@ -73,17 +73,17 @@ namespace ASGlass.Controllers
                 items = cartItems.Select(x => new CartViewModel
                 {
                     ProductId = x.ProductId,
-                    Image = x.Product.ProductImages.FirstOrDefault(x => x.PosterStatus == true)?.Image,
-                    Name = x.Product.Name,
-                    Diametr = x.Product.Diametr,
-                    Uzunluq = x.Product.Uzunluq,
-                    En = x.Product.En,
-                    DiscountPrice = x.Product.DiscountPrice,
-                    Price = x.Product.Price,
-                    Count = x.Product.Count,
-                    IsAccessory = x.Product.IsAccessory,
-                    Shape = x.Product.ShapeId != null ? x.Product.Shape.Name : null,
-                    Color = x.Product.ColorId != null ? x.Product.Colors.Name : null,
+                    Image = x.ProductId !=null ? x.Product.ProductImages.FirstOrDefault(x => x.PosterStatus == true)?.Image : x.Image,
+                    Name = x.ProductId != null ? x.Product.Name : x.Name,
+                    Diametr = x.ProductId != null ? x.Product.Diametr: x.Diametr,
+                    Uzunluq = x.ProductId != null ? x.Product.Uzunluq: x.Uzunluq,
+                    En = x.ProductId != null ? x.Product.En: x.En,
+                    DiscountPrice = x.ProductId != null ? x.Product.DiscountPrice: x.DiscountPrice,
+                    Price = x.ProductId != null ? x.Product.Price: x.Price,
+                    Count = x.ProductId != null ? x.Product.Count: 1,
+                    IsAccessory = x.ProductId != null ? x.Product.IsAccessory : x.IsAccessory,
+                    Shape = x.ProductId != null ? (x.Product.ShapeId != null ? x.Product.Shape.Name : null): x.Shape,
+                    Color = x.ProductId != null ? (x.Product.ColorId != null ? x.Product.Colors.Name : null): x.Color,
                 }).ToList();
             }
 
